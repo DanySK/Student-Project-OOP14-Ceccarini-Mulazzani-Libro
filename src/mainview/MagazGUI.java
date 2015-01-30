@@ -12,6 +12,12 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
+/**
+ * 
+ * @author Alberto Mulazzani
+ *
+ */
+
 
 public class MagazGUI {
 

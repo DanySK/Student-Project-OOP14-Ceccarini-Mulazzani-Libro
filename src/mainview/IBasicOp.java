@@ -1,5 +1,11 @@
 package mainview;
 
+/**
+ * 
+ * @author Alberto Mulazzani
+ *
+ */
+
 public interface IBasicOp {
 	
 	void add();

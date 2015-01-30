@@ -12,6 +12,12 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/**
+ * 
+ * @author Alberto Mulazzani
+ *
+ */
+
 public class MainGUI {
 	
 	private JButton magaz = new JButton("Accedi al Magazzino");

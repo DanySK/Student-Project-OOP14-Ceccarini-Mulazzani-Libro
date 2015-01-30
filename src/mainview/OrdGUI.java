@@ -13,6 +13,9 @@ public class OrdGUI {
 	private JButton chiudi = new JButton("Chiudi");
 	private String nomeAzienda;
 	
+	public OrdGUI(){
+		
+	}
 	
 	
 	
