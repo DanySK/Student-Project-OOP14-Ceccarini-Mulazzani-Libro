@@ -1,5 +1,7 @@
 package mainview;
 
+import view.MainGUI;
+
 public class MainClass {
 
 	public static void main(String[] args) {
