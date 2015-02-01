@@ -7,6 +7,8 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -21,15 +23,13 @@ import javax.swing.border.TitledBorder;
 
 public class MagazGUI {
 
-	private JButton[] buttons = new JButton[5];
-	private String[] names = {"Aggiungi un libro", "Rimuovi un libro", "Modifica un libro", "Ricerca un libro", "Lista dei libri"};
+	private final JButton[] buttons = new JButton[5];
+	private final String[] names = {"Aggiungi un libro", "Rimuovi un libro", "Modifica un libro", "Ricerca un libro", "Lista dei libri"};
 	private final JButton chiudi = new JButton("Chiudi");
-	private final String nomeAzienda;
 	private final JPanel jf = new JPanel();
 	
 	public MagazGUI(final String nomeAziendaR){
 		
-		this.nomeAzienda = nomeAziendaR;
 		
 
 		jf.setLayout(new BorderLayout());
@@ -59,7 +59,7 @@ public class MagazGUI {
 		
 		final JPanel comandi = new JPanel(new FlowLayout());
 		comandi.add(main);
-		main.setBorder(new TitledBorder("Magazzino di " + nomeAzienda));
+		main.setBorder(new TitledBorder("Magazzino di " + nomeAziendaR));
 		final JPanel main2 = new JPanel(new FlowLayout());
 		main2.add(chiudi);
 		
@@ -67,7 +67,14 @@ public class MagazGUI {
 		jf.add(main2, BorderLayout.SOUTH);
 		
 		
-
+		chiudi.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				System.exit(0);
+			}
+		});
 		
 	}
 	

@@ -17,11 +17,11 @@ public class Main implements ActionListener {
     
     public JPanel createCardHolderPanel() {
         cardHolder = new JPanel(new CardLayout());
-        cardHolder.setBorder(BorderFactory.createTitledBorder("Card Holder Panel"));
+        cardHolder.setBorder(BorderFactory.createTitledBorder("Scegli l'azione"));
         cardHolder.add(createWareHousePanel(), "Magazzino");
         cardHolder.add(createOrderPanel(), "Ordini");
         cardHolder.add(createColorPanel2(), "Fatturato e Guadagni");
-        cardHolder.add(createColorPanel2(), "Carta Soci");
+        cardHolder.add(createFidelityPanel(), "Carta Soci");
 
         return cardHolder;
     }
@@ -39,6 +39,11 @@ public class Main implements ActionListener {
     private JPanel createOrderPanel( ) {
 
     	return new OrdGUI("Scimmia").getPane();
+    }
+    
+    private JPanel createFidelityPanel() {
+    	
+    	return new FidelityCardGUI().getPane();
     }
     
     

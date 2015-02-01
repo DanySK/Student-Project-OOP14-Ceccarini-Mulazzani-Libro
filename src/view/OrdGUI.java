@@ -7,6 +7,8 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -15,15 +17,13 @@ import javax.swing.border.TitledBorder;
 public class OrdGUI {
 	
 	
-	private JButton[] buttons = new JButton[5];
-	private String[] names = {"Aggiungi un ordine", "Rimuovi un ordine", "Modifica un ordine", "Ricerca un ordine", "Lista degli Ordini"};
-	private JButton chiudi = new JButton("Chiudi");
-	private String nomeAzienda;
-	private JPanel main = new JPanel();
+	private final JButton[] buttons = new JButton[5];
+	private final String[] names = {"Aggiungi un ordine", "Rimuovi un ordine", "Modifica un ordine", "Ricerca un ordine", "Lista degli Ordini"};
+	private final JButton chiudi = new JButton("Chiudi");
+	private final JPanel main = new JPanel();
 	
-	public OrdGUI(String nomeAziendaR){
+	public OrdGUI(final String nomeAziendaR){
 		
-		this.nomeAzienda = nomeAziendaR;
 		
 		main.setLayout(new BorderLayout());
 		
@@ -35,7 +35,7 @@ public class OrdGUI {
 	    
 		final JPanel top = new JPanel();
 		top.setLayout(new GridBagLayout());
-		top.setBorder(new TitledBorder("Ordini di " + nomeAzienda));
+		top.setBorder(new TitledBorder("Ordini di " + nomeAziendaR));
 		GridBagConstraints c = new GridBagConstraints();
 		c.gridy = 0;
 		c.insets = new Insets(3,3,3,3);
@@ -60,12 +60,18 @@ public class OrdGUI {
 		
 		main.add(topExt, BorderLayout.NORTH);
 		
-		JPanel bot = new JPanel(new FlowLayout());
+		final JPanel bot = new JPanel(new FlowLayout());
 		bot.add(chiudi);
 		main.add(bot, BorderLayout.SOUTH);
 		
 		
-		
+		chiudi.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				System.exit(0);
+			}
+		});
 		
 		
 	}

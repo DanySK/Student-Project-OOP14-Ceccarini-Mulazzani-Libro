@@ -8,21 +8,19 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JComponent;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 
 public class AddPersonGUI {
 	
-	private JTextField[] fields = new JTextField[3];
-	private String[] names = {"Nome", "Cognome", "Email"};
-	private JButton add = new JButton("Conferma");
-	private JButton reset = new JButton("Reset");
-	private JButton annulla = new JButton("Annulla");
-	private JPanel main = new JPanel();
+	private final JTextField[] fields = new JTextField[3];
+	private final String[] names = {"Nome", "Cognome", "Email"};
+	private final JButton add = new JButton("Conferma");
+	private final JButton reset = new JButton("Reset");
+	private final JButton annulla = new JButton("Annulla");
+	private final JPanel main = new JPanel();
 	
 	public AddPersonGUI(){
 		
@@ -32,14 +30,14 @@ public class AddPersonGUI {
 			
 		main.setLayout(new BorderLayout());
 		
-		JPanel bot = new JPanel(new FlowLayout());
+		final JPanel bot = new JPanel(new FlowLayout());
 		bot.add(reset);
 		bot.add(add);
 		bot.add(annulla);
 		main.add(bot, BorderLayout.SOUTH);
 				
 		
-		JPanel mid = new JPanel(new GridLayout(0,2));
+		final JPanel mid = new JPanel(new GridLayout(0,2));
 		
 		for (int i = 0; i < fields.length; i++ ){
 			fields[i] = new JTextField(20);
@@ -62,7 +60,7 @@ public class AddPersonGUI {
 		reset.addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(final ActionEvent e) {
 				
 				for (int i = 0; i < fields.length; i++){
 					fields[i].setText("");
