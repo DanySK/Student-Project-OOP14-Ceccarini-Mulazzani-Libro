@@ -9,8 +9,9 @@ public class Libro {
 	private String isbn;
 	private double price;
 	private int sold;
+	private int copy;
 	
-	public Libro (String title, String author, int year, String editor, String isbn, double price) {
+	public Libro (String title, String author, int year, String editor, String isbn, double price, int copy) {
 		if (checkData(title, author, year, editor, isbn, price)) {
 			this.title = title;
 			this.author = author;
@@ -19,6 +20,7 @@ public class Libro {
 			this.isbn = isbn;
 			this.price = price;
 			this.sold = 0;
+			this.copy = 1;
 		}
 	}
 	
@@ -48,6 +50,18 @@ public class Libro {
 	
 	public int getNSales () {
 		return this.sold;
+	}
+	
+	public int getNCopy () {
+		return this.copy;
+	}
+	
+	public void addCopy () {
+		this.copy++;
+	}
+	
+	public void removeCopy () {
+		this.copy--;
 	}
 	
 	public boolean checkData (String title, String author, int year, String editor, String isbn, double price) {
