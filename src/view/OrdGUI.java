@@ -68,7 +68,7 @@ public class OrdGUI {
 		chiudi.addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(final ActionEvent arg0) {
 				System.exit(0);
 			}
 		});

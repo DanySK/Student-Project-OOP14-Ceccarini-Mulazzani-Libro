@@ -70,7 +70,7 @@ public class MagazGUI {
 		chiudi.addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(final ActionEvent arg0) {
 				// TODO Auto-generated method stub
 				System.exit(0);
 			}
