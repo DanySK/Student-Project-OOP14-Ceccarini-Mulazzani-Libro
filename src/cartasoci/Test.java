@@ -1,6 +1,6 @@
 package cartasoci;
 
-import view.AddPersonGUI;
+import backup.AddPersonGUI;
 
 public class Test {
 
