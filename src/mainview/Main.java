@@ -9,45 +9,34 @@ import view.*;
 
 public class Main implements ActionListener {
 
-    private static final String HOME_CARD = "Home";
-    private static final String BLUE_PANEL = "Blue Panel";
-    private static final String RED_PANEL = "Red Panel";
-    private static final String ORANGE_PANEL = "Orange Panel";
     private JPanel cardHolder;
-    private JButton homeButton = new JButton("Magazzino");
-    private JButton blueButton = new JButton("Ordini");
-    private JButton redButton = new JButton("Fatturato e guadagni");
-    private JButton orangeButton = new JButton("Carta Soci");
+    private final JButton magazzino = new JButton("Magazzino");
+    private final JButton ordini = new JButton("Ordini");
+    private final JButton fatturato = new JButton("Fatturato e guadagni");
+    private final JButton cartasoci = new JButton("Carta Soci");
     
     public JPanel createCardHolderPanel() {
         cardHolder = new JPanel(new CardLayout());
         cardHolder.setBorder(BorderFactory.createTitledBorder("Card Holder Panel"));
-        cardHolder.add(createWareHousePanel(Color.gray), HOME_CARD);
-        cardHolder.add(createOrderPanel(Color.blue), BLUE_PANEL);
-        cardHolder.add(createColorPanel2(Color.red), RED_PANEL);
-        cardHolder.add(createColorPanel2(Color.orange), ORANGE_PANEL);
+        cardHolder.add(createWareHousePanel(), "Magazzino");
+        cardHolder.add(createOrderPanel(), "Ordini");
+        cardHolder.add(createColorPanel2(), "Fatturato e Guadagni");
+        cardHolder.add(createColorPanel2(), "Carta Soci");
 
         return cardHolder;
     }
    
-    private JPanel createColorPanel2(Color color) {
-    /*    JPanel panel = new JPanel(new FlowLayout());
-        panel.setBackground(color);
-        panel.add(new JButton("Scimmia"));
-        panel.add(new JButton("Scimmia"));
-        
-        
-        
-        */
+    private JPanel createColorPanel2( ) {
+
     	return new AddBookGUI().getPane();
     }
 
-    private JPanel createWareHousePanel(Color color) {
+    private JPanel createWareHousePanel() {
 
     	return new MagazGUI("Scimmia").getPane();
     }
     
-    private JPanel createOrderPanel(Color color) {
+    private JPanel createOrderPanel( ) {
 
     	return new OrdGUI("Scimmia").getPane();
     }
@@ -55,36 +44,35 @@ public class Main implements ActionListener {
     
 
     public JPanel createButtonPanel() {
-        JPanel buttonPanel = new JPanel(new GridLayout(4, 0, 5, 5));
-        buttonPanel.setBorder(BorderFactory.createTitledBorder("Button Panel"));
-        buttonPanel.add(homeButton);
-        buttonPanel.add(blueButton);
-        buttonPanel.add(redButton);
-        buttonPanel.add(orangeButton);
-        homeButton.addActionListener(this);
-        blueButton.addActionListener(this);
-        redButton.addActionListener(this);
-        orangeButton.addActionListener(this);
+        final JPanel buttonPanel = new JPanel(new GridLayout(4, 0, 5, 5));
+        buttonPanel.setBorder(BorderFactory.createTitledBorder("Scegli la sezione"));
+        buttonPanel.add(magazzino);
+        buttonPanel.add(ordini);
+        buttonPanel.add(fatturato);
+        buttonPanel.add(cartasoci);
+        magazzino.addActionListener(this);
+        ordini.addActionListener(this);
+        fatturato.addActionListener(this);
+        cartasoci.addActionListener(this);
         return buttonPanel;
     }
 
     public JPanel createContentPane() {
-        JPanel panel = new JPanel(new BorderLayout());
-        panel.setBorder(BorderFactory.createTitledBorder("Main Content Pane"));
-        panel.setBackground(Color.WHITE);
+    	final JPanel panel = new JPanel(new BorderLayout());
+        panel.setBorder(BorderFactory.createTitledBorder("Menù principale"));
+      //  panel.setBackground(Color.GRAY);
         panel.setPreferredSize(new Dimension(650, 288));
-       // panel.add(createButtonPanel(), BorderLayout.WEST);
         panel.add(createButtonPanel(), BorderLayout.WEST);
         panel.add(createCardHolderPanel(), BorderLayout.CENTER);
         return panel;
     }
 
     public JMenuBar createMenuBar() {
-        JMenuBar menuBar = new JMenuBar();
-        JMenu file = new JMenu("File");
-        JMenu users = new JMenu("Users");
-        JMenu options = new JMenu("Options");
-        JMenu help = new JMenu("Help");
+    	final JMenuBar menuBar = new JMenuBar();
+        final JMenu file = new JMenu("File");
+        final JMenu users = new JMenu("Users");
+        final JMenu options = new JMenu("Options");
+        final JMenu help = new JMenu("Help");
         menuBar.add(file);
         menuBar.add(users);
         menuBar.add(options);
@@ -93,33 +81,33 @@ public class Main implements ActionListener {
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
-        CardLayout cardLayout = (CardLayout) (cardHolder.getLayout());
-        if (e.getSource() == homeButton) {
-            cardLayout.show(cardHolder, HOME_CARD);
+    public void actionPerformed(final ActionEvent e) {
+        final CardLayout cardLayout = (CardLayout) (cardHolder.getLayout());
+        if (e.getSource() == magazzino) {
+            cardLayout.show(cardHolder, "Magazzino");
         }
-        if (e.getSource() == blueButton) {
-            cardLayout.show(cardHolder, BLUE_PANEL);
+        if (e.getSource() == ordini) {
+            cardLayout.show(cardHolder, "Ordini");
         }
-        if (e.getSource() == redButton) {
-            cardLayout.show(cardHolder, RED_PANEL);
+        if (e.getSource() == fatturato) {
+            cardLayout.show(cardHolder, "Fatturato e Guadagni");
         }
-        if (e.getSource() == orangeButton) {
-            cardLayout.show(cardHolder, ORANGE_PANEL);
+        if (e.getSource() == cartasoci) {
+            cardLayout.show(cardHolder, "Carta Soci");
         }
     }
 
     public static void createAndShowGUI() {
-        JFrame frame = new JFrame("Simple CardLayout Program");
+        final JFrame frame = new JFrame("Libro di Chiara Ceccarini e Alberto Mulazzani");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Main main = new Main();
+        final Main main = new Main();
         frame.setJMenuBar(main.createMenuBar());
         frame.add(main.createContentPane());
         frame.pack();
         frame.setVisible(true);
     }
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) { // NOPMD by Alberto on 01/02/15 17.12
         SwingUtilities.invokeLater(new Runnable() {
 
             @Override
