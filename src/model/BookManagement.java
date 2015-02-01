@@ -1,9 +1,16 @@
 package model;
 
 import java.util.HashSet;
+
 import java.util.Set;
 
 import exceptions.MissingBookException;
+
+/**
+ * 
+ * @author Chiara Ceccarini
+ *
+ */
 
 public class BookManagement implements IBookManagement{
 	
@@ -19,7 +26,7 @@ public class BookManagement implements IBookManagement{
 		} else {
 			libreria.forEach(b -> {
 				if (b.equals(book)) {
-					b.addCopy();
+					b.addCopy(book.getNCopy());
 				}
 			});
 		}
@@ -27,14 +34,13 @@ public class BookManagement implements IBookManagement{
 
 	public void sellBook(Libro book) throws MissingBookException {
 		if (libreria.contains(book)) {
-			libreria.forEach(b -> {
-				if (b.equals(book)) {
+			for (Libro b:libreria) {
+				if (b.equals(book) && b.getNCopy() > 0) {
 					b.removeCopy();
+				} else {
+					throw new MissingBookException();
 				}
-				if (b.getNCopy() == 0) {
-					libreria.remove(book);
-				}
-			});
+			}
 		} else {
 			throw new MissingBookException();
 		}

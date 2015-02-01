@@ -1,5 +1,11 @@
 package model;
 
+/**
+ * 
+ * @author Chiara Ceccarini
+ *
+ */
+
 public class Libro {
 	
 	private String title;
@@ -20,7 +26,7 @@ public class Libro {
 			this.isbn = isbn;
 			this.price = price;
 			this.sold = 0;
-			this.copy = 1;
+			this.copy = copy;
 		}
 	}
 	
@@ -56,8 +62,8 @@ public class Libro {
 		return this.copy;
 	}
 	
-	public void addCopy () {
-		this.copy++;
+	public void addCopy (int copy) {
+		this.copy += copy;
 	}
 	
 	public void removeCopy () {

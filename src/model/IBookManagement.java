@@ -2,7 +2,14 @@ package model;
 
 import java.util.Set;
 
+
 import exceptions.MissingBookException;
+
+/**
+ * 
+ * @author Chiara Ceccarini
+ *
+ */
 
 public interface IBookManagement {
 	
