@@ -9,9 +9,9 @@ import java.awt.Insets;
 import java.awt.Toolkit;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
+
 /**
  * 
  * @author Alberto Mulazzani
@@ -21,23 +21,18 @@ import javax.swing.border.TitledBorder;
 
 public class MagazGUI {
 
-	private final JButton aggiungi = new JButton("Aggiungi un prodotto");
-	private final JButton rimuovi = new JButton("Rimuovi un prodotto");
-	private final JButton modifica = new JButton("Modifica un prodotto");
-	private final JButton cerca = new JButton("Ricerca un prodotto");
-	private final JButton lista = new JButton("Lista dei prodotti");
-	private final JButton indietro = new JButton("Torna Indietro");
+	private JButton[] buttons = new JButton[5];
+	private String[] names = {"Aggiungi un libro", "Rimuovi un libro", "Modifica un libro", "Ricerca un libro", "Lista dei libri"};
 	private final JButton chiudi = new JButton("Chiudi");
 	private final String nomeAzienda;
-	
+	private final JPanel jf = new JPanel();
 	
 	public MagazGUI(final String nomeAziendaR){
 		
 		this.nomeAzienda = nomeAziendaR;
 		
-		final JFrame jf = new JFrame();
+
 		jf.setLayout(new BorderLayout());
-		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    final Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 	    final int x = (dim.width )/4;
 	    final int y = (dim.height)/3;
@@ -52,32 +47,33 @@ public class MagazGUI {
 		c.insets = new Insets(3,3,3,3);
 		c.fill = GridBagConstraints.HORIZONTAL;
 		
-		main.add(aggiungi,c);
-		c.gridy++;
-		main.add(rimuovi,c);
-		c.gridy++;
-		main.add(modifica,c);
-		c.gridy++;
-		main.add(cerca,c);
-		c.gridy++;
-		main.add(lista,c);
+		
+		for (int i = 0; i < buttons.length; i++){
+			buttons[i] = new JButton(names[i]);
+			main.add(buttons[i], c);
+			c.gridy++;
+			
+		}
+		
 		
 		
 		final JPanel comandi = new JPanel(new FlowLayout());
 		comandi.add(main);
 		main.setBorder(new TitledBorder("Magazzino di " + nomeAzienda));
 		final JPanel main2 = new JPanel(new FlowLayout());
-		main2.add(indietro);
 		main2.add(chiudi);
 		
 		jf.add(comandi, BorderLayout.CENTER);
 		jf.add(main2, BorderLayout.SOUTH);
 		
-		jf.setVisible(true);
 		
+
 		
-		
-		
+	}
+	
+	
+	public JPanel getPane(){
+		return this.jf;
 	}
 	
 }
