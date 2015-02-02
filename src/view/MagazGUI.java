@@ -28,7 +28,7 @@ public class MagazGUI {
 	private final JButton chiudi = new JButton("Chiudi");
 	private final JPanel jf = new JPanel();
 	
-	public MagazGUI(final String nomeAziendaR){
+	public MagazGUI(){
 		
 		
 
@@ -61,7 +61,7 @@ public class MagazGUI {
 		
 		final JPanel comandi = new JPanel(new FlowLayout());
 		comandi.add(main);
-		main.setBorder(new TitledBorder("Magazzino di " + nomeAziendaR));
+		main.setBorder(new TitledBorder("Gestione Magazzino"));
 		final JPanel main2 = new JPanel(new FlowLayout());
 		main2.add(chiudi);
 		

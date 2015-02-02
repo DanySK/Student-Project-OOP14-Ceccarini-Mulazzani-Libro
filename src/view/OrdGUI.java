@@ -22,7 +22,7 @@ public class OrdGUI {
 	private final JButton chiudi = new JButton("Chiudi");
 	private final JPanel main = new JPanel();
 	
-	public OrdGUI(final String nomeAziendaR){
+	public OrdGUI(){
 		
 		
 		main.setLayout(new BorderLayout());
@@ -35,7 +35,7 @@ public class OrdGUI {
 	    
 		final JPanel top = new JPanel();
 		top.setLayout(new GridBagLayout());
-		top.setBorder(new TitledBorder("Ordini di " + nomeAziendaR));
+		top.setBorder(new TitledBorder("Gestione Ordini"));
 		GridBagConstraints c = new GridBagConstraints();
 		c.gridy = 0;
 		c.insets = new Insets(3,3,7,3);

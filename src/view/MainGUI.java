@@ -60,7 +60,7 @@ public class MainGUI {
 					@Override
 					public void run() {
 						// TODO Auto-generated method stub
-						new MagazGUI("BananaJoe");
+						new MagazGUI();
 					}
 				});
 				
