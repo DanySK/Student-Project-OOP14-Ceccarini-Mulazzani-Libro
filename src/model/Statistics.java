@@ -31,7 +31,7 @@ public class Statistics {
 		return library;
 	}
 	
-	public List <Pair <String,Integer>> mostPopularAuthor () {
+	public List <Pair <String,Integer>> mostActiveAuthor () {
 		final List <Pair<String, Integer>> lista = createList();
 		
 		Collections.sort(lista, (p1,p2) -> p2.getSecond()-p1.getSecond());
@@ -39,7 +39,7 @@ public class Statistics {
 		return lista;
 	}
 	
-	public List <Pair <String,Integer>> lessPopularAuthor () {
+	public List <Pair <String,Integer>> lessActiveAuthor () {
 		final List <Pair<String, Integer>> lista = createList();
 		
 		Collections.sort(lista, (p1,p2) -> p1.getSecond()-p2.getSecond());
