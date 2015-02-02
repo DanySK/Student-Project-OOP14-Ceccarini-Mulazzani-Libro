@@ -62,6 +62,34 @@ public class Libro {
 		return this.copy;
 	}
 	
+	public void setTitle(String title){
+		this.title = title;	
+	}
+	
+	public void setAuthor(String author){
+		this.author = author;
+	}
+	
+	public void setYear(int year){
+		this.year = year;
+	}
+	
+	public void setEditor(String editor){
+		this.editor = editor;
+	}
+	
+	public void setISBN(String isbn){
+		this.isbn = isbn;
+	}
+	
+	public void setPrice(double price){
+		this.price = price;
+	}
+	
+	public void setNCopy(int copy){
+		this.copy = copy;
+	}
+	
 	public void addCopy (int copy) {
 		this.copy += copy;
 	}
