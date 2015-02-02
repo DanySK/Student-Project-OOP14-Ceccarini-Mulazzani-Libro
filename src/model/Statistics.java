@@ -1,10 +1,16 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
 
+import utilities.Pair;
+
+/**
+ * 
+ * @author Chiara Ceccarini
+ *
+ */
 
 public class Statistics {
 	
@@ -25,10 +31,48 @@ public class Statistics {
 		return library;
 	}
 	
-	public Map <String, Integer> mostPopularAuthor () {
-		final Map <String, Integer> authors = new TreeMap <>();
+	public List <Pair <String,Integer>> mostPopularAuthor () {
+		final List <Pair<String, Integer>> lista = new ArrayList <>();
+		boolean find = false;
+		int i = 0;
+		for (Libro b:library) {
+			for (Pair<String, Integer> l:lista) {
+				if (l.getFirst().equals(b.getAuthor())) {
+					find = true;
+					i = l.getSecond();
+					l.setSecond(i++);
+				}
+			}
+			if (!find) {
+				lista.add(new Pair <String,Integer> (b.getAuthor(),1));
+			}
+		}
 		
-		return authors;
+		Collections.sort(lista, (p1,p2) -> p2.getSecond()-p1.getSecond());
+		
+		return lista;
+	}
+	
+	public List <Pair <String,Integer>> lessPopularAuthor () {
+		final List <Pair<String, Integer>> lista = new ArrayList <>();
+		boolean find = false;
+		int i = 0;
+		for (Libro b:library) {
+			for (Pair<String, Integer> l:lista) {
+				if (l.getFirst().equals(b.getAuthor())) {
+					find = true;
+					i = l.getSecond();
+					l.setSecond(i++);
+				}
+			}
+			if (!find) {
+				lista.add(new Pair <String,Integer> (b.getAuthor(),1));
+			}
+		}
+		
+		Collections.sort(lista, (p1,p2) -> p1.getSecond()-p2.getSecond());
+		
+		return lista;
 	}
 
 }
