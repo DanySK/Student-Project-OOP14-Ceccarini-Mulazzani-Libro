@@ -41,6 +41,7 @@ public class AddBookGUI {
 			mid.add(wrapperPanel(fields[i],FlowLayout.CENTER));
 		}
 		
+		
 		main.add(mid, BorderLayout.CENTER);
 		
 

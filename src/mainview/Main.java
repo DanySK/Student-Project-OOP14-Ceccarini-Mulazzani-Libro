@@ -28,7 +28,7 @@ public class Main implements ActionListener {
    
     private JPanel createColorPanel2( ) {
 
-    	return new AddBookGUI().getPane();
+    	return new	SearchBookGUI().getPane();
     }
 
     private JPanel createWareHousePanel() {
@@ -66,7 +66,7 @@ public class Main implements ActionListener {
     	final JPanel panel = new JPanel(new BorderLayout());
         panel.setBorder(BorderFactory.createTitledBorder("Menù principale"));
       //  panel.setBackground(Color.GRAY);
-        panel.setPreferredSize(new Dimension(650, 288));
+        panel.setPreferredSize(new Dimension(680, 288));
         panel.add(createButtonPanel(), BorderLayout.WEST);
         panel.add(createCardHolderPanel(), BorderLayout.CENTER);
         return panel;

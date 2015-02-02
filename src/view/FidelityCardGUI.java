@@ -37,12 +37,13 @@ public class FidelityCardGUI {
 		top.setLayout(new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();
 		c.gridy = 0;
-		c.insets = new Insets(3,3,3,3);
+		c.insets = new Insets(3,3,7,3);
 		c.fill = GridBagConstraints.HORIZONTAL;
 		
 		
 		for (int i = 0; i < buttons.length; i++){
 			buttons[i] = new JButton(names[i]);
+			buttons[i].setPreferredSize(new Dimension(150,25));
 			top.add(buttons[i], c);
 			c.gridy++;
 			
