@@ -5,21 +5,19 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.Insets;
 import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
+
+import utilities.GUIUtilities;
 
 public class OrdGUI {
 	
 	
 	private final JButton[] buttons = new JButton[5];
 	private final String[] names = {"Aggiungi un ordine", "Rimuovi un ordine", "Modifica un ordine", "Ricerca un ordine", "Lista degli Ordini"};
-	private final JButton chiudi = new JButton("Chiudi");
 	private final JPanel main = new JPanel();
 	
 	public OrdGUI(){
@@ -36,10 +34,8 @@ public class OrdGUI {
 		final JPanel top = new JPanel();
 		top.setLayout(new GridBagLayout());
 		top.setBorder(new TitledBorder("Gestione Ordini"));
-		GridBagConstraints c = new GridBagConstraints();
-		c.gridy = 0;
-		c.insets = new Insets(3,3,7,3);
-		c.fill = GridBagConstraints.HORIZONTAL;
+		GridBagConstraints c = GUIUtilities.getConstr();
+
 		
 		for (int i = 0; i < buttons.length; i++){
 			buttons[i] = new JButton(names[i]);
@@ -53,27 +49,13 @@ public class OrdGUI {
 		
 		final JPanel topExt = new JPanel(new FlowLayout());
 		topExt.add(top);
-		
-		
-		
-		
-		
+
 		
 		main.add(topExt, BorderLayout.NORTH);
 		
 		final JPanel bot = new JPanel(new FlowLayout());
-		bot.add(chiudi);
+		bot.add(GUIUtilities.getClosing());
 		main.add(bot, BorderLayout.SOUTH);
-		
-		
-		chiudi.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(final ActionEvent arg0) {
-				System.exit(0);
-			}
-		});
-		
 		
 	}
 
