@@ -5,14 +5,17 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.Toolkit;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
 import utilities.GUIUtilities;
-
+/**
+ * 
+ * @author Alberto Mulazzani
+ *
+ */
 public class OrdGUI {
 	
 	
@@ -24,12 +27,6 @@ public class OrdGUI {
 		
 		
 		main.setLayout(new BorderLayout());
-		
-	    final Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-	    final int x = (dim.width )/4;
-	    final int y = (dim.height)/3;
-	    main.setSize(x, y);
-	    main.setLocation(x, y);
 	    
 		final JPanel top = new JPanel();
 		top.setLayout(new GridBagLayout());
@@ -40,9 +37,6 @@ public class OrdGUI {
 		for (int i = 0; i < buttons.length; i++){
 			buttons[i] = new JButton(names[i]);
 			buttons[i].setPreferredSize(new Dimension(150,25));
-		}
-		
-		for (int i = 0; i < buttons.length; i++){
 			top.add(buttons[i], c);
 			c.gridy++;
 		}
