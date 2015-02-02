@@ -5,31 +5,34 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Toolkit;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
 import utilities.GUIUtilities;
-/**
- * 
- * @author Alberto Mulazzani
- *
- */
-public class StatisticGUI {
-	
-	private final JButton[] buttons = new JButton[4];
-	private final String[] names = {"Libro più venduto", "Libro meno venduto", "Autore più attivo", "Autore meno attivo"};
+
+public class EconomyGUI {
+
+	private final String[] names = {"Totale libri venduti", "Totale guadagnato", "Totale speso", "Totale fatturato"};
+	private final JButton[] buttons = new JButton[names.length];
 	private final JPanel main = new JPanel();
 
 	
-	public StatisticGUI(){
+	public EconomyGUI(){
 		
 		main.setLayout(new BorderLayout());
+		
+	    final Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+	    final int x = (dim.width )/4;
+	    final int y = (dim.height)/3;
+	    main.setSize(x, y);
+	    main.setLocation(x, y);
 	    
 		final JPanel top = new JPanel();
 		top.setLayout(new GridBagLayout());
-		top.setBorder(new TitledBorder("Statistiche"));
+		top.setBorder(new TitledBorder("Fatturato e Guadagni"));
 		GridBagConstraints c = GUIUtilities.getConstr();
 
 		
@@ -54,5 +57,4 @@ public class StatisticGUI {
 	public JPanel getPane(){
 		return this.main;
 	}
-	
 }

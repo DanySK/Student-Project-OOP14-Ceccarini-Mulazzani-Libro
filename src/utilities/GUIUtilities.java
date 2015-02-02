@@ -4,7 +4,11 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
 import javax.swing.JButton;
-
+/**
+ * 
+ * @author Alberto Mulazzani
+ *
+ */
 public class GUIUtilities {
 
 	

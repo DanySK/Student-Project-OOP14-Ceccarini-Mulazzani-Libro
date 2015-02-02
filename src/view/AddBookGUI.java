@@ -10,6 +10,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+/**
+ * 
+ * @author Alberto Mulazzani
+ *
+ */
 public class AddBookGUI {
 	
 	private final JTextField[] fields = new JTextField[7];
