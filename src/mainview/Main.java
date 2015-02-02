@@ -1,11 +1,18 @@
 package mainview;
 
-import java.awt.*;
-import java.awt.event.*;
+import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import javax.swing.*;
-
-import view.*;
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JPanel;
 
 public class Main implements ActionListener {
 
@@ -33,12 +40,12 @@ public class Main implements ActionListener {
 
     private JPanel createWareHousePanel() {
 
-    	return new MagazGUI("Scimmia").getPane();
+    	return new MagazGUI().getPane();
     }
     
     private JPanel createOrderPanel( ) {
 
-    	return new OrdGUI("Scimmia").getPane();
+    	return new OrdGUI().getPane();
     }
     
     private JPanel createFidelityPanel() {
@@ -112,13 +119,4 @@ public class Main implements ActionListener {
         frame.setVisible(true);
     }
 
-    public static void main(final String[] args) { // NOPMD by Alberto on 01/02/15 17.12
-        SwingUtilities.invokeLater(new Runnable() {
-
-            @Override
-            public void run() {
-                createAndShowGUI();
-            }
-        });
-    }
 }
