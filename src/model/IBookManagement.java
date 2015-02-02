@@ -15,9 +15,13 @@ public interface IBookManagement {
 	
 	void addBook(Libro book);
 	
+	void modifyBook (String[] fields);
+	
 	void sellBook(Libro book) throws MissingBookException;
 	
-	Libro searchBook(String title) throws MissingBookException;
+	Libro searchBookTitle(String title) throws MissingBookException;
+	
+	Libro searchBookAuthor (String author) throws MissingBookException;
 	
 	Set <Libro> bookList ();
 	

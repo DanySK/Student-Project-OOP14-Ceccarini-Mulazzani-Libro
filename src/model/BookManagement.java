@@ -1,7 +1,6 @@
 package model;
 
 import java.util.HashSet;
-
 import java.util.Set;
 
 import exceptions.MissingBookException;
@@ -31,6 +30,10 @@ public class BookManagement implements IBookManagement{
 			});
 		}
 	}
+	
+	public void modifyBook (String[] fields) {
+		
+	}
 
 	public void sellBook(Libro book) throws MissingBookException {
 		if (libreria.contains(book)) {
@@ -47,7 +50,8 @@ public class BookManagement implements IBookManagement{
 		
 	}
 
-	public Libro searchBook(String title) throws MissingBookException {
+	@Override
+	public Libro searchBookTitle(String title) throws MissingBookException {
 		for (Libro b:libreria) {
 			if (b.getTitle().equals(title)) {
 				return b;
@@ -55,9 +59,18 @@ public class BookManagement implements IBookManagement{
 		}
 		throw new MissingBookException();
 	}
+
+	@Override
+	public Libro searchBookAuthor(String author) throws MissingBookException {
+		for (Libro b:libreria) {
+			if (b.getAuthor().equals(author)) {
+				return b;
+			}
+		}
+		throw new MissingBookException();
+	}
 	
 	public Set <Libro> bookList () {
-		return libreria;
-		
+		return libreria;		
 	}
 }
