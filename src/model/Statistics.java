@@ -32,21 +32,7 @@ public class Statistics {
 	}
 	
 	public List <Pair <String,Integer>> mostPopularAuthor () {
-		final List <Pair<String, Integer>> lista = new ArrayList <>();
-		boolean find = false;
-		int i = 0;
-		for (Libro b:library) {
-			for (Pair<String, Integer> l:lista) {
-				if (l.getFirst().equals(b.getAuthor())) {
-					find = true;
-					i = l.getSecond();
-					l.setSecond(i++);
-				}
-			}
-			if (!find) {
-				lista.add(new Pair <String,Integer> (b.getAuthor(),1));
-			}
-		}
+		final List <Pair<String, Integer>> lista = createList();
 		
 		Collections.sort(lista, (p1,p2) -> p2.getSecond()-p1.getSecond());
 		
@@ -54,6 +40,14 @@ public class Statistics {
 	}
 	
 	public List <Pair <String,Integer>> lessPopularAuthor () {
+		final List <Pair<String, Integer>> lista = createList();
+		
+		Collections.sort(lista, (p1,p2) -> p1.getSecond()-p2.getSecond());
+		
+		return lista;
+	}
+	
+	public List <Pair <String,Integer>> createList () {
 		final List <Pair<String, Integer>> lista = new ArrayList <>();
 		boolean find = false;
 		int i = 0;
@@ -69,10 +63,8 @@ public class Statistics {
 				lista.add(new Pair <String,Integer> (b.getAuthor(),1));
 			}
 		}
-		
-		Collections.sort(lista, (p1,p2) -> p1.getSecond()-p2.getSecond());
-		
 		return lista;
+		
 	}
 
 }
