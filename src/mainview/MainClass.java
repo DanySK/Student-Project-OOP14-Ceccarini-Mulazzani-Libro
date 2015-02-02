@@ -1,14 +1,22 @@
 package mainview;
 
-import view.MainGUI;
+import javax.swing.SwingUtilities;
+
+import view.Main;
 
 public class MainClass {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
-		new MainGUI();
-		//new MagazGUI("BananaJoe");
+    public static void main(final String[] args) { // NOPMD by Alberto on 01/02/15 17.12
+    	
+    	
+        SwingUtilities.invokeLater(new Runnable() {
+
+            @Override
+            public void run() {
+                new Main();
+				Main.createAndShowGUI();
+            }
+        });
 	}
 
 }
