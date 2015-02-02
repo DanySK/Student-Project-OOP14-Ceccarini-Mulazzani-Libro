@@ -2,7 +2,6 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
-import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,6 +20,7 @@ public class Main implements ActionListener {
     private final JButton ordini = new JButton("Ordini");
     private final JButton fatturato = new JButton("Fatturato e guadagni");
     private final JButton cartasoci = new JButton("Carta Soci");
+    private final JButton statistiche = new JButton("Statistiche");
     
     public JPanel createCardHolderPanel() {
         cardHolder = new JPanel(new CardLayout());
@@ -29,7 +29,8 @@ public class Main implements ActionListener {
         cardHolder.add(createOrderPanel(), "Ordini");
         cardHolder.add(createColorPanel2(), "Fatturato e Guadagni");
         cardHolder.add(createFidelityPanel(), "Carta Soci");
-
+        cardHolder.add(createFidelityPanel(), "Statistiche");
+        
         return cardHolder;
     }
    
@@ -56,16 +57,18 @@ public class Main implements ActionListener {
     
 
     public JPanel createButtonPanel() {
-        final JPanel buttonPanel = new JPanel(new GridLayout(4, 0, 5, 5));
+        final JPanel buttonPanel = new JPanel(new GridLayout(5, 0, 5, 5));
         buttonPanel.setBorder(BorderFactory.createTitledBorder("Scegli la sezione"));
         buttonPanel.add(magazzino);
         buttonPanel.add(ordini);
+        buttonPanel.add(statistiche); 
         buttonPanel.add(fatturato);
         buttonPanel.add(cartasoci);
         magazzino.addActionListener(this);
         ordini.addActionListener(this);
         fatturato.addActionListener(this);
         cartasoci.addActionListener(this);
+        statistiche.addActionListener(this);
         return buttonPanel;
     }
 
@@ -73,7 +76,7 @@ public class Main implements ActionListener {
     	final JPanel panel = new JPanel(new BorderLayout());
         panel.setBorder(BorderFactory.createTitledBorder("Menù principale"));
       //  panel.setBackground(Color.GRAY);
-        panel.setPreferredSize(new Dimension(680, 288));
+    //    panel.setPreferredSize(new Dimension(680, 288));
         panel.add(createButtonPanel(), BorderLayout.WEST);
         panel.add(createCardHolderPanel(), BorderLayout.CENTER);
         return panel;
@@ -107,13 +110,17 @@ public class Main implements ActionListener {
         if (e.getSource() == cartasoci) {
             cardLayout.show(cardHolder, "Carta Soci");
         }
+        if (e.getSource() == statistiche) {
+        	cardLayout.show(cardHolder, "Statistiche");
+        }
     }
 
     public static void createAndShowGUI() {
         final JFrame frame = new JFrame("Libro di Chiara Ceccarini e Alberto Mulazzani");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setResizable(false);
         final Main main = new Main();
-        frame.setJMenuBar(main.createMenuBar());
+     //   frame.setJMenuBar(main.createMenuBar());
         frame.add(main.createContentPane());
         frame.pack();
         frame.setVisible(true);
