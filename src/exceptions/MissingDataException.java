@@ -1,5 +1,5 @@
 package exceptions;
 
-public class MissingDataException {
+public class MissingDataException extends Throwable {
 
 }

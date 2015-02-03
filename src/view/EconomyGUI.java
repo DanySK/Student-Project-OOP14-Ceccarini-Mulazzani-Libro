@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
+import controller.BookController;
 import utilities.GUIUtilities;
 
 public class EconomyGUI {
@@ -20,7 +21,7 @@ public class EconomyGUI {
 	private final JPanel main = new JPanel();
 
 	
-	public EconomyGUI(){
+	public EconomyGUI(BookController controller){
 		
 		main.setLayout(new BorderLayout());
 		
