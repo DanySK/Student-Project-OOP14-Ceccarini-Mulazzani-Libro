@@ -8,7 +8,11 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
+/**
+ * 
+ * @author Alberto Mulazzani
+ *
+ */
 public class SearchBookGUI {
 	
 	private JButton[] buttons = new JButton[2];	

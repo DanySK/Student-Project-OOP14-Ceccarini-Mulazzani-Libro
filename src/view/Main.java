@@ -2,7 +2,9 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -12,7 +14,11 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JPanel;
-
+/**
+ * 
+ * @author Alberto Mulazzani
+ *
+ */
 public class Main implements ActionListener {
 
     private JPanel cardHolder;
@@ -27,16 +33,20 @@ public class Main implements ActionListener {
         cardHolder.setBorder(BorderFactory.createTitledBorder("Scegli l'azione"));
         cardHolder.add(createWareHousePanel(), "Magazzino");
         cardHolder.add(createOrderPanel(), "Ordini");
-        cardHolder.add(createColorPanel2(), "Fatturato e Guadagni");
+        cardHolder.add(createEconomyPanel(), "Fatturato e Guadagni");
         cardHolder.add(createFidelityPanel(), "Carta Soci");
-        cardHolder.add(createFidelityPanel(), "Statistiche");
+        cardHolder.add(createStatisticPanel(), "Statistiche");
         
         return cardHolder;
     }
    
-    private JPanel createColorPanel2( ) {
+    private JPanel createEconomyPanel( ) {
 
-    	return new	SearchBookGUI().getPane();
+    	return new	EconomyGUI().getPane();
+    }
+    
+    private JPanel createStatisticPanel(){
+    	return new StatisticGUI().getPane();
     }
 
     private JPanel createWareHousePanel() {
@@ -75,8 +85,6 @@ public class Main implements ActionListener {
     public JPanel createContentPane() {
     	final JPanel panel = new JPanel(new BorderLayout());
         panel.setBorder(BorderFactory.createTitledBorder("Menù principale"));
-      //  panel.setBackground(Color.GRAY);
-    //    panel.setPreferredSize(new Dimension(680, 288));
         panel.add(createButtonPanel(), BorderLayout.WEST);
         panel.add(createCardHolderPanel(), BorderLayout.CENTER);
         return panel;
@@ -118,7 +126,13 @@ public class Main implements ActionListener {
     public static void createAndShowGUI() {
         final JFrame frame = new JFrame("Libro di Chiara Ceccarini e Alberto Mulazzani");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+ //       frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         frame.setResizable(false);
+        final Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+	    final int x = (dim.width )/3;
+	    final int y = (dim.height)/3;
+	    frame.setPreferredSize(new Dimension(x, y));
+	    frame.setLocation(x, y);
         final Main main = new Main();
      //   frame.setJMenuBar(main.createMenuBar());
         frame.add(main.createContentPane());
