@@ -20,10 +20,10 @@ public class BookManagement implements IBookManagement{
 	}
 
 	public void addBook(Libro book) {
-		if (!libreria.contains(book)) {
-			libreria.add(book);
+		if (!this.libreria.contains(book)) {
+			this.libreria.add(book);
 		} else {
-			libreria.forEach(b -> {
+			this.libreria.forEach(b -> {
 				if (b.equals(book)) {
 					b.addCopy(book.getNCopy());
 				}
@@ -51,8 +51,8 @@ public class BookManagement implements IBookManagement{
 	}
 
 	public void sellBook(Libro book) throws MissingBookException {
-		if (libreria.contains(book)) {
-			for (Libro b:libreria) {
+		if (this.libreria.contains(book)) {
+			for (Libro b:this.libreria) {
 				if (b.equals(book) && b.getNCopy() > 0) {
 					b.removeCopy();
 				} else {
@@ -66,7 +66,7 @@ public class BookManagement implements IBookManagement{
 	}
 	
 	public Libro searchBook (String title, String author) throws MissingBookException {
-		for (Libro b:libreria) {
+		for (Libro b:this.libreria) {
 			if (b.getTitle().equals(title) && b.getAuthor().equals(author)) {
 				return b;
 			}
@@ -78,7 +78,7 @@ public class BookManagement implements IBookManagement{
 	@Override
 	public Set <Libro> searchBookTitle(String title) throws MissingBookException {
 		final HashSet <Libro> books = new HashSet <> ();
-		for (Libro b:libreria) {
+		for (Libro b:this.libreria) {
 			if (b.getTitle().equals(title)) {
 				books.add(b);
 			}
@@ -93,7 +93,7 @@ public class BookManagement implements IBookManagement{
 	@Override
 	public Set <Libro> searchBookAuthor(String author) throws MissingBookException {
 		final HashSet <Libro> books = new HashSet <> ();
-		for (Libro b:libreria) {
+		for (Libro b:this.libreria) {
 			if (b.getAuthor().equals(author)) {
 				books.add(b);
 			}
@@ -106,6 +106,6 @@ public class BookManagement implements IBookManagement{
 	}
 	
 	public Set <Libro> bookList () {
-		return libreria;		
+		return this.libreria;		
 	}
 }
