@@ -17,19 +17,26 @@ public class Libro {
 	private int sold;
 	private int copy;
 	
-	public Libro (String title, String author, int year, String editor, String isbn, double price, int copy) {
-		if (checkData(title, author, year, editor, isbn, price)) {
-			this.title = title;
-			this.author = author;
-			this.year = year;
-			this.editor = editor;
-			this.isbn = isbn;
-			this.price = price;
+	public Libro (String []fields) {
+		if (checkData(fields)) {
 			this.sold = 0;
-			this.copy = copy;
+			for (int i=0; i<fields.length; i++) {
+				if (!fields[i].isEmpty()) {
+					switch (i) {
+						case 0: this.title = fields [i];
+						case 1: this.author = fields [i];
+						case 2: this.year = Integer.parseInt(fields[i]);
+						case 3: this.editor = fields [i];
+						case 4: this.isbn = fields [i];
+						case 5: this.price = Integer.parseInt(fields[i]);
+						case 6: this.copy = Integer.parseInt(fields[i]);
+					}
+					
+				}
+			}
 		}
 	}
-	
+
 	public String getTitle () {
 		return this.title;
 	}
@@ -98,10 +105,8 @@ public class Libro {
 		this.copy--;
 	}
 	
-	public boolean checkData (String title, String author, int year, String editor, String isbn, double price) {
-		if (title == null || author == null || year == 0 || editor == null || isbn == null || price == 0) {
-			
-		}
+	public boolean checkData (String []fields) {
+		
 		return true;
 		
 	}
