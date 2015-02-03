@@ -39,11 +39,13 @@ public class Ordini extends BookManagement implements IOrdini {
 	}
 
 	public void evasioneOrdini() {
-		for (Libro b:ordini) {
+		for (Libro b:this.ordini) {
+			System.out.println ("evasione");
 			lista.addBook(b);
-			ordini.remove(b);
 		}
-		
+		System.out.println ("clear "+ordini.size());
+		this.ordini.clear();
+		System.out.println ("clear "+ordini.size());
 	}
 
 }

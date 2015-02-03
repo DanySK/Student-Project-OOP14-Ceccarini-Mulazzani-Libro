@@ -13,7 +13,8 @@ import exceptions.MissingBookException;
 
 public class BookManagement implements IBookManagement{
 	
-	private HashSet <Libro> libreria = new HashSet <>(); 
+	private HashSet <Libro> libreria = new HashSet <>();
+	private HashSet <Libro> ordini = new HashSet <>(); 
 
 	public BookManagement() {
 
@@ -107,5 +108,15 @@ public class BookManagement implements IBookManagement{
 	
 	public Set <Libro> bookList () {
 		return new HashSet<Libro>(libreria);		
+	}
+	
+	public void evasioneOrdini() {
+		for (Libro b:this.ordini) {
+			System.out.println ("evasione");
+			addBook(b);
+		}
+		System.out.println ("clear "+ordini.size());
+		this.ordini.clear();
+		System.out.println ("clear "+ordini.size());
 	}
 }
