@@ -2,12 +2,15 @@ package controller;
 
 import javax.swing.JTextField;
 
+import model.BookManagement;
+import model.IBookManagement;
 import model.Libro;
 
 public class BookController {
 	
 	private String[] strings;
-	//private Libro book = new Libro();
+	private Libro book;
+	private IBookManagement model = new BookManagement();
 	
 	
 	public BookController(){
@@ -29,12 +32,16 @@ public class BookController {
 	}
 	
 	private void setLibro(String[] strings){
-		
-		
-		
+
+		this.book = new Libro(strings);	
+	}
+	
+	
+	public void addBook(){
 		
 		
 	}
+	
 	
 	
 	
