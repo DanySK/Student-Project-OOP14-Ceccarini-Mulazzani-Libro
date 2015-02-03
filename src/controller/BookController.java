@@ -10,13 +10,16 @@ import exceptions.MissingDataException;
 import exceptions.WrongDataException;
 import model.BookManagement;
 import model.IBookManagement;
+import model.IOrdini;
 import model.Libro;
+import model.Ordini;
 
 public class BookController {
 	
 	private String[] strings;
 	private Libro book;
 	private IBookManagement model = new BookManagement();
+	private IOrdini ordini = new Ordini();
 	private String[] toSearch = new String[2];
 	
 	public BookController(){

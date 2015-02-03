@@ -11,7 +11,7 @@ import exceptions.MissingBookException;
  *
  */
 
-public class BookManagement implements IBookManagement{
+public class BookManagement extends BasicOperations implements IBookManagement {
 	
 	private HashSet <Libro> libreria = new HashSet <>();
 	private HashSet <Libro> ordini = new HashSet <>(); 
@@ -19,7 +19,7 @@ public class BookManagement implements IBookManagement{
 	public BookManagement() {
 
 	}
-
+/*
 	public void addBook(Libro book) {
 		if (!this.libreria.contains(book)) {
 			this.libreria.add(book);
@@ -31,7 +31,7 @@ public class BookManagement implements IBookManagement{
 			});
 		}
 	}
-	
+	*//*
 	public void modifyBook (String title, String author, String[] fields) throws MissingBookException {
 		final Libro book = searchBook(title, author);
 		for (int i=0; i<fields.length; i++) {
@@ -49,7 +49,7 @@ public class BookManagement implements IBookManagement{
 			}
 		}
 		
-	}
+	}*/
 
 	public void sellBook(Libro book) throws MissingBookException {
 		if (this.libreria.contains(book)) {
@@ -65,7 +65,7 @@ public class BookManagement implements IBookManagement{
 		}
 		
 	}
-	
+/*	
 	public Libro searchBook (String title, String author) throws MissingBookException {
 		for (Libro b:this.libreria) {
 			if (b.getTitle().equals(title) && b.getAuthor().equals(author)) {
@@ -73,7 +73,7 @@ public class BookManagement implements IBookManagement{
 			}
 		}
 		throw new MissingBookException();	
-	}
+	}*/
 	
 
 	@Override
@@ -105,18 +105,9 @@ public class BookManagement implements IBookManagement{
 		
 		return books;
 	}
-	
+	/*
 	public Set <Libro> bookList () {
 		return new HashSet<Libro>(libreria);		
-	}
+	}*/
 	
-	public void evasioneOrdini() {
-		for (Libro b:this.ordini) {
-			System.out.println ("evasione");
-			addBook(b);
-		}
-		System.out.println ("clear "+ordini.size());
-		this.ordini.clear();
-		System.out.println ("clear "+ordini.size());
-	}
 }

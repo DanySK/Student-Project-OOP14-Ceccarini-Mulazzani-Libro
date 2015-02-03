@@ -5,15 +5,15 @@ import java.util.Set;
 
 import exceptions.MissingBookException;
 
-public class Ordini extends BookManagement implements IOrdini {
+public class Ordini extends BasicOperations implements IOrdini {
 	
-	private HashSet <Libro> ordini = new HashSet <>(); 
-	private IBookManagement lista = new BookManagement ();
+//	private HashSet <Libro> ordini = new HashSet <>(); 
+//	private IBookManagement lista = new BookManagement ();
 	
 	public Ordini () {
 		
 	}
-
+/*
 	@Override
 	public void addBook(Libro book) {
 		super.addBook(book);
@@ -37,15 +37,15 @@ public class Ordini extends BookManagement implements IOrdini {
 	public Set<Libro> bookList() {
 		return super.bookList();
 	}
-
+*/
 	public void evasioneOrdini() {
-		for (Libro b:this.ordini) {
+		for (Libro b: super.bookList()) {
 			System.out.println ("evasione");
-			lista.addBook(b);
+		//	lista.addBook(b);
 		}
-		System.out.println ("clear "+ordini.size());
-		this.ordini.clear();
-		System.out.println ("clear "+ordini.size());
+	
+		super.libreria.clear();
+		
 	}
 
 }
