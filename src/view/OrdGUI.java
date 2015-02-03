@@ -10,6 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
+import controller.BookController;
 import utilities.GUIUtilities;
 /**
  * 
@@ -23,7 +24,7 @@ public class OrdGUI {
 	private final String[] names = {"Aggiungi un ordine", "Rimuovi un ordine", "Modifica un ordine", "Ricerca un ordine", "Lista degli Ordini"};
 	private final JPanel main = new JPanel();
 	
-	public OrdGUI(){
+	public OrdGUI(BookController controller){
 		
 		
 		main.setLayout(new BorderLayout());

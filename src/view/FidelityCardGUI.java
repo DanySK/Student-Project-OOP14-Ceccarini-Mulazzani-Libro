@@ -10,6 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
+import controller.BookController;
 import utilities.GUIUtilities;
 /**
  * 
@@ -24,7 +25,7 @@ public class FidelityCardGUI {
 	private final JPanel main = new JPanel();
 	
 	
-	public FidelityCardGUI(){
+	public FidelityCardGUI(BookController controller){
 		
 		main.setLayout(new BorderLayout());
 		

@@ -14,6 +14,8 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JPanel;
+
+import controller.BookController;
 /**
  * 
  * @author Alberto Mulazzani
@@ -27,6 +29,7 @@ public class Main implements ActionListener {
     private final JButton fatturato = new JButton("Fatturato e guadagni");
     private final JButton cartasoci = new JButton("Carta Soci");
     private final JButton statistiche = new JButton("Statistiche");
+    private final BookController controller = new BookController();
     
     public JPanel createCardHolderPanel() {
         cardHolder = new JPanel(new CardLayout());
@@ -42,26 +45,26 @@ public class Main implements ActionListener {
    
     private JPanel createEconomyPanel( ) {
 
-    	return new	EconomyGUI().getPane();
+    	return new	EconomyGUI(controller).getPane();
     }
     
     private JPanel createStatisticPanel(){
-    	return new StatisticGUI().getPane();
+    	return new StatisticGUI(controller).getPane();
     }
 
     private JPanel createWareHousePanel() {
 
-    	return new MagazGUI().getPane();
+    	return new MagazGUI(controller).getPane();
     }
     
     private JPanel createOrderPanel( ) {
 
-    	return new OrdGUI().getPane();
+    	return new OrdGUI(controller).getPane();
     }
     
     private JPanel createFidelityPanel() {
     	
-    	return new FidelityCardGUI().getPane();
+    	return new FidelityCardGUI(controller).getPane();
     }
     
     

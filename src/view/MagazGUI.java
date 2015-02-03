@@ -6,12 +6,16 @@ import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
 import utilities.GUIUtilities;
+import controller.BookController;
 
 /**
  * 
@@ -26,8 +30,9 @@ public class MagazGUI {
 	private final String[] names = {"Aggiungi un libro", "Rimuovi un libro", "Modifica un libro", "Ricerca un libro", "Lista dei libri"};
 	private final JPanel jf = new JPanel();
 	
-	public MagazGUI(){	
-
+	public MagazGUI(BookController controller){	
+		
+	
 		jf.setLayout(new BorderLayout());
 	    final Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 	    final int x = (dim.width )/4;
@@ -56,6 +61,68 @@ public class MagazGUI {
 		
 		jf.add(comandi, BorderLayout.CENTER);
 		jf.add(main2, BorderLayout.SOUTH);
+		
+		
+		buttons[0].addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				JOptionPane.showOptionDialog(jf, new AddBookGUI().getPane() , "Aggiungi un libro", JOptionPane.DEFAULT_OPTION, 
+	                     JOptionPane.INFORMATION_MESSAGE, null, GUIUtilities.string, null);
+			
+			}
+		});
+		
+		buttons[1].addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				JOptionPane.showOptionDialog(jf, new ListTableGUI(controller).getPane() , "Vendi un libro", JOptionPane.DEFAULT_OPTION, 
+	                     JOptionPane.INFORMATION_MESSAGE, null, GUIUtilities.string, null);
+			
+			}
+		});
+		
+		buttons[2].addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+
+				JOptionPane.showOptionDialog(jf, new SearchBookGUI(controller).getPane() , "Modifica un libro", JOptionPane.DEFAULT_OPTION, 
+	                     JOptionPane.INFORMATION_MESSAGE, null, GUIUtilities.string, null);
+			
+			}
+		});
+		
+		
+		
+		buttons[3].addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+
+				JOptionPane.showOptionDialog(jf, new SearchBookGUI(controller).getPane() , "Cerca un libro", JOptionPane.DEFAULT_OPTION, 
+	                     JOptionPane.INFORMATION_MESSAGE, null, GUIUtilities.string, null);
+			
+			}
+		});
+		
+		buttons[4].addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+
+				JOptionPane.showOptionDialog(jf, new SearchBookGUI(controller).getPane() , "Lista dei libri", JOptionPane.DEFAULT_OPTION, 
+	                     JOptionPane.INFORMATION_MESSAGE, null, GUIUtilities.string, null);
+			
+			}
+		});
 		
 	}
 	

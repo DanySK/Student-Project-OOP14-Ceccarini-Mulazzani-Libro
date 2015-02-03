@@ -11,6 +11,7 @@ import javax.swing.JButton;
  */
 public class GUIUtilities {
 
+	public final static String[] string = {"Annulla"};
 	
 	
 	public static GridBagConstraints getConstr(){
@@ -29,8 +30,7 @@ public class GUIUtilities {
 		
 	}
 	
-	
-	
+
 	
 	
 	

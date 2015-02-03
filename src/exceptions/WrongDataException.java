@@ -1,5 +1,5 @@
 package exceptions;
 
-public class WrongDataException {
+public class WrongDataException extends Throwable {
 
 }

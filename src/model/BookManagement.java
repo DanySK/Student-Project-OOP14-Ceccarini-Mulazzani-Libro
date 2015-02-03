@@ -106,6 +106,10 @@ public class BookManagement implements IBookManagement{
 	}
 	
 	public Set <Libro> bookList () {
+<<<<<<< local
+		return new HashSet<Libro>(libreria);		
+=======
 		return this.libreria;		
+>>>>>>> other
 	}
 }

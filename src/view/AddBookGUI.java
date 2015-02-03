@@ -20,7 +20,6 @@ public class AddBookGUI {
 	private final JTextField[] fields = new JTextField[7];
 	private final JButton add = new JButton("Conferma");
 	private final JButton reset = new JButton("Reset");
-	private final JButton annulla = new JButton("Annulla");
 	private final JPanel main = new JPanel();
 	private final String[] names = {"Titolo", "Autore", "Anno di pubblicazione", "Editore", "ISBN", "Prezzo", "Quantità" };
 	
@@ -31,7 +30,6 @@ public class AddBookGUI {
 		final JPanel bot = new JPanel(new FlowLayout());
 		bot.add(reset);
 		bot.add(add);
-		bot.add(annulla);
 		main.add(bot, BorderLayout.SOUTH);
 				
 		
