@@ -29,7 +29,7 @@ public class Libro {
 			this.copy = copy;
 		}
 	}
-	
+
 	public String getTitle () {
 		return this.title;
 	}
