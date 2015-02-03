@@ -22,6 +22,16 @@ public class Libro {
 			this.sold = 0;
 			for (int i=0; i<fields.length; i++) {
 					switch (i) {
+<<<<<<< local
+						case 0: this.title = fields [i];
+						case 1: this.author = fields [i];
+						case 2: this.year = Integer.parseInt(fields[i]);
+						case 3: this.editor = fields [i];
+						case 4: this.isbn = fields [i];
+						case 5: this.price = Double.parseDouble(fields[i]);
+						case 6: this.copy = Integer.parseInt(fields[i]);
+					}
+=======
 						case 0: this.title = fields[i]; break;
 						case 1: this.author = fields[i]; break;
 						case 2: this.year = Integer.parseInt(fields[i]); break;
@@ -31,6 +41,7 @@ public class Libro {
 						case 6: this.copy = Integer.parseInt(fields[i]); break;
 						
 					}									
+>>>>>>> other
 			}
 		}
 	}
