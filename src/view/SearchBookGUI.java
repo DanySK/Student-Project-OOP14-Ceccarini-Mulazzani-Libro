@@ -8,6 +8,8 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import controller.BookController;
 /**
  * 
  * @author Alberto Mulazzani
@@ -22,7 +24,7 @@ public class SearchBookGUI {
 	private JLabel[] labels = new JLabel[2];
 	private String[] names = {"Nome", "Autore"};
 	
-	public SearchBookGUI(){
+	public SearchBookGUI(BookController controller){
 		
 		
 		main.setLayout(new GridBagLayout());

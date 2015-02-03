@@ -106,6 +106,6 @@ public class BookManagement implements IBookManagement{
 	}
 	
 	public Set <Libro> bookList () {
-		return libreria;		
+		return new HashSet<Libro>(libreria);		
 	}
 }
