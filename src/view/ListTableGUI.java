@@ -1,6 +1,8 @@
 package view;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.util.HashSet;
@@ -16,7 +18,7 @@ import utilities.GUIUtilities;
 
 public class ListTableGUI {
 
-	private JLabel[] list = new JLabel[2];
+	private JLabel[] list = new JLabel[50];
 	private JPanel main = new JPanel();
 	private Set<Libro> set;
 	private Set<String> set2 = new HashSet<String>();
@@ -47,15 +49,20 @@ public class ListTableGUI {
 			list[i] = new JLabel();
 		}
 		
-		list[0].setText("Banana");
-		list[1].setText("Scimmia");
-		top.add(list[0], c);
-		top.add(list[1], c);
+		for (int i = 0; i < list.length - 1; i+=2){
+		list[i].setText("Banana");
+		list[i+1].setText("Scimmia");
+		top.add(list[i], c);
+		top.add(list[i+1], c);
 		c.gridy++;
+		}
 		
-		final JScrollPane extPane = new JScrollPane();
+		JPanel mid = new JPanel(new FlowLayout());
+		mid.add(top);
 		
-		extPane.add(top);
+		final JScrollPane extPane = new JScrollPane(top);
+		extPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		extPane.setPreferredSize(main.getSize());
 		
 		main.add(extPane);
 		
