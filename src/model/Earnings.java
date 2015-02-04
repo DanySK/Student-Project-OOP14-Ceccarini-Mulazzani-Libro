@@ -38,12 +38,12 @@ public class Earnings {
 	public double totSpent() {
 		double tot = 0;
 		for (Libro b:library) {
-			tot += (b.getNCopy()+b.getNSales())*b.getPrice();
+			tot += (b.getNCopy()+b.getNSales())*b.getPrice()*(70/100);
 		}
 		return tot;
 	}
 	
 	public double totEarnings () {
-		return totSpent()-totSell();
+		return totSell()-totSpent();
 	}
 }
