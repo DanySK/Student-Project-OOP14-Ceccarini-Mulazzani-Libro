@@ -7,12 +7,13 @@ import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import utilities.ControllerUtilities.TipoController;
@@ -43,7 +44,8 @@ public class Main implements ActionListener {
         
         return cardHolder;
     }
-   
+    
+    
     private JPanel createEconomyPanel( ) {
 
     	return new	EconomyGUI(controller).getPane();
@@ -60,6 +62,7 @@ public class Main implements ActionListener {
     }
     
     private JPanel createOrderPanel( ) {
+    	
     	controller.setType(TipoController.ORDINI);
     	return new OrdGUI(controller, TipoController.ORDINI).getPane();
     }
@@ -68,8 +71,7 @@ public class Main implements ActionListener {
     	
     	return new FidelityCardGUI(controller).getPane();
     }
-    
-    
+     
 
     public JPanel createButtonPanel() {
         final JPanel buttonPanel = new JPanel(new GridLayout(5, 0, 5, 5));
@@ -94,7 +96,7 @@ public class Main implements ActionListener {
         panel.add(createCardHolderPanel(), BorderLayout.CENTER);
         return panel;
     }
-
+/*
     public JMenuBar createMenuBar() {
     	final JMenuBar menuBar = new JMenuBar();
         final JMenu file = new JMenu("File");
@@ -106,7 +108,7 @@ public class Main implements ActionListener {
         menuBar.add(options);
         menuBar.add(help);
         return menuBar;
-    }
+    }*/
 
     @Override
     public void actionPerformed(final ActionEvent e) {
@@ -130,8 +132,29 @@ public class Main implements ActionListener {
 
     public static void createAndShowGUI() {
         final JFrame frame = new JFrame("Libro di Chiara Ceccarini e Alberto Mulazzani");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
- //       frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+
+        frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        
+        frame.addWindowListener(new WindowAdapter() {
+
+        	  @Override
+        	  public void windowClosing(WindowEvent we)
+        	  { 
+        	    String ObjButtons[] = {"Sì","No"};
+        	    int PromptResult = JOptionPane.showOptionDialog(null, 
+        	        "Sei sicuro di voler uscire senza salvare?", "Sei proprio sicuro?", 
+        	        JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, 
+        	        ObjButtons,ObjButtons[1]);
+        	    if(PromptResult==0)
+        	    {
+        	      System.exit(0);          
+        	    }
+        	  }
+        	});
+
+        
+        
+        
         frame.setResizable(false);
         final Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 	    final int x = (dim.width )/3;
@@ -139,7 +162,6 @@ public class Main implements ActionListener {
 	    frame.setPreferredSize(new Dimension(x, y));
 	    frame.setLocation(x, y);
         final Main main = new Main();
-     //   frame.setJMenuBar(main.createMenuBar());
         frame.add(main.createContentPane());
         frame.pack();
         frame.setVisible(true);
