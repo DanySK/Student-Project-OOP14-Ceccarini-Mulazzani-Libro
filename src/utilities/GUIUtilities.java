@@ -4,10 +4,9 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.JButton;
-
-import controller.BookController;
 /**
  * 
  * @author Alberto Mulazzani
@@ -33,7 +32,12 @@ public class GUIUtilities {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				SaveClass.saveAll();
+				try {
+					SaveClass.saveAll();
+				} catch (IOException e1) {
+
+					e1.printStackTrace();
+				}
 				System.exit(0);
 			}
 		});

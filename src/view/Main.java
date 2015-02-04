@@ -13,11 +13,17 @@ import java.awt.event.WindowEvent;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 import utilities.ControllerUtilities.TipoController;
 import controller.BookController;
+import controller.EarningsController;
+import controller.StatisticsController;
 /**
  * 
  * @author Alberto Mulazzani
@@ -32,6 +38,8 @@ public class Main implements ActionListener {
     private final JButton cartasoci = new JButton("Carta Soci");
     private final JButton statistiche = new JButton("Statistiche");
     private final BookController controller = new BookController();
+    private final EarningsController earcontroller = new EarningsController();
+    private final StatisticsController statcontroller = new StatisticsController();
     
     public JPanel createCardHolderPanel() {
         cardHolder = new JPanel(new CardLayout());
@@ -48,11 +56,12 @@ public class Main implements ActionListener {
     
     private JPanel createEconomyPanel( ) {
 
-    	return new	EconomyGUI(controller).getPane();
+    	return new	EconomyGUI(controller, earcontroller).getPane();
     }
     
     private JPanel createStatisticPanel(){
-    	return new StatisticGUI(controller).getPane();
+    	
+    	return new StatisticGUI(controller, statcontroller).getPane();
     }
 
     private JPanel createWareHousePanel() {
@@ -96,19 +105,15 @@ public class Main implements ActionListener {
         panel.add(createCardHolderPanel(), BorderLayout.CENTER);
         return panel;
     }
-/*
+
     public JMenuBar createMenuBar() {
     	final JMenuBar menuBar = new JMenuBar();
-        final JMenu file = new JMenu("File");
-        final JMenu users = new JMenu("Users");
-        final JMenu options = new JMenu("Options");
+        //final JMenu file = new JMenu("File");
         final JMenu help = new JMenu("Help");
-        menuBar.add(file);
-        menuBar.add(users);
-        menuBar.add(options);
+        menuBar.add( new FileTabMenuGUI());
         menuBar.add(help);
         return menuBar;
-    }*/
+    }
 
     @Override
     public void actionPerformed(final ActionEvent e) {
@@ -134,7 +139,12 @@ public class Main implements ActionListener {
 
     public static void createAndShowGUI() {
         final JFrame frame = new JFrame("Libro di Chiara Ceccarini e Alberto Mulazzani");
-
+        try {
+			UIManager.setLookAndFeel(new javax.swing.plaf.nimbus.NimbusLookAndFeel());
+		} catch (UnsupportedLookAndFeelException e) {
+			
+			e.printStackTrace();
+		}
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         
         frame.addWindowListener(new WindowAdapter() {
@@ -152,21 +162,21 @@ public class Main implements ActionListener {
         	      System.exit(0);          
         	    }
         	  }
-        	});
-
-        
-        
+        	});    
         
         frame.setResizable(false);
         final Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 	    final int x = (dim.width )/3;
-	    final int y = (dim.height + dim.height/5)/3;
+	    final int y = (dim.height + dim.height/4)/3;
 	    frame.setPreferredSize(new Dimension(x, y));
 	    frame.setLocation(x, y);
         final Main main = new Main();
+        frame.setJMenuBar(main.createMenuBar());
         frame.add(main.createContentPane());
         frame.pack();
         frame.setVisible(true);
     }
+    
+    
 
 }

@@ -30,4 +30,6 @@ public class EarningsController implements IEarnings{
 	public double totEarnings () {
 		return earnings.totSell() - earnings.totSpent();
 	}
+	
+	
 }

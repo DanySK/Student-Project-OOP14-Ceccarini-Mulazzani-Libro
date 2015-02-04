@@ -1,11 +1,15 @@
 package controller;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.Calendar;
 import java.util.Set;
 
 import javax.swing.JTextField;
 
 import utilities.ControllerUtilities.TipoController;
+import utilities.SaveClass;
 import exceptions.MissingBookException;
 import exceptions.MissingDataException;
 import exceptions.WrongDataException;
@@ -24,7 +28,12 @@ public class BookController {
 	private String[] toSearch = new String[2];
 	private TipoController type = TipoController.MAGAZZINO;
 	
-	public BookController(){
+	public BookController() {
+
+		
+	}
+	
+	public BookController(Object maga, Object ord){
 		
 	}
 	
@@ -57,9 +66,11 @@ public class BookController {
 		if (type.equals(TipoController.MAGAZZINO)){
 			System.out.println("Magaz");
 			magazzino.addBook(book);
+			toSave();
 		} else {
 			System.out.println("Ordz");
 			ordini.addBook(book);
+			toSave();
 		}
 	}
 	
@@ -67,8 +78,10 @@ public class BookController {
 	public void modifyBook() throws MissingBookException{	
 		if (type.equals(TipoController.MAGAZZINO)) {
 			magazzino.modifyBook(toSearch[0], toSearch[1], strings);
+			toSave();
 		} else {
 			ordini.modifyBook(toSearch[0], toSearch[1], strings);
+			toSave();
 		}
 		
 	}
@@ -81,6 +94,7 @@ public class BookController {
 	
 	public void sellBook() throws MissingBookException{
 		magazzino.sellBook(book);
+		toSave();
 	}
 	
 	
@@ -112,13 +126,16 @@ public class BookController {
 	
 	public void remove () {
 		ordini.remove(book);
+		toSave();
 	}
 	
 	public void evasioneOrdini () {
 		for (Libro b:ordini.bookList()) {
 			magazzino.addBook(b);
+			SaveClass.setLib(magazzino);
 		}
 		ordini.evasioneOrdini();
+		toSave();
 	}
 	
 	private void checkData(JTextField[] fields) throws MissingDataException, WrongDataException{
@@ -137,5 +154,12 @@ public class BookController {
 		
 	}
 	
+	private void toSave(){
+		if (type.equals(TipoController.MAGAZZINO)){
+			SaveClass.setLib(magazzino);
+		}else{
+			SaveClass.setOrd(ordini);
+		}
+	}
 
 }

@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
 import controller.BookController;
+import controller.StatisticsController;
 import utilities.GUIUtilities;
 /**
  * 
@@ -24,7 +25,7 @@ public class StatisticGUI {
 	private final JPanel main = new JPanel();
 
 	
-	public StatisticGUI(BookController controller){
+	public StatisticGUI(BookController controller, StatisticsController statcontroller){
 		
 		main.setLayout(new BorderLayout());
 	    

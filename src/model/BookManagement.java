@@ -1,5 +1,6 @@
 package model;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -11,8 +12,12 @@ import exceptions.MissingBookException;
  *
  */
 
-public class BookManagement extends BasicOperations implements IBookManagement {
+public class BookManagement extends BasicOperations implements IBookManagement, Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2040899298874774142L;
 	private HashSet <Libro> libreria = new HashSet <>();
 
 	public BookManagement() {
