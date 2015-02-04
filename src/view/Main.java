@@ -167,7 +167,7 @@ public class Main implements ActionListener {
         frame.setResizable(false);
         final Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 	    final int x = (dim.width )/3;
-	    final int y = (dim.height + dim.height/4)/3;
+	    final int y = (dim.height + dim.height/2)/3;
 	    frame.setPreferredSize(new Dimension(x, y));
 	    frame.setLocation(x, y);
         final Main main = new Main();
