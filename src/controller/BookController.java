@@ -19,7 +19,7 @@ public class BookController {
 	
 	private String[] strings;
 	private Libro book;
-	private IBookManagement model = new BookManagement();
+	private IBookManagement magazzino = new BookManagement();
 	private IOrdini ordini = new Ordini();
 	private String[] toSearch = new String[2];
 	private TipoController type;
@@ -29,87 +29,97 @@ public class BookController {
 	}
 	
 	public void setType(TipoController type){
-		
 		this.type = type;
-		
 	}
 	
 	
-	public void setFields(JTextField[] fields) throws MissingDataException, WrongDataException{
-		
+	public void setFields(JTextField[] fields) throws MissingDataException, WrongDataException{	
 		checkData(fields);
 		strings = new String[fields.length];
 		
 		for (int i = 0; i < fields.length; i++){
-			
 			strings[i] = fields[i].getText();
 		}
 		setLibro(strings);	
 	}
 	
 	private String toSearch(JTextField field){
-		
 		return field.getText();
-		
 	}
 	
 	
 	private void setLibro(String[] strings){
-
 		this.book = new Libro(strings);	
 	}
 	
 	
 	public void addBook(){
 		if (type.equals(TipoController.MAGAZZINO)){
-			model.addBook(book);
+			magazzino.addBook(book);
+		} else {
+			ordini.addBook(book);
 		}
 	}
 	
 	
-	public void modifyBook() throws MissingBookException{
-		
-		model.modifyBook(toSearch[0], toSearch[1], strings);
+	public void modifyBook() throws MissingBookException{	
+		if (type.equals(TipoController.MAGAZZINO)) {
+			magazzino.modifyBook(toSearch[0], toSearch[1], strings);
+		} else {
+			ordini.modifyBook(toSearch[0], toSearch[1], strings);
+		}
 		
 	}
 	
-	public void toSearch(JTextField[] fields){
-		
+	public void toSearch(JTextField[] fields){	
 		for (int i = 0; i < fields.length; i++){
 			toSearch[i] = fields[i].getText();
 		}
 	}
 	
 	public void sellBook() throws MissingBookException{
-		
-		model.sellBook(book);
+		magazzino.sellBook(book);
 	}
 	
 	
 	public Set<Libro> searchTitle(JTextField field) throws MissingBookException{
-		
-		
-		return model.searchBookTitle(toSearch(field));
-		
+		return magazzino.searchBookTitle(toSearch(field));
 	}
 	
 	public Set<Libro> searchAuthor(JTextField field) throws MissingBookException {
-		
-		return model.searchBookAuthor(toSearch(field));
+		return magazzino.searchBookAuthor(toSearch(field));
 	}
 	
 	public Libro searchBook(JTextField[] fields) throws MissingBookException{
+		if (type.equals(TipoController.MAGAZZINO)) {
+			return magazzino.searchBook(fields[0].getText(), fields[1].getText());
+		} else {
+			return ordini.searchBook(fields[0].getText(), fields[1].getText());
+		}
 		
-		return model.searchBook(fields[0].getText(), fields[1].getText());
 	}
 	
 	public Set<Libro> bookList(){
+		if (type.equals(TipoController.MAGAZZINO)) {
+			return magazzino.bookList();
+		} else {
+			return ordini.bookList();
+		}
 		
-		return model.bookList();
+	}
+	
+	public void remove () {
+		ordini.remove(book);
+	}
+	
+	public void evasioneOrdini () {
+		for (Libro b:ordini.bookList()) {
+			magazzino.addBook(b);
+		}
+		ordini.evasioneOrdini();
 	}
 	
 	private void checkData(JTextField[] fields) throws MissingDataException, WrongDataException{
-		
 		for (int i = 0; i < fields.length; i++){
 			if (fields[i].getText().length() == 0){
 				throw new MissingDataException();

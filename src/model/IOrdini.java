@@ -2,7 +2,7 @@ package model;
 
 public interface IOrdini extends IBasicOp{
 	
-	void remove (Ordini o);
+	void remove (Libro book);
 	
 	void evasioneOrdini ();
 

@@ -6,8 +6,8 @@ public class Ordini extends BasicOperations implements IOrdini {
 		
 	}
 	
-	public void remove (Ordini o) {
-		super.libreria.remove(o);
+	public void remove (Libro book) {
+		super.libreria.remove(book);
 	}
 
 	public void evasioneOrdini() {
