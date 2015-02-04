@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import utilities.ControllerUtilities.TipoController;
 import controller.BookController;
 /**
  * 
@@ -24,7 +25,7 @@ public class SearchBookGUI {
 	private JLabel[] labels = new JLabel[2];
 	private String[] names = {"Nome", "Autore"};
 	
-	public SearchBookGUI(BookController controller){
+	public SearchBookGUI(BookController controller, TipoController type){
 		
 		
 		main.setLayout(new GridBagLayout());

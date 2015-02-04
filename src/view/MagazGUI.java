@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
+import utilities.ControllerUtilities.TipoController;
 import utilities.GUIUtilities;
 import controller.BookController;
 
@@ -27,10 +28,10 @@ import controller.BookController;
 public class MagazGUI {
 
 	private final JButton[] buttons = new JButton[5];
-	private final String[] names = {"Aggiungi un libro", "Rimuovi un libro", "Modifica un libro", "Ricerca un libro", "Lista dei libri"};
+	private final String[] names = {"Aggiungi un libro", "Vendi un libro", "Modifica un libro", "Ricerca un libro", "Lista dei libri"};
 	private final JPanel jf = new JPanel();
 	
-	public MagazGUI(BookController controller){	
+	public MagazGUI(BookController controller, TipoController type){	
 		
 	
 		jf.setLayout(new BorderLayout());
@@ -69,7 +70,7 @@ public class MagazGUI {
 			public void actionPerformed(ActionEvent e) {
 				
 				
-				JOptionPane.showOptionDialog(jf, new AddBookGUI().getPane() , "Aggiungi un libro", JOptionPane.DEFAULT_OPTION, 
+				JOptionPane.showOptionDialog(jf, new AddBookGUI(controller, type).getPane() , "Aggiungi un libro", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, null, GUIUtilities.string, null);
 			
 			}
@@ -80,7 +81,7 @@ public class MagazGUI {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				JOptionPane.showOptionDialog(jf, new ListTableGUI(controller).getPane() , "Vendi un libro", JOptionPane.DEFAULT_OPTION, 
+				JOptionPane.showOptionDialog(jf, new SearchBookGUI(controller, type).getPane() , "Vendi un libro", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, null, GUIUtilities.string, null);
 			
 			}
@@ -92,7 +93,7 @@ public class MagazGUI {
 			public void actionPerformed(ActionEvent e) {
 				
 
-				JOptionPane.showOptionDialog(jf, new SearchBookGUI(controller).getPane() , "Modifica un libro", JOptionPane.DEFAULT_OPTION, 
+				JOptionPane.showOptionDialog(jf, new SearchBookGUI(controller, type).getPane() , "Modifica un libro", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, null, GUIUtilities.string, null);
 			
 			}
@@ -106,7 +107,7 @@ public class MagazGUI {
 			public void actionPerformed(ActionEvent e) {
 				
 
-				JOptionPane.showOptionDialog(jf, new SearchBookGUI(controller).getPane() , "Cerca un libro", JOptionPane.DEFAULT_OPTION, 
+				JOptionPane.showOptionDialog(jf, new SearchBookGUI(controller, type).getPane() , "Cerca un libro", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, null, GUIUtilities.string, null);
 			
 			}
@@ -118,7 +119,7 @@ public class MagazGUI {
 			public void actionPerformed(ActionEvent e) {
 				
 
-				JOptionPane.showOptionDialog(jf, new SearchBookGUI(controller).getPane() , "Lista dei libri", JOptionPane.DEFAULT_OPTION, 
+				JOptionPane.showOptionDialog(jf, new ListTableGUI(controller, type).getPane() , "Lista dei libri", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, null, GUIUtilities.string, null);
 			
 			}
