@@ -33,7 +33,8 @@ public class ListTableGUI {
 		top.add(new JLabel("Titolo"), c);
 		top.add(new JLabel("Autore"), c);
 		c.gridy++;
-
+		
+		
 		set = controller.bookList();
 		
 		list = new JLabel[set.size() * 2];
@@ -41,6 +42,7 @@ public class ListTableGUI {
 		for (int i = 0; i < list.length; i++){
 			list[i] = new JLabel();
 		}
+		
 		
 		System.out.println(set.size());
 		int i = 0;

@@ -33,7 +33,7 @@ public class GUIUtilities {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				BookController.saveAll();
+				SaveClass.saveAll();
 				System.exit(0);
 			}
 		});
