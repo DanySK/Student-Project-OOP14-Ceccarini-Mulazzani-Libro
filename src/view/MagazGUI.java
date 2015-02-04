@@ -9,7 +9,6 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -69,7 +68,7 @@ public class MagazGUI {
 		jf.add(comandi, BorderLayout.CENTER);
 		jf.add(main2, BorderLayout.SOUTH);
 		
-		ImageIcon icon = createImageIcon("/iconBook.png");
+	
 		
 		buttons[0].addActionListener(new ActionListener() {
 			
@@ -78,7 +77,7 @@ public class MagazGUI {
 				
 				
 				JOptionPane.showOptionDialog(jf, new AddBookGUI(controller, type).getPane() , "Aggiungi un libro", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, icon, GUIUtilities.string, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
 			
 			}
 		});
@@ -89,7 +88,7 @@ public class MagazGUI {
 			public void actionPerformed(ActionEvent e) {
 
 				JOptionPane.showOptionDialog(jf, new SearchBookGUI(controller, type).getPane() , "Vendi un libro", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, null, GUIUtilities.string, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
 			
 			}
 		});
@@ -138,16 +137,5 @@ public class MagazGUI {
 	
 	public JPanel getPane(){
 		return this.jf;
-	}
-	
-	
-	private static ImageIcon createImageIcon(String path) {
-		java.net.URL imgURL = MagazGUI.class.getResource(path);
-		if (imgURL != null) {
-			return new ImageIcon(imgURL);
-		} else {
-			System.err.println("Couldn't find image file: " + path);
-			return null;
-		}
 	}
 }

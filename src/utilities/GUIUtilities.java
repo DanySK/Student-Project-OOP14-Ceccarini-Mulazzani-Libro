@@ -6,7 +6,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+
+import view.MagazGUI;
 /**
  * 
  * @author Alberto Mulazzani
@@ -15,7 +18,6 @@ import javax.swing.JButton;
 public class GUIUtilities {
 
 	public final static String[] string = {"Annulla"};
-	
 	
 	public static GridBagConstraints getConstr(){
 		GridBagConstraints c = new GridBagConstraints();
@@ -45,8 +47,16 @@ public class GUIUtilities {
 		
 	}
 	
-
+	public static ImageIcon icon = createImageIcon("/iconBook.png");
 	
-	
+	private static ImageIcon createImageIcon(String path) {
+		java.net.URL imgURL = MagazGUI.class.getResource(path);
+		if (imgURL != null) {
+			return new ImageIcon(imgURL);
+		} else {
+			System.err.println("Couldn't find image file: " + path);
+			return null;
+		}
+	}
 	
 }
