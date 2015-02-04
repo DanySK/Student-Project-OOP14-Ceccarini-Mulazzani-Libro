@@ -3,7 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Earnings {
+public class Earnings implements IEarnings{
 	private IBookManagement elenco = new BookManagement ();
 	private List <Libro> library = new ArrayList <>();  
 
