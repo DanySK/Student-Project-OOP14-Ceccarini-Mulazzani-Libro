@@ -10,6 +10,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import utilities.ControllerUtilities.TipoController;
+import controller.BookController;
+
 /**
  * 
  * @author Alberto Mulazzani
@@ -23,7 +26,7 @@ public class AddBookGUI {
 	private final JPanel main = new JPanel();
 	private final String[] names = {"Titolo", "Autore", "Anno di pubblicazione", "Editore", "ISBN", "Prezzo", "Quantità" };
 	
-	public AddBookGUI(){
+	public AddBookGUI(BookController controller, TipoController type){
 		
 		main.setLayout(new BorderLayout());
 		

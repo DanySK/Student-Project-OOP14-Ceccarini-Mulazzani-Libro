@@ -5,6 +5,7 @@ import java.util.Set;
 
 import javax.swing.JTextField;
 
+import utilities.ControllerUtilities.TipoController;
 import exceptions.MissingBookException;
 import exceptions.MissingDataException;
 import exceptions.WrongDataException;
@@ -21,14 +22,16 @@ public class BookController {
 	private IBookManagement model = new BookManagement();
 	private IOrdini ordini = new Ordini();
 	private String[] toSearch = new String[2];
+	private TipoController type;
 	
 	public BookController(){
 		
 	}
 	
-	public void banana(){
+	public void setType(TipoController type){
 		
-		System.out.println("banana");
+		this.type = type;
+		
 	}
 	
 	
@@ -58,8 +61,9 @@ public class BookController {
 	
 	
 	public void addBook(){
-		
-		model.addBook(book);
+		if (type.equals(TipoController.MAGAZZINO)){
+			model.addBook(book);
+		}
 	}
 	
 	
@@ -100,6 +104,7 @@ public class BookController {
 	}
 	
 	public Set<Libro> bookList(){
+		
 		return model.bookList();
 	}
 	
@@ -115,9 +120,7 @@ public class BookController {
 				Integer.parseInt(fields[2].getText()) <= 0 || Double.parseDouble(fields[5].getText()) < 0 ||
 				Integer.parseInt(fields[6].getText())< 0){
 			throw new WrongDataException();
-		}
-		
-		
+		}	
 		
 	}
 	

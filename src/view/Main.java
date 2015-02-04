@@ -15,6 +15,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 
+import utilities.ControllerUtilities.TipoController;
 import controller.BookController;
 /**
  * 
@@ -54,12 +55,13 @@ public class Main implements ActionListener {
 
     private JPanel createWareHousePanel() {
 
-    	return new MagazGUI(controller).getPane();
+    	controller.setType(TipoController.MAGAZZINO);
+    	return new MagazGUI(controller, TipoController.MAGAZZINO).getPane();
     }
     
     private JPanel createOrderPanel( ) {
-
-    	return new OrdGUI(controller).getPane();
+    	controller.setType(TipoController.ORDINI);
+    	return new OrdGUI(controller, TipoController.ORDINI).getPane();
     }
     
     private JPanel createFidelityPanel() {
