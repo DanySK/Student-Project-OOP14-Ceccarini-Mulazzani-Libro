@@ -57,7 +57,6 @@ public class BasicOperations implements IBasicOp{
 
 	@Override
 	public Set<Libro> bookList() {
-		// TODO Auto-generated method stub
 		return new HashSet<Libro>(libreria);	
 	}
 
