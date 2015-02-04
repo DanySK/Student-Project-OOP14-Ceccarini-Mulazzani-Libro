@@ -2,8 +2,12 @@ package utilities;
 
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+
+import controller.BookController;
 /**
  * 
  * @author Alberto Mulazzani
@@ -24,8 +28,15 @@ public class GUIUtilities {
 	}
 	
 	public static JButton getClosing(){
-		final JButton chiudi = new JButton("Chiudi");
-		chiudi.addActionListener(e->System.exit(0));	
+		final JButton chiudi = new JButton("Salva e Chiudi");
+		chiudi.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				BookController.saveAll();
+				System.exit(0);
+			}
+		});
 		return chiudi;	
 		
 	}

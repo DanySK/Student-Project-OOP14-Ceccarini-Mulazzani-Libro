@@ -13,8 +13,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import model.Libro;
-import utilities.GUIUtilities;
 import utilities.ControllerUtilities.TipoController;
+import utilities.GUIUtilities;
 import controller.BookController;
 
 public class ListTableGUI {
@@ -30,23 +30,30 @@ public class ListTableGUI {
 		final JPanel top = new JPanel(new GridBagLayout());
 		GridBagConstraints c = GUIUtilities.getConstr();
 
-		set = controller.bookList();
+		top.add(new JLabel("Titolo"), c);
+		top.add(new JLabel("Autore"), c);
+		c.gridy++;
 
-		list = new JLabel[set.size()];
+		set = controller.bookList();
+		
+		list = new JLabel[set.size() * 2];
 		
 		for (int i = 0; i < list.length; i++){
 			list[i] = new JLabel();
 		}
 		
-		for (int i = 0; i < list.length; i+=2){
-			Libro curr = set.iterator().next();
-			list[i].setText(curr.getTitle());
-			list[i+1].setText(curr.getAuthor());
-			top.add(list[i], c);
+		System.out.println(set.size());
+		int i = 0;
+		
+		for (Libro b : set){
+			list[i].setText(b.getTitle());
+			list[i+1].setText(b.getAuthor());
+			top.add(list[i], c );
 			top.add(list[i+1], c);
 			c.gridy++;
-			
+			i+=2;
 		}
+		
 		
 		JPanel mid = new JPanel(new FlowLayout());
 		mid.add(top);

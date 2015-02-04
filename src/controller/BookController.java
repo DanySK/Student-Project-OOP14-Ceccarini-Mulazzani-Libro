@@ -22,7 +22,7 @@ public class BookController {
 	private IBookManagement magazzino = new BookManagement();
 	private IOrdini ordini = new Ordini();
 	private String[] toSearch = new String[2];
-	private TipoController type;
+	private TipoController type = TipoController.MAGAZZINO;
 	
 	public BookController(){
 		
@@ -55,8 +55,10 @@ public class BookController {
 	
 	public void addBook(){
 		if (type.equals(TipoController.MAGAZZINO)){
+			System.out.println("Magaz");
 			magazzino.addBook(book);
 		} else {
+			System.out.println("Ordz");
 			ordini.addBook(book);
 		}
 	}
@@ -126,11 +128,17 @@ public class BookController {
 			}
 		}
 		
-		if (fields[4].getText().length() != 13 || Integer.parseInt(fields[2].getText()) > Calendar.YEAR ||
+		if (fields[4].getText().length() != 13 || Integer.parseInt(fields[2].getText()) > Calendar.getInstance().get(Calendar.YEAR) ||
 				Integer.parseInt(fields[2].getText()) <= 0 || Double.parseDouble(fields[5].getText()) < 0 ||
 				Integer.parseInt(fields[6].getText())< 0){
+			System.out.println(Calendar.YEAR);
 			throw new WrongDataException();
 		}	
+		
+	}
+	
+	
+	public static void saveAll(){
 		
 	}
 	

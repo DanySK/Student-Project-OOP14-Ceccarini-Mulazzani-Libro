@@ -57,13 +57,13 @@ public class Main implements ActionListener {
 
     private JPanel createWareHousePanel() {
 
-    	controller.setType(TipoController.MAGAZZINO);
+
     	return new MagazGUI(controller, TipoController.MAGAZZINO).getPane();
     }
     
     private JPanel createOrderPanel( ) {
     	
-    	controller.setType(TipoController.ORDINI);
+
     	return new OrdGUI(controller, TipoController.ORDINI).getPane();
     }
     
@@ -114,9 +114,11 @@ public class Main implements ActionListener {
     public void actionPerformed(final ActionEvent e) {
         final CardLayout cardLayout = (CardLayout) (cardHolder.getLayout());
         if (e.getSource() == magazzino) {
+        	controller.setType(TipoController.MAGAZZINO);
             cardLayout.show(cardHolder, "Magazzino");
         }
         if (e.getSource() == ordini) {
+        	controller.setType(TipoController.ORDINI);
             cardLayout.show(cardHolder, "Ordini");
         }
         if (e.getSource() == fatturato) {
