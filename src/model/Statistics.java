@@ -12,7 +12,7 @@ import utilities.Pair;
  *
  */
 
-public class Statistics {
+public class Statistics implements IStatistics{
 	
 	private IBookManagement elenco = new BookManagement ();
 	private List <Libro> library = new ArrayList <>();  
@@ -47,7 +47,7 @@ public class Statistics {
 		return lista;
 	}
 	
-	public List <Pair <String,Integer>> createList () {
+	private List <Pair <String,Integer>> createList () {
 		final List <Pair<String, Integer>> lista = new ArrayList <>();
 		boolean find = false;
 		int i = 0;
