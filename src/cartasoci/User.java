@@ -44,12 +44,5 @@ public class User {
 	public double getDiscounts(){
 		return this.carta.getDiscounts();
 	}
-	
-	
-	
-	
-	
-	
-	
 
 }
