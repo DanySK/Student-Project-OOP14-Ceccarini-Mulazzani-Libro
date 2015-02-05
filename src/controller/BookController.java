@@ -122,8 +122,8 @@ public class BookController {
 		
 	}
 	
-	public void remove () {
-		ordini.remove(book);
+	public void remove (Libro lib) {
+		ordini.remove(lib);
 		toSave();
 	}
 	

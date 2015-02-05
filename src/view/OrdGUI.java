@@ -71,7 +71,7 @@ public class OrdGUI {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				JOptionPane.showOptionDialog(main, new SearchBookGUI(controller).getPane() , "Vendi un libro", JOptionPane.DEFAULT_OPTION, 
+				JOptionPane.showOptionDialog(main, new RemoveOrderGUI(controller).getPane() , "Rimuovi un ordine", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, null, GUIUtilities.string, null);
 			
 			}
@@ -83,7 +83,7 @@ public class OrdGUI {
 			public void actionPerformed(ActionEvent e) {
 				
 
-				JOptionPane.showOptionDialog(main, new SearchBookGUI(controller).getPane() , "Modifica un libro", JOptionPane.DEFAULT_OPTION, 
+				JOptionPane.showOptionDialog(main, new SearchBookGUI(controller).getPane() , "Modifica un ordine", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, null, GUIUtilities.string, null);
 			
 			}
@@ -97,7 +97,7 @@ public class OrdGUI {
 			public void actionPerformed(ActionEvent e) {
 				
 
-				JOptionPane.showOptionDialog(main, new SearchBookGUI(controller).getPane() , "Cerca un libro", JOptionPane.DEFAULT_OPTION, 
+				JOptionPane.showOptionDialog(main, new SearchBookGUI(controller).getPane() , "Cerca un ordine", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, null, GUIUtilities.string, null);
 			
 			}
@@ -109,7 +109,7 @@ public class OrdGUI {
 			public void actionPerformed(ActionEvent e) {
 				
 
-				JOptionPane.showOptionDialog(main, new ListTableGUI(controller.bookList()).getPane() , "Lista dei libri", JOptionPane.DEFAULT_OPTION, 
+				JOptionPane.showOptionDialog(main, new ListTableGUI(controller.bookList()).getPane() , "Lista degli ordini", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, null, GUIUtilities.string, null);
 			
 			}
