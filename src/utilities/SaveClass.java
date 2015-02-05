@@ -48,13 +48,13 @@ public class SaveClass {
 	
 	public static void saveAll() throws IOException{
 		
-		FileOutputStream stream = new FileOutputStream("res/data.bin");
+	/*	FileOutputStream stream = new FileOutputStream("res/data.bin");
 		ObjectOutputStream oos = new ObjectOutputStream(stream);
 		//System.out.println(library);
 		oos.writeObject(library);
 		oos.writeObject(orders);
 //		oos.writeObject(cards);
-		oos.close();
+		oos.close();*/
 		
 	}
 }

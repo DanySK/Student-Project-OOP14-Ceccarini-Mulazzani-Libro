@@ -8,22 +8,24 @@ import java.awt.GridBagLayout;
 import java.awt.Toolkit;
 import java.util.Set;
 
+import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import model.Libro;
-import utilities.ControllerUtilities.TipoController;
 import utilities.GUIUtilities;
-import controller.BookController;
 
-public class ListTableGUI {
+public class ListTableGUI extends JDialog{
 
-	private JLabel[] list = new JLabel[50];
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8563544567918601056L;
+	private JLabel[] list;
 	private JPanel main = new JPanel();
-	private Set<Libro> set;
-	
-	public ListTableGUI(BookController controller, TipoController type){
+
+	public ListTableGUI(Set<Libro> set){
 		
 		main.setLayout(new BorderLayout());
 		
@@ -32,12 +34,10 @@ public class ListTableGUI {
 
 		top.add(new JLabel("Titolo"), c);
 		top.add(new JLabel("Autore"), c);
+		top.add(new JLabel("Quantità"), c);
 		c.gridy++;
 		
-		
-		set = controller.bookList();
-		
-		list = new JLabel[set.size() * 2];
+		list = new JLabel[set.size() * 3];
 		
 		for (int i = 0; i < list.length; i++){
 			list[i] = new JLabel();
@@ -50,10 +50,12 @@ public class ListTableGUI {
 		for (Libro b : set){
 			list[i].setText(b.getTitle());
 			list[i+1].setText(b.getAuthor());
+			list[i+2].setText("" + b.getNCopy());
 			top.add(list[i], c );
 			top.add(list[i+1], c);
+			top.add(list[i+2], c);
 			c.gridy++;
-			i+=2;
+			i+=3;
 		}
 		
 		

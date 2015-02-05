@@ -67,13 +67,13 @@ public class Main implements ActionListener {
     private JPanel createWareHousePanel() {
 
 
-    	return new MagazGUI(controller, TipoController.MAGAZZINO).getPane();
+    	return new MagazGUI(controller).getPane();
     }
     
     private JPanel createOrderPanel( ) {
     	
 
-    	return new OrdGUI(controller, TipoController.ORDINI).getPane();
+    	return new OrdGUI(controller).getPane();
     }
     
     private JPanel createFidelityPanel() {

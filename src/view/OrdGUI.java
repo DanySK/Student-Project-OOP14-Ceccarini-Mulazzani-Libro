@@ -12,7 +12,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
-import utilities.ControllerUtilities.TipoController;
 import utilities.GUIUtilities;
 import controller.BookController;
 /**
@@ -27,7 +26,7 @@ public class OrdGUI {
 	private final String[] names = {"Aggiungi un ordine", "Rimuovi un ordine", "Modifica un ordine", "Ricerca un ordine", "Lista degli Ordini", "Evadi gli ordini"};
 	private final JPanel main = new JPanel();
 	
-	public OrdGUI(BookController controller, TipoController type){
+	public OrdGUI(BookController controller){
 		
 		
 		main.setLayout(new BorderLayout());
@@ -61,7 +60,7 @@ public class OrdGUI {
 			public void actionPerformed(ActionEvent e) {
 				
 				
-				JOptionPane.showOptionDialog(main, new AddBookGUI(controller, type).getPane() , "Aggiungi un ordine", JOptionPane.DEFAULT_OPTION, 
+				JOptionPane.showOptionDialog(main, new AddBookGUI(controller).getPane() , "Aggiungi un ordine", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, null, GUIUtilities.string, null);
 			
 			}
@@ -72,7 +71,7 @@ public class OrdGUI {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				JOptionPane.showOptionDialog(main, new SearchBookGUI(controller, type).getPane() , "Vendi un libro", JOptionPane.DEFAULT_OPTION, 
+				JOptionPane.showOptionDialog(main, new SearchBookGUI(controller).getPane() , "Vendi un libro", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, null, GUIUtilities.string, null);
 			
 			}
@@ -84,7 +83,7 @@ public class OrdGUI {
 			public void actionPerformed(ActionEvent e) {
 				
 
-				JOptionPane.showOptionDialog(main, new SearchBookGUI(controller, type).getPane() , "Modifica un libro", JOptionPane.DEFAULT_OPTION, 
+				JOptionPane.showOptionDialog(main, new SearchBookGUI(controller).getPane() , "Modifica un libro", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, null, GUIUtilities.string, null);
 			
 			}
@@ -98,7 +97,7 @@ public class OrdGUI {
 			public void actionPerformed(ActionEvent e) {
 				
 
-				JOptionPane.showOptionDialog(main, new SearchBookGUI(controller, type).getPane() , "Cerca un libro", JOptionPane.DEFAULT_OPTION, 
+				JOptionPane.showOptionDialog(main, new SearchBookGUI(controller).getPane() , "Cerca un libro", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, null, GUIUtilities.string, null);
 			
 			}
@@ -110,7 +109,7 @@ public class OrdGUI {
 			public void actionPerformed(ActionEvent e) {
 				
 
-				JOptionPane.showOptionDialog(main, new ListTableGUI(controller, type).getPane() , "Lista dei libri", JOptionPane.DEFAULT_OPTION, 
+				JOptionPane.showOptionDialog(main, new ListTableGUI(controller.bookList()).getPane() , "Lista dei libri", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, null, GUIUtilities.string, null);
 			
 			}

@@ -90,8 +90,8 @@ public class BookController {
 		}
 	}
 	
-	public void sellBook(int nCopy) throws MissingBookException, NotEnoughBookException {
-		magazzino.sellBook(book, nCopy);
+	public void sellBook(Libro book , String nCopy) throws MissingBookException, NotEnoughBookException {
+		magazzino.sellBook(book,Integer.parseInt(nCopy));
 		toSave();
 	}
 	

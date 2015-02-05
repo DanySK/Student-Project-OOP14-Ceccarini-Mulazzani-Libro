@@ -11,6 +11,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 import view.MagazGUI;
 /**
@@ -50,6 +51,23 @@ public class GUIUtilities {
 		
 	}
 	
+	
+	public static JButton getReset(JTextField[] fields){
+		final JButton reset = new JButton("Reset");
+		
+		reset.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				for (int i = 0; i < fields.length; i++){
+					fields[i].setText("");
+				}
+			}
+		});
+		
+		return reset;
+	}
+	
 	public static ImageIcon icon = createImageIcon("/iconBook.png");
 	
 	private static ImageIcon createImageIcon(String path) {
@@ -67,5 +85,6 @@ public class GUIUtilities {
 		panel.add(component);
 		return panel;
 	}
+	
 	
 }
