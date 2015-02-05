@@ -102,12 +102,26 @@ public class Libro {
 	
 	public void removeCopy (int copy) {
 		this.copy-= copy;
+		this.sold += copy;
 	}
 	
 	public boolean checkData (String []fields) {
 		
 		return true;
 		
+	}
+	
+	public String[] getFields(){
+		String[] str = new String[8];
+		str[0] = this.title;
+		str[1] = this.author;
+		str[2] = "" + this.year;
+		str[3] = this.editor;
+		str[4] = this.isbn;
+		str[5] = "" + this.price;
+		str[6] = "" + this.copy;
+		str[7] = "" + this.sold;		
+		return str;
 	}
 
 }

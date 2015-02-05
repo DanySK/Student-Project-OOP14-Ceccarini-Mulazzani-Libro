@@ -7,7 +7,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JComponent;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -15,7 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
-import utilities.ControllerUtilities.TipoController;
+import utilities.GUIUtilities;
 import controller.BookController;
 import exceptions.MissingDataException;
 import exceptions.WrongDataException;
@@ -33,16 +32,15 @@ public class AddBookGUI extends JDialog{
 	private static final long serialVersionUID = 1L;
 	private final JTextField[] fields = new JTextField[7];
 	private final JButton add = new JButton("Conferma");
-	private final JButton reset = new JButton("Reset");
 	private final JPanel main = new JPanel();
 	private final String[] names = {"Titolo", "Autore", "Anno di pubblicazione", "Editore", "ISBN", "Prezzo", "Quantità" };
 	
-	public AddBookGUI(BookController controller, TipoController type){
+	public AddBookGUI(BookController controller){
 		
 		main.setLayout(new BorderLayout());
 		
 		final JPanel bot = new JPanel(new FlowLayout());
-		bot.add(reset);
+		bot.add(GUIUtilities.getReset(fields));
 		bot.add(add);
 		main.add(bot, BorderLayout.SOUTH);
 				
@@ -53,11 +51,12 @@ public class AddBookGUI extends JDialog{
 			fields[i] = new JTextField(20);
 		}
 		
+
 		for (int i = 0; i < fields.length; i++){
-			mid.add(wrapperPanel(new JLabel(names[i]),FlowLayout.RIGHT));
-			mid.add(wrapperPanel(fields[i],FlowLayout.CENTER));
+			mid.add(GUIUtilities.wrapperPanel(new JLabel(names[i]),FlowLayout.RIGHT));
+			mid.add(GUIUtilities.wrapperPanel(fields[i],FlowLayout.CENTER));
 		}
-		
+
 		
 		main.add(mid, BorderLayout.CENTER);
 		
@@ -72,7 +71,7 @@ public class AddBookGUI extends JDialog{
 					JOptionPane.showMessageDialog(main, "Il libro è stato inserito correttamente", "Successo!", JOptionPane.INFORMATION_MESSAGE);
 					controller.addBook();
 					JOptionPane optionPane = (JOptionPane)
-						    SwingUtilities.getAncestorOfClass(JOptionPane.class, reset);
+						    SwingUtilities.getAncestorOfClass(JOptionPane.class, add);
 						optionPane.setValue(JOptionPane.CLOSED_OPTION);
 									
 				} catch (MissingDataException e1) {
@@ -86,16 +85,6 @@ public class AddBookGUI extends JDialog{
 		});
 		
 		
-		reset.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				for (int i = 0; i < fields.length; i++){
-					fields[i].setText("");
-				}
-			}
-		});
-		
 	}
 	
 	
@@ -103,10 +92,5 @@ public class AddBookGUI extends JDialog{
 		return this.main;
 	}
 	
-	private static JPanel wrapperPanel(final JComponent component, final int orientation){
-		final JPanel panel = new JPanel(new FlowLayout(orientation));
-		panel.add(component);
-		return panel;
-	}
 
 }

@@ -19,7 +19,7 @@ public class BookManagement extends BasicOperations implements IBookManagement, 
 	 * 
 	 */
 	private static final long serialVersionUID = -2040899298874774142L;
-	private HashSet <Libro> libreria = new HashSet <>();
+	//private HashSet <Libro> libreria = new HashSet <>();
 
 	public BookManagement() {
 

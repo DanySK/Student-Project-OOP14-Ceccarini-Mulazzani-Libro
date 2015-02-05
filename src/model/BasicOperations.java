@@ -49,6 +49,7 @@ public class BasicOperations implements IBasicOp{
 
 		for (Libro b:this.libreria) {
 			if (b.getTitle().equals(title) && b.getAuthor().equals(author)) {
+				System.out.println(this.libreria.size());
 				return b;
 			}
 		}
