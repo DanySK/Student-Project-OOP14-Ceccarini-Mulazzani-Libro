@@ -1,5 +1,6 @@
 package utilities;
 
+import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
@@ -8,6 +9,8 @@ import java.io.IOException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComponent;
+import javax.swing.JPanel;
 
 import view.MagazGUI;
 /**
@@ -57,6 +60,12 @@ public class GUIUtilities {
 			System.err.println("Couldn't find image file: " + path);
 			return null;
 		}
+	}
+	
+	public static JPanel wrapperPanel(final JComponent component, final int orientation){
+		final JPanel panel = new JPanel(new FlowLayout(orientation));
+		panel.add(component);
+		return panel;
 	}
 	
 }
