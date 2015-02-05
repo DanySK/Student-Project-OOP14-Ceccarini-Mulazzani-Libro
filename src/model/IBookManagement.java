@@ -2,8 +2,8 @@ package model;
 
 import java.util.Set;
 
-
 import exceptions.MissingBookException;
+import exceptions.NotEnoughBookException;
 
 /**
  * 
@@ -17,7 +17,7 @@ public interface IBookManagement extends IBasicOp{
 	
 	//void modifyBook (String title, String author, String[] fields) throws MissingBookException;
 	
-	void sellBook(Libro book) throws MissingBookException;
+	void sellBook(Libro book, int nCopy) throws MissingBookException, NotEnoughBookException;
 	
 	//Libro searchBook (String title, String author) throws MissingBookException;
 	

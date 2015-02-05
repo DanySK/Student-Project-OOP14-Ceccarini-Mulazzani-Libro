@@ -7,6 +7,7 @@ import java.util.HashSet;
 import org.junit.Test;
 
 import exceptions.MissingBookException;
+import exceptions.NotEnoughBookException;
 
 public class Testordini {
 
@@ -29,8 +30,11 @@ public class Testordini {
 		
 		lib.addBook(book);
 		try {
-			lib.sellBook(book);
+			lib.sellBook(book, 2);
 		} catch (MissingBookException e) {
+			e.printStackTrace();
+		} catch (NotEnoughBookException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

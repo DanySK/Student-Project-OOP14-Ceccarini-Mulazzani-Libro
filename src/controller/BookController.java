@@ -14,6 +14,7 @@ import utilities.ControllerUtilities.TipoController;
 import utilities.SaveClass;
 import exceptions.MissingBookException;
 import exceptions.MissingDataException;
+import exceptions.NotEnoughBookException;
 import exceptions.WrongDataException;
 
 public class BookController {
@@ -89,8 +90,8 @@ public class BookController {
 		}
 	}
 	
-	public void sellBook() throws MissingBookException{
-		magazzino.sellBook(book);
+	public void sellBook(int nCopy) throws MissingBookException, NotEnoughBookException {
+		magazzino.sellBook(book, nCopy);
 		toSave();
 	}
 	

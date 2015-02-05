@@ -1,7 +1,6 @@
 package view;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -13,9 +12,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
-import controller.BookController;
-import utilities.GUIUtilities;
 import utilities.ControllerUtilities.TipoController;
+import utilities.GUIUtilities;
+import controller.BookController;
 /**
  * 
  * @author Alberto Mulazzani

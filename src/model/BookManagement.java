@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import exceptions.MissingBookException;
+import exceptions.NotEnoughBookException;
 
 /**
  * 
@@ -24,19 +25,21 @@ public class BookManagement extends BasicOperations implements IBookManagement, 
 
 	}
 
-	public void sellBook(Libro book) throws MissingBookException {
-		if (this.libreria.contains(book)) {
-			for (Libro b:this.libreria) {
-				if (b.equals(book) && b.getNCopy() > 0) {
-					b.removeCopy();
-				} else {
-					throw new MissingBookException();
-				}
-			}
-		} else {
+	public void sellBook(Libro book, int nCopy) throws MissingBookException, NotEnoughBookException {
+		
+		if (!this.libreria.contains(book)){
 			throw new MissingBookException();
 		}
 		
+		for (Libro b: this.libreria){
+			if (b.equals(book)){
+				if (b.getNCopy() < nCopy){
+					throw new NotEnoughBookException();
+				}else {
+					b.removeCopy(nCopy);
+				}	
+			}
+		}
 	}
 	
 

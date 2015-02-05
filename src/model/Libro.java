@@ -100,8 +100,8 @@ public class Libro {
 		this.copy += copy;
 	}
 	
-	public void removeCopy () {
-		this.copy--;
+	public void removeCopy (int copy) {
+		this.copy-= copy;
 	}
 	
 	public boolean checkData (String []fields) {
