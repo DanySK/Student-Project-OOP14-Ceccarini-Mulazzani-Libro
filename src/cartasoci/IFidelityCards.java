@@ -1,14 +1,28 @@
 package cartasoci;
 
+import exceptions.MissingUserException;
+import exceptions.UserAlreadyExisting;
+
 public interface IFidelityCards {
 	
+	/**
+	 * 
+	 * @param user
+	 * @throws NullPointerException
+	 * @throws UserAlreadyExisting
+	 */
 	
+	public void addPerson(User user) throws NullPointerException, UserAlreadyExisting;
 	
-	public void addPerson(Integer id, User user) throws NullPointerException;
+	/**
+	 * 
+	 * @param id
+	 * @throws NullPointerException
+	 * @throws IllegalArgumentException
+	 * @throws MissingUserException 
+	 */
 	
-	//TODO!!!
-	
-	public void removePerson() throws NullPointerException, IllegalArgumentException;
+	public void removePerson(Integer id) throws NullPointerException, IllegalArgumentException, MissingUserException;
 	
 	/**
 	 * 
@@ -16,10 +30,11 @@ public interface IFidelityCards {
 	 * @return the complete User
 	 * @throws NullPointerException if id is Null
 	 * @throws IllegalArgumentException if the id is not in the list
+	 * @throws MissingUserException 
 	 */
 	
 	
-	public User searchID(Integer id) throws NullPointerException, IllegalArgumentException;
+	public User searchID(Integer id) throws NullPointerException, IllegalArgumentException, MissingUserException;
 	
 	
 	/**
@@ -28,8 +43,14 @@ public interface IFidelityCards {
 	 * @return the complete User
 	 * @throws NullPointerException if name is Null
 	 * @throws IllegalArgumentException if the person is not in the list
+	 * @throws MissingUserException 
 	 */
-	public User searchName(String name) throws NullPointerException, IllegalArgumentException;
+	public User searchName(String name) throws NullPointerException, IllegalArgumentException, MissingUserException;
+	
+	/**
+	 * 
+	 * @return nextId
+	 */
 	
 	public int getNextId();
 

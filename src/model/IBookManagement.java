@@ -13,19 +13,29 @@ import exceptions.NotEnoughBookException;
 
 public interface IBookManagement extends IBasicOp{
 	
-	//void addBook(Libro book);
-	
-	//void modifyBook (String title, String author, String[] fields) throws MissingBookException;
-	
+	/**
+	 * 
+	 * @param book
+	 * @param nCopy
+	 * @throws MissingBookException
+	 * @throws NotEnoughBookException
+	 */
 	void sellBook(Libro book, int nCopy) throws MissingBookException, NotEnoughBookException;
 	
-	//Libro searchBook (String title, String author) throws MissingBookException;
-	
+	/**
+	 * 
+	 * @param title
+	 * @return book searched by title
+	 * @throws MissingBookException
+	 */
 	Set <Libro> searchBookTitle(String title) throws MissingBookException;
 	
+	/**
+	 * 
+	 * @param author
+	 * @return book searched by author
+	 * @throws MissingBookException
+	 */
 	Set <Libro> searchBookAuthor (String author) throws MissingBookException;
-	
-	//Set <Libro> bookList ();
-	
 
 }
