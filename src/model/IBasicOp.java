@@ -21,7 +21,7 @@ public interface IBasicOp {
 	 * @param fields
 	 * @throws MissingBookException
 	 */
-	public void modifyBook (String title, String author, String[] fields) throws MissingBookException;
+	public void modifyBook (Libro book, String[] fields);
 
 	/**
 	 * 

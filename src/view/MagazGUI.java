@@ -103,7 +103,7 @@ public class MagazGUI {
 			public void actionPerformed(ActionEvent e) {
 				
 
-				JOptionPane.showOptionDialog(jf, new SearchBookGUI(controller).getPane() , "Modifica un libro", JOptionPane.DEFAULT_OPTION, 
+				JOptionPane.showOptionDialog(jf, new ModifyBookGUI(controller).getPane() , "Modifica un libro", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
 			
 			}

@@ -24,18 +24,18 @@ public class BasicOperations implements IBasicOp{
 	}
 
 
-	public void modifyBook (String title, String author, String[] fields) throws MissingBookException {
-		final Libro book = searchBook(title, author);
-		for (int i=0; i<fields.length; i++) {
+	public void modifyBook (Libro book, String[] fields){
+		//final Libro book = searchBook(title, author);
+		for (int i=0; i <fields.length; i++) {
 			if (!fields[i].isEmpty()) {
 				switch (i) {
-					case 0: book.setTitle(fields[i]);
-					case 1: book.setAuthor(fields[i]);
-					case 2: book.setYear(Integer.parseInt(fields[i]));
-					case 3: book.setEditor(fields[i]);
-					case 4: book.setISBN(fields[i]);
-					case 5: book.setPrice(Double.parseDouble(fields[i]));
-					case 6: book.setNCopy(Integer.parseInt(fields[i]));
+					case 0: book.setTitle(fields[i]); break;
+					case 1: book.setAuthor(fields[i]); break;
+					case 2: book.setYear(Integer.parseInt(fields[i])); break;
+					case 3: book.setEditor(fields[i]); break;
+					case 4: book.setISBN(fields[i]); break;
+					case 5: book.setPrice(Double.parseDouble(fields[i])); break;
+					case 6: book.setNCopy(Integer.parseInt(fields[i])); break;
 				}
 				
 			}

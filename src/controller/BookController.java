@@ -72,7 +72,7 @@ public class BookController {
 		}
 	}
 	
-	
+	/*
 	public void modifyBook() throws MissingBookException{	
 		if (type.equals(TipoController.MAGAZZINO)) {
 			magazzino.modifyBook(toSearch[0], toSearch[1], strings);
@@ -82,6 +82,27 @@ public class BookController {
 			toSave();
 		}
 		
+	}*/
+	
+	
+	public void modifyBook(Libro b,  JTextField[] fields) throws WrongDataException{
+		checkWrongs(fields);
+		
+		
+		String[] datas = new String[fields.length];
+		
+		for (int i = 0; i < fields.length; i++){
+			datas[i] = fields[i].getText();
+		}
+		
+		
+		if (type.equals(TipoController.MAGAZZINO)) {
+			magazzino.modifyBook(b, datas);
+			toSave();
+		} else {
+			ordini.modifyBook(b, datas);
+			toSave();
+		}
 	}
 	
 	public void toSearch(JTextField[] fields){	
@@ -148,9 +169,43 @@ public class BookController {
 				Integer.parseInt(fields[6].getText())< 0){
 			System.out.println(Calendar.YEAR);
 			throw new WrongDataException();
-		}	
-		
+		}
 	}
+	
+	
+	private void checkWrongs(JTextField[] fields) throws WrongDataException{
+		
+		if (fields[2].getText().length() != 0){
+			if (Integer.parseInt(fields[2].getText()) > Calendar.getInstance().get(Calendar.YEAR) || Integer.parseInt(fields[2].getText()) <= 0){
+				throw new WrongDataException();
+			}
+		}
+		
+		if (fields[5].getText().length() != 0){
+			if (Double.parseDouble(fields[5].getText()) < 0){
+				throw new WrongDataException();
+			}
+		}
+		
+		if (fields[6].getText().length() != 0){
+			if (Integer.parseInt(fields[6].getText()) < 0){
+				throw new WrongDataException();
+			}
+		}
+		
+		if (fields[7].getText().length() != 0){
+			if (Integer.parseInt(fields[7].getText()) < 0){
+				throw new WrongDataException();
+			}
+		}
+		
+		
+		if ((fields[4].getText().length() != 13 && fields[4].getText().length() != 0)){
+			throw new WrongDataException();
+		}
+	}
+	
+	
 	
 	private void toSave(){
 		if (type.equals(TipoController.MAGAZZINO)){

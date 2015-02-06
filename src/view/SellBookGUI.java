@@ -66,7 +66,7 @@ public class SellBookGUI extends JDialog {
 				try {
 					lib = controller.searchBook(fields);
 					controller.sellBook(lib, fields[2].getText());
-					JOptionPane.showMessageDialog(main, "Il libro è stato venduto con successo!!", "Successo!!", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(main, "Il libro è stato venduto con successo!!", "Successo!!", JOptionPane.INFORMATION_MESSAGE);
 					JOptionPane optionPane = (JOptionPane)
 						    SwingUtilities.getAncestorOfClass(JOptionPane.class, conf);
 						optionPane.setValue(JOptionPane.CLOSED_OPTION);
