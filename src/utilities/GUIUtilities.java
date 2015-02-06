@@ -12,8 +12,6 @@ import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
-import view.MagazGUI;
 /**
  * 
  * @author Alberto Mulazzani
@@ -71,7 +69,8 @@ public class GUIUtilities {
 	public static ImageIcon icon = createImageIcon("/iconBook.png");
 	
 	private static ImageIcon createImageIcon(String path) {
-		java.net.URL imgURL = MagazGUI.class.getResource(path);
+		java.net.URL imgURL = GUIUtilities.class.getResource(path);
+
 		if (imgURL != null) {
 			return new ImageIcon(imgURL);
 		} else {

@@ -11,7 +11,6 @@ import model.IOrdini;
 import model.Libro;
 import model.Ordini;
 import utilities.ControllerUtilities.TipoController;
-import utilities.SaveClass;
 import exceptions.MissingBookException;
 import exceptions.MissingDataException;
 import exceptions.NotEnoughBookException;
@@ -151,7 +150,7 @@ public class BookController {
 	public void evasioneOrdini () {
 		for (Libro b:ordini.bookList()) {
 			magazzino.addBook(b);
-			SaveClass.setLib(magazzino);
+			//SaveClass.setLib(magazzino);
 		}
 		ordini.evasioneOrdini();
 		toSave();
@@ -208,11 +207,11 @@ public class BookController {
 	
 	
 	private void toSave(){
-		if (type.equals(TipoController.MAGAZZINO)){
+	/*	if (type.equals(TipoController.MAGAZZINO)){
 			SaveClass.setLib(magazzino);
 		}else{
 			SaveClass.setOrd(ordini);
-		}
+		}*/
 	}
 
 }

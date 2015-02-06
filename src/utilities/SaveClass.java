@@ -1,16 +1,11 @@
 package utilities;
 
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
-
-import model.IBookManagement;
-import model.IOrdini;
 
 public class SaveClass {
 	
-	private static IBookManagement library;
-	private static IOrdini orders ;
+//	private static IBookManagement library;
+	//private static IOrdini orders ;
 	
 	//private static IFidelityCards cards;
 	//private File file = new File("data.bin");
@@ -30,7 +25,7 @@ public class SaveClass {
 	public SaveClass(){
 		
 	}
-	
+	/*
 	public static void setLib(IBookManagement lib ){
 		library = lib;
 	}
@@ -38,7 +33,7 @@ public class SaveClass {
 	public static void setOrd(IOrdini ord){
 		orders = ord;
 	}
-	
+	*/
 	/*public static void setCards(IFidelityCards car){
 		cards = car;
 	}*/
