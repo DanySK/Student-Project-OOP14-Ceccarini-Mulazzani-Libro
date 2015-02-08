@@ -61,7 +61,7 @@ public class OrdGUI {
 				
 				
 				JOptionPane.showOptionDialog(main, new AddBookGUI(controller).getPane() , "Aggiungi un ordine", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, null, GUIUtilities.string, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
 			
 			}
 		});
@@ -72,7 +72,7 @@ public class OrdGUI {
 			public void actionPerformed(ActionEvent e) {
 
 				JOptionPane.showOptionDialog(main, new RemoveOrderGUI(controller).getPane() , "Rimuovi un ordine", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, null, GUIUtilities.string, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
 			
 			}
 		});
@@ -84,7 +84,7 @@ public class OrdGUI {
 				
 
 				JOptionPane.showOptionDialog(main, new SearchBookGUI(controller).getPane() , "Modifica un ordine", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, null, GUIUtilities.string, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
 			
 			}
 		});
@@ -98,7 +98,7 @@ public class OrdGUI {
 				
 
 				JOptionPane.showOptionDialog(main, new SearchBookGUI(controller).getPane() , "Cerca un ordine", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, null, GUIUtilities.string, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
 			
 			}
 		});
@@ -110,7 +110,7 @@ public class OrdGUI {
 				
 
 				JOptionPane.showOptionDialog(main, new ListTableGUI(controller.bookList()).getPane() , "Lista degli ordini", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, null, GUIUtilities.string, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
 			
 			}
 		});
