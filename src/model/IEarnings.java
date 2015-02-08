@@ -1,5 +1,7 @@
 package model;
 
+import java.util.List;
+
 /**
  * 
  * @author Chiara Ceccarini
@@ -12,30 +14,30 @@ public interface IEarnings {
 	 * 
 	 * @return the number of book sold
 	 */
-	int bookSold ();
+	int bookSold (List <Libro> list);
 	
 	/**
 	 * 
 	 * @return number of book in store
 	 */
-	int bookInStore ();
+	int bookInStore (List <Libro> list);
 	
 	/**
 	 * 
 	 * @return tot sold
 	 */
-	double totSell ();
+	double totSell (List <Libro> list);
 	
 	/**
 	 * 
 	 * @return tot Spent
 	 */
-	double totSpent();
+	double totSpent(List <Libro> list);
 	
 	/**
 	 * 
 	 * @return tot earnings
 	 */
-	double totEarnings ();
+	double totEarnings (List <Libro> list);
 	
 }

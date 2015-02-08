@@ -1,49 +1,48 @@
 package model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Earnings implements IEarnings{
-	private IBookManagement elenco = new BookManagement ();
-	private List <Libro> library = new ArrayList <>();  
+	//private IBookManagement elenco = new BookManagement ();
+	//private List <Libro> library = new ArrayList <>();  
 
 	public Earnings () {
-		library.addAll(elenco.bookList());
+		
 	}
 	
-	public int bookSold () {
+	public int bookSold (List <Libro> list) {
 		int sum = 0;
-		for (Libro b:library) {
+		for (Libro b:list) {
 			sum += b.getNSales();
 		}
 		return sum;
 	}
 	
-	public int bookInStore () {
+	public int bookInStore (List <Libro> list) {
 		int sum = 0;
-		for (Libro b:library) {
+		for (Libro b:list) {
 			sum += b.getNCopy();
 		}
 		return sum;
 	}
 	
-	public double totSell () {
+	public double totSell (List <Libro> list) {
 		double tot = 0;
-		for (Libro b:library) {
+		for (Libro b:list) {
 			tot += b.getNSales()*b.getPrice();
 		}
 		return tot;
 	}
 	
-	public double totSpent() {
+	public double totSpent(List <Libro> list) {
 		double tot = 0;
-		for (Libro b:library) {
+		for (Libro b:list) {
 			tot += (b.getNCopy()+b.getNSales())*b.getPrice()*(76/100);
 		}
 		return tot;
 	}
 	
-	public double totEarnings () {
-		return totSell()-totSpent();
+	public double totEarnings (List <Libro> list) {
+		return totSell(list)-totSpent(list);
 	}
 }

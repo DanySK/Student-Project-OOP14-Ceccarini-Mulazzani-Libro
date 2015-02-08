@@ -1,7 +1,10 @@
 package controller;
 
+import java.util.List;
+
 import model.Earnings;
 import model.IEarnings;
+import model.Libro;
 
 public class EarningsController implements IEarnings{
 	
@@ -11,24 +14,24 @@ public class EarningsController implements IEarnings{
 		
 	}
 	
-	public int bookSold () {
-		return earnings.bookSold();
+	public int bookSold (List <Libro> list) {
+		return earnings.bookSold(list);
 	}
 	
-	public int bookInStore () {
-		return earnings.bookInStore();
+	public int bookInStore (List <Libro> list) {
+		return earnings.bookInStore(list);
 	}
 	
-	public double totSell () {
-		return earnings.totSell();
+	public double totSell (List <Libro> list) {
+		return earnings.totSell(list);
 	}
 	
-	public double totSpent() {
-		return earnings.totSpent();
+	public double totSpent(List <Libro> list) {
+		return earnings.totSpent(list);
 	}
 	
-	public double totEarnings () {
-		return earnings.totSell() - earnings.totSpent();
+	public double totEarnings (List <Libro> list) {
+		return earnings.totSell(list) - earnings.totSpent(list);
 	}
 	
 	

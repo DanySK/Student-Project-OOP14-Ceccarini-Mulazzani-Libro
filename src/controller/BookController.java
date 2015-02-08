@@ -30,10 +30,6 @@ public class BookController {
 		
 	}
 	
-	public BookController(Object maga, Object ord){
-		
-	}
-	
 	public void setType(TipoController type){
 		this.type = type;
 	}

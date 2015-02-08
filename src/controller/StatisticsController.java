@@ -15,20 +15,20 @@ public class StatisticsController implements IStatistics{
 		
 	}
 	
-	public List<Libro> mostPopularBook () {
-		return statistics.mostPopularBook();
+	public List<Libro> mostPopularBook (List <Libro> list) {
+		return statistics.mostPopularBook(list);
 	}
 	
-	public List<Libro> lessPopularBook () {
-		return statistics.lessPopularBook();
+	public List<Libro> lessPopularBook (List <Libro> list) {
+		return statistics.lessPopularBook(list);
 	}
 	
-	public List <Pair <String,Integer>> mostActiveAuthor () {
-		return statistics.mostActiveAuthor();
+	public List <Pair <String,Integer>> mostActiveAuthor (List <Libro> list) {
+		return statistics.mostActiveAuthor(list);
 	}
 	
-	public List <Pair <String,Integer>> lessActiveAuthor () {
-		return statistics.lessActiveAuthor();
+	public List <Pair <String,Integer>> lessActiveAuthor (List <Libro> list) {
+		return statistics.lessActiveAuthor(list);
 	}
 
 }
