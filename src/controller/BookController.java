@@ -1,6 +1,7 @@
 package controller;
 
 import java.util.Calendar;
+import java.util.List;
 import java.util.Set;
 
 import javax.swing.JTextField;
@@ -129,7 +130,7 @@ public class BookController {
 		
 	}
 	
-	public Set<Libro> bookList(){
+	public List<Libro> bookList(){
 		if (type.equals(TipoController.MAGAZZINO)) {
 			return magazzino.bookList();
 		} else {

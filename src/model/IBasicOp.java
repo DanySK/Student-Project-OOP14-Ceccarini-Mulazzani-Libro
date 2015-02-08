@@ -1,5 +1,6 @@
 package model;
 
+import java.util.List;
 import java.util.Set;
 
 import exceptions.MissingBookException;
@@ -40,5 +41,5 @@ public interface IBasicOp {
 	 * 
 	 * @return booklist
 	 */
-	public Set <Libro> bookList ();
+	public List<Libro> bookList ();
 }

@@ -5,13 +5,17 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
 import controller.BookController;
 import controller.StatisticsController;
+import utilities.ControllerUtilities.TipoController;
 import utilities.GUIUtilities;
 /**
  * 
@@ -51,6 +55,35 @@ public class StatisticGUI {
 		final JPanel bot = new JPanel(new FlowLayout());
 		bot.add(GUIUtilities.getClosing());
 		main.add(bot, BorderLayout.SOUTH);
+		
+		//Libro più venduto
+		
+		buttons[0].addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				controller.setType(TipoController.MAGAZZINO);
+				JOptionPane.showOptionDialog(main, new ListTableGUI(statcontroller.mostPopularBook(controller.bookList())).getPane() , "Lista dei libri", JOptionPane.DEFAULT_OPTION, 
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
+			
+			}
+		});
+		
+		//Libro meno venduto
+		
+		buttons[1].addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+
+				JOptionPane.showOptionDialog(main, new ListTableGUI(controller.bookList()).getPane() , "Lista dei libri", JOptionPane.DEFAULT_OPTION, 
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
+			
+			}
+		});
+		
 	}
 	
 	public JPanel getPane(){
