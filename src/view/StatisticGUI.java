@@ -64,7 +64,7 @@ public class StatisticGUI {
 			public void actionPerformed(ActionEvent e) {
 				
 				controller.setType(TipoController.MAGAZZINO);
-				JOptionPane.showOptionDialog(main, new ListTableGUI(statcontroller.mostPopularBook(controller.bookList())).getPane() , "Lista dei libri", JOptionPane.DEFAULT_OPTION, 
+				JOptionPane.showOptionDialog(main, new ListTableGUI(statcontroller.mostPopularBook(controller.bookList()), true).getPane() , "Lista dei libri più venduti", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
 			
 			}
@@ -78,12 +78,35 @@ public class StatisticGUI {
 			public void actionPerformed(ActionEvent e) {
 				
 
-				JOptionPane.showOptionDialog(main, new ListTableGUI(controller.bookList()).getPane() , "Lista dei libri", JOptionPane.DEFAULT_OPTION, 
+				JOptionPane.showOptionDialog(main, new ListTableGUI(statcontroller.lessPopularBook(controller.bookList()),true).getPane() , "Lista dei libri meno venduti", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
 			
 			}
 		});
 		
+		buttons[2].addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+
+				JOptionPane.showOptionDialog(main, new StatisticDetailGUI(statcontroller.mostActiveAuthor(controller.bookList())).getPane() , "Lista degli autori più attivi", JOptionPane.DEFAULT_OPTION, 
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
+					
+			}
+		});
+		
+		buttons[3].addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+
+				JOptionPane.showOptionDialog(main, new StatisticDetailGUI(statcontroller.lessActiveAuthor(controller.bookList())).getPane() , "Lista degli autori meno attivi", JOptionPane.DEFAULT_OPTION, 
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
+			
+			}
+		});
 	}
 	
 	public JPanel getPane(){

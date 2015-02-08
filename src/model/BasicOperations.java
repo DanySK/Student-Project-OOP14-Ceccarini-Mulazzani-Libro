@@ -1,6 +1,8 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import exceptions.MissingBookException;
@@ -72,8 +74,8 @@ public class BasicOperations implements IBasicOp {
 	}
 
 	@Override
-	public Set<Libro> bookList() {
-		return new HashSet<Libro>(libreria);	
+	public List<Libro> bookList() {
+		return new ArrayList<Libro>(libreria);	
 	}
 
 }

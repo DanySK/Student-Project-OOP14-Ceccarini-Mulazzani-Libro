@@ -132,7 +132,7 @@ public class MagazGUI {
 			public void actionPerformed(ActionEvent e) {
 				
 
-				JOptionPane.showOptionDialog(jf, new ListTableGUI(controller.bookList()).getPane() , "Lista dei libri", JOptionPane.DEFAULT_OPTION, 
+				JOptionPane.showOptionDialog(jf, new ListTableGUI(controller.bookList(), false).getPane() , "Lista dei libri", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
 			
 			}

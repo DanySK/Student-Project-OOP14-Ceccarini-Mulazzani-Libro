@@ -113,11 +113,11 @@ public class BookController {
 	}
 	
 	
-	public Set<Libro> searchTitle(JTextField field) throws MissingBookException{
+	public List<Libro> searchTitle(JTextField field) throws MissingBookException{
 		return magazzino.searchBookTitle(toSearch(field));
 	}
 	
-	public Set<Libro> searchAuthor(JTextField field) throws MissingBookException {
+	public List<Libro> searchAuthor(JTextField field) throws MissingBookException {
 		return magazzino.searchBookAuthor(toSearch(field));
 	}
 	

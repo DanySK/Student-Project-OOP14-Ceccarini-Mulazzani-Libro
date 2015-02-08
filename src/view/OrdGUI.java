@@ -109,7 +109,7 @@ public class OrdGUI {
 			public void actionPerformed(ActionEvent e) {
 				
 
-				JOptionPane.showOptionDialog(main, new ListTableGUI(controller.bookList()).getPane() , "Lista degli ordini", JOptionPane.DEFAULT_OPTION, 
+				JOptionPane.showOptionDialog(main, new ListTableGUI(controller.bookList(), false).getPane() , "Lista degli ordini", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
 			
 			}

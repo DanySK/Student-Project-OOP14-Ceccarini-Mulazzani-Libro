@@ -1,6 +1,6 @@
 package model;
 
-import java.util.Set;
+import java.util.List;
 
 import exceptions.MissingBookException;
 import exceptions.NotEnoughBookException;
@@ -28,7 +28,7 @@ public interface IBookManagement extends IBasicOp{
 	 * @return book searched by title
 	 * @throws MissingBookException
 	 */
-	Set <Libro> searchBookTitle(String title) throws MissingBookException;
+	List <Libro> searchBookTitle(String title) throws MissingBookException;
 	
 	/**
 	 * 
@@ -36,6 +36,6 @@ public interface IBookManagement extends IBasicOp{
 	 * @return book searched by author
 	 * @throws MissingBookException
 	 */
-	Set <Libro> searchBookAuthor (String author) throws MissingBookException;
+	List<Libro> searchBookAuthor (String author) throws MissingBookException;
 
 }

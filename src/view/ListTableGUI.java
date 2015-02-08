@@ -6,7 +6,7 @@ import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Toolkit;
-import java.util.Set;
+import java.util.List;
 
 import javax.swing.JDialog;
 import javax.swing.JLabel;
@@ -24,18 +24,27 @@ public class ListTableGUI extends JDialog{
 	private static final long serialVersionUID = -8563544567918601056L;
 	private JLabel[] list;
 	private JPanel main = new JPanel();
+	private String[] names= { "Titolo ", "Autore ", "Copie Vendute "};
+	
 
-	public ListTableGUI(Set<Libro> set){
+	public ListTableGUI(List<Libro> set, boolean tipo){
 		
 		main.setLayout(new BorderLayout());
 		
 		final JPanel top = new JPanel(new GridBagLayout());
 		GridBagConstraints c = GUIUtilities.getConstr();
+		
+		if (!tipo){
+			names[2] = "Copie in magaz.";
+		}
 
-		top.add(new JLabel("Titolo"), c);
-		top.add(new JLabel("Autore"), c);
-		top.add(new JLabel("Quantità"), c);
-		c.gridy++;
+
+		
+		
+		for (int i = 0; i < names.length; i++){
+			top.add(new JLabel(names[i]));
+		}
+			c.gridy++;
 		
 		list = new JLabel[set.size() * 3];
 		
@@ -50,7 +59,11 @@ public class ListTableGUI extends JDialog{
 		for (Libro b : set){
 			list[i].setText(b.getTitle());
 			list[i+1].setText(b.getAuthor());
-			list[i+2].setText("" + b.getNCopy());
+			if (tipo){
+				list[i+2].setText("" + b.getNSales());
+			}else {
+				list[i+2].setText("" + b.getNCopy());
+			}
 			top.add(list[i], c );
 			top.add(list[i+1], c);
 			top.add(list[i+2], c);
@@ -70,7 +83,6 @@ public class ListTableGUI extends JDialog{
 		extPane.setPreferredSize(new Dimension(x,y));
 		
 		main.add(extPane);
-		
 		
 		
 	}

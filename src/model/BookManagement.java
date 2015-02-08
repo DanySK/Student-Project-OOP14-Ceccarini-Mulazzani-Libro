@@ -1,7 +1,9 @@
 package model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import exceptions.MissingBookException;
@@ -44,8 +46,8 @@ public class BookManagement extends BasicOperations implements IBookManagement, 
 	
 
 	@Override
-	public Set <Libro> searchBookTitle(String title) throws MissingBookException {
-		final HashSet <Libro> books = new HashSet <> ();
+	public List <Libro> searchBookTitle(String title) throws MissingBookException {
+		final ArrayList <Libro> books = new ArrayList <> ();
 		for (Libro b:this.libreria) {
 			if (b.getTitle().equals(title)) {
 				books.add(b);
@@ -59,8 +61,8 @@ public class BookManagement extends BasicOperations implements IBookManagement, 
 	}
 
 	@Override
-	public Set <Libro> searchBookAuthor(String author) throws MissingBookException {
-		final HashSet <Libro> books = new HashSet <> ();
+	public List <Libro> searchBookAuthor(String author) throws MissingBookException {
+		final ArrayList <Libro> books = new ArrayList <> ();
 		for (Libro b:this.libreria) {
 			if (b.getAuthor().equals(author)) {
 				books.add(b);
