@@ -14,6 +14,7 @@ import javax.swing.border.TitledBorder;
 
 import utilities.GUIUtilities;
 import controller.BookController;
+import exceptions.MissingBookException;
 /**
  * 
  * @author Alberto Mulazzani
@@ -120,7 +121,11 @@ public class OrdGUI {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				controller.evasioneOrdini();
+				try {
+					controller.evasioneOrdini();
+				} catch (MissingBookException e1) {
+					JOptionPane.showMessageDialog(main, "Non ci sono ordini!", "Dati mancanti", JOptionPane.ERROR_MESSAGE);
+				}
 				
 				JOptionPane.showMessageDialog(main, "Ordini evasi correttamente!", "Successo!", JOptionPane.INFORMATION_MESSAGE);
 	
