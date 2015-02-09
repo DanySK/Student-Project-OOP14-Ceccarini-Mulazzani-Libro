@@ -31,31 +31,25 @@ public class EconomyGUI {
 		
 		
 
-			SwingUtilities.invokeLater(new Runnable() {
+
+		mid.add(GUIUtilities.wrapperPanel(new JLabel(names[0]),FlowLayout.RIGHT));
+		mid.add(GUIUtilities.wrapperPanel(new JLabel("" + earcontroller.bookSold(controller.bookList())),FlowLayout.CENTER));
 				
-				@Override
-				public void run() {
-					// TODO Auto-generated method stub
-					mid.add(GUIUtilities.wrapperPanel(new JLabel(names[0]),FlowLayout.RIGHT));
-					mid.add(GUIUtilities.wrapperPanel(new JLabel("" + earcontroller.bookSold(controller.bookList())),FlowLayout.CENTER));
-				
-					mid.add(GUIUtilities.wrapperPanel(new JLabel(names[1]),FlowLayout.RIGHT));
-					mid.add(GUIUtilities.wrapperPanel(new JLabel("" + earcontroller.bookInStore(controller.bookList()) + "€"),FlowLayout.CENTER));
+		mid.add(GUIUtilities.wrapperPanel(new JLabel(names[1]),FlowLayout.RIGHT));
+		mid.add(GUIUtilities.wrapperPanel(new JLabel("" + earcontroller.bookInStore(controller.bookList())),FlowLayout.CENTER));
 				
 					
-					mid.add(GUIUtilities.wrapperPanel(new JLabel(names[2]),FlowLayout.RIGHT));
-					mid.add(GUIUtilities.wrapperPanel(new JLabel("" + earcontroller.totSell(controller.bookList()) + "€"),FlowLayout.CENTER));
+		mid.add(GUIUtilities.wrapperPanel(new JLabel(names[2]),FlowLayout.RIGHT));
+		mid.add(GUIUtilities.wrapperPanel(new JLabel("" + earcontroller.totSell(controller.bookList()) + "€"),FlowLayout.CENTER));
 						
 					
-					mid.add(GUIUtilities.wrapperPanel(new JLabel(names[3]),FlowLayout.RIGHT));
-					mid.add(GUIUtilities.wrapperPanel(new JLabel("" + earcontroller.totSpent(controller.bookList()) + "€"),FlowLayout.CENTER));
+		mid.add(GUIUtilities.wrapperPanel(new JLabel(names[3]),FlowLayout.RIGHT));
+		mid.add(GUIUtilities.wrapperPanel(new JLabel("" + earcontroller.totSpent(controller.bookList()) + "€"),FlowLayout.CENTER));
 					
-					
-					mid.add(GUIUtilities.wrapperPanel(new JLabel(names[4]),FlowLayout.RIGHT));
-					mid.add(GUIUtilities.wrapperPanel(new JLabel("" + earcontroller.totEarnings(controller.bookList()) + "€"),FlowLayout.CENTER));
-					
-				}
-			});
+			
+		mid.add(GUIUtilities.wrapperPanel(new JLabel(names[4]),FlowLayout.RIGHT));
+		mid.add(GUIUtilities.wrapperPanel(new JLabel("" + earcontroller.totEarnings(controller.bookList()) + "€"),FlowLayout.CENTER));
+
 		
 	
 		
@@ -63,12 +57,6 @@ public class EconomyGUI {
 		
 		main.add(mid, BorderLayout.CENTER);
 		
-		final JPanel bot = new JPanel(new FlowLayout());
-		
-		bot.add(GUIUtilities.getClosing());
-		
-		main.add(bot,BorderLayout.SOUTH);
-	
 	}
 	
 	public JPanel getPane(){
