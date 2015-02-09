@@ -117,7 +117,7 @@ public class FidelityCardGUI {
 			public void actionPerformed(ActionEvent e) {
 				
 				
-				JOptionPane.showOptionDialog(main, new AddPersonGUI(controller).getPane() , "Lista delle carte", JOptionPane.DEFAULT_OPTION, 
+				JOptionPane.showOptionDialog(main, new ListCardGUI(controller.getMap()).getPane() , "Lista delle carte", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
 			
 			}

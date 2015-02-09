@@ -38,7 +38,8 @@ public class Earnings implements IEarnings{
 	public double totSpent(List <Libro> list) {
 		double tot = 0;
 		for (Libro b:list) {
-			tot += (b.getNCopy()+b.getNSales())*b.getPrice()*(76/100);
+			tot += ((b.getNCopy()+b.getNSales())*(b.getPrice() * 0.76));
+			
 		}
 		return tot;
 	}

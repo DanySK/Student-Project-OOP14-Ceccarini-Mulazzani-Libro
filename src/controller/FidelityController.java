@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.Map;
+
 import javax.swing.JTextField;
 
 import cartasoci.FidelityCards;
@@ -46,10 +48,9 @@ public class FidelityController {
 		return null;
 	}
 
-	
-	public int getNextId() {
-		// TODO Auto-generated method stub
-		return 0;
+	public Map<Integer, User> getMap(){
+		return cards.getMap();
+		
 	}
 	
 	private void checkData(JTextField[] fields) throws MissingDataException, WrongDataException{
@@ -66,5 +67,7 @@ public class FidelityController {
 		
 		
 	}
+	
+	
 
 }

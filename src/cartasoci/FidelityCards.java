@@ -2,13 +2,14 @@ package cartasoci;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import exceptions.MissingUserException;
 import exceptions.UserAlreadyExisting;
 
 public class FidelityCards implements IFidelityCards{
 	
-	private Map<Integer , User> cards = new HashMap<>();
+	private Map<Integer, User> cards = new HashMap<>();
 	private int next;
 	
 	public FidelityCards(){
@@ -46,17 +47,33 @@ public class FidelityCards implements IFidelityCards{
 
 	@Override
 	public void addPerson(User user) throws NullPointerException, UserAlreadyExisting {
-		if (cards.containsValue(user)) {
-			cards.put(getNextId(), user);
-		} else {
-			throw new UserAlreadyExisting();
-		}
+		containsUser(user);
+		cards.put(getNextId(), user);
+		
 		
 	}
 	
-	public int getNextId(){		
+	public int getNextId(){
+		this.next++;
 		return this.next;
 	}
+	
+	public Map<Integer, User> getMap(){
+		
+		return new HashMap<>(cards);
+	}
+	
+	private void containsUser(User user) throws UserAlreadyExisting{
+		for (Entry<Integer, User> e : cards.entrySet()){
+			if (e.getValue().getName().equals(user.getName()) &&
+					e.getValue().getSurname().equals(user.getSurname()) &&
+							e.getValue().getEmail().equals(user.getEmail())){
+				throw new UserAlreadyExisting();
+			}
+		}
+	}
+	
+	
 	
 	
 	

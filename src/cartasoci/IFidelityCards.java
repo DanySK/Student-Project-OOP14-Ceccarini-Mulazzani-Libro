@@ -1,5 +1,7 @@
 package cartasoci;
 
+import java.util.Map;
+
 import exceptions.MissingUserException;
 import exceptions.UserAlreadyExisting;
 
@@ -54,5 +56,6 @@ public interface IFidelityCards {
 	
 	public int getNextId();
 
+	public Map<Integer, User> getMap();
 
 }

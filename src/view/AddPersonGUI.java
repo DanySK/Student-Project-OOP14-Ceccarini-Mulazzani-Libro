@@ -9,10 +9,15 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 
 import controller.FidelityController;
+import exceptions.MissingDataException;
+import exceptions.UserAlreadyExisting;
+import exceptions.WrongDataException;
 
 /**
  * 
@@ -76,42 +81,28 @@ public class AddPersonGUI {
 		
 		//PULSANTE CONFERMA
 		
-	//	add.addActionListener(new ActionListener() {
+		add.addActionListener(new ActionListener() {
 			
-			//DA SISTEMARE L'MVC
-	//		@Override
-	/*		public void actionPerformed(ActionEvent e) {
-				if (nome.getText().length() != 0 &&
-						cognome.getText().length() != 0 &&
-						email.getText().contains("@")){
-						
-					JOptionPane.showMessageDialog(main, "Swag", "I dati non sono stati inseriti correttamente", JOptionPane.DEFAULT_OPTION);
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				try {
+	
+					controller.addPerson(fields);
+					JOptionPane.showMessageDialog(main, "La carta è stata creata con successo", "Successo!", JOptionPane.INFORMATION_MESSAGE);
 					
-				//		cards.addPerson(cards.getNextId(), new User(nome.getText(), cognome.getText(), email.getText()));				
-				
-				}else if (nome.getText().length() != 0 && 
-						cognome.getText().length() != 0 &&
-						(!email.getText().contains("@") ||
-								email.getText().length() != 0)){
-					if (JOptionPane.showConfirmDialog(main, "Email non valida, continuare?") == JOptionPane.YES_OPTION){		
-				//	cards.addPerson(cards.getNextId(), new User(nome.getText(), cognome.getText()));
-						
-					}else{
-						System.out.println("Swag");
-					}
-				}else if (nome.getText().length() != 0 &&
-						cognome.getText().length() == 0 &&
-						(!email.getText().contains("@") ||
-								email.getText().length() == 0)){
-					
-					//cards.addPerson(cards.getNextId(), new User(nome.getText()));
-				
-				}else {
-					JOptionPane.showMessageDialog(main, "Dati errati", "I dati non sono stati inseriti correttamente", JOptionPane.ERROR_MESSAGE);
-				}
+					JOptionPane optionPane = (JOptionPane)
+						    SwingUtilities.getAncestorOfClass(JOptionPane.class, add);
+						optionPane.setValue(JOptionPane.CLOSED_OPTION);
+			
+				} catch (UserAlreadyExisting e1) {
+					JOptionPane.showMessageDialog(main, "L'utente è già presente", "Utente già presente", JOptionPane.ERROR_MESSAGE);
+				} catch (MissingDataException e1) {
+					JOptionPane.showMessageDialog(main, "Inserire tutti i dati richiesti", "Dati mancanti", JOptionPane.ERROR_MESSAGE);
+				} catch (WrongDataException | NumberFormatException e1) {
+					JOptionPane.showMessageDialog(main, "I dati inseriti non sono corretti, ricontrollare", "Dati Errati", JOptionPane.ERROR_MESSAGE);					
+				}	
 			}
-		});*/
-		
+		});
 		
 		
 	}

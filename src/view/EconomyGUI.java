@@ -6,7 +6,6 @@ import java.awt.GridLayout;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
 
 import utilities.GUIUtilities;
 import controller.BookController;
@@ -29,9 +28,6 @@ public class EconomyGUI {
 			labels[i] = new JLabel(names[i]);
 		}
 		
-		
-
-
 		mid.add(GUIUtilities.wrapperPanel(new JLabel(names[0]),FlowLayout.RIGHT));
 		mid.add(GUIUtilities.wrapperPanel(new JLabel("" + earcontroller.bookSold(controller.bookList())),FlowLayout.CENTER));
 				
@@ -49,11 +45,6 @@ public class EconomyGUI {
 			
 		mid.add(GUIUtilities.wrapperPanel(new JLabel(names[4]),FlowLayout.RIGHT));
 		mid.add(GUIUtilities.wrapperPanel(new JLabel("" + earcontroller.totEarnings(controller.bookList()) + "€"),FlowLayout.CENTER));
-
-		
-	
-		
-
 		
 		main.add(mid, BorderLayout.CENTER);
 		
