@@ -11,8 +11,10 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JOptionPane;
@@ -145,14 +147,12 @@ public class Main implements ActionListener {
         final JFrame frame = new JFrame("Libro di Chiara Ceccarini e Alberto Mulazzani");
         try {
 			UIManager.setLookAndFeel(new javax.swing.plaf.nimbus.NimbusLookAndFeel());
-		} catch (UnsupportedLookAndFeelException e) {
-			
+		} catch (UnsupportedLookAndFeelException e) {	
 			e.printStackTrace();
 		}
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         
         frame.addWindowListener(new WindowAdapter() {
-
         	  @Override
         	  public void windowClosing(WindowEvent we)
         	  { 
@@ -178,6 +178,7 @@ public class Main implements ActionListener {
         frame.setJMenuBar(main.createMenuBar());
         frame.add(main.createContentPane());
         frame.pack();
+        
         frame.setVisible(true);
     }
     

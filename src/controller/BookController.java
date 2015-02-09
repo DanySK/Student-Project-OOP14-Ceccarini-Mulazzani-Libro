@@ -142,7 +142,10 @@ public class BookController {
 		toSave();
 	}
 	
-	public void evasioneOrdini () {
+	public void evasioneOrdini () throws MissingBookException {
+		if (ordini.bookList().isEmpty()) {
+			throw new MissingBookException ();
+		}
 		for (Libro b:ordini.bookList()) {
 			magazzino.addBook(b);
 			//SaveClass.setLib(magazzino);
