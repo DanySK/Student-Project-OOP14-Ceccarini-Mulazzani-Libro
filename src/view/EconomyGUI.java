@@ -1,27 +1,19 @@
 package view;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
 import java.awt.GridLayout;
-import java.awt.Toolkit;
 
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.border.TitledBorder;
 
+import utilities.GUIUtilities;
 import controller.BookController;
 import controller.EarningsController;
-import utilities.GUIUtilities;
 
 public class EconomyGUI {
 
 	private final String[] names = {"Totale libri venduti", "Totali in negozio", "Totale guadagnato", "Totale speso", "Totale fatturato"};
-	private final JButton[] buttons = new JButton[names.length];
 	private final JPanel main = new JPanel();
 	private final JLabel[] labels = new JLabel[names.length];
 	

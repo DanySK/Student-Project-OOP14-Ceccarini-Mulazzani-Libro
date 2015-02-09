@@ -6,10 +6,14 @@ import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
 
+import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
@@ -35,40 +39,50 @@ public class ListTableGUI extends JDialog{
 		GridBagConstraints c = GUIUtilities.getConstr();
 		
 		if (!tipo){
-			names[2] = "Copie in magaz.";
+			names[2] = " Copie in magaz.";
 		}
-
-
-		
-		
+	
 		for (int i = 0; i < names.length; i++){
-			top.add(new JLabel(names[i]));
+			top.add(new JLabel(names[i]),c);
 		}
 			c.gridy++;
 		
 		list = new JLabel[set.size() * 3];
+		JButton[] buttons = new JButton[set.size()];
 		
 		for (int i = 0; i < list.length; i++){
 			list[i] = new JLabel();
 		}
 		
-		
-		System.out.println(set.size());
 		int i = 0;
+		int j = 0;
+				
 		
 		for (Libro b : set){
-			list[i].setText(b.getTitle());
-			list[i+1].setText(b.getAuthor());
+			buttons[j] = new JButton(b.getTitle());
+			list[i].setText(b.getAuthor());
 			if (tipo){
-				list[i+2].setText("" + b.getNSales());
+				list[i+1].setText("" + b.getNSales());
 			}else {
-				list[i+2].setText("" + b.getNCopy());
+				list[i+1].setText("" + b.getNCopy());
 			}
-			top.add(list[i], c );
+			buttons[j].addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					// TODO Auto-generated method stub
+						JOptionPane.showOptionDialog(main, new BookDetailGUI(b).getPane() , "Dettagli Libro", JOptionPane.DEFAULT_OPTION, 
+						         JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
+
+				}
+			});
+			
+			top.add(buttons[j], c );
+			top.add(list[i], c);
 			top.add(list[i+1], c);
-			top.add(list[i+2], c);
 			c.gridy++;
-			i+=3;
+			i+=2;
+			j++;
 		}
 		
 		
