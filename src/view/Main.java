@@ -60,7 +60,7 @@ public class Main implements ActionListener {
     
     private JPanel createEconomyPanel( ) {
     	
-    	return new	EconomyGUI(controller, earcontroller).getPane();
+    	return new	EconomyMenuGUI(controller, earcontroller).getPane();
     }
     
     private JPanel createStatisticPanel(){
