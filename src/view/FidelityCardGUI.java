@@ -1,7 +1,6 @@
 package view;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -13,9 +12,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
-import controller.BookController;
-import controller.FidelityController;
 import utilities.GUIUtilities;
+import controller.FidelityController;
 /**
  * 
  * @author Alberto Mulazzani
@@ -55,6 +53,7 @@ public class FidelityCardGUI {
 		main.add(comandi, BorderLayout.CENTER);
 		main.add(bot, BorderLayout.SOUTH);
 		
+		//	AGGIUNGI UNA CARTA
 		
 		buttons[0].addActionListener(new ActionListener() {
 			
@@ -62,11 +61,13 @@ public class FidelityCardGUI {
 			public void actionPerformed(ActionEvent e) {
 				
 				
-				JOptionPane.showOptionDialog(main, new AddPersonGUI(controller).getPane() , "Aggiungi un ordine", JOptionPane.DEFAULT_OPTION, 
+				JOptionPane.showOptionDialog(main, new AddPersonGUI(controller).getPane() , "Aggiungi una carta", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
 			
 			}
 		});
+		
+		//RIMUOVI UNA CARTA
 		
 		buttons[1].addActionListener(new ActionListener() {
 			
@@ -74,11 +75,13 @@ public class FidelityCardGUI {
 			public void actionPerformed(ActionEvent e) {
 				
 				
-				JOptionPane.showOptionDialog(main, new AddPersonGUI(controller).getPane() , "Aggiungi un ordine", JOptionPane.DEFAULT_OPTION, 
+				JOptionPane.showOptionDialog(main, new AddPersonGUI(controller).getPane() , "Rimuovi una carta", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
 			
 			}
 		});
+		
+		//MODIFICA UNA CARTA
 		
 		buttons[2].addActionListener(new ActionListener() {
 			
@@ -86,11 +89,13 @@ public class FidelityCardGUI {
 			public void actionPerformed(ActionEvent e) {
 				
 				
-				JOptionPane.showOptionDialog(main, new AddPersonGUI(controller).getPane() , "Aggiungi un ordine", JOptionPane.DEFAULT_OPTION, 
+				JOptionPane.showOptionDialog(main, new AddPersonGUI(controller).getPane() , "Modifica una carta", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
 			
 			}
 		});
+		
+		//RICERCA UNA CARTA
 		
 		buttons[3].addActionListener(new ActionListener() {
 			
@@ -98,11 +103,13 @@ public class FidelityCardGUI {
 			public void actionPerformed(ActionEvent e) {
 				
 				
-				JOptionPane.showOptionDialog(main, new AddPersonGUI(controller).getPane() , "Aggiungi un ordine", JOptionPane.DEFAULT_OPTION, 
+				JOptionPane.showOptionDialog(main, new AddPersonGUI(controller).getPane() , "Ricerca una carta", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
 			
 			}
 		});
+		
+		//LISTA DELLE CARTE
 		
 		buttons[4].addActionListener(new ActionListener() {
 			
@@ -110,7 +117,7 @@ public class FidelityCardGUI {
 			public void actionPerformed(ActionEvent e) {
 				
 				
-				JOptionPane.showOptionDialog(main, new AddPersonGUI(controller).getPane() , "Aggiungi un ordine", JOptionPane.DEFAULT_OPTION, 
+				JOptionPane.showOptionDialog(main, new AddPersonGUI(controller).getPane() , "Lista delle carte", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
 			
 			}

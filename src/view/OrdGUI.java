@@ -115,6 +115,17 @@ public class OrdGUI {
 			}
 		});
 		
+		buttons[5].addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				controller.evasioneOrdini();
+				
+				JOptionPane.showMessageDialog(main, "Ordini evasi correttamente!", "Successo!", JOptionPane.INFORMATION_MESSAGE);
+	
+			}
+		});
 		
 		
 	}
