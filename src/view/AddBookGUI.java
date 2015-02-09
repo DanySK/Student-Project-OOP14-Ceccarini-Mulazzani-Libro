@@ -76,13 +76,9 @@ public class AddBookGUI extends JDialog{
 									
 				} catch (MissingDataException e1) {
 					JOptionPane.showMessageDialog(main, "Inserire tutti i dati richiesti", "Dati mancanti", JOptionPane.ERROR_MESSAGE);
-				} catch (WrongDataException e1) {
-					JOptionPane.showMessageDialog(main, "I dati inseriti non sono corretti, ricontrollare", "Dati Errati", JOptionPane.ERROR_MESSAGE);
-					
-				}catch (NumberFormatException e1) {
-					JOptionPane.showMessageDialog(main, "I dati inseriti non sono corretti, ricontrollare", "Dati Errati", JOptionPane.ERROR_MESSAGE);
-					
-				}			
+				} catch (WrongDataException | NumberFormatException e1) {
+					JOptionPane.showMessageDialog(main, "I dati inseriti non sono corretti, ricontrollare", "Dati Errati", JOptionPane.ERROR_MESSAGE);					
+				}		
 			
 			}
 		});
