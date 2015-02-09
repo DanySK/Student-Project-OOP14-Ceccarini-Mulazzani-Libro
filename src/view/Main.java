@@ -23,6 +23,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 import utilities.ControllerUtilities.TipoController;
 import controller.BookController;
 import controller.EarningsController;
+import controller.FidelityController;
 import controller.StatisticsController;
 /**
  * 
@@ -40,7 +41,8 @@ public class Main implements ActionListener {
     private final BookController controller = new BookController();
     private final EarningsController earcontroller = new EarningsController();
     private final StatisticsController statcontroller = new StatisticsController();
-    
+    private final FidelityController fidcontroller = new FidelityController();
+  
     public JPanel createCardHolderPanel() {
         cardHolder = new JPanel(new CardLayout());
         cardHolder.setBorder(BorderFactory.createTitledBorder("Scegli l'azione"));
@@ -55,7 +57,7 @@ public class Main implements ActionListener {
     
     
     private JPanel createEconomyPanel( ) {
-
+    	
     	return new	EconomyGUI(controller, earcontroller).getPane();
     }
     
@@ -78,7 +80,7 @@ public class Main implements ActionListener {
     
     private JPanel createFidelityPanel() {
     	
-    	return new FidelityCardGUI(controller).getPane();
+    	return new FidelityCardGUI(fidcontroller).getPane();
     }
      
 
@@ -127,6 +129,8 @@ public class Main implements ActionListener {
             cardLayout.show(cardHolder, "Ordini");
         }
         if (e.getSource() == fatturato) {
+        	controller.setType(TipoController.MAGAZZINO);
+        	cardHolder.repaint();
             cardLayout.show(cardHolder, "Fatturato e Guadagni");
         }
         if (e.getSource() == cartasoci) {

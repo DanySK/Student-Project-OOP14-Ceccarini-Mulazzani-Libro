@@ -46,7 +46,7 @@ public class FidelityCards implements IFidelityCards{
 
 	@Override
 	public void addPerson(User user) throws NullPointerException, UserAlreadyExisting {
-		if (cards.containsValue(user.getName())) {
+		if (cards.containsValue(user)) {
 			cards.put(getNextId(), user);
 		} else {
 			throw new UserAlreadyExisting();

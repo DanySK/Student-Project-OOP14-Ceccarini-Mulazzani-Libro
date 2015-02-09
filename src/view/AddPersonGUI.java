@@ -12,6 +12,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import controller.FidelityController;
+
 /**
  * 
  * @author Alberto Mulazzani
@@ -26,7 +28,7 @@ public class AddPersonGUI {
 	private final JButton annulla = new JButton("Annulla");
 	private final JPanel main = new JPanel();
 	
-	public AddPersonGUI(){
+	public AddPersonGUI(FidelityController controller){
 		
 		
 		main.setLayout(new BorderLayout());

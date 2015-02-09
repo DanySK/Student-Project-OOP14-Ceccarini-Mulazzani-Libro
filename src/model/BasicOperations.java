@@ -18,12 +18,13 @@ public class BasicOperations implements IBasicOp {
 	public void addBook(Libro book) {
 		if (!this.libreria.contains(book)) {
 			this.libreria.add(book);
-		} 
-		this.libreria.forEach(b -> {
-			if (b.equals(book)) {
-				b.addCopy(book.getNCopy());
-			}
-		});
+		}else {
+			this.libreria.forEach(b -> {
+				if (b.equals(book)) {
+					b.addCopy(book.getNCopy());
+				}
+			});
+		}
 	}
 
 

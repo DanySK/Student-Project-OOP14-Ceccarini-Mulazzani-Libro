@@ -79,6 +79,9 @@ public class AddBookGUI extends JDialog{
 				} catch (WrongDataException e1) {
 					JOptionPane.showMessageDialog(main, "I dati inseriti non sono corretti, ricontrollare", "Dati Errati", JOptionPane.ERROR_MESSAGE);
 					
+				}catch (NumberFormatException e1) {
+					JOptionPane.showMessageDialog(main, "I dati inseriti non sono corretti, ricontrollare", "Dati Errati", JOptionPane.ERROR_MESSAGE);
+					
 				}			
 			
 			}

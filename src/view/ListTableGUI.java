@@ -39,7 +39,7 @@ public class ListTableGUI extends JDialog{
 		GridBagConstraints c = GUIUtilities.getConstr();
 		
 		if (!tipo){
-			names[2] = " Copie in magaz.";
+			names[2] = " Copie";
 		}
 	
 		for (int i = 0; i < names.length; i++){
@@ -59,12 +59,13 @@ public class ListTableGUI extends JDialog{
 				
 		
 		for (Libro b : set){
-			buttons[j] = new JButton(b.getTitle());
-			list[i].setText(b.getAuthor());
+			buttons[j] = new JButton("Dettagli");
+			list[i].setText(b.getTitle());
+			list[i+1].setText(b.getAuthor());
 			if (tipo){
-				list[i+1].setText("" + b.getNSales());
+				list[i+2].setText("" + b.getNSales());
 			}else {
-				list[i+1].setText("" + b.getNCopy());
+				list[i+2].setText("" + b.getNCopy());
 			}
 			buttons[j].addActionListener(new ActionListener() {
 				
@@ -76,12 +77,12 @@ public class ListTableGUI extends JDialog{
 
 				}
 			});
-			
-			top.add(buttons[j], c );
 			top.add(list[i], c);
 			top.add(list[i+1], c);
+			top.add(list[i+2],c);
+			top.add(buttons[j], c);
 			c.gridy++;
-			i+=2;
+			i+=3;
 			j++;
 		}
 		

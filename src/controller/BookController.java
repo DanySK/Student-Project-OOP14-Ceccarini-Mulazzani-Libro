@@ -59,7 +59,6 @@ public class BookController {
 		if (type.equals(TipoController.MAGAZZINO)){
 			System.out.println("Magaz");
 			magazzino.addBook(book);
-			toSave();
 		} else {
 			System.out.println("Ordz");
 			ordini.addBook(book);

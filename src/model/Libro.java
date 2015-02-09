@@ -101,7 +101,7 @@ public class Libro {
 	}
 	
 	public void removeCopy (int copy) {
-		this.copy-= copy;
+		this.copy -= copy;
 		this.sold += copy;
 	}
 	
