@@ -144,8 +144,18 @@ public class Main implements ActionListener {
     public static void createAndShowGUI() {
         final JFrame frame = new JFrame("Libro di Chiara Ceccarini e Alberto Mulazzani");
         try {
-			UIManager.setLookAndFeel(new javax.swing.plaf.nimbus.NimbusLookAndFeel());
-		} catch (UnsupportedLookAndFeelException e) {	
+			//UIManager.setLookAndFeel(new javax.swing.plaf.nimbus.NimbusLookAndFeel());
+        	UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());  	
+        } catch (UnsupportedLookAndFeelException e) {	
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
