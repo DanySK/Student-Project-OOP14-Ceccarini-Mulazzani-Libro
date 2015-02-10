@@ -108,11 +108,11 @@ public class Main implements ActionListener {
         return panel;
     }
 
-    public JMenuBar createMenuBar() {
+    public JMenuBar createMenuBar(final JFrame frame) {
     	final JMenuBar menuBar = new JMenuBar();
         //final JMenu file = new JMenu("File");
         final JMenu help = new JMenu("Help");
-        menuBar.add( new FileTabMenuGUI());
+        menuBar.add( new FileTabMenuGUI(frame));
         menuBar.add(help);
         return menuBar;
     }
@@ -173,7 +173,7 @@ public class Main implements ActionListener {
 	    frame.setPreferredSize(new Dimension(x, y));
 	//    frame.setLocation(x, y);
         final Main main = new Main();
-        frame.setJMenuBar(main.createMenuBar());
+        frame.setJMenuBar(main.createMenuBar(frame));
         frame.add(main.createContentPane());
         frame.pack();
         
