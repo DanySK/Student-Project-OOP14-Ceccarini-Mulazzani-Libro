@@ -18,7 +18,7 @@ public class FidelityController {
 	
 	public void addPerson(JTextField[] fields) throws
 			UserAlreadyExisting, MissingDataException, WrongDataException {
-		// TODO Auto-generated method stub
+
 		checkData(fields);
 		
 		User user = new User(fields[0].getText(), fields[1].getText(), fields[2].getText());
@@ -30,14 +30,14 @@ public class FidelityController {
 	
 	public void removePerson(Integer id) throws NullPointerException,
 			IllegalArgumentException, MissingUserException {
-		// TODO Auto-generated method stub
+
 		
 	}
 
 	
 	public User searchID(Integer id) throws NullPointerException,
 			IllegalArgumentException, MissingUserException {
-		// TODO Auto-generated method stub
+
 		return null;
 	}
 

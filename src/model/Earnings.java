@@ -2,9 +2,13 @@ package model;
 
 import java.util.List;
 
+/**
+ * 
+ * @author Chiara Ceccarini
+ *
+ */
+
 public class Earnings implements IEarnings{
-	//private IBookManagement elenco = new BookManagement ();
-	//private List <Libro> library = new ArrayList <>();  
 
 	public Earnings () {
 		

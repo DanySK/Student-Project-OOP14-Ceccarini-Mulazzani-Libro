@@ -13,9 +13,6 @@ import utilities.Pair;
  */
 
 public class Statistics implements IStatistics{
-	
-	//private IBookManagement elenco = new BookManagement ();
-	//private List <Libro> library = new ArrayList <>();  
 
 	public Statistics () {
 	}
