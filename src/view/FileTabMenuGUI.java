@@ -16,6 +16,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+import cartasoci.FidCard;
 import cartasoci.User;
 
 import com.thoughtworks.xstream.XStream;
@@ -95,11 +96,9 @@ public class FileTabMenuGUI  extends JMenu{
 				    File fileToLoad = fileChooser.getSelectedFile();
 				    System.out.println("Save as file: " + fileToLoad.getAbsolutePath());
 				    File file = new File(fileToLoad.getAbsolutePath());
-				    User yourData=new User("Banana", "Jope", "Banana@jope");
 				    XStream xstream = new XStream();
 				    xstream.alias("User", User.class);
-				    xstream.addImplicitCollection(User.class, "User");
-
+				    xstream.alias("Carta", FidCard.class);
 				    BufferedWriter out;
 				    try {
 				    	if (file.getAbsolutePath().contains(".xml")){
@@ -109,7 +108,7 @@ public class FileTabMenuGUI  extends JMenu{
 				    		 out = new BufferedWriter(new FileWriter(file + ".xml"));	
 				    	}
 				    	for (User u : set){
-				    	    String tosave=xstream.toXML(yourData);
+				    	    String tosave=xstream.toXML(u);
 							out.write(tosave);		
 				    	}
 						out.close();
