@@ -13,7 +13,7 @@ public class Testordini {
 	public void test() {
 		//creo la lista degli ordini
 		IOrdini ord = new Ordini ();
-
+		
 		String fields [] = {"Titolo", "Autore", "1994", "Editore", "324", "32.5", "2" };
 		String fields2 [] = {"", "", "1995", "", "", "14.7", "7" };
 		
@@ -44,8 +44,6 @@ public class Testordini {
 		ord.evasioneOrdini();
 		//controllo che non ci siano più ordini
 		assertTrue(ord.bookList().isEmpty());
-		//controllo che non ci sia più il libro
-		assertFalse(ord.bookList().equals(list));
 		
 		
 
