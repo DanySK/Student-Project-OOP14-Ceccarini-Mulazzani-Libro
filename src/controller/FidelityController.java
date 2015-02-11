@@ -53,6 +53,10 @@ public class FidelityController {
 		
 	}
 	
+	public void loadMemory(Map<Integer, User> map){
+		cards.loadMemory(map);
+	}
+	
 	private void checkData(JTextField[] fields) throws MissingDataException, WrongDataException{
 		
 		for (int i = 0; i < fields.length; i++){

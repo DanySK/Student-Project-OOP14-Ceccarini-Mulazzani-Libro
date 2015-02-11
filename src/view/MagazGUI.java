@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
 import utilities.GUIUtilities;
+import utilities.ControllerUtilities.TipoController;
 import controller.BookController;
 
 /**
@@ -75,7 +76,7 @@ public class MagazGUI {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				
+				controller.setType(TipoController.MAGAZZINO);
 				JOptionPane.showOptionDialog(jf, new AddBookGUI(controller).getPane() , "Aggiungi un libro", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
 			
@@ -89,6 +90,7 @@ public class MagazGUI {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
+				controller.setType(TipoController.MAGAZZINO);
 				JOptionPane.showOptionDialog(jf, new SellBookGUI(controller).getPane() , "Vendi un libro", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
 			
@@ -102,7 +104,7 @@ public class MagazGUI {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-
+				controller.setType(TipoController.MAGAZZINO);
 				JOptionPane.showOptionDialog(jf, new ModifyBookGUI(controller).getPane() , "Modifica un libro", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
 			
@@ -116,7 +118,7 @@ public class MagazGUI {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-
+				controller.setType(TipoController.MAGAZZINO);
 				JOptionPane.showOptionDialog(jf, new SearchBookGUI(controller).getPane() , "Cerca un libro", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
 			
@@ -131,7 +133,7 @@ public class MagazGUI {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-
+				controller.setType(TipoController.MAGAZZINO);
 				JOptionPane.showOptionDialog(jf, new ListTableGUI(controller.bookList(), false).getPane() , "Lista dei libri", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
 			

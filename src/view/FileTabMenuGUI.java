@@ -4,10 +4,18 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import javax.swing.JFileChooser;
@@ -17,6 +25,7 @@ import javax.swing.JMenuItem;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import utilities.ControllerUtilities.TipoController;
+import model.BasicOperations;
 import model.Libro;
 import cartasoci.FidCard;
 import cartasoci.User;
@@ -79,6 +88,46 @@ public class FileTabMenuGUI  extends JMenu{
 				if (userSelection == JFileChooser.APPROVE_OPTION) {
 				    File fileToLoad = fileChooser.getSelectedFile();
 				    System.out.println("Load as file: " + fileToLoad.getAbsolutePath());
+				    XStream xstream = new XStream();
+				    xstream.alias("User", User.class);
+				    xstream.alias("Carta", FidCard.class);
+				    xstream.alias("Libro", Libro.class);
+				    xstream.alias("Lista", List.class);
+				
+					
+				    
+				    List<Libro> list;
+					try {
+						ObjectInputStream ois = xstream.createObjectInputStream(new ObjectInputStream(new FileInputStream(fileToLoad)));
+						
+						controller.setType(TipoController.MAGAZZINO);
+						list = (List<Libro>) ois.readObject();
+					    controller.loadMemory(list);
+					    list = (List<Libro>) ois.readObject();
+						controller.setType(TipoController.ORDINI);
+						controller.loadMemory(list);
+						Map<Integer, User> map = (Map<Integer, User>) ois.readObject();
+						fidcontroller.loadMemory(map);
+						
+
+					    
+					    ois.close();
+					    
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (ClassNotFoundException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				   
+				    
+				  //  List<Libro> list2 = (List<Libro>) xstream.fromXML
+				    
+				   // controller.loadMemory(list2);		    
+
+
+				    
 				}
 			}
 		});
@@ -100,37 +149,64 @@ public class FileTabMenuGUI  extends JMenu{
 				if (userSelection == JFileChooser.APPROVE_OPTION) {
 				    File fileToLoad = fileChooser.getSelectedFile();
 				    System.out.println("Save as file: " + fileToLoad.getAbsolutePath());
-				    File file = new File(fileToLoad.getAbsolutePath());
+				    
+				    File file;
+				    if (!fileToLoad.getAbsolutePath().contains(".xml")){
+					    file = new File(fileToLoad + ".xml");
+				    }else {
+				    	file = new File(fileToLoad.getAbsolutePath());
+				    }
+				    
 				    XStream xstream = new XStream();
 				    xstream.alias("User", User.class);
 				    xstream.alias("Carta", FidCard.class);
-				    BufferedWriter out;
-				    try {
-				    	if (file.getAbsolutePath().contains(".xml")){
-							 out = new BufferedWriter(new FileWriter(file));
-							
-				    	}else{
-				    		 out = new BufferedWriter(new FileWriter(file + ".xml"));	
-				    	}
-				    	controller.setType(TipoController.MAGAZZINO);
-				    	for (Libro b : controller.bookList()){
-				    	    String tosave=xstream.toXML(b);
-							out.write(tosave);		
-				    	}
-				    	out.write("Ordini");
-				    	controller.setType(TipoController.ORDINI);
-				    	for (Libro b : controller.bookList()){
-				    	    String tosave=xstream.toXML(b);
-							out.write(tosave);		
-				    	}
+				    xstream.alias("Libro", Libro.class);
+				    xstream.alias("Lista", List.class);
+				    
+				  //  BufferedWriter out;
+					try {
+						//out = new BufferedWriter(new FileWriter(file));
+					    //xstream.alias("Lista", List.class);
+						controller.setType(TipoController.MAGAZZINO);
+						ObjectOutputStream out = xstream.createObjectOutputStream(new ObjectOutputStream(new FileOutputStream(file)));
+						out.writeObject(controller.bookList());
+
+						controller.setType(TipoController.ORDINI);
+						out.writeObject(controller.bookList());
+						
+						out.writeObject(fidcontroller.getMap());
+						
 						out.close();
-					} catch (FileNotFoundException e1) {
-						e1.printStackTrace();
 					} catch (IOException e1) {
+						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
-				  
-				    
+
+				    	
+				    /*	for (Libro b : controller.bookList()){
+				    	    String tosave=xstream.toXML(b);
+							out.write(tosave);		
+				    	}*/
+
+						
+						
+				   /* 	controller.setType(TipoController.ORDINI);
+				    	tosave=xstream.toXML(controller.bookList());
+						out.write(tosave);	
+					*/	
+						
+				    	/*	for (Libro b : controller.bookList()){
+				    	    tosave=xstream.toXML(b);
+							out.write(tosave);		
+				    	}
+				    	
+				    	for (Entry<Integer, User> u : fidcontroller.getMap().entrySet()){
+				    	    tosave=xstream.toXML(u.getKey());
+							out.write(tosave);
+				    	    tosave=xstream.toXML(u.getValue());
+							out.write(tosave);
+				    	}*/
+						
 				}
 				
 			}
