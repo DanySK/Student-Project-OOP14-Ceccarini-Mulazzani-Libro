@@ -63,6 +63,10 @@ public class FidelityCards implements IFidelityCards{
 		return new HashMap<>(cards);
 	}
 	
+	public void loadMemory(Map<Integer, User> map){
+		this.cards = map;
+	}
+	
 	private void containsUser(User user) throws UserAlreadyExisting{
 		for (Entry<Integer, User> e : cards.entrySet()){
 			if (e.getValue().getName().equals(user.getName()) &&
