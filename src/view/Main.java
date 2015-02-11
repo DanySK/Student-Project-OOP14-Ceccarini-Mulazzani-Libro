@@ -33,7 +33,7 @@ import controller.StatisticsController;
  */
 public class Main implements ActionListener {
 
-    private BackgroundPanel cardHolder;
+    private JPanel cardHolder;
     private final JButton magazzino = new JButton("Magazzino");
     private final JButton ordini = new JButton("Ordini");
     private final JButton fatturato = new JButton("Fatturato e guadagni");
@@ -44,9 +44,9 @@ public class Main implements ActionListener {
     private final StatisticsController statcontroller = new StatisticsController();
     private final FidelityController fidcontroller = new FidelityController();
   
-    public BackgroundPanel createCardHolderPanel() {
-        cardHolder = new BackgroundPanel(GUIUtilities.back2);
-        cardHolder.setLayout(new CardLayout());
+    public JPanel createCardHolderPanel() {
+    	cardHolder = new JPanel();
+    	cardHolder.setLayout(new CardLayout());
         cardHolder.setBorder(BorderFactory.createTitledBorder("Scegli l'azione"));
         cardHolder.add(createWareHousePanel(), "Magazzino");
         cardHolder.add(createOrderPanel(), "Ordini");
@@ -88,6 +88,12 @@ public class Main implements ActionListener {
 
     public JPanel createButtonPanel() {
         final JPanel buttonPanel = new JPanel(new GridLayout(5, 0, 5, 5));
+        
+        /*
+         *     	final BackgroundPanel buttonPanel = new BackgroundPanel(GUIUtilities.back2);
+        buttonPanel.setLayout(new GridLayout(5, 0, 5, 5));
+         */
+        
         buttonPanel.setBorder(BorderFactory.createTitledBorder("Scegli la sezione"));
         buttonPanel.add(magazzino);
         buttonPanel.add(ordini);

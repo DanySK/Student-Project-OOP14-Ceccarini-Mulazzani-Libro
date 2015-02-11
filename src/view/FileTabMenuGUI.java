@@ -2,20 +2,15 @@ package view;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import javax.swing.JFileChooser;
@@ -24,9 +19,8 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-import utilities.ControllerUtilities.TipoController;
-import model.BasicOperations;
 import model.Libro;
+import utilities.ControllerUtilities.TipoController;
 import cartasoci.FidCard;
 import cartasoci.User;
 
@@ -75,6 +69,7 @@ public class FileTabMenuGUI  extends JMenu{
 		buttons[0].setMnemonic('c');
 		buttons[0].addActionListener(new ActionListener() {
 			
+			@SuppressWarnings("unchecked")
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 
