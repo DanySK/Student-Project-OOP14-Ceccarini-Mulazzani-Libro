@@ -112,7 +112,7 @@ public class Main implements ActionListener {
     	final JMenuBar menuBar = new JMenuBar();
         //final JMenu file = new JMenu("File");
         final JMenu help = new JMenu("Help");
-        menuBar.add( new FileTabMenuGUI(frame));
+        menuBar.add( new FileTabMenuGUI(frame, controller, fidcontroller));
         menuBar.add(help);
         return menuBar;
     }
@@ -164,12 +164,12 @@ public class Main implements ActionListener {
         	  @Override
         	  public void windowClosing(WindowEvent we)
         	  { 
-        	    String ObjButtons[] = {"Sì","No"};
-        	    int PromptResult = JOptionPane.showOptionDialog(null, 
+        	    final String objButtons[] = {"Sì","No"};
+        	    final int promptResult = JOptionPane.showOptionDialog(null, 
         	        "Sei sicuro di voler uscire senza salvare?", "Sei proprio sicuro?", 
         	        JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, 
-        	        ObjButtons,ObjButtons[1]);
-        	    if(PromptResult==0)
+        	        objButtons,objButtons[1]);
+        	    if(promptResult==0)
         	    {
         	      System.exit(0);          
         	    }

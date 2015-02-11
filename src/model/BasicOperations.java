@@ -9,7 +9,7 @@ import exceptions.MissingBookException;
 
 public class BasicOperations implements IBasicOp {
 
-	protected Set<Libro> libreria = new HashSet<Libro>();
+	protected List<Libro> libreria = new ArrayList<Libro>();
 	
 	public BasicOperations () {
 		
@@ -78,5 +78,12 @@ public class BasicOperations implements IBasicOp {
 	public List<Libro> bookList() {
 		return new ArrayList<Libro>(libreria);	
 	}
+
+	@Override
+	public void setList(List<Libro> list) {
+		this.libreria = list;
+	}
+	
+	
 
 }

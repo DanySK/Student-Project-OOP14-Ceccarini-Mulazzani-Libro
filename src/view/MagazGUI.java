@@ -52,7 +52,7 @@ public class MagazGUI {
 		
 		for (int i = 0; i < buttons.length; i++){
 			buttons[i] = new JButton(names[i]);
-			buttons[i].setPreferredSize(new Dimension(150,25));
+		//	buttons[i].setPreferredSize(new Dimension(150,25));
 			main.add(buttons[i], c);
 			c.gridy++;
 			

@@ -197,12 +197,20 @@ public class BookController {
 		}
 		
 		
-		if ((fields[4].getText().length() != 13 && fields[4].getText().length() != 0)){
+		if (fields[4].getText().length() != 13 && fields[4].getText().length() != 0){
 			throw new WrongDataException();
 		}
 	}
 	
-	
+	public void loadMemory(final List<Libro> list){
+		
+		if (type.equals(TipoController.MAGAZZINO)){
+			this.magazzino.setList(list);
+		}else{
+			this.ordini.setList(list);
+		}
+		
+	}
 	
 	private void toSave(){
 	/*	if (type.equals(TipoController.MAGAZZINO)){

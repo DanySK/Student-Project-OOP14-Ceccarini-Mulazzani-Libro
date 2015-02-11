@@ -16,10 +16,15 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+import utilities.ControllerUtilities.TipoController;
+import model.Libro;
 import cartasoci.FidCard;
 import cartasoci.User;
 
 import com.thoughtworks.xstream.XStream;
+
+import controller.BookController;
+import controller.FidelityController;
 
 public class FileTabMenuGUI  extends JMenu{
 
@@ -33,7 +38,7 @@ public class FileTabMenuGUI  extends JMenu{
 	private Set<User> set = new HashSet<>();
 	
 	
-	public FileTabMenuGUI(JFrame frame){
+	public FileTabMenuGUI(JFrame frame, final BookController controller, final FidelityController fidcontroller){
 	
 		super("File");
 		
@@ -107,8 +112,15 @@ public class FileTabMenuGUI  extends JMenu{
 				    	}else{
 				    		 out = new BufferedWriter(new FileWriter(file + ".xml"));	
 				    	}
-				    	for (User u : set){
-				    	    String tosave=xstream.toXML(u);
+				    	controller.setType(TipoController.MAGAZZINO);
+				    	for (Libro b : controller.bookList()){
+				    	    String tosave=xstream.toXML(b);
+							out.write(tosave);		
+				    	}
+				    	out.write("Ordini");
+				    	controller.setType(TipoController.ORDINI);
+				    	for (Libro b : controller.bookList()){
+				    	    String tosave=xstream.toXML(b);
 							out.write(tosave);		
 				    	}
 						out.close();

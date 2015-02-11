@@ -41,4 +41,6 @@ public interface IBasicOp {
 	 * @return booklist
 	 */
 	public List<Libro> bookList ();
+	
+	public void setList(List<Libro> list);
 }

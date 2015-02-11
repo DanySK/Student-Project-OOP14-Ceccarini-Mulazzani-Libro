@@ -22,7 +22,7 @@ public class GUIUtilities {
 	public final static String[] string = {"Annulla"};
 	
 	public static GridBagConstraints getConstr(){
-		GridBagConstraints c = new GridBagConstraints();
+		final GridBagConstraints c = new GridBagConstraints();
 		c.gridy = 0;
 		c.insets = new Insets(3,3,7,3);
 		c.fill = GridBagConstraints.HORIZONTAL;
@@ -50,7 +50,7 @@ public class GUIUtilities {
 	}
 	
 	
-	public static JButton getReset(JTextField[] fields){
+	public static JButton getReset(final JTextField[] fields){
 		final JButton reset = new JButton("Reset");
 		
 		reset.addActionListener(new ActionListener() {
