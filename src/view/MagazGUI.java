@@ -25,11 +25,11 @@ import controller.BookController;
  */
 
 
-public class MagazGUI {
+public class MagazGUI{
 
 	private final JButton[] buttons = new JButton[5];
 	private final String[] names = {"Aggiungi un libro", "Vendi un libro", "Modifica un libro", "Ricerca un libro", "Lista dei libri"};
-	private final JPanel jf = new JPanel();
+	private final BackgroundPanel jf = new BackgroundPanel(GUIUtilities.back);
 	//private final String filesep = System.getProperty("file.separator");
 	
 	
