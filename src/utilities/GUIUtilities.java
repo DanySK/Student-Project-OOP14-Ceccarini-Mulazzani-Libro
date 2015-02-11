@@ -2,6 +2,7 @@ package utilities;
 
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
+import java.awt.Image;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -67,6 +68,9 @@ public class GUIUtilities {
 	}
 	
 	public static ImageIcon icon = createImageIcon("/iconBook.png");
+	public static Image image = icon.getImage();
+	public static ImageIcon icon2 = createImageIcon("/background.png");
+	public static Image back = icon2.getImage();
 	
 	private static ImageIcon createImageIcon(String path) {
 		java.net.URL imgURL = GUIUtilities.class.getResource(path);
