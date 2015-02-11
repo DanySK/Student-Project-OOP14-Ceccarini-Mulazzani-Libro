@@ -20,6 +20,7 @@ import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
+import utilities.GUIUtilities;
 import utilities.ControllerUtilities.TipoController;
 import controller.BookController;
 import controller.EarningsController;
@@ -32,7 +33,7 @@ import controller.StatisticsController;
  */
 public class Main implements ActionListener {
 
-    private JPanel cardHolder;
+    private BackgroundPanel cardHolder;
     private final JButton magazzino = new JButton("Magazzino");
     private final JButton ordini = new JButton("Ordini");
     private final JButton fatturato = new JButton("Fatturato e guadagni");
@@ -43,8 +44,9 @@ public class Main implements ActionListener {
     private final StatisticsController statcontroller = new StatisticsController();
     private final FidelityController fidcontroller = new FidelityController();
   
-    public JPanel createCardHolderPanel() {
-        cardHolder = new JPanel(new CardLayout());
+    public BackgroundPanel createCardHolderPanel() {
+        cardHolder = new BackgroundPanel(GUIUtilities.back2);
+        cardHolder.setLayout(new CardLayout());
         cardHolder.setBorder(BorderFactory.createTitledBorder("Scegli l'azione"));
         cardHolder.add(createWareHousePanel(), "Magazzino");
         cardHolder.add(createOrderPanel(), "Ordini");
