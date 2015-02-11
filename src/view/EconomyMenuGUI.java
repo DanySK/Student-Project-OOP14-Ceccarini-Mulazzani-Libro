@@ -18,7 +18,7 @@ import utilities.GUIUtilities;
 
 public class EconomyMenuGUI {
 
-	private final JPanel main = new JPanel();
+	private final BackgroundPanel main = new BackgroundPanel(GUIUtilities.back);
 	private final JButton open = new JButton("Apri la sezione Economia");
 	
 	

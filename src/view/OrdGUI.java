@@ -26,7 +26,7 @@ public class OrdGUI {
 	
 	private final JButton[] buttons = new JButton[6];
 	private final String[] names = {"Aggiungi un ordine", "Rimuovi un ordine", "Modifica un ordine", "Ricerca un ordine", "Lista degli Ordini", "Evadi gli ordini"};
-	private final JPanel main = new JPanel();
+	private final BackgroundPanel main = new BackgroundPanel(GUIUtilities.back);
 	
 	public OrdGUI(BookController controller){
 		

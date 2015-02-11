@@ -24,8 +24,7 @@ public class FidelityCardGUI {
 	private final JButton[] buttons = new JButton[5];
 	private final String[] names = {"Aggiungi una carta", "Rimuovi una carta", "Modifica una carta", "Ricerca una carta", "Lista delle carte"};
 	
-	private final JPanel main = new JPanel();
-	
+	private final BackgroundPanel main = new BackgroundPanel(GUIUtilities.back);
 	
 	public FidelityCardGUI(FidelityController controller){
 		

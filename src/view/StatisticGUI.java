@@ -26,7 +26,7 @@ public class StatisticGUI {
 	
 	private final JButton[] buttons = new JButton[4];
 	private final String[] names = {"Libro più venduto", "Libro meno venduto", "Autore più attivo", "Autore meno attivo"};
-	private final JPanel main = new JPanel();
+	private final BackgroundPanel main = new BackgroundPanel(GUIUtilities.back);
 
 	
 	public StatisticGUI(BookController controller, StatisticsController statcontroller){
