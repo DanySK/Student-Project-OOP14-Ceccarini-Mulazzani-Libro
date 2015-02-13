@@ -6,6 +6,11 @@ import model.Earnings;
 import model.IEarnings;
 import model.Libro;
 
+/**
+ * 
+ * @author Chiara Ceccarini
+ *
+ */
 public class EarningsController implements IEarnings{
 	
 	private Earnings earnings = new Earnings ();
