@@ -13,20 +13,20 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
-import controller.BookController;
 import utilities.GUIUtilities;
-import exceptions.MissingBookException;
+import controller.FidelityController;
+import exceptions.MissingUserException;
 
-public class ModifyBookGUI {
+public class RemoveCardGUI {
 	
 	
 	
 	private JPanel main = new JPanel();
 	private JButton conf = new JButton("Conferma");
-	private JTextField[] fields = new JTextField[2];
-	private String[] names = {"Titolo", "Autore"};
+	private JTextField[] fields = new JTextField[1];
+	private String[] names = {"Identificativo"};
 	
-	public ModifyBookGUI(BookController controller){
+	public RemoveCardGUI(FidelityController controller){
 		
 		main.setLayout(new BorderLayout());
 		
@@ -57,14 +57,15 @@ public class ModifyBookGUI {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					JOptionPane.showOptionDialog(main, new DetailsToModifyGUI(controller, controller.searchBook(fields)).getPane() , "Modifica libro", JOptionPane.DEFAULT_OPTION, 
-					         JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
+					controller.removePerson(fields[0]);
+					JOptionPane.showMessageDialog(main, "La carta è stata eliminata con successo", "Successo!!", JOptionPane.INFORMATION_MESSAGE);
 					JOptionPane optionPane = (JOptionPane)
 						    SwingUtilities.getAncestorOfClass(JOptionPane.class, conf);
 						optionPane.setValue(JOptionPane.CLOSED_OPTION);
-				} catch (MissingBookException e) {
+	
+				} catch (MissingUserException e) {
 					
-					JOptionPane.showMessageDialog(main, "Il libro non è presente", "Libro mancante", JOptionPane.ERROR_MESSAGE);							
+					JOptionPane.showMessageDialog(main, "L'ID non è presente", "ID mancante", JOptionPane.ERROR_MESSAGE);							
 				}
 			}
 		});
