@@ -7,6 +7,12 @@ import java.util.Map.Entry;
 import exceptions.MissingUserException;
 import exceptions.UserAlreadyExisting;
 
+/**
+ * Basic model implementation of the Fidelity Cards
+ * 
+ * @author Alberto Mulazzani
+ *
+ */
 public class FidelityCards implements IFidelityCards{
 	
 	private Map<Integer, User> cards = new HashMap<>();
@@ -56,42 +62,7 @@ public class FidelityCards implements IFidelityCards{
 		user.setID(next);
 		
 	}
-	
-	//metodo che fornisce il successivo id
-	public int getNextId(){
-		this.next++;
-		return this.next;
-	}
-	
-	public Map<Integer, User> getMap(){
-		return new HashMap<>(cards);
-	}
-	
-	public void loadMemory(Map<Integer, User> map){
-		this.cards = map;
-		this.next = map.size();
-	}
-	
-
-	//metodo che controlla se l'utente è presente
-	public void addPoints(User u, int points){
-		u.addPoints(points);
-	}
-	
-	
-
-	private void containsUser(User user) throws UserAlreadyExisting{
-		for (Entry<Integer, User> e : cards.entrySet()){
-			if (e.getValue().getName().equals(user.getName()) &&
-					e.getValue().getSurname().equals(user.getSurname()) &&
-							e.getValue().getEmail().equals(user.getEmail())){
-				throw new UserAlreadyExisting();
-			}
-		}
-	}
-	
-
-	//metodo che modifica i dati di una carta
+//metodo che modifica i dati di una carta
 	@Override
 	public void modifyPerson(User user, String[] fields) {
 		for (int i=0; i <fields.length; i++) {
@@ -113,5 +84,38 @@ public class FidelityCards implements IFidelityCards{
 		}
 
 	}
+	
+
+	
+	public Map<Integer, User> getMap(){
+		return new HashMap<>(cards);
+	}
+	
+	public void loadMemory(Map<Integer, User> map){
+		this.cards = map;
+		this.next = map.size();
+	}
+	
+	public void addPoints(User u, int points){
+		u.addPoints(points);
+	}
+	
+	
+	private void containsUser(User user) throws UserAlreadyExisting{
+		for (Entry<Integer, User> e : cards.entrySet()){
+			if (e.getValue().getName().equals(user.getName()) &&
+					e.getValue().getSurname().equals(user.getSurname()) &&
+							e.getValue().getEmail().equals(user.getEmail())){
+				throw new UserAlreadyExisting();
+			}
+		}
+	}
+	
+	private int getNextId(){
+		this.next++;
+		return this.next;
+	}
+
+
 	
 }

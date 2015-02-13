@@ -16,10 +16,12 @@ import javax.swing.SwingUtilities;
 import utilities.GUIUtilities;
 import controller.FidelityController;
 import exceptions.MissingUserException;
-
+/**
+ * 
+ * @author Alberto Mulazzani
+ *
+ */
 public class RemoveCardGUI {
-	
-	
 	
 	private JPanel main = new JPanel();
 	private JButton conf = new JButton("Conferma");

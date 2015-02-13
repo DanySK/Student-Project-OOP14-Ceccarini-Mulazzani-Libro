@@ -19,7 +19,11 @@ import javax.swing.JScrollPane;
 
 import model.Libro;
 import utilities.GUIUtilities;
-
+/**
+ * 
+ * @author Alberto Mulazzani
+ *
+ */
 public class ListTableGUI extends JDialog{
 
 	/**
@@ -71,7 +75,6 @@ public class ListTableGUI extends JDialog{
 				
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					// TODO Auto-generated method stub
 						JOptionPane.showOptionDialog(main, new BookDetailGUI(b).getPane() , "Dettagli Libro", JOptionPane.DEFAULT_OPTION, 
 						         JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
 

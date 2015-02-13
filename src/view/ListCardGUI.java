@@ -16,7 +16,11 @@ import javax.swing.JScrollPane;
 
 import utilities.GUIUtilities;
 import cartasoci.User;
-
+/**
+ * 
+ * @author Alberto Mulazzani
+ *
+ */
 public class ListCardGUI extends JDialog{
 
 	/**

@@ -1,5 +1,11 @@
 package cartasoci;
-
+/**
+ * 
+ * Basic class of a Fidelity Card Owner
+ * 
+ * @author Alberto Mulazzani
+ *
+ */
 public class User {
 	
 	private String name;
@@ -62,9 +68,6 @@ public class User {
 		this.carta.addPoints(points);
 	}
 	
-	public double getDiscounts(){
-		return this.carta.getDiscounts();
-	}
 
 	@Override
 	public int hashCode() {

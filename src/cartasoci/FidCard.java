@@ -1,6 +1,6 @@
 package cartasoci;
 /**
- * 
+ * Basic class of a Fidelity Card itself
  * 
  * @author Alberto Mulazzani
  *
@@ -25,16 +25,5 @@ public class FidCard implements IFidCard {
 		return this.points;
 	}
 
-	@Override
-	public double getDiscounts() {
-		
-		if (points >= 50){
-			points -= 50;
-			return 0.75;
-		}
-		
-		return 1;
-				
-	}
 
 }

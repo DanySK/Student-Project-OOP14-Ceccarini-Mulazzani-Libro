@@ -16,11 +16,13 @@ import javax.swing.JScrollPane;
 import utilities.GUIUtilities;
 import utilities.Pair;
 
+/**
+ * 
+ * @author Alberto Mulazzani
+ *
+ */
 public class StatisticDetailGUI extends JDialog{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -8563544567918601056L;
 	private JLabel[] list;
 	private JPanel main = new JPanel();
