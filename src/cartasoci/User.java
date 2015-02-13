@@ -62,9 +62,6 @@ public class User {
 		this.carta.addPoints(points);
 	}
 	
-	public double getDiscounts(){
-		return this.carta.getDiscounts();
-	}
 
 	@Override
 	public int hashCode() {

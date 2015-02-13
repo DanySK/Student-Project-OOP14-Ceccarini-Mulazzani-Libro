@@ -14,10 +14,5 @@ public interface IFidCard {
 	 */
 	public Integer getPoints();
 	
-	/**
-	 * 
-	 * @return discount
-	 */
-	public double getDiscounts();
 
 }
