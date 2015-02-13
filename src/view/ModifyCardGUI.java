@@ -17,16 +17,16 @@ import controller.BookController;
 import utilities.GUIUtilities;
 import exceptions.MissingBookException;
 
-public class ModifyBookGUI {
+public class ModifyCardGUI {
 	
 	
 	
 	private JPanel main = new JPanel();
 	private JButton conf = new JButton("Conferma");
-	private JTextField[] fields = new JTextField[2];
-	private String[] names = {"Titolo", "Autore"};
+	private JTextField[] fields = new JTextField[1];
+	private String[] names = {"Identificativo"};
 	
-	public ModifyBookGUI(BookController controller){
+	public ModifyCardGUI(BookController controller){
 		
 		main.setLayout(new BorderLayout());
 		
