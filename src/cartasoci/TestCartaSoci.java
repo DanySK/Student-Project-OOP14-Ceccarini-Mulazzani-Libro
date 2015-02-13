@@ -6,6 +6,8 @@ public class TestCartaSoci {
 
 	@Test
 	public void test() {
+		FidelityCards cards = new FidelityCards();
+		
 		
 	}
 
