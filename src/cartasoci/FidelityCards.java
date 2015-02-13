@@ -16,7 +16,7 @@ public class FidelityCards implements IFidelityCards{
 		this.next = 0;
 	}
 	
-	
+	//metodo che controlla se l'id da cancellare è presente e in caso affermativo lo cancella
 	public void removePerson(Integer id) throws MissingUserException{
 		if (cards.containsKey(id)) {
 			cards.remove(id);
@@ -24,7 +24,8 @@ public class FidelityCards implements IFidelityCards{
 			throw new MissingUserException();
 		}
 	}
-
+	
+	//metodo che controlla che l'id inserito sia presente e in caso affermativo restituisce l'user con l'id
 	@Override
 	public User searchID(Integer id) throws MissingUserException {
 		if (!cards.containsKey(id)){
@@ -35,6 +36,7 @@ public class FidelityCards implements IFidelityCards{
 		
 	}
 
+	//metodo che controlla che l'id inserito sia presente e in caso affermativo restituisce l'user con l'id
 	@Override
 	public User searchName(String name, String surname) throws MissingUserException {
 		for (Entry<Integer, User> u:cards.entrySet()) {
@@ -45,6 +47,7 @@ public class FidelityCards implements IFidelityCards{
 		throw new MissingUserException();
 	}
 
+	//metodo che aggiunge uno User in caso non sia presente
 	@Override
 	public void addPerson(User user) throws NullPointerException, UserAlreadyExisting {
 		containsUser(user);
@@ -54,6 +57,7 @@ public class FidelityCards implements IFidelityCards{
 		
 	}
 	
+	//metodo che fornisce il successivo id
 	public int getNextId(){
 		this.next++;
 		return this.next;
@@ -68,11 +72,14 @@ public class FidelityCards implements IFidelityCards{
 		this.next = map.size();
 	}
 	
+
+	//metodo che controlla se l'utente è presente
 	public void addPoints(User u, int points){
 		u.addPoints(points);
 	}
 	
 	
+
 	private void containsUser(User user) throws UserAlreadyExisting{
 		for (Entry<Integer, User> e : cards.entrySet()){
 			if (e.getValue().getName().equals(user.getName()) &&
@@ -84,7 +91,7 @@ public class FidelityCards implements IFidelityCards{
 	}
 	
 
-
+	//metodo che modifica i dati di una carta
 	@Override
 	public void modifyPerson(User user, String[] fields) {
 		for (int i=0; i <fields.length; i++) {

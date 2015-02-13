@@ -13,25 +13,29 @@ public interface IStatistics {
 	
 	/**
 	 * 
-	 * @return a list of most popular book
+	 * @param list of book in the library
+	 * @return a list of the most popular books
 	 */
 	public List<Libro> mostPopularBook (List <Libro> list);
 	
 	/**
 	 * 
-	 * @return a list of less popular book
+	 * @param list of book in the library
+	 * @return a list of the less popular books
 	 */
 	public List<Libro> lessPopularBook (List <Libro> list);
 	
 	/**
 	 * 
-	 * @return a list of most active author
+	 * @param list of book in the library
+	 * @return a list of the most active author
 	 */
 	public List <Pair <String,Integer>> mostActiveAuthor (List <Libro> list);
 	
 	/**
 	 * 
-	 * @return a list of less active author
+	 * @param list of book in the library
+	 * @return a list of the less active author
 	 */
 	public List <Pair <String,Integer>> lessActiveAuthor (List <Libro> list);
 }

@@ -37,6 +37,7 @@ public class TestMagazzino {
 		//se il libro è presente, ne vendo due copie
 		try {
 			lib.sellBook(book, 2);
+			assertEquals (book.getNSales(), (book.getNCopy()+2));
 		} catch (MissingBookException | NotEnoughBookException e) {
 			e.printStackTrace();
 		} 
