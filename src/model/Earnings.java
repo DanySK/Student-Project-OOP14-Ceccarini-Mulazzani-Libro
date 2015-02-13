@@ -19,7 +19,6 @@ public class Earnings implements IEarnings{
 		for (Libro b:list) {
 			sum += b.getNSales();
 		}
-		System.out.println("Libri in lista " + list.size());
 		return sum;
 	}
 	

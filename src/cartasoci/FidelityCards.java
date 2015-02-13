@@ -36,10 +36,11 @@ public class FidelityCards implements IFidelityCards{
 	}
 
 	@Override
-	public User searchName(String name) throws MissingUserException {
-		for (User u:cards.values()) {
-			if (u.getName().equals(name)) {
-				return u;
+	public User searchName(String name, String surname) throws MissingUserException {
+		for (Entry<Integer, User> u:cards.entrySet()) {
+			if (u.getValue().getName().equals(name) && u.getValue().getSurname().equals(surname)) {
+				u.getValue().setID(u.getKey());
+				return u.getValue();
 			}
 		}
 		throw new MissingUserException();

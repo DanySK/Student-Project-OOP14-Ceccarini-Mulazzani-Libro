@@ -102,7 +102,7 @@ public class FidelityCardGUI {
 			public void actionPerformed(ActionEvent e) {
 				
 				
-				JOptionPane.showOptionDialog(main, new AddPersonGUI(controller).getPane() , "Ricerca una carta", JOptionPane.DEFAULT_OPTION, 
+				JOptionPane.showOptionDialog(main, new SearchCardGUI(controller).getPane() , "Ricerca una carta", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
 			
 			}

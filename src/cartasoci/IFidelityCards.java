@@ -47,7 +47,7 @@ public interface IFidelityCards {
 	 * @throws IllegalArgumentException if the person is not in the list
 	 * @throws MissingUserException 
 	 */
-	public User searchName(String name) throws NullPointerException, IllegalArgumentException, MissingUserException;
+	public User searchName(String name, String surname) throws NullPointerException, IllegalArgumentException, MissingUserException;
 	
 	/**
 	 * 

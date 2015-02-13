@@ -6,6 +6,7 @@ public class User {
 	private String surname;
 	private String email;
 	private IFidCard carta = new FidCard();
+	private int ID;
 	
 	public User(final String name){
 		this.name = name;
@@ -21,6 +22,10 @@ public class User {
 		this.email = email;
 	}
 	
+	public void setID(int id){
+		this.ID = id;
+	}
+	
 	public String getName(){
 		return this.name;
 	}
@@ -31,6 +36,10 @@ public class User {
 	
 	public String getEmail(){
 		return this.email;
+	}
+	
+	public int getID(){
+		return this.ID;
 	}
 	
 	public Integer getPoints(){
@@ -44,5 +53,10 @@ public class User {
 	public double getDiscounts(){
 		return this.carta.getDiscounts();
 	}
+	
+	
+	
+	
+	
 	
 }

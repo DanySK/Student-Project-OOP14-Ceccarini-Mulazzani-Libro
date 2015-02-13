@@ -8,10 +8,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -38,8 +36,7 @@ public class FileTabMenuGUI  extends JMenu{
 
 	private String[] names = {"Carica", "Salva", "Salva e chiudi"};
 	private JMenuItem[] buttons = new JMenuItem[names.length];
-	private Set<User> set = new HashSet<>();
-	
+
 	
 	public FileTabMenuGUI(JFrame frame, final BookController controller, final FidelityController fidcontroller){
 	
@@ -48,13 +45,7 @@ public class FileTabMenuGUI  extends JMenu{
 	//	setMnemonic('f');
 		//super.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F));
 
-		set.add(new User("Banana", "Scimmia", "1@1"));
-		set.add(new User("Banana2", "Scimmia2", "12@1"));
-		set.add(new User("Banan3a", "Scimmi3a", "1@13"));
-
-		
-		System.out.println(set.size());
-		
+	
 		for (int i = 0; i < names.length; i++){
 			buttons[i] = new JMenuItem(names[i]);
 			add(buttons[i]);
