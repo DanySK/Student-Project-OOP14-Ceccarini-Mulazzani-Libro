@@ -35,17 +35,17 @@ public class FidelityController {
 	}
 
 	
-	public User searchID(Integer id) throws NullPointerException,
+	public User searchID(JTextField fields) throws NullPointerException,
 			IllegalArgumentException, MissingUserException {
 
-		return null;
+		return cards.searchID(Integer.parseInt(fields.getText()));
 	}
 
 	
-	public User searchName(String name) throws NullPointerException,
+	public User searchName(JTextField name, JTextField surname) throws NullPointerException,
 			IllegalArgumentException, MissingUserException {
 		// TODO Auto-generated method stub
-		return null;
+		return cards.searchName(name.getText(), surname.getText());
 	}
 
 	public Map<Integer, User> getMap(){
