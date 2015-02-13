@@ -37,12 +37,6 @@ public class GUIUtilities {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				try {
-					SaveClass.saveAll();
-				} catch (IOException e1) {
-
-					e1.printStackTrace();
-				}
 				System.exit(0);
 			}
 		});
