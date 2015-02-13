@@ -62,7 +62,6 @@ public interface IFidelityCards {
 	 * @return nextId
 	 */
 	
-	public int getNextId();
 
 	public Map<Integer, User> getMap();
 
