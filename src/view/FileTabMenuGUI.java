@@ -106,13 +106,6 @@ public class FileTabMenuGUI  extends JMenu{
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-				   
-				    
-				  //  List<Libro> list2 = (List<Libro>) xstream.fromXML
-				    
-				   // controller.loadMemory(list2);		    
-
-
 				    
 				}
 			}
@@ -149,10 +142,7 @@ public class FileTabMenuGUI  extends JMenu{
 				    xstream.alias("Libro", Libro.class);
 				    xstream.alias("Lista", List.class);
 				    
-				  //  BufferedWriter out;
-					try {
-						//out = new BufferedWriter(new FileWriter(file));
-					    //xstream.alias("Lista", List.class);
+				    try {
 						controller.setType(TipoController.MAGAZZINO);
 						ObjectOutputStream out = xstream.createObjectOutputStream(new ObjectOutputStream(new FileOutputStream(file)));
 						out.writeObject(controller.bookList());
@@ -164,35 +154,8 @@ public class FileTabMenuGUI  extends JMenu{
 						
 						out.close();
 					} catch (IOException e1) {
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
-					}
-
-				    	
-				    /*	for (Libro b : controller.bookList()){
-				    	    String tosave=xstream.toXML(b);
-							out.write(tosave);		
-				    	}*/
-
-						
-						
-				   /* 	controller.setType(TipoController.ORDINI);
-				    	tosave=xstream.toXML(controller.bookList());
-						out.write(tosave);	
-					*/	
-						
-				    	/*	for (Libro b : controller.bookList()){
-				    	    tosave=xstream.toXML(b);
-							out.write(tosave);		
-				    	}
-				    	
-				    	for (Entry<Integer, User> u : fidcontroller.getMap().entrySet()){
-				    	    tosave=xstream.toXML(u.getKey());
-							out.write(tosave);
-				    	    tosave=xstream.toXML(u.getValue());
-							out.write(tosave);
-				    	}*/
-						
+					}				
 				}
 				
 			}

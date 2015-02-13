@@ -62,22 +62,9 @@ public class BookController {
 		} else {
 			System.out.println("Ordz");
 			ordini.addBook(book);
-			toSave();
+
 		}
 	}
-	
-	/*
-	public void modifyBook() throws MissingBookException{	
-		if (type.equals(TipoController.MAGAZZINO)) {
-			magazzino.modifyBook(toSearch[0], toSearch[1], strings);
-			toSave();
-		} else {
-			ordini.modifyBook(toSearch[0], toSearch[1], strings);
-			toSave();
-		}
-		
-	}*/
-	
 	
 	public void modifyBook(Libro b,  JTextField[] fields) throws WrongDataException{
 		checkWrongs(fields);		
@@ -102,7 +89,6 @@ public class BookController {
 	
 	public void sellBook(Libro book , String nCopy) throws MissingBookException, NotEnoughBookException {
 		magazzino.sellBook(book,Integer.parseInt(nCopy));
-		toSave();
 	}
 	
 	
@@ -134,7 +120,6 @@ public class BookController {
 	
 	public void remove (Libro lib) {
 		ordini.remove(lib);
-		toSave();
 	}
 	
 	public void evasioneOrdini () throws MissingBookException {
@@ -143,10 +128,8 @@ public class BookController {
 		}
 		for (Libro b:ordini.bookList()) {
 			magazzino.addBook(b);
-			//SaveClass.setLib(magazzino);
 		}
 		ordini.evasioneOrdini();
-		toSave();
 	}
 	
 	private void checkData(JTextField[] fields) throws MissingDataException, WrongDataException{
@@ -207,12 +190,4 @@ public class BookController {
 		
 	}
 	
-	private void toSave(){
-	/*	if (type.equals(TipoController.MAGAZZINO)){
-			SaveClass.setLib(magazzino);
-		}else{
-			SaveClass.setOrd(ordini);
-		}*/
-	}
-
 }

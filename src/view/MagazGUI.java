@@ -17,6 +17,7 @@ import javax.swing.border.TitledBorder;
 import utilities.GUIUtilities;
 import utilities.ControllerUtilities.TipoController;
 import controller.BookController;
+import controller.FidelityController;
 
 /**
  * 
@@ -34,7 +35,7 @@ public class MagazGUI{
 	
 	
 	
-	public MagazGUI(BookController controller){	
+	public MagazGUI(BookController controller, FidelityController fidcontroller){	
 		
 	
 		jf.setLayout(new BorderLayout());
@@ -91,7 +92,7 @@ public class MagazGUI{
 			public void actionPerformed(ActionEvent e) {
 
 				controller.setType(TipoController.MAGAZZINO);
-				JOptionPane.showOptionDialog(jf, new SellBookGUI(controller).getPane() , "Vendi un libro", JOptionPane.DEFAULT_OPTION, 
+				JOptionPane.showOptionDialog(jf, new SellBookGUI(controller, fidcontroller).getPane() , "Vendi un libro", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
 			
 			}

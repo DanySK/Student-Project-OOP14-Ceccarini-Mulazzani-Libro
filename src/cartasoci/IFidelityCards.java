@@ -67,4 +67,6 @@ public interface IFidelityCards {
 	public Map<Integer, User> getMap();
 
 	public void loadMemory(Map<Integer, User> map);
+	
+	public void addPoints(User u, int points);
 }

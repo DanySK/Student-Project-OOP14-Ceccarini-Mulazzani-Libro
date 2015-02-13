@@ -19,7 +19,7 @@ public class CardDetailGUI extends JDialog{
 	 */
 	private static final long serialVersionUID = -5294910808056208082L;
 	private final JPanel main = new JPanel();
-	private final String[] names = {"Nome","Cognome", "Email", "ID"};
+	private final String[] names = {"Nome","Cognome", "Email", "ID", "Punti"};
 	
 	public CardDetailGUI(User b){
 		
@@ -42,6 +42,8 @@ public class CardDetailGUI extends JDialog{
 		mid.add(GUIUtilities.wrapperPanel(new JLabel(names[3]),FlowLayout.RIGHT));
 		mid.add(GUIUtilities.wrapperPanel(new JLabel("" + b.getID()),FlowLayout.RIGHT));
 				
+		mid.add(GUIUtilities.wrapperPanel(new JLabel(names[4]),FlowLayout.RIGHT));
+		mid.add(GUIUtilities.wrapperPanel(new JLabel("" + b.getPoints()),FlowLayout.RIGHT));
 		
 		
 		main.add(mid, BorderLayout.CENTER);

@@ -39,7 +39,6 @@ public class FidelityCards implements IFidelityCards{
 	public User searchName(String name, String surname) throws MissingUserException {
 		for (Entry<Integer, User> u:cards.entrySet()) {
 			if (u.getValue().getName().equals(name) && u.getValue().getSurname().equals(surname)) {
-				u.getValue().setID(u.getKey());
 				return u.getValue();
 			}
 		}
@@ -49,8 +48,9 @@ public class FidelityCards implements IFidelityCards{
 	@Override
 	public void addPerson(User user) throws NullPointerException, UserAlreadyExisting {
 		containsUser(user);
+
 		cards.put(getNextId(), user);
-		
+		user.setID(next);
 		
 	}
 	
@@ -65,7 +65,13 @@ public class FidelityCards implements IFidelityCards{
 	
 	public void loadMemory(Map<Integer, User> map){
 		this.cards = map;
+		this.next = map.size();
 	}
+	
+	public void addPoints(User u, int points){
+		u.addPoints(points);
+	}
+	
 	
 	private void containsUser(User user) throws UserAlreadyExisting{
 		for (Entry<Integer, User> e : cards.entrySet()){
@@ -76,6 +82,7 @@ public class FidelityCards implements IFidelityCards{
 			}
 		}
 	}
+	
 
 
 	@Override

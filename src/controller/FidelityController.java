@@ -36,6 +36,13 @@ public class FidelityController {
 		
 	}
 
+	public void addPoints(JTextField[] fields, double price) throws NullPointerException, IllegalArgumentException, MissingUserException{
+		
+		Integer copies = Integer.parseInt(fields[2].getText());
+		int tot = (int) ((copies * price) / 10);
+		
+		cards.addPoints(this.searchID(fields[3]), tot);
+	}
 	
 	public User searchID(JTextField fields) throws NullPointerException,
 			IllegalArgumentException, MissingUserException {

@@ -17,7 +17,9 @@ import javax.swing.SwingUtilities;
 import model.Libro;
 import utilities.GUIUtilities;
 import controller.BookController;
+import controller.FidelityController;
 import exceptions.MissingBookException;
+import exceptions.MissingUserException;
 import exceptions.NotEnoughBookException;
 
 public class SellBookGUI extends JDialog {
@@ -33,7 +35,7 @@ public class SellBookGUI extends JDialog {
 	private JButton conf = new JButton("Conferma");
 	private	Libro lib;
 	
-	public SellBookGUI(BookController controller) {
+	public SellBookGUI(BookController controller, FidelityController fidcontroller) {
 		
 		main.setLayout(new BorderLayout());
 		
@@ -65,7 +67,9 @@ public class SellBookGUI extends JDialog {
 				
 				try {
 					lib = controller.searchBook(fields);
+
 					controller.sellBook(lib, fields[2].getText());
+					fidcontroller.addPoints(fields, lib.getPrice());
 					JOptionPane.showMessageDialog(main, "Il libro è stato venduto con successo!!", "Successo!!", JOptionPane.INFORMATION_MESSAGE);
 					JOptionPane optionPane = (JOptionPane)
 						    SwingUtilities.getAncestorOfClass(JOptionPane.class, conf);
@@ -75,8 +79,15 @@ public class SellBookGUI extends JDialog {
 				} catch (NotEnoughBookException e1) {
 					JOptionPane.showMessageDialog(main, "Non sono presenti abbastanza copie in magazzino \n "
 							+ "ne sono state richieste " + fields[2].getText() + ", ma ne sono presenti solo " + lib.getNCopy(), "Copie mancanti", JOptionPane.ERROR_MESSAGE);
+				}  catch (MissingUserException e1) {
+					JOptionPane.showMessageDialog(main, "La carta non è presente in archivio", "La carta non esiste", JOptionPane.ERROR_MESSAGE);				
+					
 				}
-				
+				 catch (IllegalArgumentException | NullPointerException e1) {
+					// TODO Auto-generated catch block
+						JOptionPane.showMessageDialog(main, "Errore Grave!! Contattare l'assistenza!", "Attenzione!!", JOptionPane.ERROR_MESSAGE);
+
+				}
 				
 			}
 		});

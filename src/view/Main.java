@@ -70,7 +70,7 @@ public class Main implements ActionListener {
     private JPanel createWareHousePanel() {
 
 
-    	return new MagazGUI(controller).getPane();
+    	return new MagazGUI(controller, fidcontroller).getPane();
     }
     
     private JPanel createOrderPanel( ) {
