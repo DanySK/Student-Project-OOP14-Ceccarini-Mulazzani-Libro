@@ -59,7 +59,6 @@ public class ModifyBookGUI {
 				try {
 					JOptionPane.showOptionDialog(main, new DetailsToModifyGUI(controller, controller.searchBook(fields)).getPane() , "Modifica libro", JOptionPane.DEFAULT_OPTION, 
 					         JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
-					controller.addBook();
 					JOptionPane optionPane = (JOptionPane)
 						    SwingUtilities.getAncestorOfClass(JOptionPane.class, conf);
 						optionPane.setValue(JOptionPane.CLOSED_OPTION);

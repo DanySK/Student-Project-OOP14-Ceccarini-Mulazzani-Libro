@@ -74,7 +74,7 @@ public class FidelityCardGUI {
 			public void actionPerformed(ActionEvent e) {
 				
 				
-				JOptionPane.showOptionDialog(main, new AddPersonGUI(controller).getPane() , "Rimuovi una carta", JOptionPane.DEFAULT_OPTION, 
+				JOptionPane.showOptionDialog(main, new RemoveCardGUI(controller).getPane() , "Rimuovi una carta", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
 			
 			}
@@ -88,7 +88,7 @@ public class FidelityCardGUI {
 			public void actionPerformed(ActionEvent e) {
 				
 				
-				JOptionPane.showOptionDialog(main, new AddPersonGUI(controller).getPane() , "Modifica una carta", JOptionPane.DEFAULT_OPTION, 
+				JOptionPane.showOptionDialog(main, new ModifyCardGUI(controller).getPane() , "Modifica una carta", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
 			
 			}

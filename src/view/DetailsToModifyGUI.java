@@ -67,7 +67,6 @@ public class DetailsToModifyGUI	extends JDialog {
 				try {
 					controller.modifyBook(b, jfields);
 					JOptionPane.showMessageDialog(main, "Il libro è stato modificato correttamente", "Successo!", JOptionPane.INFORMATION_MESSAGE);
-					controller.addBook();
 					JOptionPane optionPane = (JOptionPane)
 						    SwingUtilities.getAncestorOfClass(JOptionPane.class, conf);
 						optionPane.setValue(JOptionPane.CLOSED_OPTION);

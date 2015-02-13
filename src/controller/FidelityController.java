@@ -19,6 +19,7 @@ public class FidelityController {
 	public void addPerson(JTextField[] fields) throws
 			UserAlreadyExisting, MissingDataException, WrongDataException {
 
+		checkEmpty(fields);
 		checkData(fields);
 		
 		User user = new User(fields[0].getText(), fields[1].getText(), fields[2].getText());
@@ -28,9 +29,10 @@ public class FidelityController {
 	}
 
 	
-	public void removePerson(Integer id) throws NullPointerException,
+	public void removePerson(JTextField id) throws NullPointerException,
 			IllegalArgumentException, MissingUserException {
-
+		
+		cards.removePerson(Integer.parseInt(id.getText()));
 		
 	}
 
@@ -44,20 +46,31 @@ public class FidelityController {
 	
 	public User searchName(JTextField name, JTextField surname) throws NullPointerException,
 			IllegalArgumentException, MissingUserException {
-		// TODO Auto-generated method stub
 		return cards.searchName(name.getText(), surname.getText());
 	}
 
 	public Map<Integer, User> getMap(){
 		return cards.getMap();
-		
 	}
+	
 	
 	public void loadMemory(Map<Integer, User> map){
 		cards.loadMemory(map);
 	}
 	
-	private void checkData(JTextField[] fields) throws MissingDataException, WrongDataException{
+	private void checkData(JTextField[] fields) throws WrongDataException{
+		
+
+		if (fields[2].getText().length() != 0){
+			if (!fields[2].getText().contains("@")){
+				throw new WrongDataException();
+			}			
+		}
+
+		
+	}
+	
+	private void checkEmpty(JTextField[] fields) throws MissingDataException{
 		
 		for (int i = 0; i < fields.length; i++){
 			if (fields[i].getText().length() == 0){
@@ -65,13 +78,20 @@ public class FidelityController {
 			}
 		}
 		
-		if (!fields[2].getText().contains("@")){
-			throw new WrongDataException();
-		}
+	}
+	public void modifyUser(User b, JTextField[] jfields) throws WrongDataException {
 		
+			checkData(jfields);		
+			String[] datas = new String[jfields.length];		
+			for (int i = 0; i < jfields.length; i++){
+				datas[i] = jfields[i].getText();
+			}	
+		
+			
+			cards.modifyPerson(b, datas);
+			
+		}
 		
 	}
 	
-	
 
-}

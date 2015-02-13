@@ -80,22 +80,17 @@ public class BookController {
 	
 	
 	public void modifyBook(Libro b,  JTextField[] fields) throws WrongDataException{
-		checkWrongs(fields);
-		
-		
-		String[] datas = new String[fields.length];
-		
+		checkWrongs(fields);		
+		String[] datas = new String[fields.length];		
 		for (int i = 0; i < fields.length; i++){
 			datas[i] = fields[i].getText();
-		}
-		
+		}	
 		
 		if (type.equals(TipoController.MAGAZZINO)) {
 			magazzino.modifyBook(b, datas);
-			toSave();
+
 		} else {
 			ordini.modifyBook(b, datas);
-			toSave();
 		}
 	}
 	

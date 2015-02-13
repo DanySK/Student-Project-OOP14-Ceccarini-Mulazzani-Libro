@@ -30,7 +30,7 @@ public class CardDetailGUI extends JDialog{
 	
 
 		mid.add(GUIUtilities.wrapperPanel(new JLabel(names[0]),FlowLayout.RIGHT));
-		mid.add(GUIUtilities.wrapperPanel(new JLabel(b.getName()),FlowLayout.LEFT));
+		mid.add(GUIUtilities.wrapperPanel(new JLabel(b.getName()),FlowLayout.RIGHT));
 
 		
 		mid.add(GUIUtilities.wrapperPanel(new JLabel(names[1]),FlowLayout.RIGHT));

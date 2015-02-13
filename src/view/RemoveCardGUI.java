@@ -13,12 +13,11 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
-import cartasoci.User;
 import utilities.GUIUtilities;
 import controller.FidelityController;
 import exceptions.MissingUserException;
 
-public class RemovePersonGUI {
+public class RemoveCardGUI {
 	
 	
 	
@@ -27,7 +26,7 @@ public class RemovePersonGUI {
 	private JTextField[] fields = new JTextField[1];
 	private String[] names = {"Identificativo"};
 	
-	public RemovePersonGUI(FidelityController controller){
+	public RemoveCardGUI(FidelityController controller){
 		
 		main.setLayout(new BorderLayout());
 		
@@ -58,10 +57,12 @@ public class RemovePersonGUI {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					JOptionPane.showConfirmDialog(main,new CardDetailGUI(controller.searchID(fields[0])), "Sei sicuro di voler rimuovere la persona?", JOptionPane.DEFAULT_OPTION);
 					controller.removePerson(fields[0]);
-					JOptionPane.showMessageDialog(main, "Il libro è stato venduto con successo!!", "Successo!!", JOptionPane.INFORMATION_MESSAGE);
-			
+					JOptionPane.showMessageDialog(main, "La carta è stata eliminata con successo", "Successo!!", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane optionPane = (JOptionPane)
+						    SwingUtilities.getAncestorOfClass(JOptionPane.class, conf);
+						optionPane.setValue(JOptionPane.CLOSED_OPTION);
+	
 				} catch (MissingUserException e) {
 					
 					JOptionPane.showMessageDialog(main, "L'ID non è presente", "ID mancante", JOptionPane.ERROR_MESSAGE);							
