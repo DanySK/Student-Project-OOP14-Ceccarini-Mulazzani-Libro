@@ -17,13 +17,14 @@ import javax.swing.JTextField;
 import utilities.GUIUtilities;
 import controller.FidelityController;
 import exceptions.MissingUserException;
-
+/**
+ * 
+ * @author Alberto Mulazzani
+ *
+ */
 public class SearchCardGUI extends JDialog {
 	
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 6224252338040945108L;
 
 	private String[] names = {"Nome", "Cognome", "ID"};
@@ -60,7 +61,6 @@ public class SearchCardGUI extends JDialog {
 		
 		final JPanel bot = new JPanel(new FlowLayout());
 		
-		//bot.add(conf);
 		bot.add(GUIUtilities.getReset(fields));
 		main.add(bot, BorderLayout.SOUTH);
 		
@@ -95,20 +95,7 @@ public class SearchCardGUI extends JDialog {
 				}
 			}
 		});
-/*		
-		conf.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				try {
-					JOptionPane.showOptionDialog(main, new BookDetailGUI(controller.searchBook(fields)).getPane() , "Ricerca libro", JOptionPane.DEFAULT_OPTION, 
-					         JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
-				} catch (MissingBookException e) {
-					
-					JOptionPane.showMessageDialog(main, "Il libro non è presente", "Libro mancante", JOptionPane.ERROR_MESSAGE);							
-				}
-			}
-		});*/
+
 		
 	}
 	

@@ -42,10 +42,7 @@ public class FileTabMenuGUI  extends JMenu{
 	
 		super("File");
 		
-	//	setMnemonic('f');
-		//super.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F));
-
-	
+			
 		for (int i = 0; i < names.length; i++){
 			buttons[i] = new JMenuItem(names[i]);
 			add(buttons[i]);
@@ -99,14 +96,9 @@ public class FileTabMenuGUI  extends JMenu{
 					    
 					    ois.close();
 					    
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
+					} catch (IOException | ClassNotFoundException e) {
 						e.printStackTrace();
-					} catch (ClassNotFoundException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				    
+					} 
 				}
 			}
 		});

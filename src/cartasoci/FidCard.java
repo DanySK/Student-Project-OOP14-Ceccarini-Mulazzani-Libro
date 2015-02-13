@@ -1,6 +1,6 @@
 package cartasoci;
 /**
- * 
+ * Basic class of a Fidelity Card itself
  * 
  * @author Alberto Mulazzani
  *

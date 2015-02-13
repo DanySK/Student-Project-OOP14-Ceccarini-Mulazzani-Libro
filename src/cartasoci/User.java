@@ -1,5 +1,11 @@
 package cartasoci;
-
+/**
+ * 
+ * Basic class of a Fidelity Card Owner
+ * 
+ * @author Alberto Mulazzani
+ *
+ */
 public class User {
 	
 	private String name;

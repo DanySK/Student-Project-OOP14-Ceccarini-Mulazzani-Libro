@@ -16,7 +16,11 @@ import javax.swing.SwingUtilities;
 import controller.BookController;
 import utilities.GUIUtilities;
 import exceptions.MissingBookException;
-
+/**
+ * 
+ * @author Alberto Mulazzani
+ *
+ */
 public class ModifyBookGUI {
 	
 	

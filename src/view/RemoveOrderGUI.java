@@ -19,15 +19,15 @@ import utilities.GUIUtilities;
 import controller.BookController;
 import exceptions.MissingBookException;
 
+/**
+ * 
+ * @author Alberto Mulazzani
+ *
+ */
+
 public class RemoveOrderGUI extends JDialog{
 	
-	
-	
-	
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 5946044269812046114L;
 	private String[] names = {"Titolo", "Autore"};
 	private JTextField[] fields = new JTextField[names.length];

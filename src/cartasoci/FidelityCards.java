@@ -7,6 +7,12 @@ import java.util.Map.Entry;
 import exceptions.MissingUserException;
 import exceptions.UserAlreadyExisting;
 
+/**
+ * Basic model implementation of the Fidelity Cards
+ * 
+ * @author Alberto Mulazzani
+ *
+ */
 public class FidelityCards implements IFidelityCards{
 	
 	private Map<Integer, User> cards = new HashMap<>();

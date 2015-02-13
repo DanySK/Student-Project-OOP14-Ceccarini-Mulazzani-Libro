@@ -21,13 +21,13 @@ import controller.FidelityController;
 import exceptions.MissingBookException;
 import exceptions.MissingUserException;
 import exceptions.NotEnoughBookException;
-
+/**
+ * 
+ * @author Alberto Mulazzani
+ *
+ */
 public class SellBookGUI extends JDialog {
 	
-	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 6224252338040945108L;
 	private String[] names = {"Titolo", "Autore", "Copie", "Carta"};
 	private JTextField[] fields = new JTextField[names.length];

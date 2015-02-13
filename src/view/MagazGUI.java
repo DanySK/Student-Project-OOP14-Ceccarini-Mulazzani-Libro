@@ -30,9 +30,7 @@ public class MagazGUI{
 
 	private final JButton[] buttons = new JButton[5];
 	private final String[] names = {"Aggiungi un libro", "Vendi un libro", "Modifica un libro", "Ricerca un libro", "Lista dei libri"};
-	private final BackgroundPanel jf = new BackgroundPanel(GUIUtilities.back);
-	//private final String filesep = System.getProperty("file.separator");
-	
+	private final BackgroundPanel jf = new BackgroundPanel(GUIUtilities.back);	
 	
 	
 	public MagazGUI(BookController controller, FidelityController fidcontroller){	
@@ -46,9 +44,7 @@ public class MagazGUI{
 	    jf.setLocation(x, y);
 	    
 
-	//	ImageIcon icon = new ImageIcon("iconBook.png");
-		
-		final JPanel main = new JPanel();
+	    final JPanel main = new JPanel();
 		main.setLayout(new GridBagLayout());
 		GridBagConstraints c = GUIUtilities.getConstr();
 		

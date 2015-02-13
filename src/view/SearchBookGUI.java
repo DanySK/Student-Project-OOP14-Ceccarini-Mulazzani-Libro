@@ -16,7 +16,11 @@ import javax.swing.JTextField;
 import utilities.GUIUtilities;
 import controller.BookController;
 import exceptions.MissingBookException;
-
+/**
+ * 
+ * @author Alberto Mulazzani
+ *
+ */
 public class SearchBookGUI extends JDialog {
 	
 	

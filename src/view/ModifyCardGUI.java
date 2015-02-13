@@ -16,7 +16,11 @@ import javax.swing.SwingUtilities;
 import utilities.GUIUtilities;
 import controller.FidelityController;
 import exceptions.MissingUserException;
-
+/**
+ * 
+ * @author Alberto Mulazzani
+ *
+ */
 public class ModifyCardGUI {
 	
 	
