@@ -60,7 +60,6 @@ public class FidelityCards implements IFidelityCards{
 	}
 	
 	public Map<Integer, User> getMap(){
-		
 		return new HashMap<>(cards);
 	}
 	
