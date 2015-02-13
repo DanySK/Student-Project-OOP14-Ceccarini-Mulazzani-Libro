@@ -28,6 +28,14 @@ public interface IFidelityCards {
 	
 	/**
 	 * 
+	 * @param user
+	 * @param fields
+	 */
+	
+	public void modifyPerson (User user, String[] fields);
+	
+	/**
+	 * 
 	 * @param id is the Identifier to search
 	 * @return the complete User
 	 * @throws NullPointerException if id is Null

@@ -77,10 +77,28 @@ public class FidelityCards implements IFidelityCards{
 			}
 		}
 	}
-	
-	
-	
-	
-	
 
+
+	@Override
+	public void modifyPerson(User user, String[] fields) {
+		for (int i=0; i <fields.length; i++) {
+			if (!fields[i].isEmpty()) {
+				switch (i) {
+					case 0: 
+						user.setName(fields[i]); 
+						break;
+					case 1: 
+						user.setSurname(fields[i]); 
+						break;
+					case 2: 
+						user.setEmail(fields[i]); 
+						break;
+				}
+				
+			}
+		
+		}
+
+	}
+	
 }
