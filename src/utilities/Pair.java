@@ -46,23 +46,30 @@ public class Pair<X,Y>{
 	@SuppressWarnings("unchecked")
 	@Override
 	public boolean equals(final Object obj) {
-		if (this == obj)
+		if (this == obj) {
 			return true;
-		if (obj == null)
+		}
+		if (obj == null) {
 			return false;
-		if (getClass() != obj.getClass())
+		}
+		if (getClass() != obj.getClass()) {
 			return false;
-		Pair <X,Y> other = (Pair <X,Y>) obj;
+		}
+		final Pair <X,Y> other = (Pair <X,Y>) obj;
 		if (first == null) {
-			if (other.first != null)
+			if (other.first != null) {
 				return false;
-		} else if (!first.equals(other.first))
+			}
+		} else if (!first.equals(other.first)) {
 			return false;
+		}
 		if (second == null) {
-			if (other.second != null)
+			if (other.second != null) {
 				return false;
-		} else if (!second.equals(other.second))
+			}
+		} else if (!second.equals(other.second)) {
 			return false;
+		}
 		return true;
 	}
 	

@@ -14,25 +14,21 @@ import model.Statistics;
  */
 public class StatisticsController implements IStatistics{
 	
-	private Statistics statistics = new Statistics ();
+	final private Statistics statistics = new Statistics ();
 	
-	public StatisticsController () {
-		
-	}
-	
-	public List<Libro> mostPopularBook (List <Libro> list) {
+	public List<Libro> mostPopularBook (final List <Libro> list) {
 		return statistics.mostPopularBook(list);
 	}
 	
-	public List<Libro> lessPopularBook (List <Libro> list) {
+	public List<Libro> lessPopularBook (final List <Libro> list) {
 		return statistics.lessPopularBook(list);
 	}
 	
-	public List <Pair <String,Integer>> mostActiveAuthor (List <Libro> list) {
+	public List <Pair <String,Integer>> mostActiveAuthor (final List <Libro> list) {
 		return statistics.mostActiveAuthor(list);
 	}
 	
-	public List <Pair <String,Integer>> lessActiveAuthor (List <Libro> list) {
+	public List <Pair <String,Integer>> lessActiveAuthor (final List <Libro> list) {
 		return statistics.lessActiveAuthor(list);
 	}
 
