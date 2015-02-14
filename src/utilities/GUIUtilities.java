@@ -18,9 +18,21 @@ import javax.swing.JTextField;
  * @author Alberto Mulazzani
  *
  */
-public class GUIUtilities {
+public final class GUIUtilities {
+	
+	public final static String[] STRING = {"Annulla"};
+	
+	public static ImageIcon icon = createImageIcon("/iconBook.png");
+	public static Image image = icon.getImage();
+	private static ImageIcon icon2 = createImageIcon("/background.png");
+	public static Image back = icon2.getImage();
 
-	public final static String[] string = {"Annulla"};
+	
+	
+	private GUIUtilities(){
+		
+	}
+
 	
 	public static GridBagConstraints getConstr(){
 		final GridBagConstraints c = new GridBagConstraints();
@@ -36,7 +48,7 @@ public class GUIUtilities {
 		chiudi.addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(final ActionEvent e) {
 	     	    final String objButtons[] = {"Sì","No"};
         	    final int promptResult = JOptionPane.showOptionDialog(null, 
         	        "Sei sicuro di voler uscire? I dati non salvati saranno persi", "Sei proprio sicuro?", 
@@ -59,7 +71,7 @@ public class GUIUtilities {
 		reset.addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(final ActionEvent e) {
 				for (int i = 0; i < fields.length; i++){
 					fields[i].setText("");
 				}
@@ -69,21 +81,16 @@ public class GUIUtilities {
 		return reset;
 	}
 	
-	public static ImageIcon icon = createImageIcon("/iconBook.png");
-	public static Image image = icon.getImage();
-	private static ImageIcon icon2 = createImageIcon("/background.png");
-	public static Image back = icon2.getImage();
-	private static ImageIcon icon3 = createImageIcon("/background2.png");
-	public static Image back2 = icon3.getImage();
 	
-	private static ImageIcon createImageIcon(String path) {
-		java.net.URL imgURL = GUIUtilities.class.getResource(path);
+	private static ImageIcon createImageIcon(final String path) {
+		final java.net.URL imgURL = GUIUtilities.class.getResource(path);
 
-		if (imgURL != null) {
-			return new ImageIcon(imgURL);
-		} else {
+		if (imgURL == null) {
 			System.err.println("Couldn't find image file: " + path);
 			return null;
+
+		} else {
+			return new ImageIcon(imgURL);
 		}
 	}
 	

@@ -9,7 +9,7 @@ public class Pair<X,Y>{
     public X first;
     public Y second;
     
-    public Pair(X first, Y second){
+    public Pair(final X first,final Y second){
     	this.first = first;
     	this.second = second;
     }
@@ -22,11 +22,11 @@ public class Pair<X,Y>{
     	return this.second;
     }
     
-    public void setFirst(X first) {
+    public void setFirst(final X first) {
 		this.first = first;
 	}
 
-	public void setSecond(Y second) {
+	public void setSecond(final Y second) {
 		this.second = second;
 	}
 
@@ -45,7 +45,7 @@ public class Pair<X,Y>{
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public boolean equals(Object obj) {
+	public boolean equals(final Object obj) {
 		if (this == obj)
 			return true;
 		if (obj == null)

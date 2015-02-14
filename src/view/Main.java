@@ -13,7 +13,6 @@ import java.awt.event.WindowEvent;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -87,12 +86,6 @@ public class Main implements ActionListener {
 
     public JPanel createButtonPanel() {
         final JPanel buttonPanel = new JPanel(new GridLayout(5, 0, 5, 5));
-        
-        /*
-         *     	final BackgroundPanel buttonPanel = new BackgroundPanel(GUIUtilities.back2);
-        buttonPanel.setLayout(new GridLayout(5, 0, 5, 5));
-         */
-        
         buttonPanel.setBorder(BorderFactory.createTitledBorder("Scegli la sezione"));
         buttonPanel.add(magazzino);
         buttonPanel.add(ordini);
@@ -117,10 +110,7 @@ public class Main implements ActionListener {
 
     public JMenuBar createMenuBar(final JFrame frame) {
     	final JMenuBar menuBar = new JMenuBar();
-        //final JMenu file = new JMenu("File");
-        final JMenu help = new JMenu("Help");
         menuBar.add( new FileTabMenuGUI(frame, controller, fidcontroller));
-        menuBar.add(help);
         return menuBar;
     }
 
@@ -169,7 +159,7 @@ public class Main implements ActionListener {
         
         frame.addWindowListener(new WindowAdapter() {
         	  @Override
-        	  public void windowClosing(WindowEvent we)
+        	  public void windowClosing(final WindowEvent we)
         	  { 
         	    final String objButtons[] = {"Sì","No"};
         	    final int promptResult = JOptionPane.showOptionDialog(null, 
@@ -188,7 +178,6 @@ public class Main implements ActionListener {
 	    final int x = (dim.width + dim.width/3)/3;
 	    final int y = (dim.height+dim.height/6)/2;
 	    frame.setPreferredSize(new Dimension(x, y));
-	//    frame.setLocation(x, y);
         final Main main = new Main();
         frame.setJMenuBar(main.createMenuBar(frame));
         frame.add(main.createContentPane());

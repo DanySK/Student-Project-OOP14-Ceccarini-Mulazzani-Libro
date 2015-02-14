@@ -44,7 +44,7 @@ public class BackgroundPanel extends JPanel
 	/*
 	 *  Set image as the background with the SCALED style
 	 */
-	public BackgroundPanel(Image image)
+	public BackgroundPanel(final Image image)
 	{
 		this(image, SCALED);
 	}
@@ -52,7 +52,7 @@ public class BackgroundPanel extends JPanel
 	/*
 	 *  Set image as the background with the specified style
 	 */
-	public BackgroundPanel(Image image, int style)
+	public BackgroundPanel(final Image image,final int style)
 	{
 		setImage( image );
 		setStyle( style );
@@ -62,7 +62,7 @@ public class BackgroundPanel extends JPanel
 	/*
 	 *  Set image as the backround with the specified style and alignment
 	 */
-	public BackgroundPanel(Image image, int style, float alignmentX, float alignmentY)
+	public BackgroundPanel(final Image image,final int style,final float alignmentX,final float alignmentY)
 	{
 		setImage( image );
 		setStyle( style );
@@ -74,7 +74,7 @@ public class BackgroundPanel extends JPanel
 	/*
 	 *  Use the Paint interface to paint a background
 	 */
-	public BackgroundPanel(Paint painter)
+	public BackgroundPanel(final Paint painter)
 	{
 		setPaint( painter );
 		setLayout( new BorderLayout() );
@@ -83,7 +83,7 @@ public class BackgroundPanel extends JPanel
 	/*
 	 *	Set the image used as the background
 	 */
-	public void setImage(Image image)
+	public void setImage(final Image image)
 	{
 		this.image = image;
 		repaint();
@@ -92,7 +92,7 @@ public class BackgroundPanel extends JPanel
 	/*
 	 *	Set the style used to paint the background image
 	 */
-	public void setStyle(int style)
+	public void setStyle(final int style)
 	{
 		this.style = style;
 		repaint();
@@ -101,7 +101,7 @@ public class BackgroundPanel extends JPanel
 	/*
 	 *	Set the Paint object used to paint the background
 	 */
-	public void setPaint(Paint painter)
+	public void setPaint(final Paint painter)
 	{
 		this.painter = painter;
 		repaint();
@@ -110,7 +110,7 @@ public class BackgroundPanel extends JPanel
 	/*
 	 *  Specify the horizontal alignment of the image when using ACTUAL style
 	 */
-	public void setImageAlignmentX(float alignmentX)
+	public void setImageAlignmentX(final float alignmentX)
 	{
 		this.alignmentX = alignmentX > 1.0f ? 1.0f : alignmentX < 0.0f ? 0.0f : alignmentX;
 		repaint();
@@ -119,7 +119,7 @@ public class BackgroundPanel extends JPanel
 	/*
 	 *  Specify the horizontal alignment of the image when using ACTUAL style
 	 */
-	public void setImageAlignmentY(float alignmentY)
+	public void setImageAlignmentY(final float alignmentY)
 	{
 		this.alignmentY = alignmentY > 1.0f ? 1.0f : alignmentY < 0.0f ? 0.0f : alignmentY;
 		repaint();
@@ -128,7 +128,7 @@ public class BackgroundPanel extends JPanel
 	/*
 	 *  Override method so we can make the component transparent
 	 */
-	public void add(JComponent component)
+	public void add(final JComponent component)
 	{
 		add(component, null);
 	}
@@ -139,16 +139,17 @@ public class BackgroundPanel extends JPanel
 	@Override
 	public Dimension getPreferredSize()
 	{
-		if (image == null)
+		if (image == null){
 			return super.getPreferredSize();
-		else
+		}else{
 			return new Dimension(image.getWidth(null), image.getHeight(null));
+		}
 	}
 
 	/*
 	 *  Override method so we can make the component transparent
 	 */
-	public void add(JComponent component, Object constraints)
+	public void add(final JComponent component,final Object constraints)
 	{
 		if (isTransparentAdd)
 		{
@@ -163,7 +164,7 @@ public class BackgroundPanel extends JPanel
 	 *  be made transparent. That is, setOpaque(false) will be invoked.
 	 *  The default is set to true.
 	 */
-	public void setTransparentAdd(boolean isTransparentAdd)
+	public void setTransparentAdd(final boolean isTransparentAdd)
 	{
 		this.isTransparentAdd = isTransparentAdd;
 	}
@@ -174,16 +175,16 @@ public class BackgroundPanel extends JPanel
 	 *  change the renderer to be transparent. An easy way to do this it to
 	 *  set the background of the table to a Color using an alpha value of 0.
 	 */
-	private void makeComponentTransparent(JComponent component)
+	private void makeComponentTransparent(final JComponent component)
 	{
 		component.setOpaque( false );
 
 		if (component instanceof JScrollPane)
 		{
-			JScrollPane scrollPane = (JScrollPane)component;
-			JViewport viewport = scrollPane.getViewport();
+			final JScrollPane scrollPane = (JScrollPane)component;
+			final JViewport viewport = scrollPane.getViewport();
 			viewport.setOpaque( false );
-			Component c = viewport.getView();
+			final Component c = viewport.getView();
 
 			if (c instanceof JComponent)
 			{
@@ -196,7 +197,7 @@ public class BackgroundPanel extends JPanel
 	 *  Add custom painting
 	 */
 	@Override
-	protected void paintComponent(Graphics g)
+	protected void paintComponent(final Graphics g)
 	{
 		super.paintComponent(g);
 
@@ -204,15 +205,17 @@ public class BackgroundPanel extends JPanel
 
 		if (painter != null)
 		{
-			Dimension d = getSize();
-			Graphics2D g2 = (Graphics2D) g;
+			final Dimension d = getSize();
+			final Graphics2D g2 = (Graphics2D) g;
 			g2.setPaint(painter);
 			g2.fill( new Rectangle(0, 0, d.width, d.height) );
 		}
 
 		//  Draw the image
 
-		if (image == null ) return;
+		if (image == null ){
+			return;
+		}
 
 		switch (style)
 		{
@@ -236,20 +239,20 @@ public class BackgroundPanel extends JPanel
 	/*
 	 *  Custom painting code for drawing a SCALED image as the background
 	 */
-	private void drawScaled(Graphics g)
+	private void drawScaled(final Graphics g)
 	{
-		Dimension d = getSize();
+		final Dimension d = getSize();
 		g.drawImage(image, 0, 0, d.width, d.height, null);
 	}
 
 	/*
 	 *  Custom painting code for drawing TILED images as the background
 	 */
-	private void drawTiled(Graphics g)
+	private void drawTiled(final Graphics g)
 	{
-		   Dimension d = getSize();
-		   int width = image.getWidth( null );
-		   int height = image.getHeight( null );
+		   final Dimension d = getSize();
+		   final int width = image.getWidth( null );
+		   final int height = image.getHeight( null );
 
 		   for (int x = 0; x < d.width; x += width)
 		   {
@@ -265,14 +268,14 @@ public class BackgroundPanel extends JPanel
 	 *  The image is positioned in the panel based on the horizontal and
 	 *  vertical alignments specified.
 	 */
-	private void drawActual(Graphics g)
+	private void drawActual(final Graphics g)
 	{
-		Dimension d = getSize();
-		Insets insets = getInsets();
-		int width = d.width - insets.left - insets.right;
-		int height = d.height - insets.top - insets.left;
-		float x = (width - image.getWidth(null)) * alignmentX;
-		float y = (height - image.getHeight(null)) * alignmentY;
+		final Dimension d = getSize();
+		final Insets insets = getInsets();
+		final int width = d.width - insets.left - insets.right;
+		final int height = d.height - insets.top - insets.left;
+		final float x = (width - image.getWidth(null)) * alignmentX;
+		final float y = (height - image.getHeight(null)) * alignmentY;
 		g.drawImage(image, (int)x + insets.left, (int)y + insets.top, this);
 	}
 }

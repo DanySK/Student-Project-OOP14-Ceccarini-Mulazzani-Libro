@@ -29,13 +29,12 @@ public class RemoveOrderGUI extends JDialog{
 	
 
 	private static final long serialVersionUID = 5946044269812046114L;
-	private String[] names = {"Titolo", "Autore"};
-	private JTextField[] fields = new JTextField[names.length];
+	final private String[] names = {"Titolo", "Autore"};
+	final private JTextField[] fields = new JTextField[names.length];
 	private final JPanel main = new JPanel();
-	private JButton conf = new JButton("Conferma");
-	private	Libro lib;
+	final private JButton conf = new JButton("Conferma");
 	
-	public RemoveOrderGUI(BookController controller) {
+	public RemoveOrderGUI(final BookController controller) {
 		
 		main.setLayout(new BorderLayout());
 		
@@ -62,12 +61,12 @@ public class RemoveOrderGUI extends JDialog{
 		conf.addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(final ActionEvent e) {
 				try {
-					lib = controller.searchBook(fields);
+					final Libro lib = controller.searchBook(fields);
 					controller.remove(lib);
 					JOptionPane.showMessageDialog(main, "Ordine rimosso correttamente!", "Successo!", JOptionPane.INFORMATION_MESSAGE);
-					JOptionPane optionPane = (JOptionPane)
+					final JOptionPane optionPane = (JOptionPane)
 						    SwingUtilities.getAncestorOfClass(JOptionPane.class, conf);
 						optionPane.setValue(JOptionPane.CLOSED_OPTION);
 				} catch (MissingBookException e1) {

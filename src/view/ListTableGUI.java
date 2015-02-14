@@ -30,12 +30,12 @@ public class ListTableGUI extends JDialog{
 	 * 
 	 */
 	private static final long serialVersionUID = -8563544567918601056L;
-	private JLabel[] list;
-	private JPanel main = new JPanel();
+	final private JLabel[] list;
+	final private JPanel main = new JPanel();
 	private String[] names= { "Titolo ", "Autore ", "Copie Vendute "};
 	
 
-	public ListTableGUI(List<Libro> set, boolean tipo){
+	public ListTableGUI(final List<Libro> set,final boolean tipo){
 		
 		main.setLayout(new BorderLayout());
 		
@@ -62,7 +62,7 @@ public class ListTableGUI extends JDialog{
 		int j = 0;
 				
 		
-		for (Libro b : set){
+		for (final Libro b : set){
 			buttons[j] = new JButton("Dettagli");
 			list[i].setText(b.getTitle());
 			list[i+1].setText(b.getAuthor());
@@ -74,9 +74,9 @@ public class ListTableGUI extends JDialog{
 			buttons[j].addActionListener(new ActionListener() {
 				
 				@Override
-				public void actionPerformed(ActionEvent e) {
+				public void actionPerformed(final ActionEvent e) {
 						JOptionPane.showOptionDialog(main, new BookDetailGUI(b).getPane() , "Dettagli Libro", JOptionPane.DEFAULT_OPTION, 
-						         JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
+						         JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.STRING, null);
 
 				}
 			});
@@ -90,7 +90,7 @@ public class ListTableGUI extends JDialog{
 		}
 		
 		
-		JPanel mid = new JPanel(new FlowLayout());
+		final JPanel mid = new JPanel(new FlowLayout());
 		mid.add(top);
 		
 		final JScrollPane extPane = new JScrollPane(top);

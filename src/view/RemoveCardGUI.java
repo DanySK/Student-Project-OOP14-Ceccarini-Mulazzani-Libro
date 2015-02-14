@@ -23,12 +23,12 @@ import exceptions.MissingUserException;
  */
 public class RemoveCardGUI {
 	
-	private JPanel main = new JPanel();
-	private JButton conf = new JButton("Conferma");
-	private JTextField[] fields = new JTextField[1];
-	private String[] names = {"Identificativo"};
+	final private JPanel main = new JPanel();
+	final private JButton conf = new JButton("Conferma");
+	final private JTextField[] fields = new JTextField[1];
+	final private String[] names = {"Identificativo"};
 	
-	public RemoveCardGUI(FidelityController controller){
+	public RemoveCardGUI(final FidelityController controller){
 		
 		main.setLayout(new BorderLayout());
 		
@@ -57,11 +57,11 @@ public class RemoveCardGUI {
 		conf.addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(final ActionEvent arg0) {
 				try {
 					controller.removePerson(fields[0]);
 					JOptionPane.showMessageDialog(main, "La carta è stata eliminata con successo", "Successo!!", JOptionPane.INFORMATION_MESSAGE);
-					JOptionPane optionPane = (JOptionPane)
+					final JOptionPane optionPane = (JOptionPane)
 						    SwingUtilities.getAncestorOfClass(JOptionPane.class, conf);
 						optionPane.setValue(JOptionPane.CLOSED_OPTION);
 	
