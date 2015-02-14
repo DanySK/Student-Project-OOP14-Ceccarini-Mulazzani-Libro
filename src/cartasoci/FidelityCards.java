@@ -24,7 +24,7 @@ public class FidelityCards implements IFidelityCards{
 	}
 	
 	//metodo che controlla se l'id da cancellare è presente e in caso affermativo lo cancella
-	public void removePerson(Integer id) throws MissingUserException{
+	public void removePerson(final Integer id) throws MissingUserException{
 		if (cards.containsKey(id)) {
 			cards.remove(id);
 		} else {
@@ -34,19 +34,19 @@ public class FidelityCards implements IFidelityCards{
 	
 	//metodo che controlla che l'id inserito sia presente e in caso affermativo restituisce l'user con l'id
 	@Override
-	public User searchID(Integer id) throws MissingUserException {
-		if (!cards.containsKey(id)){
-			throw new MissingUserException();
-		} else {
+	public User searchID(final Integer id) throws MissingUserException {
+		if (cards.containsKey(id)){
 			return cards.get(id);
+		} else {
+			throw new MissingUserException();
 		}
 		
 	}
 
 	//metodo che controlla che l'id inserito sia presente e in caso affermativo restituisce l'user con l'id
 	@Override
-	public User searchName(String name, String surname) throws MissingUserException {
-		for (Entry<Integer, User> u:cards.entrySet()) {
+	public User searchName(final String name, final String surname) throws MissingUserException {
+		for (final Entry<Integer, User> u:cards.entrySet()) {
 			if (u.getValue().getName().equals(name) && u.getValue().getSurname().equals(surname)) {
 				return u.getValue();
 			}
@@ -56,7 +56,7 @@ public class FidelityCards implements IFidelityCards{
 
 	//metodo che aggiunge uno User in caso non sia presente
 	@Override
-	public void addPerson(User user) throws NullPointerException, UserAlreadyExisting {
+	public void addPerson(final User user) throws NullPointerException, UserAlreadyExisting {
 		containsUser(user);
 
 		cards.put(getNextId(), user);
@@ -65,7 +65,7 @@ public class FidelityCards implements IFidelityCards{
 	}
 //metodo che modifica i dati di una carta
 	@Override
-	public void modifyPerson(User user, String[] fields) {
+	public void modifyPerson(final User user, final String[] fields) {
 		for (int i=0; i <fields.length; i++) {
 			if (!fields[i].isEmpty()) {
 				switch (i) {
@@ -78,6 +78,8 @@ public class FidelityCards implements IFidelityCards{
 					case 2: 
 						user.setEmail(fields[i]); 
 						break;
+					default:
+							
 				}
 				
 			}
@@ -92,12 +94,12 @@ public class FidelityCards implements IFidelityCards{
 		return new HashMap<>(cards);
 	}
 	
-	public void loadMemory(Map<Integer, User> map){
+	public void loadMemory(final Map<Integer, User> map){
 		this.cards = map;
 		this.next = map.size();
 	}
 	
-	public void addPoints(User u, int points){
+	public void addPoints(final User u, final int points){
 		u.addPoints(points);
 	}
 	
@@ -106,8 +108,8 @@ public class FidelityCards implements IFidelityCards{
 	}
 	
 	
-	private void containsUser(User user) throws UserAlreadyExisting{
-		for (Entry<Integer, User> e : cards.entrySet()){
+	private void containsUser(final User user) throws UserAlreadyExisting{
+		for (final Entry<Integer, User> e : cards.entrySet()){
 			if (e.getValue().getName().equals(user.getName()) &&
 					e.getValue().getSurname().equals(user.getSurname()) &&
 							e.getValue().getEmail().equals(user.getEmail())){

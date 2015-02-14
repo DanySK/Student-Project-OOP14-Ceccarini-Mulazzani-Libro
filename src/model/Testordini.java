@@ -12,16 +12,16 @@ public class Testordini {
 	@Test
 	public void test() {
 		//creo la lista degli ordini
-		IOrdini ord = new Ordini ();
+		final IOrdini ord = new Ordini ();
 		
-		String fields [] = {"Titolo", "Autore", "1994", "Editore", "324", "32.5", "2" };
-		String fields2 [] = {"", "", "1995", "", "", "14.7", "7" };
+		final String fields [] = {"Titolo", "Autore", "1994", "Editore", "324", "32.5", "2" };
+		final String fields2 [] = {"", "", "1995", "", "", "14.7", "7" };
 		
 		//creo un nuovo libro
-		Libro book = new Libro (fields);
-		Libro bprova = new Libro (fields);
+		final Libro book = new Libro (fields);
+		final Libro bprova = new Libro (fields);
 		
-		List <Libro> list = new ArrayList <>();
+		final List <Libro> list = new ArrayList <>();
 		
 		//inserisco il libro nella lista di prova
 		list.add(book);
@@ -31,14 +31,14 @@ public class Testordini {
 		//controllo che nella lista degli ordini sia presente solo il libro appena inserito
 		assertTrue(ord.bookList().equals(list));
 		//controllo quindi che la sua size sia 1
-		assertTrue(ord.bookList().size() == 1);
+		assertEquals(ord.bookList().size(), 1);
 		
 		//modifico i campi del libro all'interno degli ordini
 		ord.modifyBook(book, fields2);
 		//ho modificato l'anno, che è quindi diverso dal libro con i fields iniziali
-		assertFalse (ord.bookList().get(0).getYear() == bprova.getYear());
+		assertNotSame (ord.bookList().get(0).getYear(), bprova.getYear());
 		//cambiando il libro all'interno di ord cambio anche il libro di partenza
-		assertTrue (ord.bookList().get(0).getYear() == book.getYear());
+		assertSame (ord.bookList().get(0).getYear(), book.getYear());
 		
 		//evado gli ordini
 		ord.evasioneOrdini();

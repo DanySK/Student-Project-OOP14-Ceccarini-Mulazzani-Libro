@@ -11,14 +11,14 @@ public interface IFidCard {
 	 * 
 	 * @param points are the points to add
 	 */
-	public void addPoints(int points);
+	void addPoints(final int points);
 	
 	/**
 	 * Get the FidCard's point.
 	 * 
 	 * @return points of User
 	 */
-	public Integer getPoints();
+	Integer getPoints();
 	
 
 }

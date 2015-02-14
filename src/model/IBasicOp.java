@@ -16,7 +16,7 @@ public interface IBasicOp {
 	 * @param book, book to add in the library
 	 */
 	
-	public void addBook(Libro book);
+	void addBook(Libro book);
 	
 	/**
 	 * 
@@ -25,7 +25,7 @@ public interface IBasicOp {
 	 * @param fields are the new fields of the book
 	 * @throws MissingBookException if book is not in the library
 	 */
-	public void modifyBook (Libro book, String[] fields);
+	void modifyBook (Libro book, String[] fields);
 
 	/**
 	 * 
@@ -34,13 +34,14 @@ public interface IBasicOp {
 	 * @return book searched by author and title
 	 * @throws MissingBookException if book is not in the library
 	 */
-	public Libro searchBook (String title, String author) throws MissingBookException;
+	Libro searchBook (String title, String author) throws MissingBookException;
 	
 	/**
 	 * 
 	 * @return booklist of the library
 	 */
-	public List<Libro> bookList ();
+	List<Libro> bookList ();
 	
-	public void setList(List<Libro> list);
+	
+	void setList(List<Libro> list);
 }

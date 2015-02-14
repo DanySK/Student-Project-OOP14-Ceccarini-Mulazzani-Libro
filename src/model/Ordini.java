@@ -1,12 +1,8 @@
 package model;
 
 public class Ordini extends BasicOperations implements IOrdini {
-
-	public Ordini () {
-		
-	}
 	
-	public void remove (Libro book) {
+	public void remove (final Libro book) {
 		super.libreria.remove(book);
 	}
 

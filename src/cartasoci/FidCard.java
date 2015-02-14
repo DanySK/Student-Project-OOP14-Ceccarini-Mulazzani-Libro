@@ -14,7 +14,7 @@ public class FidCard implements IFidCard {
 	}
 
 	@Override
-	public void addPoints(int points) {
+	public void addPoints(final int points) {
 		this.points += points;
 
 	}

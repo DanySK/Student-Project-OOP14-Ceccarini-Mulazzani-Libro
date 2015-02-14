@@ -17,23 +17,36 @@ public class Libro {
 	private int sold;
 	private int copy;
 	
-	public Libro (String []fields) {
-		if (checkData(fields)) {
-			this.sold = 0;
-			for (int i=0; i<fields.length; i++) {
-					switch (i) {
-
-						case 0: this.title = fields[i]; break;
-						case 1: this.author = fields[i]; break;
-						case 2: this.year = Integer.parseInt(fields[i]); break;
-						case 3: this.editor = fields[i]; break;
-						case 4: this.isbn = fields[i]; break;
-						case 5: this.price = Double.parseDouble(fields[i]); break;
-						case 6: this.copy = Integer.parseInt(fields[i]); break;
-						
+	public Libro (final String []fields) {
+		this.sold = 0;
+		for (int i=0; i<fields.length; i++) {
+			switch (i) {
+				case 0: 
+					this.title = fields[i]; 
+					break;
+				case 1: 
+					this.author = fields[i]; 
+					break;
+				case 2: 
+					this.year = Integer.parseInt(fields[i]); 
+					break;
+				case 3: 
+					this.editor = fields[i]; 
+					break;
+				case 4: 
+					this.isbn = fields[i]; 
+					break;
+				case 5: 
+					this.price = Double.parseDouble(fields[i]); 
+					break;
+				case 6: 
+					this.copy = Integer.parseInt(fields[i]);
+					break;
+				default:
+							
 					}									
 			}
-		}
+	
 	}
 
 	public String getTitle () {
@@ -68,47 +81,41 @@ public class Libro {
 		return this.copy;
 	}
 	
-	public void setTitle(String title){
+	public void setTitle(final String title){
 		this.title = title;	
 	}
 	
-	public void setAuthor(String author){
+	public void setAuthor(final String author){
 		this.author = author;
 	}
 	
-	public void setYear(int year){
+	public void setYear(final int year){
 		this.year = year;
 	}
 	
-	public void setEditor(String editor){
+	public void setEditor(final String editor){
 		this.editor = editor;
 	}
 	
-	public void setISBN(String isbn){
+	public void setISBN(final String isbn){
 		this.isbn = isbn;
 	}
 	
-	public void setPrice(double price){
+	public void setPrice(final double price){
 		this.price = price;
 	}
 	
-	public void setNCopy(int copy){
+	public void setNCopy(final int copy){
 		this.copy = copy;
 	}
 	
-	public void addCopy (int copy) {
+	public void addCopy (final int copy) {
 		this.copy += copy;
 	}
 	
-	public void removeCopy (int copy) {
+	public void removeCopy (final int copy) {
 		this.copy -= copy;
 		this.sold += copy;
-	}
-	
-	public boolean checkData (String []fields) {
-		
-		return true;
-		
 	}
 	
 	public String[] getFields(){
@@ -142,43 +149,58 @@ public class Libro {
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
+	public boolean equals(final Object obj) {
+		if (this == obj) {
 			return true;
-		if (obj == null)
+		}
+		if (obj == null) {
 			return false;
-		if (getClass() != obj.getClass())
+		}
+		if (getClass() != obj.getClass()) {
 			return false;
-		Libro other = (Libro) obj;
+		}
+		final Libro other = (Libro) obj;
 		if (author == null) {
-			if (other.author != null)
+			if (other.author != null) {
 				return false;
-		} else if (!author.equals(other.author))
+			}
+		} else if (!author.equals(other.author)) {
 			return false;
-		if (copy != other.copy)
+		}
+		if (copy != other.copy) {
 			return false;
+		}
 		if (editor == null) {
-			if (other.editor != null)
+			if (other.editor != null) {
 				return false;
-		} else if (!editor.equals(other.editor))
+			}
+		} else if (!editor.equals(other.editor)) {
 			return false;
+		}
 		if (isbn == null) {
-			if (other.isbn != null)
+			if (other.isbn != null) {
 				return false;
-		} else if (!isbn.equals(other.isbn))
+			}
+		} else if (!isbn.equals(other.isbn)) {
 			return false;
+		}
 		if (Double.doubleToLongBits(price) != Double
-				.doubleToLongBits(other.price))
+				.doubleToLongBits(other.price)) {
 			return false;
-		if (sold != other.sold)
+		}
+		if (sold != other.sold) {
 			return false;
+		}
 		if (title == null) {
-			if (other.title != null)
+			if (other.title != null) {
 				return false;
-		} else if (!title.equals(other.title))
+			}
+		} else if (!title.equals(other.title)) {
 			return false;
-		if (year != other.year)
+		}
+		if (year != other.year) {
 			return false;
+		}
 		return true;
 	}
 

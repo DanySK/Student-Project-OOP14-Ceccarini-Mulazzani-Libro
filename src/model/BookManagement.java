@@ -19,19 +19,14 @@ public class BookManagement extends BasicOperations implements IBookManagement, 
 	 * 
 	 */
 	private static final long serialVersionUID = -2040899298874774142L;
-	//private HashSet <Libro> libreria = new HashSet <>();
 
-	public BookManagement() {
-
-	}
-
-	public void sellBook(Libro book, int nCopy) throws MissingBookException, NotEnoughBookException {
+	public void sellBook(final Libro book, final int nCopy) throws MissingBookException, NotEnoughBookException {
 		
 		if (!this.libreria.contains(book)){
 			throw new MissingBookException();
 		}
 		
-		for (Libro b: this.libreria){
+		for (final Libro b: this.libreria){
 			if (b.equals(book)){
 				if (b.getNCopy() < nCopy){
 					throw new NotEnoughBookException();
@@ -44,9 +39,9 @@ public class BookManagement extends BasicOperations implements IBookManagement, 
 	
 
 	@Override
-	public List <Libro> searchBookTitle(String title) throws MissingBookException {
+	public List <Libro> searchBookTitle(final String title) throws MissingBookException {
 		final ArrayList <Libro> books = new ArrayList <> ();
-		for (Libro b:this.libreria) {
+		for (final Libro b:this.libreria) {
 			if (b.getTitle().equals(title)) {
 				books.add(b);
 			}
@@ -59,9 +54,9 @@ public class BookManagement extends BasicOperations implements IBookManagement, 
 	}
 
 	@Override
-	public List <Libro> searchBookAuthor(String author) throws MissingBookException {
+	public List <Libro> searchBookAuthor(final String author) throws MissingBookException {
 		final ArrayList <Libro> books = new ArrayList <> ();
-		for (Libro b:this.libreria) {
+		for (final Libro b:this.libreria) {
 			if (b.getAuthor().equals(author)) {
 				books.add(b);
 			}

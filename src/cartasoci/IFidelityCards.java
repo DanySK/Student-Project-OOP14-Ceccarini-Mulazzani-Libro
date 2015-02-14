@@ -15,7 +15,7 @@ public interface IFidelityCards {
 	 * @throws UserAlreadyExisting when the user is already in the map
 	 */
 	
-	public void addPerson(User user) throws NullPointerException, UserAlreadyExisting;
+	void addPerson(User user) throws NullPointerException, UserAlreadyExisting;
 	
 	/**
 	 *Removes a person from the map
@@ -26,7 +26,7 @@ public interface IFidelityCards {
 	 * @throws MissingUserException when the ID is not present
 	 */
 	
-	public void removePerson(Integer id) throws NullPointerException, IllegalArgumentException, MissingUserException;
+	void removePerson(Integer id) throws NullPointerException, IllegalArgumentException, MissingUserException;
 	
 	/**
 	 * Modifies the user with a given array of Strings
@@ -35,7 +35,7 @@ public interface IFidelityCards {
 	 * @param fields are the new fields of the User
 	 */
 	
-	public void modifyPerson (User user, String[] fields);
+	void modifyPerson (User user, String[] fields);
 	
 	/**
 	 * Searches the User using the ID
@@ -48,7 +48,7 @@ public interface IFidelityCards {
 	 */
 	
 	
-	public User searchID(Integer id) throws NullPointerException, IllegalArgumentException, MissingUserException;
+	User searchID(Integer id) throws NullPointerException, IllegalArgumentException, MissingUserException;
 	
 	
 	/**
@@ -60,14 +60,14 @@ public interface IFidelityCards {
 	 * @throws IllegalArgumentException if the person is not in the list
 	 * @throws MissingUserException 
 	 */
-	public User searchName(String name, String surname) throws NullPointerException, IllegalArgumentException, MissingUserException;
+	User searchName(String name, String surname) throws NullPointerException, IllegalArgumentException, MissingUserException;
 		
 	/**
 	 * This is an utility method to save the datas.
 	 * 
 	 * @return the map, used to save
 	 */
-	public Map<Integer, User> getMap();
+	Map<Integer, User> getMap();
 	
 	/**
 	 * This is an utility method to load the datas.
@@ -75,7 +75,7 @@ public interface IFidelityCards {
 	 * @param map is the map to load
 	 */
 
-	public void loadMemory(Map<Integer, User> map);
+	void loadMemory(Map<Integer, User> map);
 	
 	
 	/**
@@ -85,12 +85,12 @@ public interface IFidelityCards {
 	 * @param points are the points to add
 	 */
 	
-	public void addPoints(User u, int points);
+	void addPoints(User u, int points);
 	
 	/**
 	 * Is a utility method to print the added id.
 	 * 
 	 * @return the current Index 
 	 */
-	public int getCurrent();
+	int getCurrent();
 }

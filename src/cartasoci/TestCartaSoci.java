@@ -11,15 +11,15 @@ public class TestCartaSoci {
 
 	@Test
 	public void test() {
-		FidelityCards cards = new FidelityCards();
-		User user = new User ("Mario", "Rossi", "m@m");
-		String fields [] = {"","Bianchi",""}; 
+		final FidelityCards cards = new FidelityCards();
+		final User user = new User ("Mario", "Rossi", "m@m");
+		final String fields [] = {"","Bianchi",""}; 
 		
 		assertEquals (cards.getMap().size(), 0);
 		
 		try {
 			cards.addPerson(user);
-		} catch (NullPointerException | UserAlreadyExisting e) {
+		} catch (UserAlreadyExisting e) {
 			fail ();
 		} 
 		

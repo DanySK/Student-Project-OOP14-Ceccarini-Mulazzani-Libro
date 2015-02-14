@@ -9,24 +9,20 @@ public class BasicOperations implements IBasicOp {
 
 	protected List<Libro> libreria = new ArrayList<Libro>();
 	
-	public BasicOperations () {
-		
-	}
-	
-	public void addBook(Libro book) {
-		if (!this.libreria.contains(book)) {
-			this.libreria.add(book);
-		}else {
+	public void addBook(final Libro book) {
+		if (this.libreria.contains(book)) {
 			this.libreria.forEach(b -> {
 				if (b.equals(book)) {
 					b.addCopy(book.getNCopy());
 				}
 			});
+		}else {
+			this.libreria.add(book);	
 		}
 	}
 
 
-	public void modifyBook (Libro book, String[] fields){
+	public void modifyBook (final Libro book, final String[] fields){
 		//final Libro book = searchBook(title, author);
 		for (int i=0; i <fields.length; i++) {
 			if (!fields[i].isEmpty()) {
@@ -52,6 +48,8 @@ public class BasicOperations implements IBasicOp {
 					case 6: 
 						book.setNCopy(Integer.parseInt(fields[i])); 
 						break;
+					default:
+							
 				}
 				
 			}
@@ -60,10 +58,10 @@ public class BasicOperations implements IBasicOp {
 	}
 
 	@Override
-	public Libro searchBook(String title, String author)
+	public Libro searchBook(final String title, final String author)
 			throws MissingBookException {
 
-		for (Libro b:this.libreria) {
+		for (final Libro b:this.libreria) {
 			if (b.getTitle().equals(title) && b.getAuthor().equals(author)) {
 				System.out.println(this.libreria.size());
 				return b;
@@ -78,7 +76,7 @@ public class BasicOperations implements IBasicOp {
 	}
 
 	@Override
-	public void setList(List<Libro> list) {
+	public void setList(final List<Libro> list) {
 		this.libreria = list;
 	}
 	
