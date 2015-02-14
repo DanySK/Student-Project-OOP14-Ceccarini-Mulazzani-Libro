@@ -16,10 +16,13 @@ public class Libro {
 	private double price;
 	private int sold;
 	private int copy;
-	
-	public Libro (final String []fields) {
+	/**
+	 * 
+	 * @param fields are the fields of the Book to add
+	 */
+	public Libro(final String[] fields) {
 		this.sold = 0;
-		for (int i=0; i<fields.length; i++) {
+		for (int i = 0; i < fields.length; i++) {
 			switch (i) {
 				case 0: 
 					this.title = fields[i]; 
@@ -48,76 +51,130 @@ public class Libro {
 			}
 	
 	}
-
-	public String getTitle () {
+	/**
+	 * 
+	 * @return the Title of the book
+	 */
+	public String getTitle() {
 		return this.title;
 	}
-	
-	public String getAuthor () {
+	/**
+	 * 
+	 * @return the author of the book 
+	 */
+	public String getAuthor() {
 		return this.author;
 	}
-	
-	public int getYear () {
+	/**
+	 * 
+	 * @return the year of the book
+	 */
+	public int getYear() {
 		return this.year;
 	}
-	
-	public String getEditor () {
+	/**
+	 * 
+	 * @return the Editor of the book
+	 */
+	public String getEditor() {
 		return this.editor;
 	}
-	
-	public String getISBN () {
+	/**
+	 * 
+	 * @return the ISBN of the book
+	 */
+	public String getISBN() {
 		return this.isbn;
 	}
-	
-	public double getPrice () {
+	/**
+	 * 
+	 * @return the price of the book
+	 */
+	public double getPrice() {
 		return this.price;
 	}
-	
-	public int getNSales () {
+	/**
+	 * 
+	 * @return the number of sales
+	 */
+	public int getNSales() {
 		return this.sold;
 	}
-	
-	public int getNCopy () {
+	/**
+	 * 
+	 * @return the number of copies
+	 */
+	public int getNCopy() {
 		return this.copy;
 	}
-	
-	public void setTitle(final String title){
-		this.title = title;	
+	/**
+	 * 
+	 * @param ntitle is the title to set
+	 */
+	public void setTitle(final String ntitle) {
+		this.title = ntitle;	
 	}
-	
-	public void setAuthor(final String author){
-		this.author = author;
+	/**
+	 * 
+	 * @param nauthor is the author to set
+	 */
+	public void setAuthor(final String nauthor) {
+		this.author = nauthor;
 	}
-	
-	public void setYear(final int year){
-		this.year = year;
+	/**
+	 * 
+	 * @param nyear is the new year to set
+	 */
+	public void setYear(final int nyear) {
+		this.year = nyear;
 	}
-	
-	public void setEditor(final String editor){
-		this.editor = editor;
+	/**
+	 * 
+	 * @param neditor is the new name of the editor
+	 */
+	public void setEditor(final String neditor) {
+		this.editor = neditor;
 	}
-	
-	public void setISBN(final String isbn){
-		this.isbn = isbn;
+	/**
+	 * 
+	 * @param nisbn is the isbn to set
+	 */
+	public void setISBN(final String nisbn) {
+		this.isbn = nisbn;
 	}
-	
-	public void setPrice(final double price){
-		this.price = price;
+	/**
+	 * 
+	 * @param nprice is the price to set
+	 */
+	public void setPrice(final double nprice) {
+		this.price = nprice;
 	}
-	
-	public void setNCopy(final int copy){
-		this.copy = copy;
+	/**
+	 * 
+	 * @param ncopy are the starting copies of the book
+	 */
+	public void setNCopy(final int ncopy) {
+		this.copy = ncopy;
 	}
-	
-	public void addCopy (final int copy) {
-		this.copy += copy;
+	/**
+	 * 
+	 * @param ncopy is the number of copies to add
+	 */
+	public void addCopy(final int ncopy) {
+		this.copy += ncopy;
 	}
-	
-	public void removeCopy (final int copy) {
-		this.copy -= copy;
-		this.sold += copy;
+	/**
+	 * 
+	 * @param ncopy is the number of copies to sell
+	 */
+	public void removeCopy(final int ncopy) {
+		this.copy -= ncopy;
+		this.sold += ncopy;
 	}
-	
+	/**
+	 * 
+	 * @return the fields of the book
+	 */
 	public String[] getFields(){
 		String[] str = new String[8];
 		str[0] = this.title;
