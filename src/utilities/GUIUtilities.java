@@ -71,9 +71,9 @@ public class GUIUtilities {
 	
 	public static ImageIcon icon = createImageIcon("/iconBook.png");
 	public static Image image = icon.getImage();
-	public static ImageIcon icon2 = createImageIcon("/background.png");
+	private static ImageIcon icon2 = createImageIcon("/background.png");
 	public static Image back = icon2.getImage();
-	public static ImageIcon icon3 = createImageIcon("/background2.png");
+	private static ImageIcon icon3 = createImageIcon("/background2.png");
 	public static Image back2 = icon3.getImage();
 	
 	private static ImageIcon createImageIcon(String path) {

@@ -15,6 +15,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import model.Libro;
@@ -99,6 +100,10 @@ public class FileTabMenuGUI  extends JMenu{
 					} catch (IOException | ClassNotFoundException e) {
 						e.printStackTrace();
 					} 
+					JOptionPane.showMessageDialog(frame, "Caricamento eseguito correttamente");
+					
+					
+					
 				}
 			}
 		});
@@ -110,46 +115,11 @@ public class FileTabMenuGUI  extends JMenu{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				JFileChooser fileChooser = new JFileChooser(System.getProperty("user.home") + System.getProperty("line.separator") + "Desktop");
-				fileChooser.removeChoosableFileFilter(fileChooser.getFileFilter());
-				fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("Documento XML (*.xml)", "xml"));
-				fileChooser.setDialogTitle("Specify a file to Save");   
-				 
-				int userSelection = fileChooser.showSaveDialog(frame);
-				 
-				if (userSelection == JFileChooser.APPROVE_OPTION) {
-				    File fileToLoad = fileChooser.getSelectedFile();
-				    System.out.println("Save as file: " + fileToLoad.getAbsolutePath());
-				    
-				    File file;
-				    if (!fileToLoad.getAbsolutePath().contains(".xml")){
-					    file = new File(fileToLoad + ".xml");
-				    }else {
-				    	file = new File(fileToLoad.getAbsolutePath());
-				    }
-				    
-				    XStream xstream = new XStream();
-				    xstream.alias("User", User.class);
-				    xstream.alias("Carta", FidCard.class);
-				    xstream.alias("Libro", Libro.class);
-				    xstream.alias("Lista", List.class);
-				    
-				    try {
-						controller.setType(TipoController.MAGAZZINO);
-						ObjectOutputStream out = xstream.createObjectOutputStream(new ObjectOutputStream(new FileOutputStream(file)));
-						out.writeObject(controller.bookList());
-
-						controller.setType(TipoController.ORDINI);
-						out.writeObject(controller.bookList());
-						
-						out.writeObject(fidcontroller.getMap());
-						
-						out.close();
-					} catch (IOException e1) {
-						e1.printStackTrace();
-					}				
-				}
 				
+				saveMe(controller, fidcontroller, frame);
+				
+				
+				JOptionPane.showMessageDialog(frame, "Salvataggio eseguito correttamente");
 			}
 		});
 		
@@ -159,23 +129,60 @@ public class FileTabMenuGUI  extends JMenu{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				JFileChooser fileChooser = new JFileChooser();
-				fileChooser.removeChoosableFileFilter(fileChooser.getFileFilter());
-				fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("Documento XML (*.xml)", "xml"));
-				fileChooser.setDialogTitle("Specify a file to Save");   
-				 
-				int userSelection = fileChooser.showSaveDialog(frame);
-				 
-				if (userSelection == JFileChooser.APPROVE_OPTION) {
-				    File fileToLoad = fileChooser.getSelectedFile();
-				    System.out.println("Save as file: " + fileToLoad.getAbsolutePath());
-				}
+				saveMe(controller, fidcontroller, frame);
+				
+				JOptionPane.showMessageDialog(frame, "Salvataggio eseguito correttamente, il programma si chiuderà");
 				
 				System.exit(0);
+				
 			}
 		});
 		
 	}
 	
+	private void saveMe(BookController controller, FidelityController fidcontroller, JFrame frame){
+			
+			JFileChooser fileChooser = new JFileChooser(System.getProperty("user.home") + System.getProperty("line.separator") + "Desktop");
+			fileChooser.removeChoosableFileFilter(fileChooser.getFileFilter());
+			fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("Documento XML (*.xml)", "xml"));
+			fileChooser.setDialogTitle("Specify a file to Save");   
+			 
+			int userSelection = fileChooser.showSaveDialog(frame);
+			 
+			if (userSelection == JFileChooser.APPROVE_OPTION) {
+			    File fileToLoad = fileChooser.getSelectedFile();
+			    System.out.println("Save as file: " + fileToLoad.getAbsolutePath());
+			    
+			    File file;
+			    if (!fileToLoad.getAbsolutePath().contains(".xml")){
+				    file = new File(fileToLoad + ".xml");
+			    }else {
+			    	file = new File(fileToLoad.getAbsolutePath());
+			    }
+			    
+			    XStream xstream = new XStream();
+			    xstream.alias("User", User.class);
+			    xstream.alias("Carta", FidCard.class);
+			    xstream.alias("Libro", Libro.class);
+			    xstream.alias("Lista", List.class);
+			    
+			    try {
+					controller.setType(TipoController.MAGAZZINO);
+					ObjectOutputStream out = xstream.createObjectOutputStream(new ObjectOutputStream(new FileOutputStream(file)));
+					out.writeObject(controller.bookList());
 
-}
+					controller.setType(TipoController.ORDINI);
+					out.writeObject(controller.bookList());
+					
+					out.writeObject(fidcontroller.getMap());
+					
+					out.close();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}				
+			}
+			
+		}
+	}
+
+
