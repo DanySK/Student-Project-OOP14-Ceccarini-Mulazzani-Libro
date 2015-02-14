@@ -14,44 +14,44 @@ import exceptions.WrongDataException;
 
 public class FidelityController {
 	
-	private IFidelityCards cards = new FidelityCards();
+	private final IFidelityCards cards = new FidelityCards();
 	
-	public void addPerson(JTextField[] fields) throws
+	public void addPerson(final JTextField[] fields) throws
 			UserAlreadyExisting, MissingDataException, WrongDataException {
 
 		checkEmpty(fields);
 		checkData(fields);
 		
-		User user = new User(fields[0].getText(), fields[1].getText(), fields[2].getText());
+		final User user = new User(fields[0].getText(), fields[1].getText(), fields[2].getText());
 		
 		cards.addPerson(user);
 		
 	}
 
 	
-	public void removePerson(JTextField id) throws NullPointerException,
+	public void removePerson(final JTextField id) throws NullPointerException,
 			IllegalArgumentException, MissingUserException {
 		
 		cards.removePerson(Integer.parseInt(id.getText()));
 		
 	}
 
-	public void addPoints(JTextField[] fields, double price) throws NullPointerException, IllegalArgumentException, MissingUserException{
+	public void addPoints(final JTextField[] fields,final double price) throws NullPointerException, IllegalArgumentException, MissingUserException{
 		
-		Integer copies = Integer.parseInt(fields[2].getText());
-		int tot = (int) ((copies * price) / 10);
+		final Integer copies = Integer.parseInt(fields[2].getText());
+		final int tot = (int) ((copies * price) / 10);
 		
 		cards.addPoints(this.searchID(fields[3]), tot);
 	}
 	
-	public User searchID(JTextField fields) throws NullPointerException,
+	public User searchID(final JTextField fields) throws NullPointerException,
 			IllegalArgumentException, MissingUserException {
 
 		return cards.searchID(Integer.parseInt(fields.getText()));
 	}
 
 	
-	public User searchName(JTextField name, JTextField surname) throws NullPointerException,
+	public User searchName(final JTextField name,final JTextField surname) throws NullPointerException,
 			IllegalArgumentException, MissingUserException {
 		return cards.searchName(name.getText(), surname.getText());
 	}
@@ -65,11 +65,11 @@ public class FidelityController {
 	}
 	
 	
-	public void loadMemory(Map<Integer, User> map){
+	public void loadMemory(final Map<Integer, User> map){
 		cards.loadMemory(map);
 	}
 	
-	private void checkData(JTextField[] fields) throws WrongDataException{
+	private void checkData(final JTextField[] fields) throws WrongDataException{
 		
 
 		if (fields[2].getText().length() != 0){
@@ -81,7 +81,7 @@ public class FidelityController {
 		
 	}
 	
-	private void checkEmpty(JTextField[] fields) throws MissingDataException{
+	private void checkEmpty(final JTextField[] fields) throws MissingDataException{
 		
 		for (int i = 0; i < fields.length; i++){
 			if (fields[i].getText().length() == 0){
@@ -90,7 +90,7 @@ public class FidelityController {
 		}
 		
 	}
-	public void modifyUser(User b, JTextField[] jfields) throws WrongDataException {
+	public void modifyUser(final User b,final JTextField[] jfields) throws WrongDataException {
 		
 			checkData(jfields);		
 			String[] datas = new String[jfields.length];		

@@ -146,15 +146,15 @@ public class BookController {
 	
 	public void evasioneOrdini () throws MissingBookException {
 		if (ordini.bookList().isEmpty()) {
-			throw new MissingBookException ();
+			throw new MissingBookException();
 		}
-		for (Libro b:ordini.bookList()) {
+		for (final Libro b:ordini.bookList()) {
 			magazzino.addBook(b);
 		}
 		ordini.evasioneOrdini();
 	}
 	
-	private void checkData(JTextField[] fields) throws MissingDataException, WrongDataException{
+	private void checkData(final JTextField[] fields) throws MissingDataException, WrongDataException{
 		for (int i = 0; i < fields.length; i++){
 			if (fields[i].getText().length() == 0){
 				throw new MissingDataException();
@@ -170,7 +170,7 @@ public class BookController {
 	}
 	
 	
-	private void checkWrongs(JTextField[] fields) throws WrongDataException{
+	private void checkWrongs(final JTextField[] fields) throws WrongDataException{
 		
 		if (fields[2].getText().length() != 0){
 			if (Integer.parseInt(fields[2].getText()) > Calendar.getInstance().get(Calendar.YEAR) || Integer.parseInt(fields[2].getText()) <= 0){
