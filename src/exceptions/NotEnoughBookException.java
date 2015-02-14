@@ -1,5 +1,11 @@
 package exceptions;
 
+/**
+ * 
+ * @author Chiara Ceccarini
+ *
+ */
+
 public class NotEnoughBookException extends Throwable{
 
 	/**

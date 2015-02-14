@@ -7,6 +7,11 @@ import model.IStatistics;
 import model.Libro;
 import model.Statistics;
 
+/**
+ * 
+ * @author Chiara Ceccarini
+ *
+ */
 public class StatisticsController implements IStatistics{
 	
 	private Statistics statistics = new Statistics ();

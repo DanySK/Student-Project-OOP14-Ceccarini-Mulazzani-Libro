@@ -11,6 +11,7 @@ import exceptions.UserAlreadyExisting;
  * Basic model implementation of the Fidelity Cards
  * 
  * @author Alberto Mulazzani
+ * @author Chiara Ceccarini
  *
  */
 public class FidelityCards implements IFidelityCards{

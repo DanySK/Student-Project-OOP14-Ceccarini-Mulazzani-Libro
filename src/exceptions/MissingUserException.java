@@ -1,5 +1,10 @@
 package exceptions;
 
+/**
+ * 
+ * @author Chiara Ceccarini
+ *
+ */
 public class MissingUserException extends Throwable {
 
 	/**

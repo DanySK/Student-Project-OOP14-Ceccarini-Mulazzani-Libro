@@ -1,5 +1,9 @@
 package utilities;
-
+/**
+ * 
+ * presa dalla soluzione di un esercizio fatto in laboratorio
+ *
+ */
 public class Pair<X,Y>{
     
     public X first;
