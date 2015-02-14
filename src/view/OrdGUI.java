@@ -28,7 +28,7 @@ public class OrdGUI {
 	private final String[] names = {"Aggiungi un ordine", "Rimuovi un ordine", "Modifica un ordine", "Ricerca un ordine", "Lista degli Ordini", "Evadi gli ordini"};
 	private final BackgroundPanel main = new BackgroundPanel(GUIUtilities.back);
 	
-	public OrdGUI(BookController controller){
+	public OrdGUI(final BookController controller){
 		
 		
 		main.setLayout(new BorderLayout());
@@ -58,11 +58,11 @@ public class OrdGUI {
 		buttons[0].addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(final ActionEvent e) {
 				
 				controller.setType(TipoController.ORDINI);	
 				JOptionPane.showOptionDialog(main, new AddBookGUI(controller).getPane() , "Aggiungi un ordine", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.STRING, null);
 			
 			}
 		});
@@ -70,11 +70,11 @@ public class OrdGUI {
 		buttons[1].addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(final ActionEvent e) {
 
 				controller.setType(TipoController.ORDINI);	
 				JOptionPane.showOptionDialog(main, new RemoveOrderGUI(controller).getPane() , "Rimuovi un ordine", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.STRING, null);
 			
 			}
 		});
@@ -82,11 +82,11 @@ public class OrdGUI {
 		buttons[2].addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(final ActionEvent e) {
 				
 				controller.setType(TipoController.ORDINI);	
 				JOptionPane.showOptionDialog(main, new SearchBookGUI(controller).getPane() , "Modifica un ordine", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.STRING, null);
 			
 			}
 		});
@@ -96,11 +96,11 @@ public class OrdGUI {
 		buttons[3].addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(final ActionEvent e) {
 				
 				controller.setType(TipoController.ORDINI);	
 				JOptionPane.showOptionDialog(main, new SearchBookGUI(controller).getPane() , "Cerca un ordine", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.STRING, null);
 			
 			}
 		});
@@ -108,11 +108,11 @@ public class OrdGUI {
 		buttons[4].addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(final ActionEvent e) {
 				
 				controller.setType(TipoController.ORDINI);	
 				JOptionPane.showOptionDialog(main, new ListTableGUI(controller.bookList(), false).getPane() , "Lista degli ordini", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.STRING, null);
 			
 			}
 		});
@@ -120,7 +120,7 @@ public class OrdGUI {
 		buttons[5].addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(final ActionEvent e) {
 				
 				controller.setType(TipoController.ORDINI);	
 				try {

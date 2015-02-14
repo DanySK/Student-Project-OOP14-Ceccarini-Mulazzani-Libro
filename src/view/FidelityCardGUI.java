@@ -60,7 +60,7 @@ public class FidelityCardGUI {
 				
 				
 				JOptionPane.showOptionDialog(main, new AddPersonGUI(controller).getPane() , "Aggiungi una carta", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.STRING, null);
 			
 			}
 		});
@@ -74,7 +74,7 @@ public class FidelityCardGUI {
 				
 				
 				JOptionPane.showOptionDialog(main, new RemoveCardGUI(controller).getPane() , "Rimuovi una carta", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.STRING, null);
 			
 			}
 		});
@@ -88,7 +88,7 @@ public class FidelityCardGUI {
 				
 				
 				JOptionPane.showOptionDialog(main, new ModifyCardGUI(controller).getPane() , "Modifica una carta", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.STRING, null);
 			
 			}
 		});
@@ -102,7 +102,7 @@ public class FidelityCardGUI {
 				
 				
 				JOptionPane.showOptionDialog(main, new SearchCardGUI(controller).getPane() , "Ricerca una carta", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.STRING, null);
 			
 			}
 		});
@@ -116,7 +116,7 @@ public class FidelityCardGUI {
 				
 				
 				JOptionPane.showOptionDialog(main, new ListCardGUI(controller.getMap()).getPane() , "Lista delle carte", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.STRING, null);
 			
 			}
 		});

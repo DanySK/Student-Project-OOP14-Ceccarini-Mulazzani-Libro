@@ -27,17 +27,17 @@ public class SearchCardGUI extends JDialog {
 
 	private static final long serialVersionUID = 6224252338040945108L;
 
-	private String[] names = {"Nome", "Cognome", "ID"};
-	private JButton[] oks = new JButton[names.length];
-	private JTextField[] fields = new JTextField[names.length];
+	final private String[] names = {"Nome", "Cognome", "ID"};
+	final private JTextField[] fields = new JTextField[names.length];
 	private final JPanel main = new JPanel();
 	
-	public SearchCardGUI(FidelityController controller) {
+	public SearchCardGUI(final FidelityController controller) {
 		
 		
 		main.setLayout(new BorderLayout());
 		
 		final JPanel mid = new JPanel(new GridLayout(0,3));
+		final JButton[] oks = new JButton[names.length];
 		
 		for (int i = 0; i < fields.length; i++ ){
 			fields[i] = new JTextField(15);
@@ -67,12 +67,12 @@ public class SearchCardGUI extends JDialog {
 		oks[1].addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(final ActionEvent e) {
 				
 				try {
 					JOptionPane.showOptionDialog(main, new CardDetailGUI(controller.searchName(fields[0], fields[1])).getPane() , "Ricerca titolo", JOptionPane.DEFAULT_OPTION, 
-					         JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
-				} catch (HeadlessException | NullPointerException | IllegalArgumentException | MissingUserException e1) {
+					         JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.STRING, null);
+				} catch (HeadlessException | IllegalArgumentException | MissingUserException e1) {
 					JOptionPane.showMessageDialog(main, "La persona non è presente", "Persona mancante", JOptionPane.ERROR_MESSAGE);
 				}
 				
@@ -82,14 +82,14 @@ public class SearchCardGUI extends JDialog {
 		oks[2].addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(final ActionEvent e) {
 				
 				try {
 					JOptionPane.showOptionDialog(main, new CardDetailGUI(controller.searchID(fields[2])).getPane() , "Ricerca autore", JOptionPane.DEFAULT_OPTION, 
-					         JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
+					         JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.STRING, null);
 				} catch (HeadlessException | MissingUserException e1) {
 					JOptionPane.showMessageDialog(main, "L'ID non è presente", "ID mancante", JOptionPane.ERROR_MESSAGE);
-				}catch (NullPointerException | IllegalArgumentException e1){
+				}catch ( IllegalArgumentException e1){
 					JOptionPane.showMessageDialog(main, "I Dati inseriti sono errati", "Dati errati", JOptionPane.ERROR_MESSAGE);
 					
 				}

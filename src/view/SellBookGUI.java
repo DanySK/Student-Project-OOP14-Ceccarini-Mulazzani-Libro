@@ -29,13 +29,13 @@ import exceptions.NotEnoughBookException;
 public class SellBookGUI extends JDialog {
 	
 	private static final long serialVersionUID = 6224252338040945108L;
-	private String[] names = {"Titolo", "Autore", "Copie", "Carta"};
-	private JTextField[] fields = new JTextField[names.length];
+	final private String[] names = {"Titolo", "Autore", "Copie", "Carta"};
+	final private JTextField[] fields = new JTextField[names.length];
 	private final JPanel main = new JPanel();
-	private JButton conf = new JButton("Conferma");
+	final private JButton conf = new JButton("Conferma");
 	private	Libro lib;
 	
-	public SellBookGUI(BookController controller, FidelityController fidcontroller) {
+	public SellBookGUI(final BookController controller,final FidelityController fidcontroller) {
 		
 		main.setLayout(new BorderLayout());
 		
@@ -63,7 +63,7 @@ public class SellBookGUI extends JDialog {
 		conf.addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(final ActionEvent e) {
 				
 				try {
 					lib = controller.searchBook(fields);
@@ -71,7 +71,7 @@ public class SellBookGUI extends JDialog {
 					controller.sellBook(lib, fields[2].getText());
 					fidcontroller.addPoints(fields, lib.getPrice());
 					JOptionPane.showMessageDialog(main, "Il libro è stato venduto con successo!!", "Successo!!", JOptionPane.INFORMATION_MESSAGE);
-					JOptionPane optionPane = (JOptionPane)
+					final JOptionPane optionPane = (JOptionPane)
 						    SwingUtilities.getAncestorOfClass(JOptionPane.class, conf);
 						optionPane.setValue(JOptionPane.CLOSED_OPTION);
 				} catch (MissingBookException e1) {
@@ -83,7 +83,7 @@ public class SellBookGUI extends JDialog {
 					JOptionPane.showMessageDialog(main, "La carta non è presente in archivio", "La carta non esiste", JOptionPane.ERROR_MESSAGE);				
 					
 				}
-				 catch (IllegalArgumentException | NullPointerException e1) {
+				 catch (IllegalArgumentException e1) {
 					// TODO Auto-generated catch block
 						JOptionPane.showMessageDialog(main, "Errore Grave!! Contattare l'assistenza!", "Attenzione!!", JOptionPane.ERROR_MESSAGE);
 

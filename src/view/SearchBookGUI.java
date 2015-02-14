@@ -28,18 +28,19 @@ public class SearchBookGUI extends JDialog {
 	 * 
 	 */
 	private static final long serialVersionUID = 6224252338040945108L;
-	private JTextField[] fields = new JTextField[2];
-	private String[] names = {"Titolo", "Autore",};
-	private JButton[] oks = new JButton[2];
+	final private JTextField[] fields = new JTextField[2];
+	final private String[] names = {"Titolo", "Autore",};
 	private final JPanel main = new JPanel();
-	private JButton conf = new JButton("Cerca coppia");
+	final private JButton conf = new JButton("Cerca coppia");
 	
-	public SearchBookGUI(BookController controller) {
+	public SearchBookGUI(final BookController controller) {
 		
 		
 		main.setLayout(new BorderLayout());
 		
 		final JPanel mid = new JPanel(new GridLayout(0,3));
+		
+		final JButton[] oks = new JButton[2]; 
 		
 		for (int i = 0; i < fields.length; i++ ){
 			fields[i] = new JTextField(15);
@@ -65,11 +66,11 @@ public class SearchBookGUI extends JDialog {
 		oks[0].addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(final ActionEvent e) {
 				
 				try {
 					JOptionPane.showOptionDialog(main, new ListTableGUI(controller.searchTitle(fields[0]), false).getPane() , "Ricerca titolo", JOptionPane.DEFAULT_OPTION, 
-					         JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
+					         JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.STRING, null);
 				} catch (MissingBookException e1) {
 					JOptionPane.showMessageDialog(main, "Il titolo non è presente", "Titolo mancante", JOptionPane.ERROR_MESSAGE);
 				}
@@ -80,11 +81,11 @@ public class SearchBookGUI extends JDialog {
 		oks[1].addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(final ActionEvent e) {
 				
 				try {
 					JOptionPane.showOptionDialog(main, new ListTableGUI(controller.searchAuthor(fields[1]), false).getPane() , "Ricerca autore", JOptionPane.DEFAULT_OPTION, 
-					         JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
+					         JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.STRING, null);
 				} catch (MissingBookException e1) {
 					JOptionPane.showMessageDialog(main, "L'Autore non è presente", "Autore mancante", JOptionPane.ERROR_MESSAGE);
 				}
@@ -94,10 +95,10 @@ public class SearchBookGUI extends JDialog {
 		conf.addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(final ActionEvent arg0) {
 				try {
 					JOptionPane.showOptionDialog(main, new BookDetailGUI(controller.searchBook(fields)).getPane() , "Ricerca libro", JOptionPane.DEFAULT_OPTION, 
-					         JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
+					         JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.STRING, null);
 				} catch (MissingBookException e) {
 					
 					JOptionPane.showMessageDialog(main, "Il libro non è presente", "Libro mancante", JOptionPane.ERROR_MESSAGE);							

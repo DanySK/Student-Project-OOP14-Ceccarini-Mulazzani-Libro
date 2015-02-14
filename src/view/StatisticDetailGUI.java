@@ -24,12 +24,12 @@ import utilities.Pair;
 public class StatisticDetailGUI extends JDialog{
 
 	private static final long serialVersionUID = -8563544567918601056L;
-	private JLabel[] list;
-	private JPanel main = new JPanel();
-	private String[] names = {"Autore", "Libri prodotti"};
+	final private JLabel[] list;
+	final private JPanel main = new JPanel();
+	final private String[] names = {"Autore", "Libri prodotti"};
 	
 	
-	public StatisticDetailGUI(List<Pair < String, Integer>> set){
+	public StatisticDetailGUI(final List<Pair < String, Integer>> set){
 		
 		main.setLayout(new BorderLayout());
 		
@@ -52,7 +52,7 @@ public class StatisticDetailGUI extends JDialog{
 		System.out.println(set.size());
 		int i = 0;
 		
-		for (Pair<String, Integer> p : set){
+		for (final Pair<String, Integer> p : set){
 			list[i].setText(p.getFirst());
 			list[i+1].setText("" + p.getSecond());
 			top.add(list[i], c );
@@ -63,7 +63,7 @@ public class StatisticDetailGUI extends JDialog{
 		}
 		
 		
-		JPanel mid = new JPanel(new FlowLayout());
+		final JPanel mid = new JPanel(new FlowLayout());
 		mid.add(top);
 		
 		final JScrollPane extPane = new JScrollPane(top);

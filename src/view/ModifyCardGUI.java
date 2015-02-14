@@ -25,12 +25,12 @@ public class ModifyCardGUI {
 	
 	
 	
-	private JPanel main = new JPanel();
-	private JButton conf = new JButton("Conferma");
-	private JTextField[] fields = new JTextField[1];
-	private String[] names = {"Identificativo"};
+	final private JPanel main = new JPanel();
+	final private JButton conf = new JButton("Conferma");
+	final private JTextField[] fields = new JTextField[1];
+	final private String[] names = {"Identificativo"};
 	
-	public ModifyCardGUI(FidelityController controller){
+	public ModifyCardGUI(final FidelityController controller){
 		
 		main.setLayout(new BorderLayout());
 		
@@ -59,11 +59,11 @@ public class ModifyCardGUI {
 		conf.addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(final ActionEvent arg0) {
 				try {
 					JOptionPane.showOptionDialog(main, new CardDetailsToModifyGUI(controller, controller.searchID(fields[0])).getPane() , "Modifica libro", JOptionPane.DEFAULT_OPTION, 
-					         JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
-					JOptionPane optionPane = (JOptionPane)
+					         JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.STRING, null);
+					final JOptionPane optionPane = (JOptionPane)
 						    SwingUtilities.getAncestorOfClass(JOptionPane.class, conf);
 						optionPane.setValue(JOptionPane.CLOSED_OPTION);
 				} catch (MissingUserException e) {

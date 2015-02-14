@@ -25,12 +25,12 @@ public class ModifyBookGUI {
 	
 	
 	
-	private JPanel main = new JPanel();
-	private JButton conf = new JButton("Conferma");
-	private JTextField[] fields = new JTextField[2];
-	private String[] names = {"Titolo", "Autore"};
+	private final JPanel main = new JPanel();
+	private final JButton conf = new JButton("Conferma");
+	private final JTextField[] fields = new JTextField[2];
+	private final String[] names = {"Titolo", "Autore"};
 	
-	public ModifyBookGUI(BookController controller){
+	public ModifyBookGUI(final BookController controller){
 		
 		main.setLayout(new BorderLayout());
 		
@@ -59,11 +59,11 @@ public class ModifyBookGUI {
 		conf.addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(final ActionEvent arg0) {
 				try {
 					JOptionPane.showOptionDialog(main, new DetailsToModifyGUI(controller, controller.searchBook(fields)).getPane() , "Modifica libro", JOptionPane.DEFAULT_OPTION, 
-					         JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
-					JOptionPane optionPane = (JOptionPane)
+					         JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.STRING, null);
+					final JOptionPane optionPane = (JOptionPane)
 						    SwingUtilities.getAncestorOfClass(JOptionPane.class, conf);
 						optionPane.setValue(JOptionPane.CLOSED_OPTION);
 				} catch (MissingBookException e) {

@@ -33,7 +33,7 @@ public class MagazGUI{
 	private final BackgroundPanel jf = new BackgroundPanel(GUIUtilities.back);	
 	
 	
-	public MagazGUI(BookController controller, FidelityController fidcontroller){	
+	public MagazGUI(final BookController controller, final FidelityController fidcontroller){	
 		
 	
 		jf.setLayout(new BorderLayout());
@@ -71,11 +71,11 @@ public class MagazGUI{
 		buttons[0].addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(final ActionEvent e) {
 				
 				controller.setType(TipoController.MAGAZZINO);
 				JOptionPane.showOptionDialog(jf, new AddBookGUI(controller).getPane() , "Aggiungi un libro", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.STRING, null);
 			
 			}
 		});
@@ -85,11 +85,11 @@ public class MagazGUI{
 		buttons[1].addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(final ActionEvent e) {
 
 				controller.setType(TipoController.MAGAZZINO);
 				JOptionPane.showOptionDialog(jf, new SellBookGUI(controller, fidcontroller).getPane() , "Vendi un libro", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.STRING, null);
 			
 			}
 		});
@@ -99,11 +99,11 @@ public class MagazGUI{
 		buttons[2].addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(final ActionEvent e) {
 				
 				controller.setType(TipoController.MAGAZZINO);
 				JOptionPane.showOptionDialog(jf, new ModifyBookGUI(controller).getPane() , "Modifica un libro", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.STRING, null);
 			
 			}
 		});
@@ -113,11 +113,11 @@ public class MagazGUI{
 		buttons[3].addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(final ActionEvent e) {
 				
 				controller.setType(TipoController.MAGAZZINO);
 				JOptionPane.showOptionDialog(jf, new SearchBookGUI(controller).getPane() , "Cerca un libro", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.STRING, null);
 			
 			}
 		});
@@ -128,11 +128,11 @@ public class MagazGUI{
 		buttons[4].addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(final ActionEvent e) {
 				
 				controller.setType(TipoController.MAGAZZINO);
 				JOptionPane.showOptionDialog(jf, new ListTableGUI(controller.bookList(), false).getPane() , "Lista dei libri", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.STRING, null);
 			
 			}
 		});

@@ -54,7 +54,7 @@ public class EconomyMenuGUI {
 			public void actionPerformed(final ActionEvent e) {
 			
 				JOptionPane.showOptionDialog(main, new EconomyGUI(controller, earcontroller).getPane() , "Fatturato e Guadagni", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.STRING, null);
 			
 			}
 		});
