@@ -34,8 +34,11 @@ public class AddBookGUI extends JDialog{
 	private final JButton add = new JButton("Conferma");
 	private final JPanel main = new JPanel();
 	private final String[] names = {"Titolo", "Autore", "Anno di pubblicazione", "Editore", "ISBN", "Prezzo", "Quantità" };
-	
-	public AddBookGUI(BookController controller){
+	/**
+	 * 
+	 * @param controller is the BookController from the main GUI
+	 */
+	public AddBookGUI(final BookController controller) {
 		
 		main.setLayout(new BorderLayout());
 		
