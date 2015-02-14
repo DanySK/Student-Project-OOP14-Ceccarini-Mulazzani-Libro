@@ -25,7 +25,7 @@ public class CardDetailGUI extends JDialog{
 	private final JPanel main = new JPanel();
 	private final String[] names = {"Nome","Cognome", "Email", "ID", "Punti"};
 	
-	public CardDetailGUI(User b){
+	public CardDetailGUI(final User b){
 		
 		main.setLayout(new BorderLayout());
 		

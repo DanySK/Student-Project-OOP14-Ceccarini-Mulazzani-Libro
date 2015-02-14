@@ -31,7 +31,7 @@ public class AddPersonGUI {
 	private final JButton add = new JButton("Conferma");
 	private final JPanel main = new JPanel();
 	
-	public AddPersonGUI(FidelityController controller){
+	public AddPersonGUI( final FidelityController controller){
 		
 		
 		main.setLayout(new BorderLayout());		
@@ -66,13 +66,13 @@ public class AddPersonGUI {
 		add.addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(final ActionEvent e) {
 				try {
 	
 					controller.addPerson(fields);
 					JOptionPane.showMessageDialog(main, "La carta è stata creata con successo, il suo ID è " + controller.getCurrent(), "Successo!", JOptionPane.INFORMATION_MESSAGE);
 					
-					JOptionPane optionPane = (JOptionPane)
+					final JOptionPane optionPane = (JOptionPane)
 						    SwingUtilities.getAncestorOfClass(JOptionPane.class, add);
 						optionPane.setValue(JOptionPane.CLOSED_OPTION);
 			

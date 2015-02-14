@@ -26,13 +26,13 @@ public class EconomyMenuGUI {
 	private final JButton open = new JButton("Apri la sezione Economia");
 	
 	
-	public EconomyMenuGUI(BookController controller, EarningsController earcontroller){
+	public EconomyMenuGUI(final BookController controller,final EarningsController earcontroller){
 		
 		main.setLayout(new BorderLayout());
 		
 		final JPanel top = new JPanel();
 		top.setLayout(new GridBagLayout());
-		GridBagConstraints c = GUIUtilities.getConstr();
+		final GridBagConstraints c = GUIUtilities.getConstr();
 		
 		
 		top.add(open, c);
@@ -51,7 +51,7 @@ public class EconomyMenuGUI {
 		open.addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(final ActionEvent e) {
 			
 				JOptionPane.showOptionDialog(main, new EconomyGUI(controller, earcontroller).getPane() , "Fatturato e Guadagni", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.string, null);

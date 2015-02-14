@@ -26,13 +26,13 @@ public class BookDetailGUI extends JDialog{
 	private final String[] names = {"Titolo", "Autore", "Anno di pubblicazione", "Editore", "ISBN", "Prezzo", "Quantità", "Copie Vendute" };
 	
 	
-	public BookDetailGUI(Libro b){
+	public BookDetailGUI(final Libro b){
 		
 		main.setLayout(new BorderLayout());
 		
 		final JPanel mid = new JPanel(new GridLayout(0,2));
 		
-		String[] fields = b.getFields();
+		final String[] fields = b.getFields();
 		
 
 		for (int i = 0; i < fields.length; i++){

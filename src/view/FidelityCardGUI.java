@@ -26,7 +26,7 @@ public class FidelityCardGUI {
 	
 	private final BackgroundPanel main = new BackgroundPanel(GUIUtilities.back);
 	
-	public FidelityCardGUI(FidelityController controller){
+	public FidelityCardGUI(final FidelityController controller){
 		
 		main.setLayout(new BorderLayout());
 		
@@ -56,7 +56,7 @@ public class FidelityCardGUI {
 		buttons[0].addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(final ActionEvent e) {
 				
 				
 				JOptionPane.showOptionDialog(main, new AddPersonGUI(controller).getPane() , "Aggiungi una carta", JOptionPane.DEFAULT_OPTION, 
@@ -70,7 +70,7 @@ public class FidelityCardGUI {
 		buttons[1].addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(final ActionEvent e) {
 				
 				
 				JOptionPane.showOptionDialog(main, new RemoveCardGUI(controller).getPane() , "Rimuovi una carta", JOptionPane.DEFAULT_OPTION, 
@@ -84,7 +84,7 @@ public class FidelityCardGUI {
 		buttons[2].addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(final ActionEvent e) {
 				
 				
 				JOptionPane.showOptionDialog(main, new ModifyCardGUI(controller).getPane() , "Modifica una carta", JOptionPane.DEFAULT_OPTION, 
@@ -98,7 +98,7 @@ public class FidelityCardGUI {
 		buttons[3].addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(final ActionEvent e) {
 				
 				
 				JOptionPane.showOptionDialog(main, new SearchCardGUI(controller).getPane() , "Ricerca una carta", JOptionPane.DEFAULT_OPTION, 
@@ -112,7 +112,7 @@ public class FidelityCardGUI {
 		buttons[4].addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(final ActionEvent e) {
 				
 				
 				JOptionPane.showOptionDialog(main, new ListCardGUI(controller.getMap()).getPane() , "Lista delle carte", JOptionPane.DEFAULT_OPTION, 

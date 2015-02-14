@@ -34,13 +34,13 @@ public class DetailsToModifyGUI	extends JDialog {
 	
 	
 	
-	public DetailsToModifyGUI(BookController controller, Libro b){
+	public DetailsToModifyGUI(final BookController controller,final Libro b){
 		
 		main.setLayout(new BorderLayout());
 		
 		final JPanel mid = new JPanel(new GridLayout(0,3));
 		
-		String[] fields = b.getFields();
+		final String[] fields = b.getFields();
 		
 		
 		
@@ -67,11 +67,11 @@ public class DetailsToModifyGUI	extends JDialog {
 		conf.addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(final ActionEvent e) {
 				try {
 					controller.modifyBook(b, jfields);
 					JOptionPane.showMessageDialog(main, "Il libro è stato modificato correttamente", "Successo!", JOptionPane.INFORMATION_MESSAGE);
-					JOptionPane optionPane = (JOptionPane)
+					final JOptionPane optionPane = (JOptionPane)
 						    SwingUtilities.getAncestorOfClass(JOptionPane.class, conf);
 						optionPane.setValue(JOptionPane.CLOSED_OPTION);
 				} catch (WrongDataException e1) {

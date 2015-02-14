@@ -19,18 +19,13 @@ public class EconomyGUI {
 
 	private final String[] names = {"Totale libri venduti", "Totali in negozio", "Totale guadagnato", "Totale speso", "Totale fatturato"};
 	private final JPanel main = new JPanel();
-	private final JLabel[] labels = new JLabel[names.length];
 	
-	public EconomyGUI(BookController controller, EarningsController earcontroller){
+	public EconomyGUI(final BookController controller,final EarningsController earcontroller){
 		
 		main.setLayout(new BorderLayout());
 		
 		final JPanel mid = new JPanel(new GridLayout(0,2));
-		
-		
-		for (int i = 0; i < names.length; i++ ){
-			labels[i] = new JLabel(names[i]);
-		}
+
 		
 		mid.add(GUIUtilities.wrapperPanel(new JLabel(names[0]),FlowLayout.RIGHT));
 		mid.add(GUIUtilities.wrapperPanel(new JLabel("" + earcontroller.bookSold(controller.bookList())),FlowLayout.CENTER));

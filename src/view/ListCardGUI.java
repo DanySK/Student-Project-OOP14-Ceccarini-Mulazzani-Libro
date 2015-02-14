@@ -27,12 +27,12 @@ public class ListCardGUI extends JDialog{
 	 * 
 	 */
 	private static final long serialVersionUID = -8563544567918601056L;
-	private JLabel[] list;
-	private JPanel main = new JPanel();
-	private String[] names= { "Nome ", "Cognome", "Email", "ID"};
+	final private JLabel[] list;
+	final private JPanel main = new JPanel();
+	final private String[] names= { "Nome ", "Cognome", "Email", "ID"};
 	
 
-	public ListCardGUI(Map<Integer, User> set){
+	public ListCardGUI(final Map<Integer, User> set){
 		
 		main.setLayout(new BorderLayout());
 		
@@ -54,7 +54,7 @@ public class ListCardGUI extends JDialog{
 		}			
 		
 		int i = 0;
-		for (Entry<Integer, User> e : set.entrySet()){
+		for (final Entry<Integer, User> e : set.entrySet()){
 			
 			list[i].setText(e.getValue().getName());
 			list[i+1].setText(e.getValue().getSurname());
@@ -70,7 +70,7 @@ public class ListCardGUI extends JDialog{
 
 		
 		
-		JPanel mid = new JPanel(new FlowLayout());
+		final JPanel mid = new JPanel(new FlowLayout());
 		mid.add(top);
 		
 		final JScrollPane extPane = new JScrollPane(top);

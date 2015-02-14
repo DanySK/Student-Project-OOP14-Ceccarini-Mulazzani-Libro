@@ -35,19 +35,18 @@ public class FileTabMenuGUI  extends JMenu{
 	 */
 	private static final long serialVersionUID = 1894309391410079587L;
 
-	private String[] names = {"Carica", "Salva", "Salva e chiudi"};
-	private JMenuItem[] buttons = new JMenuItem[names.length];
-
+	private final String[] names = {"Carica", "Salva", "Salva e chiudi"};
 	
-	public FileTabMenuGUI(JFrame frame, final BookController controller, final FidelityController fidcontroller){
+	public FileTabMenuGUI(final JFrame frame, final BookController controller, final FidelityController fidcontroller){
 	
 		super("File");
 		
+		final JMenuItem[] buttons = new JMenuItem[names.length];
 			
 		for (int i = 0; i < names.length; i++){
 			buttons[i] = new JMenuItem(names[i]);
 			add(buttons[i]);
-			if (i == 1){
+			if (i > 0){
 				addSeparator();
 			}
 		}
@@ -60,19 +59,19 @@ public class FileTabMenuGUI  extends JMenu{
 			
 			@SuppressWarnings("unchecked")
 			@Override
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(final ActionEvent arg0) {
 
-				JFileChooser fileChooser = new JFileChooser();
+				final JFileChooser fileChooser = new JFileChooser();
 				fileChooser.removeChoosableFileFilter(fileChooser.getFileFilter());
 				fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("Documento XML (*.xml)", "xml"));
 				fileChooser.setDialogTitle("Specify a file to Load");   
 				 
-				int userSelection = fileChooser.showSaveDialog(frame);
+				final int userSelection = fileChooser.showSaveDialog(frame);
 				 
 				if (userSelection == JFileChooser.APPROVE_OPTION) {
-				    File fileToLoad = fileChooser.getSelectedFile();
+				    final File fileToLoad = fileChooser.getSelectedFile();
 				    System.out.println("Load as file: " + fileToLoad.getAbsolutePath());
-				    XStream xstream = new XStream();
+				    final XStream xstream = new XStream();
 				    xstream.alias("User", User.class);
 				    xstream.alias("Carta", FidCard.class);
 				    xstream.alias("Libro", Libro.class);
@@ -82,7 +81,7 @@ public class FileTabMenuGUI  extends JMenu{
 				    
 				    List<Libro> list;
 					try {
-						ObjectInputStream ois = xstream.createObjectInputStream(new ObjectInputStream(new FileInputStream(fileToLoad)));
+						final ObjectInputStream ois = xstream.createObjectInputStream(new ObjectInputStream(new FileInputStream(fileToLoad)));
 						
 						controller.setType(TipoController.MAGAZZINO);
 						list = (List<Libro>) ois.readObject();
@@ -90,7 +89,7 @@ public class FileTabMenuGUI  extends JMenu{
 					    list = (List<Libro>) ois.readObject();
 						controller.setType(TipoController.ORDINI);
 						controller.loadMemory(list);
-						Map<Integer, User> map = (Map<Integer, User>) ois.readObject();
+						final Map<Integer, User> map = (Map<Integer, User>) ois.readObject();
 						fidcontroller.loadMemory(map);
 						
 
@@ -98,8 +97,8 @@ public class FileTabMenuGUI  extends JMenu{
 					    ois.close();
 					    
 					} catch (IOException | ClassNotFoundException e) {
-						e.printStackTrace();
-					} 
+						JOptionPane.showMessageDialog(frame, "Errore nel caricamento");
+						} 
 					JOptionPane.showMessageDialog(frame, "Caricamento eseguito correttamente");
 					
 					
@@ -113,7 +112,7 @@ public class FileTabMenuGUI  extends JMenu{
 		buttons[1].addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(final ActionEvent e) {
 				
 				
 				saveMe(controller, fidcontroller, frame);
@@ -127,7 +126,7 @@ public class FileTabMenuGUI  extends JMenu{
 		buttons[2].addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(final ActionEvent e) {
 				
 				saveMe(controller, fidcontroller, frame);
 				
@@ -140,27 +139,28 @@ public class FileTabMenuGUI  extends JMenu{
 		
 	}
 	
-	private void saveMe(BookController controller, FidelityController fidcontroller, JFrame frame){
+	private void saveMe(final BookController controller,final FidelityController fidcontroller,final JFrame frame){
 			
-			JFileChooser fileChooser = new JFileChooser(System.getProperty("user.home") + System.getProperty("line.separator") + "Desktop");
+			final JFileChooser fileChooser = new JFileChooser(System.getProperty("user.home") + System.getProperty("line.separator") + "Desktop");
 			fileChooser.removeChoosableFileFilter(fileChooser.getFileFilter());
 			fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("Documento XML (*.xml)", "xml"));
 			fileChooser.setDialogTitle("Specify a file to Save");   
 			 
-			int userSelection = fileChooser.showSaveDialog(frame);
+			final int userSelection = fileChooser.showSaveDialog(frame);
 			 
 			if (userSelection == JFileChooser.APPROVE_OPTION) {
-			    File fileToLoad = fileChooser.getSelectedFile();
+			    final File fileToLoad = fileChooser.getSelectedFile();
 			    System.out.println("Save as file: " + fileToLoad.getAbsolutePath());
 			    
 			    File file;
-			    if (!fileToLoad.getAbsolutePath().contains(".xml")){
-				    file = new File(fileToLoad + ".xml");
+			    if (fileToLoad.getAbsolutePath().contains(".xml")){
+			     	file = new File(fileToLoad.getAbsolutePath());
+					   
 			    }else {
-			    	file = new File(fileToLoad.getAbsolutePath());
+			     	file = new File(fileToLoad + ".xml");
 			    }
 			    
-			    XStream xstream = new XStream();
+			    final XStream xstream = new XStream();
 			    xstream.alias("User", User.class);
 			    xstream.alias("Carta", FidCard.class);
 			    xstream.alias("Libro", Libro.class);
@@ -168,7 +168,7 @@ public class FileTabMenuGUI  extends JMenu{
 			    
 			    try {
 					controller.setType(TipoController.MAGAZZINO);
-					ObjectOutputStream out = xstream.createObjectOutputStream(new ObjectOutputStream(new FileOutputStream(file)));
+					final ObjectOutputStream out = xstream.createObjectOutputStream(new ObjectOutputStream(new FileOutputStream(file)));
 					out.writeObject(controller.bookList());
 
 					controller.setType(TipoController.ORDINI);
@@ -178,8 +178,8 @@ public class FileTabMenuGUI  extends JMenu{
 					
 					out.close();
 				} catch (IOException e1) {
-					e1.printStackTrace();
-				}				
+					JOptionPane.showMessageDialog(frame, "Errore nel salvataggio");
+					}				
 			}
 			
 		}
