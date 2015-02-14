@@ -7,13 +7,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
+import utilities.GUIUtilities;
 import controller.FidelityController;
 import exceptions.MissingDataException;
 import exceptions.UserAlreadyExisting;
@@ -29,22 +29,17 @@ public class AddPersonGUI {
 	private final JTextField[] fields = new JTextField[3];
 	private final String[] names = {"Nome", "Cognome", "Email"};
 	private final JButton add = new JButton("Conferma");
-	private final JButton reset = new JButton("Reset");
-	private final JButton annulla = new JButton("Annulla");
 	private final JPanel main = new JPanel();
 	
 	public AddPersonGUI(FidelityController controller){
 		
 		
-		main.setLayout(new BorderLayout());
-		//main.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			
+		main.setLayout(new BorderLayout());		
 		main.setLayout(new BorderLayout());
 		
 		final JPanel bot = new JPanel(new FlowLayout());
-		bot.add(reset);
+		bot.add(GUIUtilities.getReset(fields));
 		bot.add(add);
-		bot.add(annulla);
 		main.add(bot, BorderLayout.SOUTH);
 				
 		
@@ -55,29 +50,16 @@ public class AddPersonGUI {
 		}
 		
 		for (int i = 0; i < fields.length; i++){
-			mid.add(wrapperPanel(new JLabel(names[i]),FlowLayout.RIGHT));
-			mid.add(wrapperPanel(fields[i],FlowLayout.CENTER));
+			mid.add(GUIUtilities.wrapperPanel(new JLabel(names[i]),FlowLayout.RIGHT));
+			mid.add(GUIUtilities.wrapperPanel(fields[i],FlowLayout.CENTER));
 		}
 		
 		main.add(mid, BorderLayout.CENTER);
-		
-		//main.setVisible(true);
 
 		
 		// Handler dei pulsanti
 		
-		//PULSANTE RESET
-		
-		reset.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(final ActionEvent e) {
-				
-				for (int i = 0; i < fields.length; i++){
-					fields[i].setText("");
-				}
-			}
-		});
+
 		
 		//PULSANTE CONFERMA
 		
@@ -88,7 +70,7 @@ public class AddPersonGUI {
 				try {
 	
 					controller.addPerson(fields);
-					JOptionPane.showMessageDialog(main, "La carta è stata creata con successo", "Successo!", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(main, "La carta è stata creata con successo, il suo ID è " + controller.getCurrent(), "Successo!", JOptionPane.INFORMATION_MESSAGE);
 					
 					JOptionPane optionPane = (JOptionPane)
 						    SwingUtilities.getAncestorOfClass(JOptionPane.class, add);
@@ -106,16 +88,6 @@ public class AddPersonGUI {
 		
 		
 	}
-	
-	
-	
-	
-	private static JPanel wrapperPanel(final JComponent component, final int orientation){
-		final JPanel panel = new JPanel(new FlowLayout(orientation));
-		panel.add(component);
-		return  panel;
-	}
-	
 	public JPanel getPane(){
 		return main;
 	}

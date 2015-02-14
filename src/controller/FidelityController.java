@@ -60,6 +60,10 @@ public class FidelityController {
 		return cards.getMap();
 	}
 	
+	public int getCurrent(){
+		return cards.getCurrent();
+	}
+	
 	
 	public void loadMemory(Map<Integer, User> map){
 		cards.loadMemory(map);

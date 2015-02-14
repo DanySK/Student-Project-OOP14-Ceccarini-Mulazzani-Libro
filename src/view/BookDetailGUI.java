@@ -10,7 +10,11 @@ import javax.swing.JPanel;
 
 import model.Libro;
 import utilities.GUIUtilities;
-
+/**
+ * 
+ * @author Alberto Mulazzani
+ *
+ */
 public class BookDetailGUI extends JDialog{
 	
 	

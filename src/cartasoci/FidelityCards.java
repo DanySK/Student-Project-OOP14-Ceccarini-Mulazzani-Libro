@@ -100,6 +100,10 @@ public class FidelityCards implements IFidelityCards{
 		u.addPoints(points);
 	}
 	
+	public int getCurrent(){
+		return this.next;
+	}
+	
 	
 	private void containsUser(User user) throws UserAlreadyExisting{
 		for (Entry<Integer, User> e : cards.entrySet()){

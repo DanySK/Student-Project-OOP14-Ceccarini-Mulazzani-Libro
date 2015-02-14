@@ -10,7 +10,11 @@ import javax.swing.JPanel;
 
 import utilities.GUIUtilities;
 import cartasoci.User;
-
+/**
+ * 
+ * @author Alberto Mulazzani
+ *
+ */
 public class CardDetailGUI extends JDialog{
 	
 	

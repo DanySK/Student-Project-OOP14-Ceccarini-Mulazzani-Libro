@@ -18,7 +18,11 @@ import utilities.GUIUtilities;
 import cartasoci.User;
 import controller.FidelityController;
 import exceptions.WrongDataException;
-
+/**
+ * 
+ * @author Alberto Mulazzani
+ *
+ */
 public class CardDetailsToModifyGUI	extends JDialog {
 	
 	

@@ -18,7 +18,11 @@ import model.Libro;
 import utilities.GUIUtilities;
 import controller.BookController;
 import exceptions.WrongDataException;
-
+/**
+ * 
+ * @author Alberto Mulazzani
+ *
+ */
 public class DetailsToModifyGUI	extends JDialog {
 	
 	

@@ -86,4 +86,11 @@ public interface IFidelityCards {
 	 */
 	
 	public void addPoints(User u, int points);
+	
+	/**
+	 * Is a utility method to print the added id.
+	 * 
+	 * @return the current Index 
+	 */
+	public int getCurrent();
 }

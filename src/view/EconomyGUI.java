@@ -10,7 +10,11 @@ import javax.swing.JPanel;
 import utilities.GUIUtilities;
 import controller.BookController;
 import controller.EarningsController;
-
+/**
+ * 
+ * @author Alberto Mulazzani
+ *
+ */
 public class EconomyGUI {
 
 	private final String[] names = {"Totale libri venduti", "Totali in negozio", "Totale guadagnato", "Totale speso", "Totale fatturato"};

@@ -15,7 +15,11 @@ import javax.swing.border.TitledBorder;
 import controller.BookController;
 import controller.EarningsController;
 import utilities.GUIUtilities;
-
+/**
+ * 
+ * @author Alberto Mulazzani
+ *
+ */
 public class EconomyMenuGUI {
 
 	private final BackgroundPanel main = new BackgroundPanel(GUIUtilities.back);

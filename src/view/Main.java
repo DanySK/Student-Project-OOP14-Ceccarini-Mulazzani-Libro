@@ -156,13 +156,13 @@ public class Main implements ActionListener {
         } catch (UnsupportedLookAndFeelException e) {	
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		} catch (InstantiationException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -173,7 +173,7 @@ public class Main implements ActionListener {
         	  { 
         	    final String objButtons[] = {"Sì","No"};
         	    final int promptResult = JOptionPane.showOptionDialog(null, 
-        	        "Sei sicuro di voler uscire senza salvare?", "Sei proprio sicuro?", 
+        	        "Sei sicuro di voler uscire? I dati non salvati saranno persi", "Sei proprio sicuro?", 
         	        JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, 
         	        objButtons,objButtons[1]);
         	    if(promptResult==0)

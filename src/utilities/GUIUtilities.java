@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComponent;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 /**
@@ -31,12 +32,20 @@ public class GUIUtilities {
 	}
 	
 	public static JButton getClosing(){
-		final JButton chiudi = new JButton("Salva e Chiudi");
+		final JButton chiudi = new JButton("Chiudi");
 		chiudi.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
+	     	    final String objButtons[] = {"Sì","No"};
+        	    final int promptResult = JOptionPane.showOptionDialog(null, 
+        	        "Sei sicuro di voler uscire? I dati non salvati saranno persi", "Sei proprio sicuro?", 
+        	        JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, 
+        	        objButtons,objButtons[1]);
+        	    if(promptResult==0)
+        	    {
+        	      System.exit(0);          
+        	    }
 			}
 		});
 		return chiudi;	
