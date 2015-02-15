@@ -12,7 +12,7 @@ import exceptions.MissingUserException;
 import exceptions.UserAlreadyExisting;
 import exceptions.WrongDataException;
 
-public class FidelityController {
+public class FidelityController implements IFidelityController{
 	
 	private final IFidelityCards cards = new FidelityCards();
 	

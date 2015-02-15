@@ -20,13 +20,12 @@ import exceptions.WrongDataException;
  * @author Alberto Mulazzani
  *
  */
-public class BookController {
+public class BookController implements IBookController{
 	
 	private String[] strings = null;
 	private Libro book;
 	private final IBookManagement magazzino = new BookManagement();
 	private final IOrdini ordini = new Ordini();
-	private final String[] toSearch = new String[2];
 	private TipoController type = TipoController.MAGAZZINO;
 	/**
 	 * 
@@ -100,12 +99,6 @@ public class BookController {
 
 		} else {
 			ordini.modifyBook(b, datas);
-		}
-	}
-	
-	public void toSearch(final JTextField[] fields){	
-		for (int i = 0; i < fields.length; i++){
-			toSearch[i] = fields[i].getText();
 		}
 	}
 	
