@@ -42,7 +42,7 @@ public class BookController implements IBookController{
 	 * @throws MissingDataException
 	 * @throws WrongDataException
 	 */
-	public void setFields(final JTextField[] fields) throws MissingDataException, WrongDataException{	
+	public void setFields(final JTextField... fields) throws MissingDataException, WrongDataException{	
 		checkData(fields);
 		strings = new String[fields.length];
 		
@@ -64,7 +64,7 @@ public class BookController implements IBookController{
 	 * 
 	 * @param strings
 	 */
-	private void setLibro(final String[] strings){
+	private void setLibro(final String... strings){
 		this.book = new Libro(strings);	
 	}
 	
@@ -87,7 +87,7 @@ public class BookController implements IBookController{
 	 * @param fields
 	 * @throws WrongDataException
 	 */
-	public void modifyBook(final Libro b,final  JTextField[] fields) throws WrongDataException{
+	public void modifyBook(final Libro b,final  JTextField... fields) throws WrongDataException{
 		checkWrongs(fields);		
 		String[] datas = new String[fields.length];		
 		for (int i = 0; i < fields.length; i++){
@@ -115,7 +115,7 @@ public class BookController implements IBookController{
 		return magazzino.searchBookAuthor(toSearch(field));
 	}
 	
-	public Libro searchBook(final JTextField[] fields) throws MissingBookException{
+	public Libro searchBook(final JTextField... fields) throws MissingBookException{
 		if (type.equals(TipoController.MAGAZZINO)) {
 			return magazzino.searchBook(fields[0].getText(), fields[1].getText());
 		} else {
@@ -147,7 +147,7 @@ public class BookController implements IBookController{
 		ordini.evasioneOrdini();
 	}
 	
-	private void checkData(final JTextField[] fields) throws MissingDataException, WrongDataException{
+	private void checkData(final JTextField... fields) throws MissingDataException, WrongDataException{
 		for (int i = 0; i < fields.length; i++){
 			if (fields[i].getText().length() == 0){
 				throw new MissingDataException();
@@ -163,7 +163,7 @@ public class BookController implements IBookController{
 	}
 	
 	
-	private void checkWrongs(final JTextField[] fields) throws WrongDataException{
+	private void checkWrongs(final JTextField... fields) throws WrongDataException{
 		
 		if (fields[2].getText().length() != 0){
 			if (Integer.parseInt(fields[2].getText()) > Calendar.getInstance().get(Calendar.YEAR) || Integer.parseInt(fields[2].getText()) <= 0){

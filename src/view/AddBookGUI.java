@@ -66,14 +66,14 @@ public class AddBookGUI extends JDialog{
 		add.addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(final ActionEvent e) {
 				dispose();
 				try {
 					controller.setFields(fields);
 
 					JOptionPane.showMessageDialog(main, "Il libro è stato inserito correttamente", "Successo!", JOptionPane.INFORMATION_MESSAGE);
 					controller.addBook();
-					JOptionPane optionPane = (JOptionPane)
+					final JOptionPane optionPane = (JOptionPane)
 						    SwingUtilities.getAncestorOfClass(JOptionPane.class, add);
 						optionPane.setValue(JOptionPane.CLOSED_OPTION);
 									

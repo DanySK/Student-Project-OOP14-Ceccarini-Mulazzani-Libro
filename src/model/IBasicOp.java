@@ -25,7 +25,7 @@ public interface IBasicOp {
 	 * @param fields are the new fields of the book
 	 * @throws MissingBookException if book is not in the library
 	 */
-	void modifyBook (Libro book, String[] fields);
+	void modifyBook (Libro book, String... fields);
 
 	/**
 	 * 

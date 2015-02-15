@@ -35,7 +35,7 @@ public interface IFidelityCards {
 	 * @param fields are the new fields of the User
 	 */
 	
-	void modifyPerson (User user, String[] fields);
+	void modifyPerson (User user, String... fields);
 	
 	/**
 	 * Searches the User using the ID

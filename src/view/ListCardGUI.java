@@ -27,13 +27,13 @@ public class ListCardGUI extends JDialog{
 	 * 
 	 */
 	private static final long serialVersionUID = -8563544567918601056L;
-	final private JLabel[] list;
+	
 	final private JPanel main = new JPanel();
 	final private String[] names= { "Nome ", "Cognome", "Email", "ID"};
 	
 
 	public ListCardGUI(final Map<Integer, User> set){
-		
+	
 		main.setLayout(new BorderLayout());
 		
 		final JPanel top = new JPanel(new GridBagLayout());
@@ -46,8 +46,8 @@ public class ListCardGUI extends JDialog{
 			c.gridy++;
 			
 			
-		
-		list = new JLabel[set.values().size() * 4];
+			
+		JLabel[] list = new JLabel[set.values().size() * 4];
 		
 		for (int i = 0; i < list.length; i++){
 			list[i] = new JLabel();
@@ -59,7 +59,7 @@ public class ListCardGUI extends JDialog{
 			list[i].setText(e.getValue().getName());
 			list[i+1].setText(e.getValue().getSurname());
 			list[i+2].setText(e.getValue().getEmail());
-			list[i+3].setText("" + e.getKey());		
+			list[i+3].setText(""+e.getKey());		
 			top.add(list[i], c);
 			top.add(list[i+1], c);
 			top.add(list[i+2], c);

@@ -14,57 +14,57 @@ public class User {
 	final private IFidCard carta = new FidCard();
 	private int id;
 	
-	public User(final String name){
+	public User(final String name) {
 		this.name = name;
 	}
 	
-	public User(final String name,final String surname){
+	public User(final String name,final String surname) {
 		this(name);
 		this.surname = surname;
 	}
 	
-	public User(final String name,final String surname,final String email){
+	public User(final String name,final String surname,final String email) {
 		this(name,surname);
 		this.email = email;
 	}
 	
-	public void setID(final int id){
+	public void setID(final int id) {
 		this.id = id;
 	}
 	
-	public void setName(final String name){
+	public void setName(final String name) {
 		this.name = name;
 	}
 	
-	public void setSurname(final String surname){
+	public void setSurname(final String surname) {
 		this.surname = surname;
 	}
 	
-	public void setEmail (final String email){
+	public void setEmail (final String email) {
 		this.email = email;
 	}
 	
-	public String getName(){
+	public String getName() {
 		return this.name;
 	}
 	
-	public String getSurname(){
+	public String getSurname() {
 		return this.surname;
 	}
 	
-	public String getEmail(){
+	public String getEmail() {
 		return this.email;
 	}
 	
-	public int getID(){
+	public int getID() {
 		return this.id;
 	}
 	
-	public Integer getPoints(){
+	public Integer getPoints() {
 		return this.carta.getPoints();
 	}
 	
-	public void addPoints(final int points){
+	public void addPoints(final int points) {
 		this.carta.addPoints(points);
 	}
 	

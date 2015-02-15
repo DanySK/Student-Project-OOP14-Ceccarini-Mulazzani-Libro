@@ -22,7 +22,7 @@ public class BasicOperations implements IBasicOp {
 	}
 
 
-	public void modifyBook (final Libro book, final String[] fields){
+	public void modifyBook (final Libro book, final String... fields){
 		//final Libro book = searchBook(title, author);
 		for (int i=0; i <fields.length; i++) {
 			if (!fields[i].isEmpty()) {

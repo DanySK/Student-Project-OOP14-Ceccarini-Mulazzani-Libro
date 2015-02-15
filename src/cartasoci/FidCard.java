@@ -9,7 +9,7 @@ public class FidCard implements IFidCard {
 	
 	private Integer points;
 	
-	public FidCard(){
+	public FidCard() {
 		this.points = 0;
 	}
 

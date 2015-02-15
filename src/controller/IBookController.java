@@ -18,9 +18,9 @@ public interface IBookController {
 	
 	void setType(final TipoController type);
 	
-	void setFields(final JTextField[] fields) throws MissingDataException, WrongDataException;
+	void setFields(final JTextField... fields) throws MissingDataException, WrongDataException;
 
-	void modifyBook(final Libro b,final  JTextField[] fields) throws WrongDataException;
+	void modifyBook(final Libro b,final  JTextField... fields) throws WrongDataException;
 	
 	void sellBook(final Libro book ,final String nCopy) throws MissingBookException, NotEnoughBookException;
 	
@@ -28,7 +28,7 @@ public interface IBookController {
 	
 	List<Libro> searchAuthor(final JTextField field) throws MissingBookException;
 	
-	Libro searchBook(final JTextField[] fields) throws MissingBookException;
+	Libro searchBook(final JTextField... fields) throws MissingBookException;
 	
 	List<Libro> bookList();
 	

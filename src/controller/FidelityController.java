@@ -16,7 +16,7 @@ public class FidelityController implements IFidelityController{
 	
 	private final IFidelityCards cards = new FidelityCards();
 	
-	public void addPerson(final JTextField[] fields) throws
+	public void addPerson(final JTextField... fields) throws
 			UserAlreadyExisting, MissingDataException, WrongDataException {
 
 		checkEmpty(fields);
@@ -69,8 +69,7 @@ public class FidelityController implements IFidelityController{
 		cards.loadMemory(map);
 	}
 	
-	private void checkData(final JTextField[] fields) throws WrongDataException{
-		
+	private void checkData(final JTextField... fields) throws WrongDataException{
 
 		if (fields[2].getText().length() != 0){
 			if (!fields[2].getText().contains("@")){
@@ -81,7 +80,7 @@ public class FidelityController implements IFidelityController{
 		
 	}
 	
-	private void checkEmpty(final JTextField[] fields) throws MissingDataException{
+	private void checkEmpty(final JTextField... fields) throws MissingDataException{
 		
 		for (int i = 0; i < fields.length; i++){
 			if (fields[i].getText().length() == 0){
@@ -90,7 +89,7 @@ public class FidelityController implements IFidelityController{
 		}
 		
 	}
-	public void modifyUser(final User b,final JTextField[] jfields) throws WrongDataException {
+	public void modifyUser(final User b,final JTextField... jfields) throws WrongDataException {
 		
 			checkData(jfields);		
 			String[] datas = new String[jfields.length];		

@@ -12,7 +12,7 @@ import exceptions.WrongDataException;
 
 public interface IFidelityController {
 	
-	void addPerson(final JTextField[] fields) throws
+	void addPerson(final JTextField... fields) throws
 	UserAlreadyExisting, MissingDataException, WrongDataException;
 	
 	void removePerson(final JTextField id) throws NullPointerException,
@@ -34,7 +34,7 @@ public interface IFidelityController {
 
 	void loadMemory(final Map<Integer, User> map);
 
-	void modifyUser(final User b,final JTextField[] jfields) throws WrongDataException;
+	void modifyUser(final User b,final JTextField... jfields) throws WrongDataException;
 
 
 }

@@ -29,7 +29,7 @@ public class StatisticGUI {
 	private final BackgroundPanel main = new BackgroundPanel(GUIUtilities.back);
 
 	
-	public StatisticGUI(BookController controller, StatisticsController statcontroller){
+	public StatisticGUI(final BookController controller, final StatisticsController statcontroller){
 		
 		main.setLayout(new BorderLayout());
 	    
@@ -61,7 +61,7 @@ public class StatisticGUI {
 		buttons[0].addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(final ActionEvent e) {
 				
 				controller.setType(TipoController.MAGAZZINO);
 				JOptionPane.showOptionDialog(main, new ListTableGUI(statcontroller.mostPopularBook(controller.bookList()), true).getPane() , "Lista dei libri più venduti", JOptionPane.DEFAULT_OPTION, 
@@ -75,7 +75,7 @@ public class StatisticGUI {
 		buttons[1].addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(final ActionEvent e) {
 				
 
 				JOptionPane.showOptionDialog(main, new ListTableGUI(statcontroller.lessPopularBook(controller.bookList()),true).getPane() , "Lista dei libri meno venduti", JOptionPane.DEFAULT_OPTION, 
@@ -87,7 +87,7 @@ public class StatisticGUI {
 		buttons[2].addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(final ActionEvent e) {
 				
 
 				JOptionPane.showOptionDialog(main, new StatisticDetailGUI(statcontroller.mostActiveAuthor(controller.bookList())).getPane() , "Lista degli autori più attivi", JOptionPane.DEFAULT_OPTION, 
@@ -99,7 +99,7 @@ public class StatisticGUI {
 		buttons[3].addActionListener(new ActionListener() {
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(final ActionEvent e) {
 				
 
 				JOptionPane.showOptionDialog(main, new StatisticDetailGUI(statcontroller.lessActiveAuthor(controller.bookList())).getPane() , "Lista degli autori meno attivi", JOptionPane.DEFAULT_OPTION, 

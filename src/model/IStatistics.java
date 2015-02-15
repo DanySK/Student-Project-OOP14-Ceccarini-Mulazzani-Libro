@@ -38,4 +38,5 @@ public interface IStatistics {
 	 * @return a list of the less active author
 	 */
 	List <Pair <String,Integer>> lessActiveAuthor (List <Libro> list);
+	
 }

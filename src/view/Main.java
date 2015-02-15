@@ -17,7 +17,6 @@ import javax.swing.JMenuBar;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 
 import utilities.ControllerUtilities.TipoController;
 import controller.BookController;
@@ -143,31 +142,21 @@ public class Main implements ActionListener {
         try {
 			//UIManager.setLookAndFeel(new javax.swing.plaf.nimbus.NimbusLookAndFeel());
         	UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());  	
-        } catch (UnsupportedLookAndFeelException e) {	
+        } catch (Exception e) {	
 			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-
-			e.printStackTrace();
-		} catch (InstantiationException e) {
-
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
-
-			e.printStackTrace();
-		}
+		} 
+        
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         
         frame.addWindowListener(new WindowAdapter() {
         	  @Override
-        	  public void windowClosing(final WindowEvent we)
-        	  { 
+        	  public void windowClosing(final WindowEvent we) { 
         	    final String objButtons[] = {"Sì","No"};
         	    final int promptResult = JOptionPane.showOptionDialog(null, 
         	        "Sei sicuro di voler uscire? I dati non salvati saranno persi", "Sei proprio sicuro?", 
         	        JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, 
         	        objButtons,objButtons[1]);
-        	    if(promptResult==0)
-        	    {
+        	    if(promptResult==0) {
         	      System.exit(0);          
         	    }
         	  }

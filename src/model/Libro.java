@@ -20,7 +20,7 @@ public class Libro {
 	 * 
 	 * @param fields are the fields of the Book to add
 	 */
-	public Libro(final String[] fields) {
+	public Libro(final String... fields) {
 		this.sold = 0;
 		for (int i = 0; i < fields.length; i++) {
 			switch (i) {

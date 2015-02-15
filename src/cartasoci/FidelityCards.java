@@ -24,7 +24,7 @@ public class FidelityCards implements IFidelityCards{
 	}
 	
 	//metodo che controlla se l'id da cancellare è presente e in caso affermativo lo cancella
-	public void removePerson(final Integer id) throws MissingUserException{
+	public void removePerson(final Integer id) throws MissingUserException {
 		if (cards.containsKey(id)) {
 			cards.remove(id);
 		} else {
@@ -65,7 +65,7 @@ public class FidelityCards implements IFidelityCards{
 	}
 //metodo che modifica i dati di una carta
 	@Override
-	public void modifyPerson(final User user, final String[] fields) {
+	public void modifyPerson(final User user, final String... fields) {
 		for (int i=0; i <fields.length; i++) {
 			if (!fields[i].isEmpty()) {
 				switch (i) {
@@ -90,26 +90,26 @@ public class FidelityCards implements IFidelityCards{
 	
 
 	
-	public Map<Integer, User> getMap(){
+	public Map<Integer, User> getMap() {
 		return new HashMap<>(cards);
 	}
 	
-	public void loadMemory(final Map<Integer, User> map){
+	public void loadMemory(final Map<Integer, User> map) {
 		this.cards = map;
 		this.next = map.size();
 	}
 	
-	public void addPoints(final User u, final int points){
+	public void addPoints(final User u, final int points) {
 		u.addPoints(points);
 	}
 	
-	public int getCurrent(){
+	public int getCurrent() {
 		return this.next;
 	}
 	
 	
-	private void containsUser(final User user) throws UserAlreadyExisting{
-		for (final Entry<Integer, User> e : cards.entrySet()){
+	private void containsUser(final User user) throws UserAlreadyExisting {
+		for (final Entry<Integer, User> e : cards.entrySet()) {
 			if (e.getValue().getName().equals(user.getName()) &&
 					e.getValue().getSurname().equals(user.getSurname()) &&
 							e.getValue().getEmail().equals(user.getEmail())){
@@ -118,7 +118,7 @@ public class FidelityCards implements IFidelityCards{
 		}
 	}
 	
-	private int getNextId(){
+	private int getNextId() {
 		this.next++;
 		return this.next;
 	}

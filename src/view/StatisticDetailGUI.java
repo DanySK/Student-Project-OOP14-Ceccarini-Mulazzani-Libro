@@ -24,7 +24,6 @@ import utilities.Pair;
 public class StatisticDetailGUI extends JDialog{
 
 	private static final long serialVersionUID = -8563544567918601056L;
-	final private JLabel[] list;
 	final private JPanel main = new JPanel();
 	final private String[] names = {"Autore", "Libri prodotti"};
 	
@@ -42,7 +41,7 @@ public class StatisticDetailGUI extends JDialog{
 		}
 			c.gridy++;
 		
-		list = new JLabel[set.size() * 2];
+		JLabel[] list = new JLabel[set.size() * 2];
 		
 		for (int i = 0; i < list.length; i++){
 			list[i] = new JLabel();
