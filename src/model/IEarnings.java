@@ -12,32 +12,37 @@ public interface IEarnings {
 
 	/**
 	 * 
+	 * @param list of books
 	 * @return the number of book sold
 	 */
-	int bookSold (List <Libro> list);
+	int bookSold(List <Libro> list);
 	
 	/**
 	 * 
+	 * @param list of books
 	 * @return number of book in store
 	 */
-	int bookInStore (List <Libro> list);
+	int bookInStore(List <Libro> list);
 	
 	/**
 	 * 
+	 * @param list of books
 	 * @return tot sold
 	 */
-	double totSell (List <Libro> list);
+	double totSell(List <Libro> list);
 	
 	/**
 	 * 
+	 * @param list of books
 	 * @return tot Spent
 	 */
 	double totSpent(List <Libro> list);
 	
 	/**
 	 * 
+	 * @param list of books
 	 * @return tot earnings
 	 */
-	double totEarnings (List <Libro> list);
+	double totEarnings(List <Libro> list);
 	
 }

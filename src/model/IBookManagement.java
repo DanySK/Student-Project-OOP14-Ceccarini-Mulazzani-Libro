@@ -11,7 +11,7 @@ import exceptions.NotEnoughBookException;
  *
  */
 
-public interface IBookManagement extends IBasicOp{
+public interface IBookManagement extends IBasicOp {
 	
 	/**
 	 * 
@@ -36,6 +36,6 @@ public interface IBookManagement extends IBasicOp{
 	 * @return book searched by author
 	 * @throws MissingBookException if the book is not present
 	 */
-	List<Libro> searchBookAuthor (String author) throws MissingBookException;
+	List<Libro> searchBookAuthor(String author) throws MissingBookException;
 
 }

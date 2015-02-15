@@ -1,25 +1,38 @@
 package model;
 
-import static org.junit.Assert.*;
+
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotSame;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
 
+/**
+ * 
+ * @author Chiara Ceccarini
+ *
+ */
 public class Testordini {
 
+	/**
+	 * it's a test to test functions.
+	 */
 	@Test
 	public void test() {
 		//creo la lista degli ordini
-		final IOrdini ord = new Ordini ();
+		final IOrdini ord = new Ordini();
 		
-		final String fields [] = {"Titolo", "Autore", "1994", "Editore", "324", "32.5", "2" };
-		final String fields2 [] = {"", "", "1995", "", "", "14.7", "7" };
+		final String[] fields = {"Titolo", "Autore", "1994", "Editore", "324", "32.5", "2" };
+		final String[] fields2 = {"", "", "1995", "", "", "14.7", "7" };
 		
 		//creo un nuovo libro
-		final Libro book = new Libro (fields);
-		final Libro bprova = new Libro (fields);
+		final Libro book = new Libro(fields);
+		final Libro bprova = new Libro(fields);
 		
 		final List <Libro> list = new ArrayList <>();
 		
@@ -36,9 +49,9 @@ public class Testordini {
 		//modifico i campi del libro all'interno degli ordini
 		ord.modifyBook(book, fields2);
 		//ho modificato l'anno, che è quindi diverso dal libro con i fields iniziali
-		assertNotSame (ord.bookList().get(0).getYear(), bprova.getYear());
+		assertNotSame(ord.bookList().get(0).getYear(), bprova.getYear());
 		//cambiando il libro all'interno di ord cambio anche il libro di partenza
-		assertSame (ord.bookList().get(0).getYear(), book.getYear());
+		assertSame(ord.bookList().get(0).getYear(), book.getYear());
 		
 		//evado gli ordini
 		ord.evasioneOrdini();

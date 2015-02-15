@@ -27,11 +27,11 @@ public class BookController implements IBookController{
 	private final IBookManagement magazzino = new BookManagement();
 	private final IOrdini ordini = new Ordini();
 	private TipoController type = TipoController.MAGAZZINO;
+	
 	/**
 	 * 
 	 * @param type
 	 */
-	
 	public void setType(final TipoController type){
 		this.type = type;
 	}
@@ -51,6 +51,7 @@ public class BookController implements IBookController{
 		}
 		setLibro(strings);	
 	}
+	
 	/**
 	 * 
 	 * @param field
@@ -81,6 +82,7 @@ public class BookController implements IBookController{
 
 		}
 	}
+	
 	/**
 	 * 
 	 * @param b

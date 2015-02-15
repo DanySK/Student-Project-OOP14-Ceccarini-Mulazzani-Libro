@@ -5,10 +5,21 @@ import java.util.List;
 
 import exceptions.MissingBookException;
 
+/**
+ * 
+ * @author Chiara Ceccarini
+ *
+ */
 public class BasicOperations implements IBasicOp {
 
+	/**
+	 * It's the structur of the library.
+	 */
 	protected List<Libro> libreria = new ArrayList<Libro>();
 	
+	/**
+	 * @param book is the book to add
+	 */
 	public void addBook(final Libro book) {
 		if (this.libreria.contains(book)) {
 			this.libreria.forEach(b -> {
@@ -16,15 +27,18 @@ public class BasicOperations implements IBasicOp {
 					b.addCopy(book.getNCopy());
 				}
 			});
-		}else {
+		} else {
 			this.libreria.add(book);	
 		}
 	}
 
-
-	public void modifyBook (final Libro book, final String... fields){
+	/**
+	 * @param book to modify
+	 * @param fields to modify
+	 */
+	public void modifyBook(final Libro book, final String... fields) {
 		//final Libro book = searchBook(title, author);
-		for (int i=0; i <fields.length; i++) {
+		for (int i = 0; i < fields.length; i++) {
 			if (!fields[i].isEmpty()) {
 				switch (i) {
 					case 0: 

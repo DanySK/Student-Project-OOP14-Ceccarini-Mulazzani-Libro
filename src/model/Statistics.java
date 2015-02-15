@@ -12,35 +12,55 @@ import utilities.Pair;
  *
  */
 
-public class Statistics implements IStatistics{
+public class Statistics implements IStatistics {
 
-	public List<Libro> mostPopularBook (final List <Libro> list) {
-		list.sort((b1,b2)->b2.getNSales() - b1.getNSales());
+	/**
+	 * 
+	 * @param list of books
+	 * @return list of most popular books in order 
+	 */
+	public List<Libro> mostPopularBook(final List <Libro> list) {
+		list.sort((b1, b2) -> b2.getNSales() - b1.getNSales());
 		return list;
 	}
 	
-	public List<Libro> lessPopularBook (final List <Libro> list) {
-		list.sort((b1,b2)->b1.getNSales() - b2.getNSales());
+	/**
+	 * 
+	 * @param list of books
+	 * @return list of less popular books in order 
+	 */
+	public List<Libro> lessPopularBook(final List <Libro> list) {
+		list.sort((b1, b2) -> b1.getNSales() - b2.getNSales());
 		return list;
 	}
 	
-	public List <Pair <String,Integer>> mostActiveAuthor (final List <Libro> list) {
+	/**
+	 * 
+	 * @param list of books
+	 * @return list of most active author in order 
+	 */
+	public List <Pair <String, Integer>> mostActiveAuthor(final List <Libro> list) {
 		final List <Pair<String, Integer>> lista = createList(list);
 		
-		Collections.sort(lista, (p1,p2) -> p2.getSecond()-p1.getSecond());
+		Collections.sort(lista, (p1, p2) -> p2.getSecond() - p1.getSecond());
 		
 		return lista;
 	}
 	
-	public List <Pair <String,Integer>> lessActiveAuthor (final List <Libro> list) {
+	/**
+	 * 
+	 * @param list of books
+	 * @return list of less active author in order 
+	 */
+	public List <Pair <String, Integer>> lessActiveAuthor(final List <Libro> list) {
 		final List <Pair<String, Integer>> lista = createList(list);
 		
-		Collections.sort(lista, (p1,p2) -> p1.getSecond()-p2.getSecond());
+		Collections.sort(lista, (p1, p2) -> p1.getSecond() - p2.getSecond());
 		
 		return lista;
 	}
 	
-	private List <Pair <String,Integer>> createList (final List <Libro> list) {
+	private List <Pair <String, Integer>> createList(final List <Libro> list) {
 		final List <Pair<String, Integer>> library = new ArrayList <>();
 		boolean find = false;
 		int i = 0;
@@ -53,7 +73,7 @@ public class Statistics implements IStatistics{
 				}
 			}
 			if (!find) {
-				library.add(new Pair <String,Integer> (b.getAuthor(),1));
+				library.add(new Pair <String, Integer>(b.getAuthor(), 1));
 			}
 		}
 		return library;
