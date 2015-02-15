@@ -7,7 +7,7 @@ package cartasoci;
 public interface IFidCard {
 	
 	/**
-	 * Adds points to a User's FidCard
+	 * Adds points to a User's FidCard.
 	 * 
 	 * @param points are the points to add
 	 */

@@ -20,7 +20,7 @@ import exceptions.WrongDataException;
  * @author Alberto Mulazzani
  *
  */
-public class BookController implements IBookController{
+public class BookController implements IBookController {
 	
 	private String[] strings = null;
 	private Libro book;
@@ -30,23 +30,23 @@ public class BookController implements IBookController{
 	
 	/**
 	 * 
-	 * @param type
+	 * @param ntype is the type to set 
 	 */
-	public void setType(final TipoController type){
-		this.type = type;
+	public void setType(final TipoController ntype) {
+		this.type = ntype;
 	}
 	
 	/**
 	 * 
-	 * @param fields
-	 * @throws MissingDataException
-	 * @throws WrongDataException
+	 * @param fields to set
+	 * @throws MissingDataException if some data is missing
+	 * @throws WrongDataException if the data is wrong
 	 */
-	public void setFields(final JTextField... fields) throws MissingDataException, WrongDataException{	
+	public void setFields(final JTextField... fields) throws MissingDataException, WrongDataException {	
 		checkData(fields);
 		strings = new String[fields.length];
 		
-		for (int i = 0; i < fields.length; i++){
+		for (int i = 0; i < fields.length; i++) {
 			strings[i] = fields[i].getText();
 		}
 		setLibro(strings);	
@@ -55,25 +55,25 @@ public class BookController implements IBookController{
 	/**
 	 * 
 	 * @param field
-	 * @return
+	 * @return the text of the field
 	 */
-	private String toSearch(final JTextField field){
+	private String toSearch(final JTextField field) {
 		return field.getText();
 	}
 	
 	/**
 	 * 
-	 * @param strings
+	 * @param nstrings of the fields of the book
 	 */
-	private void setLibro(final String... strings){
-		this.book = new Libro(strings);	
+	private void setLibro(final String... nstrings) {
+		this.book = new Libro(nstrings);	
 	}
 	
 	/**
 	 * 
 	 */
-	public void addBook(){
-		if (type.equals(TipoController.MAGAZZINO)){
+	public void addBook() {
+		if (type.equals(TipoController.MAGAZZINO)) {
 			System.out.println("Magaz");
 			magazzino.addBook(book);
 		} else {
@@ -85,14 +85,14 @@ public class BookController implements IBookController{
 	
 	/**
 	 * 
-	 * @param b
-	 * @param fields
-	 * @throws WrongDataException
+	 * @param b the book to modify
+	 * @param fields to modify
+	 * @throws WrongDataException if the data is wrong
 	 */
-	public void modifyBook(final Libro b,final  JTextField... fields) throws WrongDataException{
+	public void modifyBook(final Libro b, final  JTextField... fields) throws WrongDataException {
 		checkWrongs(fields);		
 		String[] datas = new String[fields.length];		
-		for (int i = 0; i < fields.length; i++){
+		for (int i = 0; i < fields.length; i++) {
 			datas[i] = fields[i].getText();
 		}	
 		
@@ -104,20 +104,48 @@ public class BookController implements IBookController{
 		}
 	}
 	
-	public void sellBook(final Libro book ,final String nCopy) throws MissingBookException, NotEnoughBookException {
-		magazzino.sellBook(book, Integer.parseInt(nCopy));
+	/**
+	 * 
+	 * @param nbook to sell
+	 * @param nCopy of book to sell
+	 * 
+	 * @throws MissingBookException id the book is missing
+	 * @throws NotEnoughBookException if there aren't enough copy of the book 
+	 */
+	public void sellBook(final Libro nbook, final String nCopy) throws MissingBookException, NotEnoughBookException {
+		magazzino.sellBook(nbook, Integer.parseInt(nCopy));
 	}
 	
-	
-	public List<Libro> searchTitle(final JTextField field) throws MissingBookException{
+	/**
+	 * 
+	 * @param field of the title of the book to search
+	 * @return the book with that title
+	 * 
+	 * @throws MissingBookException if the title is not in the library
+	 */
+	public List<Libro> searchTitle(final JTextField field) throws MissingBookException {
 		return magazzino.searchBookTitle(toSearch(field));
 	}
 	
+	/**
+	 * 
+	 * @param field of the author of the book to search
+	 * @return the book with that title
+	 * 
+	 * @throws MissingBookException if the author is not in the library
+	 */
 	public List<Libro> searchAuthor(final JTextField field) throws MissingBookException {
 		return magazzino.searchBookAuthor(toSearch(field));
 	}
 	
-	public Libro searchBook(final JTextField... fields) throws MissingBookException{
+	/**
+	 * 
+	 * @param fields of the book to search
+	 * @return the book with that title
+	 * 
+	 * @throws MissingBookException if the book is not in the library
+	 */
+	public Libro searchBook(final JTextField... fields) throws MissingBookException {
 		if (type.equals(TipoController.MAGAZZINO)) {
 			return magazzino.searchBook(fields[0].getText(), fields[1].getText());
 		} else {
@@ -126,7 +154,11 @@ public class BookController implements IBookController{
 		
 	}
 	
-	public List<Libro> bookList(){
+	/**
+	 * 
+	 * @return the books in the library
+	 */
+	public List<Libro> bookList() {
 		if (type.equals(TipoController.MAGAZZINO)) {
 			return magazzino.bookList();
 		} else {
@@ -135,11 +167,19 @@ public class BookController implements IBookController{
 		
 	}
 	
-	public void remove (final Libro lib) {
+	/**
+	 * 
+	 * @param lib to remove
+	 */
+	public void remove(final Libro lib) {
 		ordini.remove(lib);
 	}
 	
-	public void evasioneOrdini () throws MissingBookException {
+	/**
+	 * 
+	 * @throws MissingBookException if the book is not present
+	 */
+	public void evasioneOrdini() throws MissingBookException {
 		if (ordini.bookList().isEmpty()) {
 			throw new MissingBookException();
 		}
@@ -149,9 +189,9 @@ public class BookController implements IBookController{
 		ordini.evasioneOrdini();
 	}
 	
-	private void checkData(final JTextField... fields) throws MissingDataException, WrongDataException{
-		for (int i = 0; i < fields.length; i++){
-			if (fields[i].getText().length() == 0){
+	private void checkData(final JTextField... fields) throws MissingDataException, WrongDataException {
+		for (int i = 0; i < fields.length; i++) {
+			if (fields[i].getText().length() == 0) {
 				throw new MissingDataException();
 			}
 		}
@@ -165,43 +205,47 @@ public class BookController implements IBookController{
 	}
 	
 	
-	private void checkWrongs(final JTextField... fields) throws WrongDataException{
+	private void checkWrongs(final JTextField... fields) throws WrongDataException {
 		
-		if (fields[2].getText().length() != 0){
+		if (fields[2].getText().length() != 0) {
 			if (Integer.parseInt(fields[2].getText()) > Calendar.getInstance().get(Calendar.YEAR) || Integer.parseInt(fields[2].getText()) <= 0){
 				throw new WrongDataException();
 			}
 		}
 		
-		if (fields[5].getText().length() != 0){
-			if (Double.parseDouble(fields[5].getText()) < 0){
+		if (fields[5].getText().length() != 0) {
+			if (Double.parseDouble(fields[5].getText()) < 0) {
 				throw new WrongDataException();
 			}
 		}
 		
-		if (fields[6].getText().length() != 0){
-			if (Integer.parseInt(fields[6].getText()) < 0){
+		if (fields[6].getText().length() != 0) {
+			if (Integer.parseInt(fields[6].getText()) < 0) {
 				throw new WrongDataException();
 			}
 		}
 		
-		if (fields[7].getText().length() != 0){
-			if (Integer.parseInt(fields[7].getText()) < 0){
+		if (fields[7].getText().length() != 0) {
+			if (Integer.parseInt(fields[7].getText()) < 0) {
 				throw new WrongDataException();
 			}
 		}
 		
 		
-		if (fields[4].getText().length() != 13 && fields[4].getText().length() != 0){
+		if (fields[4].getText().length() != 13 && fields[4].getText().length() != 0) {
 			throw new WrongDataException();
 		}
 	}
 	
-	public void loadMemory(final List<Libro> list){
+	/**
+	 * 
+	 * @param list of books
+	 */
+	public void loadMemory(final List<Libro> list) {
 		
-		if (type.equals(TipoController.MAGAZZINO)){
+		if (type.equals(TipoController.MAGAZZINO)) {
 			this.magazzino.setList(list);
-		}else{
+		} else {
 			this.ordini.setList(list);
 		}
 		

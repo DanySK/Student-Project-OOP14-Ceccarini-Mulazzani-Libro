@@ -1,10 +1,12 @@
 package utilities;
 /**
  * 
- * presa dalla soluzione di un esercizio fatto in laboratorio
+ * @author presa dalla soluzione di un esercizio fatto in laboratorio
  *
+ *@param <Y>
+ *@param <X>
  */
-public class Pair<X,Y>{
+public class Pair<X,Y> {
     
     public X first;
     public Y second;

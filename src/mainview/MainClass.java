@@ -11,11 +11,15 @@ import view.Main;
  */
 public final class MainClass {
 	
-	private MainClass(){
+	private MainClass() {
 		
 	}
 
-    public static void main(final String[] args) { // NOPMD by Alberto on 01/02/15 17.12
+	/**
+	 * 
+	 * @param args of main
+	 */
+    public static void main(final String... args) { 
     	
 
     	

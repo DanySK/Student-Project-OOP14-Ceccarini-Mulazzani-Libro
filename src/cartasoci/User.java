@@ -1,7 +1,7 @@
 package cartasoci;
 /**
  * 
- * Basic class of a Fidelity Card Owner
+ * Basic class of a Fidelity Card Owner.
  * 
  * @author Alberto Mulazzani
  *
@@ -11,59 +11,114 @@ public class User {
 	private String name;
 	private String surname;
 	private String email;
-	final private IFidCard carta = new FidCard();
+	private final IFidCard carta = new FidCard();
 	private int id;
 	
-	public User(final String name) {
-		this.name = name;
+	/**
+	 * 
+	 * @param nname of the User
+	 */
+	public User(final String nname) {
+		this.name = nname;
 	}
 	
-	public User(final String name,final String surname) {
-		this(name);
-		this.surname = surname;
+	/**
+	 * 
+	 * @param nname of user
+	 * @param nsurname of user
+	 */
+	public User(final String nname, final String nsurname) {
+		this(nname);
+		this.surname = nsurname;
 	}
 	
-	public User(final String name,final String surname,final String email) {
-		this(name,surname);
-		this.email = email;
+	/**
+	 * 
+	 * @param nname of user
+	 * @param nsurname of user
+	 * @param nemail of user
+	 */
+	public User(final String nname, final String nsurname, final String nemail) {
+		this(nname, nsurname);
+		this.email = nemail;
 	}
 	
-	public void setID(final int id) {
-		this.id = id;
+	/**
+	 * 
+	 * @param nid the id to set
+	 */
+	public void setID(final int nid) {
+		this.id = nid;
 	}
 	
-	public void setName(final String name) {
-		this.name = name;
+	/**
+	 * 
+	 * @param nname the name to set
+	 */
+	public void setName(final String nname) {
+		this.name = nname;
 	}
 	
-	public void setSurname(final String surname) {
-		this.surname = surname;
+	/**
+	 * 
+	 * @param nsurname the surname to set
+	 */
+	public void setSurname(final String nsurname) {
+		this.surname = nsurname;
 	}
 	
-	public void setEmail (final String email) {
-		this.email = email;
+	/**
+	 * 
+	 * @param nemail the email to set
+	 */
+	public void setEmail(final String nemail) {
+		this.email = nemail;
 	}
 	
+	/**
+	 * 
+	 * @return the name of user
+	 */
 	public String getName() {
 		return this.name;
 	}
 	
+	/**
+	 * 
+	 * @return the surname of user
+	 */
 	public String getSurname() {
 		return this.surname;
 	}
 	
+	/**
+	 *  
+	 * @return the mail of user
+	 */
 	public String getEmail() {
 		return this.email;
 	}
 	
+	/**
+	 * 
+	 * @return the id of user
+	 */
 	public int getID() {
 		return this.id;
 	}
 	
+	/**
+	 * 
+	 * @return the points of the user
+	 */
 	public Integer getPoints() {
 		return this.carta.getPoints();
 	}
 	
+	/**
+	 * 
+	 * @param points to add
+	 */
 	public void addPoints(final int points) {
 		this.carta.addPoints(points);
 	}

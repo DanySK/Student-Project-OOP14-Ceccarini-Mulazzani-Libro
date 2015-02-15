@@ -8,22 +8,29 @@ import exceptions.MissingUserException;
 import exceptions.UserAlreadyExisting;
 
 /**
- * Basic model implementation of the Fidelity Cards
+ * Basic model implementation of the Fidelity Cards.
  * 
  * @author Alberto Mulazzani
  * @author Chiara Ceccarini
  *
  */
-public class FidelityCards implements IFidelityCards{
+public class FidelityCards implements IFidelityCards {
 	
 	private Map<Integer, User> cards = new HashMap<>();
 	private int next;
 	
-	public FidelityCards(){
+	/**
+	 * 
+	 */
+	public FidelityCards() {
 		this.next = 0;
 	}
 	
 	//metodo che controlla se l'id da cancellare è presente e in caso affermativo lo cancella
+	/**
+	 * @param id of the user to remove
+	 * @throws MissingUserException if the user is not in the list
+	 */
 	public void removePerson(final Integer id) throws MissingUserException {
 		if (cards.containsKey(id)) {
 			cards.remove(id);
@@ -35,7 +42,7 @@ public class FidelityCards implements IFidelityCards{
 	//metodo che controlla che l'id inserito sia presente e in caso affermativo restituisce l'user con l'id
 	@Override
 	public User searchID(final Integer id) throws MissingUserException {
-		if (cards.containsKey(id)){
+		if (cards.containsKey(id)) {
 			return cards.get(id);
 		} else {
 			throw new MissingUserException();
@@ -66,7 +73,7 @@ public class FidelityCards implements IFidelityCards{
 //metodo che modifica i dati di una carta
 	@Override
 	public void modifyPerson(final User user, final String... fields) {
-		for (int i=0; i <fields.length; i++) {
+		for (int i = 0; i < fields.length; i++) {
 			if (!fields[i].isEmpty()) {
 				switch (i) {
 					case 0: 
@@ -89,20 +96,32 @@ public class FidelityCards implements IFidelityCards{
 	}
 	
 
-	
+	/**
+	 * @return the map with id and relative user
+	 */
 	public Map<Integer, User> getMap() {
 		return new HashMap<>(cards);
 	}
 	
+	/**
+	 * @param map of user
+	 */
 	public void loadMemory(final Map<Integer, User> map) {
 		this.cards = map;
 		this.next = map.size();
 	}
 	
+	/**
+	 * @param u to add points
+	 * @param points to add
+	 */
 	public void addPoints(final User u, final int points) {
 		u.addPoints(points);
 	}
 	
+	/**
+	 * @return the current id
+	 */
 	public int getCurrent() {
 		return this.next;
 	}
@@ -110,9 +129,9 @@ public class FidelityCards implements IFidelityCards{
 	
 	private void containsUser(final User user) throws UserAlreadyExisting {
 		for (final Entry<Integer, User> e : cards.entrySet()) {
-			if (e.getValue().getName().equals(user.getName()) &&
-					e.getValue().getSurname().equals(user.getSurname()) &&
-							e.getValue().getEmail().equals(user.getEmail())){
+			if (e.getValue().getName().equals(user.getName())
+					&& e.getValue().getSurname().equals(user.getSurname())
+							&& e.getValue().getEmail().equals(user.getEmail())) {
 				throw new UserAlreadyExisting();
 			}
 		}
