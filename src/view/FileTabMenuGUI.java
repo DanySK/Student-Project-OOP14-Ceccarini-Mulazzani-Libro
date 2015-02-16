@@ -167,7 +167,7 @@ public class FileTabMenuGUI  extends JMenu {
 			    System.out.println("Save as file: " + fileToLoad.getAbsolutePath());
 			    
 			    File file;
-			    if (fileToLoad.getAbsolutePath().contains(".xml")) {
+			    if (fileToLoad.getAbsolutePath().endsWith(".xml")) {
 			     	file = new File(fileToLoad.getAbsolutePath());
 					   
 			    } else {
