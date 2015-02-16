@@ -20,6 +20,7 @@ import javax.swing.UIManager;
 
 import model.IEarnings;
 import model.IStatistics;
+import utilities.GUIUtilities;
 import utilities.ControllerUtilities.TipoController;
 import controller.BookController;
 import controller.EarningsController;
@@ -189,6 +190,7 @@ public class Main implements ActionListener {
         final Main main = new Main();
         frame.setJMenuBar(main.createMenuBar(frame));
         frame.add(main.createContentPane());
+        frame.setIconImage(GUIUtilities.image);
         frame.pack();
         
         frame.setVisible(true);
