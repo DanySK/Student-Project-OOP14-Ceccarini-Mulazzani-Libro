@@ -196,9 +196,9 @@ public class BookController implements IBookController {
 			}
 		}
 		
-		if (fields[4].getText().length() != 13 || Integer.parseInt(fields[2].getText()) > Calendar.getInstance().get(Calendar.YEAR) ||
-				Integer.parseInt(fields[2].getText()) <= 0 || Double.parseDouble(fields[5].getText()) < 0 ||
-				Integer.parseInt(fields[6].getText())< 0){
+		if (fields[4].getText().length() != 13 || Integer.parseInt(fields[2].getText()) > Calendar.getInstance().get(Calendar.YEAR)
+				|| Integer.parseInt(fields[2].getText()) <= 0 || Double.parseDouble(fields[5].getText()) < 0
+				|| Integer.parseInt(fields[6].getText()) < 0) {
 			System.out.println(Calendar.YEAR);
 			throw new WrongDataException();
 		}
@@ -208,7 +208,8 @@ public class BookController implements IBookController {
 	private void checkWrongs(final JTextField... fields) throws WrongDataException {
 		
 		if (fields[2].getText().length() != 0) {
-			if (Integer.parseInt(fields[2].getText()) > Calendar.getInstance().get(Calendar.YEAR) || Integer.parseInt(fields[2].getText()) <= 0){
+			if (Integer.parseInt(fields[2].getText()) > Calendar.getInstance().get(Calendar.YEAR)
+					|| Integer.parseInt(fields[2].getText()) <= 0) {
 				throw new WrongDataException();
 			}
 		}
