@@ -5,7 +5,7 @@ package exceptions;
  * @author Chiara Ceccarini
  *
  */
-public class UserAlreadyExisting extends Throwable {
+public class UserAlreadyExisting extends Exception {
 
 	/**
 	 * 

@@ -5,7 +5,7 @@ package exceptions;
  * @author Chiara Ceccarini
  *
  */
-public class MissingBookException extends Throwable {
+public class MissingBookException extends Exception {
 
 	/**
 	 * 

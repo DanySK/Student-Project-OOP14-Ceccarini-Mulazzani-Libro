@@ -5,7 +5,7 @@ package exceptions;
  * @author Chiara Ceccarini
  *
  */
-public class MissingUserException extends Throwable {
+public class MissingUserException extends Exception {
 
 	/**
 	 * 

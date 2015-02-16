@@ -6,7 +6,7 @@ package exceptions;
  *
  */
 
-public class MissingDataException extends Throwable {
+public class MissingDataException extends Exception {
 
 	/**
 	 * 

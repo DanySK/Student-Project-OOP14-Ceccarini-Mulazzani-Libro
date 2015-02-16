@@ -6,7 +6,7 @@ package exceptions;
  *
  */
 
-public class NotEnoughBookException extends Throwable {
+public class NotEnoughBookException extends Exception {
 
 	/**
 	 * 
