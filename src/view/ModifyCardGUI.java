@@ -65,7 +65,7 @@ public class ModifyCardGUI {
 			public void actionPerformed(final ActionEvent arg0) {
 				try {
 					JOptionPane.showOptionDialog(main, new CardDetailsToModifyGUI(fidcontroller, fidcontroller.searchID(fields[0])).getPane() , "Modifica libro", JOptionPane.DEFAULT_OPTION, 
-					         JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.STRING, null);
+					         JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.STRING, null);
 					final JOptionPane optionPane = (JOptionPane)
 						    SwingUtilities.getAncestorOfClass(JOptionPane.class, conf);
 						optionPane.setValue(JOptionPane.CLOSED_OPTION);
