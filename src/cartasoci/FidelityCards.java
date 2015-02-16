@@ -26,7 +26,6 @@ public class FidelityCards implements IFidelityCards {
 		this.next = 0;
 	}
 	
-	//metodo che controlla se l'id da cancellare è presente e in caso affermativo lo cancella
 	/**
 	 * @param id of the user to remove
 	 * @throws MissingUserException if the user is not in the list
@@ -39,7 +38,6 @@ public class FidelityCards implements IFidelityCards {
 		}
 	}
 	
-	//metodo che controlla che l'id inserito sia presente e in caso affermativo restituisce l'user con l'id
 	@Override
 	public User searchID(final Integer id) throws MissingUserException {
 		if (cards.containsKey(id)) {
@@ -50,7 +48,6 @@ public class FidelityCards implements IFidelityCards {
 		
 	}
 
-	//metodo che controlla che l'id inserito sia presente e in caso affermativo restituisce l'user con l'id
 	@Override
 	public User searchName(final String name, final String surname) throws MissingUserException {
 		for (final Entry<Integer, User> u:cards.entrySet()) {
@@ -61,7 +58,6 @@ public class FidelityCards implements IFidelityCards {
 		throw new MissingUserException();
 	}
 
-	//metodo che aggiunge uno User in caso non sia presente
 	@Override
 	public void addPerson(final User user) throws NullPointerException, UserAlreadyExisting {
 		containsUser(user);
@@ -70,7 +66,7 @@ public class FidelityCards implements IFidelityCards {
 		user.setID(next);
 		
 	}
-//metodo che modifica i dati di una carta
+
 	@Override
 	public void modifyPerson(final User user, final String... fields) {
 		for (int i = 0; i < fields.length; i++) {

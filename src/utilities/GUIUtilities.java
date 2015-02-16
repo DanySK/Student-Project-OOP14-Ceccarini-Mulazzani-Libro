@@ -13,8 +13,6 @@ import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
-import view.ModifyBookGUI;
 /**
  * 
  * @author Alberto Mulazzani
@@ -87,7 +85,7 @@ public final class GUIUtilities {
 	 * @param fields are the JTextField given by the GUI
 	 * @return a Reset Button
 	 */
-	public static JButton getReset(final JTextField[] fields) {
+	public static JButton getReset(final JTextField... fields) {
 		final JButton reset = new JButton("Reset");
 		
 		reset.addActionListener(new ActionListener() {
