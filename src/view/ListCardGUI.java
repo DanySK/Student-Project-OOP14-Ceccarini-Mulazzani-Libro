@@ -79,7 +79,7 @@ public class ListCardGUI extends JDialog {
 		final JScrollPane extPane = new JScrollPane(top);
 		extPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 	    final Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-	    final int x = (dim.width) / 5;
+	    final int x = (dim.width) / 4;
 	    final int y = (dim.height) / 3;
 		extPane.setPreferredSize(new Dimension(x, y));
 		
