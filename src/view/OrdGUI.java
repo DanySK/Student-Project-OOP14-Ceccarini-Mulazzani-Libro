@@ -27,7 +27,7 @@ public class OrdGUI {
 	
 	private final String[] names = {"Aggiungi un ordine", "Rimuovi un ordine", "Modifica un ordine", "Ricerca un ordine", "Lista degli Ordini", "Evadi gli ordini"};
 	private final JButton[] buttons = new JButton[names.length];
-	private final BackgroundPanel main = new BackgroundPanel(GUIUtilities.back);
+	private final BackgroundPanel main = new BackgroundPanel(GUIUtilities.getBackground());
 	/**
 	 * 
 	 * @param controller is the BookController
@@ -66,7 +66,7 @@ public class OrdGUI {
 				
 				controller.setType(TipoController.ORDINI);	
 				JOptionPane.showOptionDialog(main, new AddBookGUI(controller).getPane() , "Aggiungi un ordine", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.STRING, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.STRING, null);
 			
 			}
 		});
@@ -78,7 +78,7 @@ public class OrdGUI {
 
 				controller.setType(TipoController.ORDINI);	
 				JOptionPane.showOptionDialog(main, new RemoveOrderGUI(controller).getPane() , "Rimuovi un ordine", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.STRING, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.STRING, null);
 			
 			}
 		});
@@ -90,7 +90,7 @@ public class OrdGUI {
 				
 				controller.setType(TipoController.ORDINI);	
 				JOptionPane.showOptionDialog(main, new SearchBookGUI(controller).getPane() , "Modifica un ordine", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.STRING, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.STRING, null);
 			
 			}
 		});
@@ -104,7 +104,7 @@ public class OrdGUI {
 				
 				controller.setType(TipoController.ORDINI);	
 				JOptionPane.showOptionDialog(main, new SearchBookGUI(controller).getPane() , "Cerca un ordine", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.STRING, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.STRING, null);
 			
 			}
 		});
@@ -116,7 +116,7 @@ public class OrdGUI {
 				
 				controller.setType(TipoController.ORDINI);	
 				JOptionPane.showOptionDialog(main, new ListTableGUI(controller.bookList(), false).getPane() , "Lista degli ordini", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.STRING, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.STRING, null);
 			
 			}
 		});

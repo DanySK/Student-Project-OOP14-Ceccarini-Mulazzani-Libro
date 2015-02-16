@@ -26,7 +26,7 @@ public class StatisticGUI {
 
 	private final String[] names = {"Libro più venduto", "Libro meno venduto", "Autore più attivo", "Autore meno attivo"};
 	private final JButton[] buttons = new JButton[names.length];
-	private final BackgroundPanel main = new BackgroundPanel(GUIUtilities.back);
+	private final BackgroundPanel main = new BackgroundPanel(GUIUtilities.getBackground());
 
 	
 	/**
@@ -70,7 +70,7 @@ public class StatisticGUI {
 				
 				controller.setType(TipoController.MAGAZZINO);
 				JOptionPane.showOptionDialog(main, new ListTableGUI(statcontroller.mostPopularBook(controller.bookList()), true).getPane() , "Lista dei libri più venduti", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.STRING, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.STRING, null);
 			
 			}
 		});
@@ -84,7 +84,7 @@ public class StatisticGUI {
 				
 
 				JOptionPane.showOptionDialog(main, new ListTableGUI(statcontroller.lessPopularBook(controller.bookList()), true).getPane() , "Lista dei libri meno venduti", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.STRING, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.STRING, null);
 			
 			}
 		});
@@ -96,7 +96,7 @@ public class StatisticGUI {
 				
 
 				JOptionPane.showOptionDialog(main, new StatisticDetailGUI(statcontroller.mostActiveAuthor(controller.bookList())).getPane() , "Lista degli autori più attivi", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.STRING, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.STRING, null);
 					
 			}
 		});
@@ -108,7 +108,7 @@ public class StatisticGUI {
 				
 
 				JOptionPane.showOptionDialog(main, new StatisticDetailGUI(statcontroller.lessActiveAuthor(controller.bookList())).getPane() , "Lista degli autori meno attivi", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.STRING, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.STRING, null);
 			
 			}
 		});

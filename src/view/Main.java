@@ -190,7 +190,7 @@ public class Main implements ActionListener {
         final Main main = new Main();
         frame.setJMenuBar(main.createMenuBar(frame));
         frame.add(main.createContentPane());
-        frame.setIconImage(GUIUtilities.image);
+        frame.setIconImage(GUIUtilities.getCommonImage());
         frame.pack();
         
         frame.setVisible(true);

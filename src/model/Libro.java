@@ -1,13 +1,19 @@
 package model;
 
+import java.io.Serializable;
+
 /**
  * 
  * @author Chiara Ceccarini
  *
  */
 
-public class Libro {
+public class Libro implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5192478245223549155L;
 	private String title;
 	private String author;
 	private int year;

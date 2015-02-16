@@ -26,16 +26,17 @@ public final class GUIUtilities {
 	/**
 	 * 
 	 */
-	public static final ImageIcon icon = createImageIcon("/iconBook.png");
+	private static ImageIcon icon = createImageIcon("/iconBook.png");
 	/**
 	 * 
 	 */
-	public static final Image image = icon.getImage();
+	private static Image image = icon.getImage();
 	private static ImageIcon icon2 = createImageIcon("/background.png");
 	/**
 	 * 
 	 */
-	public static final Image back = icon2.getImage();
+	private static Image back = icon2.getImage();
+
 
 	private static final int MODIFYLENGHT = 15;
 	private static final int ADDLENGHT = 20;
@@ -43,7 +44,28 @@ public final class GUIUtilities {
 	private GUIUtilities() {
 		
 	}
-
+	/**
+	 * 
+	 * @return the Icon of the Software
+	 */
+	public static ImageIcon getCommonIcon() {
+		return icon;
+	}
+	/**
+	 * 
+	 * @return the Background
+	 */
+	public static Image getBackground() {
+		return back;
+	}
+	/**
+	 * 
+	 * @return the Logo of the software
+	 */
+	public static Image getCommonImage() {
+		return image;
+	}
+	
 	/**
 	 * 
 	 * @return the costants C used for the GridBagLayout

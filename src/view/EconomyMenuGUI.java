@@ -22,7 +22,7 @@ import controller.IBookController;
  */
 public class EconomyMenuGUI {
 
-	private final BackgroundPanel main = new BackgroundPanel(GUIUtilities.back);
+	private final BackgroundPanel main = new BackgroundPanel(GUIUtilities.getBackground());
 	private final JButton open = new JButton("Apri la sezione Economia");
 	
 	/**
@@ -58,7 +58,7 @@ public class EconomyMenuGUI {
 			public void actionPerformed(final ActionEvent e) {
 			
 				JOptionPane.showOptionDialog(main, new EconomyGUI(controller, earcontroller).getPane() , "Fatturato e Guadagni", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.STRING, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.STRING, null);
 			
 			}
 		});

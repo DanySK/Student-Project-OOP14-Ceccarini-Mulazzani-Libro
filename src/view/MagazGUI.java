@@ -31,7 +31,7 @@ public class MagazGUI {
 	
 	private final String[] names = {"Aggiungi un libro", "Vendi un libro", "Modifica un libro", "Ricerca un libro", "Lista dei libri"};
 	private final JButton[] buttons = new JButton[names.length];
-	private final BackgroundPanel jf = new BackgroundPanel(GUIUtilities.back);	
+	private final BackgroundPanel jf = new BackgroundPanel(GUIUtilities.getBackground());	
 	
 	/**
 	 * 
@@ -79,7 +79,7 @@ public class MagazGUI {
 				
 				controller.setType(TipoController.MAGAZZINO);
 				JOptionPane.showOptionDialog(jf, new AddBookGUI(controller).getPane() , "Aggiungi un libro", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.STRING, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.STRING, null);
 			
 			}
 		});
@@ -93,7 +93,7 @@ public class MagazGUI {
 
 				controller.setType(TipoController.MAGAZZINO);
 				JOptionPane.showOptionDialog(jf, new SellBookGUI(controller, fidcontroller).getPane() , "Vendi un libro", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.STRING, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.STRING, null);
 			
 			}
 		});
@@ -107,7 +107,7 @@ public class MagazGUI {
 				
 				controller.setType(TipoController.MAGAZZINO);
 				JOptionPane.showOptionDialog(jf, new ModifyBookGUI(controller).getPane() , "Modifica un libro", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.STRING, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.STRING, null);
 			
 			}
 		});
@@ -121,7 +121,7 @@ public class MagazGUI {
 				
 				controller.setType(TipoController.MAGAZZINO);
 				JOptionPane.showOptionDialog(jf, new SearchBookGUI(controller).getPane() , "Cerca un libro", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.STRING, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.STRING, null);
 			
 			}
 		});
@@ -136,7 +136,7 @@ public class MagazGUI {
 				
 				controller.setType(TipoController.MAGAZZINO);
 				JOptionPane.showOptionDialog(jf, new ListTableGUI(controller.bookList(), false).getPane() , "Lista dei libri", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.STRING, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.STRING, null);
 			
 			}
 		});
