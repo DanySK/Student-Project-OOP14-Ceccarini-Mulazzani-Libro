@@ -13,7 +13,6 @@ import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
 import utilities.GUIUtilities;
-import controller.FidelityController;
 import controller.IFidelityController;
 /**
  * 
@@ -22,12 +21,15 @@ import controller.IFidelityController;
  */
 public class FidelityCardGUI {
 	
-	private final JButton[] buttons = new JButton[5];
 	private final String[] names = {"Aggiungi una carta", "Rimuovi una carta", "Modifica una carta", "Ricerca una carta", "Lista delle carte"};
+	private final JButton[] buttons = new JButton[names.length];
 	
 	private final BackgroundPanel main = new BackgroundPanel(GUIUtilities.back);
-	
-	public FidelityCardGUI(final IFidelityController fidcontroller){
+	/**
+	 * 
+	 * @param fidcontroller is the FidelityController
+	 */
+	public FidelityCardGUI(final IFidelityController fidcontroller) {
 		
 		main.setLayout(new BorderLayout());
 		
@@ -35,7 +37,7 @@ public class FidelityCardGUI {
 		top.setLayout(new GridBagLayout());
 		GridBagConstraints c = GUIUtilities.getConstr();
 		
-		for (int i = 0; i < buttons.length; i++){
+		for (int i = 0; i < buttons.length; i++) {
 			buttons[i] = new JButton(names[i]);
 			top.add(buttons[i], c);
 			c.gridy++;
@@ -126,7 +128,13 @@ public class FidelityCardGUI {
 				
 	}
 	
-	public JPanel getPane(){
+	
+	/**
+	 * 
+	 * @return the main panel of the GUI
+	 */
+	
+	public JPanel getPane() {
 		return this.main;
 	}
 	

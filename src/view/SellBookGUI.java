@@ -16,8 +16,6 @@ import javax.swing.SwingUtilities;
 
 import model.Libro;
 import utilities.GUIUtilities;
-import controller.BookController;
-import controller.FidelityController;
 import controller.IBookController;
 import controller.IFidelityController;
 import exceptions.MissingBookException;
@@ -31,25 +29,29 @@ import exceptions.NotEnoughBookException;
 public class SellBookGUI extends JDialog {
 	
 	private static final long serialVersionUID = 6224252338040945108L;
-	final private String[] names = {"Titolo", "Autore", "Copie", "Carta"};
-	final private JTextField[] fields = new JTextField[names.length];
+	private final String[] names = {"Titolo", "Autore", "Copie", "Carta"};
+	private final JTextField[] fields = new JTextField[names.length];
 	private final JPanel main = new JPanel();
-	final private JButton conf = new JButton("Conferma");
+	private final JButton conf = new JButton("Conferma");
 	private	Libro lib;
-	
-	public SellBookGUI(final IBookController controller,final IFidelityController fidcontroller) {
+	/**
+	 * 
+	 * @param controller is the BookController
+	 * @param fidcontroller is the FidelityController
+	 */
+	public SellBookGUI(final IBookController controller, final IFidelityController fidcontroller) {
 		
 		main.setLayout(new BorderLayout());
 		
-		final JPanel mid = new JPanel(new GridLayout(0,2));
+		final JPanel mid = new JPanel(new GridLayout(0, 2));
 		
-		for (int i = 0; i < fields.length; i++ ){
-			fields[i] = new JTextField(20);
+		for (int i = 0; i < fields.length; i++) {
+			fields[i] = new JTextField(GUIUtilities.getAddLenght());
 		}
 		
-		for (int i = 0; i < fields.length; i++){
-			mid.add(GUIUtilities.wrapperPanel(new JLabel(names[i]),FlowLayout.RIGHT));
-			mid.add(GUIUtilities.wrapperPanel(fields[i],FlowLayout.CENTER));
+		for (int i = 0; i < fields.length; i++) {
+			mid.add(GUIUtilities.wrapperPanel(new JLabel(names[i]), FlowLayout.RIGHT));
+			mid.add(GUIUtilities.wrapperPanel(fields[i], FlowLayout.CENTER));
 
 		}
 		
@@ -81,21 +83,22 @@ public class SellBookGUI extends JDialog {
 				} catch (NotEnoughBookException e1) {
 					JOptionPane.showMessageDialog(main, "Non sono presenti abbastanza copie in magazzino \n "
 							+ "ne sono state richieste " + fields[2].getText() + ", ma ne sono presenti solo " + lib.getNCopy(), "Copie mancanti", JOptionPane.ERROR_MESSAGE);
-				}  catch (MissingUserException e1) {
+				} catch (MissingUserException e1) {
 					JOptionPane.showMessageDialog(main, "La carta non è presente in archivio", "La carta non esiste", JOptionPane.ERROR_MESSAGE);				
 					
-				}
-				 catch (IllegalArgumentException e1) {
-					// TODO Auto-generated catch block
-						JOptionPane.showMessageDialog(main, "Errore Grave!! Contattare l'assistenza!", "Attenzione!!", JOptionPane.ERROR_MESSAGE);
-
+				} catch (IllegalArgumentException e1) {
+					JOptionPane.showMessageDialog(main, "Errore Grave!! Contattare l'assistenza!", "Attenzione!!", JOptionPane.ERROR_MESSAGE);
 				}
 				
 			}
 		});
 	}
 	
-	public JPanel getPane(){
+	/**
+	 * 
+	 * @return the main panel of the GUI
+	 */
+	public JPanel getPane() {
 		return this.main;
 	}
 	

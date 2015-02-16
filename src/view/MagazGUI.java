@@ -14,10 +14,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
-import utilities.GUIUtilities;
 import utilities.ControllerUtilities.TipoController;
-import controller.BookController;
-import controller.FidelityController;
+import utilities.GUIUtilities;
 import controller.IBookController;
 import controller.IFidelityController;
 
@@ -28,20 +26,25 @@ import controller.IFidelityController;
  */
 
 
-public class MagazGUI{
+public class MagazGUI {
 
-	private final JButton[] buttons = new JButton[5];
+	
 	private final String[] names = {"Aggiungi un libro", "Vendi un libro", "Modifica un libro", "Ricerca un libro", "Lista dei libri"};
+	private final JButton[] buttons = new JButton[names.length];
 	private final BackgroundPanel jf = new BackgroundPanel(GUIUtilities.back);	
 	
-	
-	public MagazGUI(final IBookController controller, final IFidelityController fidcontroller){	
+	/**
+	 * 
+	 * @param controller is the BookController
+	 * @param fidcontroller is the FidelityController
+	 */
+	public MagazGUI(final IBookController controller, final IFidelityController fidcontroller) {	
 		
 	
 		jf.setLayout(new BorderLayout());
 	    final Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-	    final int x = (dim.width )/4;
-	    final int y = (dim.height)/3;
+	    final int x = (dim.width) / 4;
+	    final int y = (dim.height) / 3;
 	    jf.setSize(x, y);
 	    jf.setLocation(x, y);
 	    
@@ -50,9 +53,8 @@ public class MagazGUI{
 		main.setLayout(new GridBagLayout());
 		GridBagConstraints c = GUIUtilities.getConstr();
 		
-		for (int i = 0; i < buttons.length; i++){
+		for (int i = 0; i < buttons.length; i++) {
 			buttons[i] = new JButton(names[i]);
-		//	buttons[i].setPreferredSize(new Dimension(150,25));
 			main.add(buttons[i], c);
 			c.gridy++;
 			
@@ -142,8 +144,12 @@ public class MagazGUI{
 
 	}
 	
+	/**
+	 * 
+	 * @return the main panel of the GUI
+	 */
 	
-	public JPanel getPane(){
+	public JPanel getPane() {
 		return this.jf;
 	}
 }

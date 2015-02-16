@@ -12,9 +12,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
-import utilities.GUIUtilities;
 import utilities.ControllerUtilities.TipoController;
-import controller.BookController;
+import utilities.GUIUtilities;
 import controller.IBookController;
 import exceptions.MissingBookException;
 /**
@@ -25,11 +24,15 @@ import exceptions.MissingBookException;
 public class OrdGUI {
 	
 	
-	private final JButton[] buttons = new JButton[6];
-	private final String[] names = {"Aggiungi un ordine", "Rimuovi un ordine", "Modifica un ordine", "Ricerca un ordine", "Lista degli Ordini", "Evadi gli ordini"};
-	private final BackgroundPanel main = new BackgroundPanel(GUIUtilities.back);
 	
-	public OrdGUI(final IBookController controller){
+	private final String[] names = {"Aggiungi un ordine", "Rimuovi un ordine", "Modifica un ordine", "Ricerca un ordine", "Lista degli Ordini", "Evadi gli ordini"};
+	private final JButton[] buttons = new JButton[names.length];
+	private final BackgroundPanel main = new BackgroundPanel(GUIUtilities.back);
+	/**
+	 * 
+	 * @param controller is the BookController
+	 */
+	public OrdGUI(final IBookController controller) {
 		
 		
 		main.setLayout(new BorderLayout());
@@ -40,7 +43,7 @@ public class OrdGUI {
 		GridBagConstraints c = GUIUtilities.getConstr();
 
 		
-		for (int i = 0; i < buttons.length; i++){
+		for (int i = 0; i < buttons.length; i++) {
 			buttons[i] = new JButton(names[i]);
 			top.add(buttons[i], c);
 			c.gridy++;
@@ -137,7 +140,11 @@ public class OrdGUI {
 		
 		
 	}
-
+	
+	/**
+	 * 
+	 * @return the main panel of the GUI
+	 */
 	public JPanel getPane() {
 		return this.main;
 	}

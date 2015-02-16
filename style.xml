@@ -5,7 +5,7 @@
     This configuration file was written by the eclipse-cs plugin configuration editor
 -->
 <!--
-    Checkstyle-Configuration: Private Config 
+    Checkstyle-Configuration: Private Config
     Description: none
 -->
 <module name="Checker">
@@ -70,12 +70,13 @@
     <module name="IllegalInstantiation"/>
     <module name="InnerAssignment"/>
     <module name="MagicNumber">
+      <property name="severity" value="ignore"/>
       <property name="ignoreNumbers" value="-1, 0, 0.5, 1, 2, 3, 4, 8, 10, 16, 32, 64, 90, 100, 180, 360, 1000"/>
+      <metadata name="net.sf.eclipsecs.core.lastEnabledSeverity" value="inherit"/>
     </module>
     <module name="MissingSwitchDefault"/>
     <module name="RedundantThrows">
       <property name="severity" value="ignore"/>
-      <property name="logLoadErrors" value="true"/>
       <property name="suppressLoadErrors" value="true"/>
       <metadata name="net.sf.eclipsecs.core.lastEnabledSeverity" value="inherit"/>
     </module>

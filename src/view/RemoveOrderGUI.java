@@ -16,7 +16,6 @@ import javax.swing.SwingUtilities;
 
 import model.Libro;
 import utilities.GUIUtilities;
-import controller.BookController;
 import controller.IBookController;
 import exceptions.MissingBookException;
 
@@ -26,28 +25,32 @@ import exceptions.MissingBookException;
  *
  */
 
-public class RemoveOrderGUI extends JDialog{
+public class RemoveOrderGUI extends JDialog {
 	
 
 	private static final long serialVersionUID = 5946044269812046114L;
-	final private String[] names = {"Titolo", "Autore"};
-	final private JTextField[] fields = new JTextField[names.length];
+	private final String[] names = {"Titolo", "Autore"};
+	private final JTextField[] fields = new JTextField[names.length];
 	private final JPanel main = new JPanel();
-	final private JButton conf = new JButton("Conferma");
+	private final JButton conf = new JButton("Conferma");
 	
+	/**
+	 * 
+	 * @param controller is the BookController
+	 */
 	public RemoveOrderGUI(final IBookController controller) {
 		
 		main.setLayout(new BorderLayout());
 		
-		final JPanel mid = new JPanel(new GridLayout(0,2));
+		final JPanel mid = new JPanel(new GridLayout(0, 2));
 		
-		for (int i = 0; i < fields.length; i++ ){
-			fields[i] = new JTextField(20);
+		for (int i = 0; i < fields.length; i++) {
+			fields[i] = new JTextField(GUIUtilities.getAddLenght());
 		}
 		
-		for (int i = 0; i < fields.length; i++){
-			mid.add(GUIUtilities.wrapperPanel(new JLabel(names[i]),FlowLayout.RIGHT));
-			mid.add(GUIUtilities.wrapperPanel(fields[i],FlowLayout.CENTER));
+		for (int i = 0; i < fields.length; i++) {
+			mid.add(GUIUtilities.wrapperPanel(new JLabel(names[i]), FlowLayout.RIGHT));
+			mid.add(GUIUtilities.wrapperPanel(fields[i], FlowLayout.CENTER));
 
 		}
 		
@@ -81,6 +84,11 @@ public class RemoveOrderGUI extends JDialog{
 		
 	}
 
+	
+	/**
+	 * 
+	 * @return the main panel of the GUI
+	 */
 	public JPanel getPane() {
 		return this.main;
 	}

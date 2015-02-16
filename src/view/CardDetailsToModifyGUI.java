@@ -16,7 +16,6 @@ import javax.swing.SwingUtilities;
 
 import utilities.GUIUtilities;
 import cartasoci.User;
-import controller.FidelityController;
 import controller.IFidelityController;
 import exceptions.WrongDataException;
 /**
@@ -29,33 +28,37 @@ public class CardDetailsToModifyGUI	extends JDialog {
 	
 	private static final long serialVersionUID = -5294910808056208082L;
 	private final JPanel main = new JPanel();
-	private final String[] names = {"Nome","Cognome", "Email"};
+	private final String[] names = {"Nome", "Cognome", "Email"};
 	private final JTextField[] jfields = new JTextField[names.length];
 	private final JButton conf = new JButton("Conferma");
 	
 	
-	
-	public CardDetailsToModifyGUI(final IFidelityController fidcontroller,final User b){
+	/**
+	 * 
+	 * @param fidcontroller is the FidelityController
+	 * @param b is the user to modify
+	 */
+	public CardDetailsToModifyGUI(final IFidelityController fidcontroller, final User b) {
 		
 		main.setLayout(new BorderLayout());
 		
-		final JPanel mid = new JPanel(new GridLayout(0,3));
+		final JPanel mid = new JPanel(new GridLayout(0, 3));
 		
-		for (int i = 0; i < names.length; i++){
-			jfields[i] = new JTextField(15);
+		for (int i = 0; i < names.length; i++) {
+			jfields[i] = new JTextField(GUIUtilities.getModifyLenght());
 		}
 		
-		mid.add(GUIUtilities.wrapperPanel(new JLabel(names[0]),FlowLayout.RIGHT));
-		mid.add(GUIUtilities.wrapperPanel(new JLabel(b.getName()),FlowLayout.CENTER));
+		mid.add(GUIUtilities.wrapperPanel(new JLabel(names[0]), FlowLayout.RIGHT));
+		mid.add(GUIUtilities.wrapperPanel(new JLabel(b.getName()), FlowLayout.CENTER));
 		mid.add(GUIUtilities.wrapperPanel(jfields[0], FlowLayout.RIGHT));
 		
 		
-		mid.add(GUIUtilities.wrapperPanel(new JLabel(names[1]),FlowLayout.RIGHT));
-		mid.add(GUIUtilities.wrapperPanel(new JLabel(b.getSurname()),FlowLayout.CENTER));
+		mid.add(GUIUtilities.wrapperPanel(new JLabel(names[1]), FlowLayout.RIGHT));
+		mid.add(GUIUtilities.wrapperPanel(new JLabel(b.getSurname()), FlowLayout.CENTER));
 		mid.add(GUIUtilities.wrapperPanel(jfields[1], FlowLayout.RIGHT));	
 		
-		mid.add(GUIUtilities.wrapperPanel(new JLabel(names[2]),FlowLayout.RIGHT));
-		mid.add(GUIUtilities.wrapperPanel(new JLabel(b.getEmail()),FlowLayout.CENTER));
+		mid.add(GUIUtilities.wrapperPanel(new JLabel(names[2]), FlowLayout.RIGHT));
+		mid.add(GUIUtilities.wrapperPanel(new JLabel(b.getEmail()), FlowLayout.CENTER));
 		mid.add(GUIUtilities.wrapperPanel(jfields[2], FlowLayout.RIGHT));
 				
 		
@@ -91,8 +94,11 @@ public class CardDetailsToModifyGUI	extends JDialog {
 		
 		
 	}
-	
-	public JPanel getPane(){
+	/**
+	 * 
+	 * @return the main panel of the GUI
+	 */
+	public JPanel getPane() {
 		return this.main;
 	}
 

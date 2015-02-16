@@ -14,7 +14,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import utilities.GUIUtilities;
-import controller.BookController;
 import controller.IBookController;
 import exceptions.MissingBookException;
 /**
@@ -29,30 +28,34 @@ public class SearchBookGUI extends JDialog {
 	 * 
 	 */
 	private static final long serialVersionUID = 6224252338040945108L;
-	final private JTextField[] fields = new JTextField[2];
-	final private String[] names = {"Titolo", "Autore",};
+
+	private final String[] names = {"Titolo", "Autore"};
+	private final JTextField[] fields = new JTextField[names.length];
 	private final JPanel main = new JPanel();
-	final private JButton conf = new JButton("Cerca coppia");
-	
+	private final JButton conf = new JButton("Cerca coppia");
+	/**
+	 * 
+	 * @param controller is the BookController
+	 */
 	public SearchBookGUI(final IBookController controller) {
 		
 		
 		main.setLayout(new BorderLayout());
 		
-		final JPanel mid = new JPanel(new GridLayout(0,3));
+		final JPanel mid = new JPanel(new GridLayout(0, 3));
 		
 		final JButton[] oks = new JButton[2]; 
 		
-		for (int i = 0; i < fields.length; i++ ){
-			fields[i] = new JTextField(15);
+		for (int i = 0; i < fields.length; i++) {
+			fields[i] = new JTextField(GUIUtilities.getModifyLenght());
 			oks[i] = new JButton("Ok");
 		}
 		
 		
 		
-		for (int i = 0; i < fields.length; i++){
-			mid.add(GUIUtilities.wrapperPanel(new JLabel(names[i]),FlowLayout.RIGHT));
-			mid.add(GUIUtilities.wrapperPanel(fields[i],FlowLayout.CENTER));
+		for (int i = 0; i < fields.length; i++) {
+			mid.add(GUIUtilities.wrapperPanel(new JLabel(names[i]), FlowLayout.RIGHT));
+			mid.add(GUIUtilities.wrapperPanel(fields[i], FlowLayout.CENTER));
 			mid.add(GUIUtilities.wrapperPanel(oks[i], FlowLayout.LEFT));
 		}
 		
@@ -109,7 +112,11 @@ public class SearchBookGUI extends JDialog {
 		
 	}
 	
-	public JPanel getPane(){
+	/**
+	 * 
+	 * @return the main panel of the GUI
+	 */
+	public JPanel getPane() {
 		return this.main;
 	}
 	

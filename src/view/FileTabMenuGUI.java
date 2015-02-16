@@ -25,12 +25,14 @@ import cartasoci.User;
 
 import com.thoughtworks.xstream.XStream;
 
-import controller.BookController;
-import controller.FidelityController;
 import controller.IBookController;
 import controller.IFidelityController;
-
-public class FileTabMenuGUI  extends JMenu{
+/**
+ * 
+ * @author Alberto Mulazzani
+ *
+ */
+public class FileTabMenuGUI  extends JMenu {
 
 	/**
 	 * 
@@ -38,17 +40,22 @@ public class FileTabMenuGUI  extends JMenu{
 	private static final long serialVersionUID = 1894309391410079587L;
 
 	private final String[] names = {"Carica", "Salva", "Salva e chiudi"};
-	
-	public FileTabMenuGUI(final JFrame frame, final IBookController controller, final IFidelityController fidcontroller){
+	/**
+	 * 
+	 * @param frame is the Jframe 
+	 * @param controller is the BookController
+	 * @param fidcontroller is the FidelityController
+	 */
+	public FileTabMenuGUI(final JFrame frame, final IBookController controller, final IFidelityController fidcontroller) {
 	
 		super("File");
 		
 		final JMenuItem[] buttons = new JMenuItem[names.length];
 			
-		for (int i = 0; i < names.length; i++){
+		for (int i = 0; i < names.length; i++) {
 			buttons[i] = new JMenuItem(names[i]);
 			add(buttons[i]);
-			if (i > 0){
+			if (i > 0) {
 				addSeparator();
 			}
 		}
@@ -140,8 +147,13 @@ public class FileTabMenuGUI  extends JMenu{
 		});
 		
 	}
-	
-	private void saveMe(final IBookController controller,final IFidelityController fidcontroller,final JFrame frame){
+	/**
+	 * 
+	 * @param controller is the BookController
+	 * @param fidcontroller is the FidelityController
+	 * @param frame is the JFrame
+	 */
+	private void saveMe(final IBookController controller, final IFidelityController fidcontroller, final JFrame frame) {
 			
 			final JFileChooser fileChooser = new JFileChooser(System.getProperty("user.home") + System.getProperty("line.separator") + "Desktop");
 			fileChooser.removeChoosableFileFilter(fileChooser.getFileFilter());
@@ -155,10 +167,10 @@ public class FileTabMenuGUI  extends JMenu{
 			    System.out.println("Save as file: " + fileToLoad.getAbsolutePath());
 			    
 			    File file;
-			    if (fileToLoad.getAbsolutePath().contains(".xml")){
+			    if (fileToLoad.getAbsolutePath().contains(".xml")) {
 			     	file = new File(fileToLoad.getAbsolutePath());
 					   
-			    }else {
+			    } else {
 			     	file = new File(fileToLoad + ".xml");
 			    }
 			    

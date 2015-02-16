@@ -16,7 +16,6 @@ import javax.swing.SwingUtilities;
 
 import model.Libro;
 import utilities.GUIUtilities;
-import controller.BookController;
 import controller.IBookController;
 import exceptions.WrongDataException;
 /**
@@ -33,23 +32,27 @@ public class DetailsToModifyGUI	extends JDialog {
 	private final JTextField[] jfields = new JTextField[names.length];
 	private final JButton conf = new JButton("Conferma");
 	
+	/**
+	 * 
+	 * @param controller is the BookController
+	 * @param b is the Book to modify
+	 */
 	
-	
-	public DetailsToModifyGUI(final IBookController controller,final Libro b){
+	public DetailsToModifyGUI(final IBookController controller, final Libro b) {
 		
 		main.setLayout(new BorderLayout());
 		
-		final JPanel mid = new JPanel(new GridLayout(0,3));
+		final JPanel mid = new JPanel(new GridLayout(0, 3));
 		
 		final String[] fields = b.getFields();
 		
 		
 		
 
-		for (int i = 0; i < fields.length; i++){
-			jfields[i] = new JTextField(15);
-			mid.add(GUIUtilities.wrapperPanel(new JLabel(names[i]),FlowLayout.RIGHT));
-			mid.add(GUIUtilities.wrapperPanel(new JLabel(fields[i]),FlowLayout.LEFT));
+		for (int i = 0; i < fields.length; i++) {
+			jfields[i] = new JTextField(GUIUtilities.getModifyLenght());
+			mid.add(GUIUtilities.wrapperPanel(new JLabel(names[i]), FlowLayout.RIGHT));
+			mid.add(GUIUtilities.wrapperPanel(new JLabel(fields[i]), FlowLayout.LEFT));
 			mid.add(GUIUtilities.wrapperPanel(jfields[i], FlowLayout.RIGHT));
 		}
 		
@@ -86,8 +89,11 @@ public class DetailsToModifyGUI	extends JDialog {
 		
 		
 	}
-	
-	public JPanel getPane(){
+	/**
+	 * 
+	 * @return the main panel of the GUI
+	 */
+	public JPanel getPane() {
 		return this.main;
 	}
 

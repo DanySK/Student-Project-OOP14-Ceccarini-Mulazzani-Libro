@@ -1,7 +1,6 @@
 package view;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -14,11 +13,9 @@ import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
 import model.IStatistics;
-import controller.BookController;
-import controller.IBookController;
-import controller.StatisticsController;
 import utilities.ControllerUtilities.TipoController;
 import utilities.GUIUtilities;
+import controller.IBookController;
 /**
  * 
  * @author Alberto Mulazzani
@@ -26,13 +23,18 @@ import utilities.GUIUtilities;
  */
 public class StatisticGUI {
 	
-	private final JButton[] buttons = new JButton[4];
+
 	private final String[] names = {"Libro più venduto", "Libro meno venduto", "Autore più attivo", "Autore meno attivo"};
+	private final JButton[] buttons = new JButton[names.length];
 	private final BackgroundPanel main = new BackgroundPanel(GUIUtilities.back);
 
 	
-
-	public StatisticGUI(final IBookController controller,final IStatistics statcontroller){
+	/**
+	 * 
+	 * @param controller is the BookController
+	 * @param statcontroller is the StatisticsController
+	 */
+	public StatisticGUI(final IBookController controller, final IStatistics statcontroller) {
 
 		
 		main.setLayout(new BorderLayout());
@@ -43,9 +45,8 @@ public class StatisticGUI {
 		GridBagConstraints c = GUIUtilities.getConstr();
 
 		
-		for (int i = 0; i < buttons.length; i++){
+		for (int i = 0; i < buttons.length; i++) {
 			buttons[i] = new JButton(names[i]);
-			buttons[i].setPreferredSize(new Dimension(150,25));
 			top.add(buttons[i], c);
 			c.gridy++;
 		}
@@ -82,7 +83,7 @@ public class StatisticGUI {
 			public void actionPerformed(final ActionEvent e) {
 				
 
-				JOptionPane.showOptionDialog(main, new ListTableGUI(statcontroller.lessPopularBook(controller.bookList()),true).getPane() , "Lista dei libri meno venduti", JOptionPane.DEFAULT_OPTION, 
+				JOptionPane.showOptionDialog(main, new ListTableGUI(statcontroller.lessPopularBook(controller.bookList()), true).getPane() , "Lista dei libri meno venduti", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.STRING, null);
 			
 			}
@@ -113,7 +114,13 @@ public class StatisticGUI {
 		});
 	}
 	
-	public JPanel getPane(){
+	
+	/**
+	 * 
+	 * @return the main panel of the GUI
+	 */
+	
+	public JPanel getPane() {
 		return this.main;
 	}
 	

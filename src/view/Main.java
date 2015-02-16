@@ -44,7 +44,10 @@ public class Main implements ActionListener {
     private final IEarnings earcontroller = new EarningsController();
     private final IStatistics statcontroller = new StatisticsController();
     private final IFidelityController fidcontroller = new FidelityController();
-  
+  /**
+   * 
+   * @return the CardHolder JPanel
+   */
     public JPanel createCardHolderPanel() {
     	cardHolder = new JPanel();
     	cardHolder.setLayout(new CardLayout());
@@ -59,12 +62,12 @@ public class Main implements ActionListener {
     }
     
     
-    private JPanel createEconomyPanel( ) {
+    private JPanel createEconomyPanel() {
     	
     	return new	EconomyMenuGUI(controller, earcontroller).getPane();
     }
     
-    private JPanel createStatisticPanel(){
+    private JPanel createStatisticPanel() {
     	
     	return new StatisticGUI(controller, statcontroller).getPane();
     }
@@ -75,7 +78,7 @@ public class Main implements ActionListener {
     	return new MagazGUI(controller, fidcontroller).getPane();
     }
     
-    private JPanel createOrderPanel( ) {
+    private JPanel createOrderPanel() {
     	
 
     	return new OrdGUI(controller).getPane();
@@ -86,7 +89,10 @@ public class Main implements ActionListener {
     	return new FidelityCardGUI(fidcontroller).getPane();
     }
      
-
+    /**
+     * 
+     * @return the Button JPanel
+     */
     public JPanel createButtonPanel() {
         final JPanel buttonPanel = new JPanel(new GridLayout(5, 0, 5, 5));
         buttonPanel.setBorder(BorderFactory.createTitledBorder("Scegli la sezione"));
@@ -102,7 +108,10 @@ public class Main implements ActionListener {
         statistiche.addActionListener(this);
         return buttonPanel;
     }
-
+    /**
+     * 
+     * @return the main ContentPane
+     */
     public JPanel createContentPane() {
     	final JPanel panel = new JPanel(new BorderLayout());
         panel.setBorder(BorderFactory.createTitledBorder("Menù principale"));
@@ -110,10 +119,14 @@ public class Main implements ActionListener {
         panel.add(createCardHolderPanel(), BorderLayout.CENTER);
         return panel;
     }
-
+    /**
+     * 
+     * @param frame is the JFrame
+     * @return the JMenuBar
+     */
     public JMenuBar createMenuBar(final JFrame frame) {
     	final JMenuBar menuBar = new JMenuBar();
-        menuBar.add( new FileTabMenuGUI(frame, controller, fidcontroller));
+        menuBar.add(new FileTabMenuGUI(frame, controller, fidcontroller));
         return menuBar;
     }
 
@@ -140,7 +153,9 @@ public class Main implements ActionListener {
         	cardLayout.show(cardHolder, "Statistiche");
         }
     }
-
+    /**
+     * 	THE MAIN METHOD OF THE SOFTWARE!
+     */
     public static void createAndShowGUI() {
         final JFrame frame = new JFrame("Libro di Chiara Ceccarini e Alberto Mulazzani");
         try {
@@ -155,12 +170,12 @@ public class Main implements ActionListener {
         frame.addWindowListener(new WindowAdapter() {
         	  @Override
         	  public void windowClosing(final WindowEvent we) { 
-        	    final String objButtons[] = {"Sì","No"};
+        	    final String[] objButtons = {"Sì", "No"};
         	    final int promptResult = JOptionPane.showOptionDialog(null, 
         	        "Sei sicuro di voler uscire? I dati non salvati saranno persi", "Sei proprio sicuro?", 
         	        JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, 
-        	        objButtons,objButtons[1]);
-        	    if(promptResult==0) {
+        	        objButtons, objButtons[1]);
+        	    if (promptResult == 0) {
         	      System.exit(0);          
         	    }
         	  }
@@ -168,8 +183,8 @@ public class Main implements ActionListener {
         
         frame.setResizable(false);
         final Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-	    final int x = (dim.width + dim.width/3)/3;
-	    final int y = (dim.height+dim.height/6)/2;
+	    final int x = (dim.width + dim.width / 3) / 3;
+	    final int y = (dim.height + dim.height / 6) / 2;
 	    frame.setPreferredSize(new Dimension(x, y));
         final Main main = new Main();
         frame.setJMenuBar(main.createMenuBar(frame));

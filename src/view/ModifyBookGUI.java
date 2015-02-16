@@ -13,9 +13,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
-import controller.BookController;
-import controller.IBookController;
 import utilities.GUIUtilities;
+import controller.IBookController;
 import exceptions.MissingBookException;
 /**
  * 
@@ -31,20 +30,24 @@ public class ModifyBookGUI {
 	private final JTextField[] fields = new JTextField[2];
 	private final String[] names = {"Titolo", "Autore"};
 	
-	public ModifyBookGUI(final IBookController controller){
+	/**
+	 * 
+	 * @param controller is the BookController
+	 */
+	public ModifyBookGUI(final IBookController controller) {
 		
 		main.setLayout(new BorderLayout());
 		
-		final JPanel mid = new JPanel(new GridLayout(0,2));
+		final JPanel mid = new JPanel(new GridLayout(0, 2));
 		
 		
-		for (int i = 0; i < fields.length; i++ ){
-			fields[i] = new JTextField(15);
+		for (int i = 0; i < fields.length; i++) {
+			fields[i] = new JTextField(GUIUtilities.getModifyLenght());
 		}
 		
-		for (int i = 0; i < fields.length; i++){
-			mid.add(GUIUtilities.wrapperPanel(new JLabel(names[i]),FlowLayout.RIGHT));
-			mid.add(GUIUtilities.wrapperPanel(fields[i],FlowLayout.CENTER));
+		for (int i = 0; i < fields.length; i++) {
+			mid.add(GUIUtilities.wrapperPanel(new JLabel(names[i]), FlowLayout.RIGHT));
+			mid.add(GUIUtilities.wrapperPanel(fields[i], FlowLayout.CENTER));
 		}
 		
 		
@@ -75,7 +78,11 @@ public class ModifyBookGUI {
 		});
 	}
 	
-	public JPanel getPane(){
+	/**
+	 * 
+	 * @return the main panel of the GUI
+	 */
+	public JPanel getPane() {
 		return this.main;
 	}
 	

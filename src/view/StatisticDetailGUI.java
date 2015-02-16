@@ -21,14 +21,17 @@ import utilities.Pair;
  * @author Alberto Mulazzani
  *
  */
-public class StatisticDetailGUI extends JDialog{
+public class StatisticDetailGUI extends JDialog {
 
 	private static final long serialVersionUID = -8563544567918601056L;
-	final private JPanel main = new JPanel();
-	final private String[] names = {"Autore", "Libri prodotti"};
+	private final JPanel main = new JPanel();
+	private final String[] names = {"Autore", "Libri prodotti"};
 	
-	
-	public StatisticDetailGUI(final List<Pair < String, Integer>> set){
+	/**
+	 * 
+	 * @param set is the List to print
+	 */
+	public StatisticDetailGUI(final List<Pair < String, Integer>> set) {
 		
 		main.setLayout(new BorderLayout());
 		
@@ -36,14 +39,14 @@ public class StatisticDetailGUI extends JDialog{
 		GridBagConstraints c = GUIUtilities.getConstr();
 		
 		
-		for (int i = 0; i < names.length; i++){
+		for (int i = 0; i < names.length; i++) {
 			top.add(new JLabel(names[i]));
 		}
 			c.gridy++;
 		
 		JLabel[] list = new JLabel[set.size() * 2];
 		
-		for (int i = 0; i < list.length; i++){
+		for (int i = 0; i < list.length; i++) {
 			list[i] = new JLabel();
 		}
 		
@@ -51,14 +54,14 @@ public class StatisticDetailGUI extends JDialog{
 		System.out.println(set.size());
 		int i = 0;
 		
-		for (final Pair<String, Integer> p : set){
+		for (final Pair<String, Integer> p : set) {
 			list[i].setText(p.getFirst());
-			list[i+1].setText("" + p.getSecond());
-			top.add(list[i], c );
-			top.add(list[i+1], c);
+			list[i + 1].setText("" + p.getSecond());
+			top.add(list[i], c);
+			top.add(list[i + 1], c);
 
 			c.gridy++;
-			i+=2;
+			i += 2;
 		}
 		
 		
@@ -68,9 +71,9 @@ public class StatisticDetailGUI extends JDialog{
 		final JScrollPane extPane = new JScrollPane(top);
 		extPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 	    final Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-	    final int x = (dim.width )/5;
-	    final int y = (dim.height)/3;
-		extPane.setPreferredSize(new Dimension(x,y));
+	    final int x = (dim.width) / 5;
+	    final int y = (dim.height) / 3;
+		extPane.setPreferredSize(new Dimension(x, y));
 		
 		main.add(extPane);
 		
@@ -78,7 +81,11 @@ public class StatisticDetailGUI extends JDialog{
 		
 	}
 	
-	public JPanel getPane(){
+	/**
+	 * 
+	 * @return the main panel of the GUI
+	 */
+	public JPanel getPane() {
 		return this.main;
 	}
 	

@@ -24,37 +24,41 @@ import utilities.GUIUtilities;
  * @author Alberto Mulazzani
  *
  */
-public class ListTableGUI extends JDialog{
+public class ListTableGUI extends JDialog {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -8563544567918601056L;
-	final private JLabel[] list;
-	final private JPanel main = new JPanel();
-	private String[] names= { "Titolo ", "Autore ", "Copie Vendute "};
+	private final JLabel[] list;
+	private final JPanel main = new JPanel();
+	private String[] names = { "Titolo ", "Autore ", "Copie Vendute "};
 	
-
-	public ListTableGUI(final List<Libro> set,final boolean tipo){
+	/**
+	 * 
+	 * @param set is the List to print
+	 * @param tipo is the Type of the BookController
+	 */
+	public ListTableGUI(final List<Libro> set, final boolean tipo) {
 		
 		main.setLayout(new BorderLayout());
 		
 		final JPanel top = new JPanel(new GridBagLayout());
 		GridBagConstraints c = GUIUtilities.getConstr();
 		
-		if (!tipo){
+		if (!tipo) {
 			names[2] = " Copie";
 		}
 	
-		for (int i = 0; i < names.length; i++){
-			top.add(new JLabel(names[i]),c);
+		for (int i = 0; i < names.length; i++) {
+			top.add(new JLabel(names[i]), c);
 		}
 			c.gridy++;
 		
 		list = new JLabel[set.size() * 3];
 		JButton[] buttons = new JButton[set.size()];
 		
-		for (int i = 0; i < list.length; i++){
+		for (int i = 0; i < list.length; i++) {
 			list[i] = new JLabel();
 		}
 		
@@ -62,14 +66,14 @@ public class ListTableGUI extends JDialog{
 		int j = 0;
 				
 		
-		for (final Libro b : set){
+		for (final Libro b : set) {
 			buttons[j] = new JButton("Dettagli");
 			list[i].setText(b.getTitle());
-			list[i+1].setText(b.getAuthor());
-			if (tipo){
-				list[i+2].setText("" + b.getNSales());
-			}else {
-				list[i+2].setText("" + b.getNCopy());
+			list[i + 1].setText(b.getAuthor());
+			if (tipo) {
+				list[i + 2].setText("" + b.getNSales());
+			} else {
+				list[i + 2].setText("" + b.getNCopy());
 			}
 			buttons[j].addActionListener(new ActionListener() {
 				
@@ -81,11 +85,11 @@ public class ListTableGUI extends JDialog{
 				}
 			});
 			top.add(list[i], c);
-			top.add(list[i+1], c);
-			top.add(list[i+2],c);
+			top.add(list[i + 1], c);
+			top.add(list[i + 2], c);
 			top.add(buttons[j], c);
 			c.gridy++;
-			i+=3;
+			i += 3;
 			j++;
 		}
 		
@@ -96,16 +100,22 @@ public class ListTableGUI extends JDialog{
 		final JScrollPane extPane = new JScrollPane(top);
 		extPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 	    final Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-	    final int x = (dim.width )/5;
-	    final int y = (dim.height)/3;
-		extPane.setPreferredSize(new Dimension(x,y));
+	    final int x = (dim.width) / 5;
+	    final int y = (dim.height) / 3;
+		extPane.setPreferredSize(new Dimension(x, y));
 		
 		main.add(extPane);
 		
 		
 	}
 	
-	public JPanel getPane(){
+	
+	/**
+	 * 
+	 * @return the main panel of the GUI
+	 */
+	
+	public JPanel getPane() {
 		return this.main;
 	}
 	

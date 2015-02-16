@@ -13,10 +13,8 @@ import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
 import model.IEarnings;
-import controller.BookController;
-import controller.EarningsController;
-import controller.IBookController;
 import utilities.GUIUtilities;
+import controller.IBookController;
 /**
  * 
  * @author Alberto Mulazzani
@@ -27,8 +25,12 @@ public class EconomyMenuGUI {
 	private final BackgroundPanel main = new BackgroundPanel(GUIUtilities.back);
 	private final JButton open = new JButton("Apri la sezione Economia");
 	
-	
-	public EconomyMenuGUI(final IBookController controller,final IEarnings earcontroller){
+	/**
+	 * 
+	 * @param controller is the BookController
+	 * @param earcontroller is the EarningsController
+	 */
+	public EconomyMenuGUI(final IBookController controller, final IEarnings earcontroller) {
 		
 		main.setLayout(new BorderLayout());
 		
@@ -64,8 +66,11 @@ public class EconomyMenuGUI {
 		
 	}
 	
-	
-	public JPanel getPane(){
+	/**
+	 * 
+	 * @return the main panel of the GUI
+	 */
+	public JPanel getPane() {
 		return this.main;
 	}
 }

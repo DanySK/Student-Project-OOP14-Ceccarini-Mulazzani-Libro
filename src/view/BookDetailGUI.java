@@ -15,7 +15,7 @@ import utilities.GUIUtilities;
  * @author Alberto Mulazzani
  *
  */
-public class BookDetailGUI extends JDialog{
+public class BookDetailGUI extends JDialog {
 	
 	
 	/**
@@ -25,19 +25,22 @@ public class BookDetailGUI extends JDialog{
 	private final JPanel main = new JPanel();
 	private final String[] names = {"Titolo", "Autore", "Anno di pubblicazione", "Editore", "ISBN", "Prezzo", "Quantità", "Copie Vendute" };
 	
-	
-	public BookDetailGUI(final Libro b){
+	/**
+	 * 
+	 * @param b is the Book to use
+	 */
+	public BookDetailGUI(final Libro b) {
 		
 		main.setLayout(new BorderLayout());
 		
-		final JPanel mid = new JPanel(new GridLayout(0,2));
+		final JPanel mid = new JPanel(new GridLayout(0, 2));
 		
 		final String[] fields = b.getFields();
 		
 
-		for (int i = 0; i < fields.length; i++){
-			mid.add(GUIUtilities.wrapperPanel(new JLabel(names[i]),FlowLayout.RIGHT));
-			mid.add(GUIUtilities.wrapperPanel(new JLabel(fields[i]),FlowLayout.LEFT));
+		for (int i = 0; i < fields.length; i++) {
+			mid.add(GUIUtilities.wrapperPanel(new JLabel(names[i]), FlowLayout.RIGHT));
+			mid.add(GUIUtilities.wrapperPanel(new JLabel(fields[i]), FlowLayout.LEFT));
 		}
 		
 		
@@ -45,8 +48,11 @@ public class BookDetailGUI extends JDialog{
 		
 		
 	}
-	
-	public JPanel getPane(){
+	/**
+	 * 
+	 * @return the main panel of the GUI
+	 */
+	public JPanel getPane() {
 		return this.main;
 	}
 	
