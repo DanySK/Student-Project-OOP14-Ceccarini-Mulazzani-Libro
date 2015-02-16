@@ -1,4 +1,7 @@
 package cartasoci;
+
+import java.io.Serializable;
+
 /**
  * 
  * Basic class of a Fidelity Card Owner.
@@ -6,8 +9,12 @@ package cartasoci;
  * @author Alberto Mulazzani
  *
  */
-public class User {
+public class User implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8503437543137206221L;
 	private String name;
 	private String surname;
 	private String email;
