@@ -15,6 +15,7 @@ import javax.swing.SwingUtilities;
 
 import utilities.GUIUtilities;
 import controller.FidelityController;
+import controller.IFidelityController;
 import exceptions.MissingUserException;
 /**
  * 
@@ -30,7 +31,7 @@ public class ModifyCardGUI {
 	final private JTextField[] fields = new JTextField[1];
 	final private String[] names = {"Identificativo"};
 	
-	public ModifyCardGUI(final FidelityController controller){
+	public ModifyCardGUI(final IFidelityController fidcontroller){
 		
 		main.setLayout(new BorderLayout());
 		
@@ -61,7 +62,7 @@ public class ModifyCardGUI {
 			@Override
 			public void actionPerformed(final ActionEvent arg0) {
 				try {
-					JOptionPane.showOptionDialog(main, new CardDetailsToModifyGUI(controller, controller.searchID(fields[0])).getPane() , "Modifica libro", JOptionPane.DEFAULT_OPTION, 
+					JOptionPane.showOptionDialog(main, new CardDetailsToModifyGUI(fidcontroller, fidcontroller.searchID(fields[0])).getPane() , "Modifica libro", JOptionPane.DEFAULT_OPTION, 
 					         JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.STRING, null);
 					final JOptionPane optionPane = (JOptionPane)
 						    SwingUtilities.getAncestorOfClass(JOptionPane.class, conf);

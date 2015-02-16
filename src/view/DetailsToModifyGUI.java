@@ -17,6 +17,7 @@ import javax.swing.SwingUtilities;
 import model.Libro;
 import utilities.GUIUtilities;
 import controller.BookController;
+import controller.IBookController;
 import exceptions.WrongDataException;
 /**
  * 
@@ -34,7 +35,7 @@ public class DetailsToModifyGUI	extends JDialog {
 	
 	
 	
-	public DetailsToModifyGUI(final BookController controller,final Libro b){
+	public DetailsToModifyGUI(final IBookController controller,final Libro b){
 		
 		main.setLayout(new BorderLayout());
 		

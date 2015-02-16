@@ -12,8 +12,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
+import model.IEarnings;
 import controller.BookController;
 import controller.EarningsController;
+import controller.IBookController;
 import utilities.GUIUtilities;
 /**
  * 
@@ -26,7 +28,7 @@ public class EconomyMenuGUI {
 	private final JButton open = new JButton("Apri la sezione Economia");
 	
 	
-	public EconomyMenuGUI(final BookController controller,final EarningsController earcontroller){
+	public EconomyMenuGUI(final IBookController controller,final IEarnings earcontroller){
 		
 		main.setLayout(new BorderLayout());
 		

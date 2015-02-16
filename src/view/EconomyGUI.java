@@ -7,9 +7,11 @@ import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import model.IEarnings;
 import utilities.GUIUtilities;
 import controller.BookController;
 import controller.EarningsController;
+import controller.IBookController;
 /**
  * 
  * @author Alberto Mulazzani
@@ -20,7 +22,7 @@ public class EconomyGUI {
 	private final String[] names = {"Totale libri venduti", "Totali in negozio", "Totale guadagnato", "Totale speso", "Totale fatturato"};
 	private final JPanel main = new JPanel();
 	
-	public EconomyGUI(final BookController controller,final EarningsController earcontroller){
+	public EconomyGUI(final IBookController controller,final IEarnings earcontroller){
 		
 		main.setLayout(new BorderLayout());
 		

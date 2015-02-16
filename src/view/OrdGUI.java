@@ -15,6 +15,7 @@ import javax.swing.border.TitledBorder;
 import utilities.GUIUtilities;
 import utilities.ControllerUtilities.TipoController;
 import controller.BookController;
+import controller.IBookController;
 import exceptions.MissingBookException;
 /**
  * 
@@ -28,7 +29,7 @@ public class OrdGUI {
 	private final String[] names = {"Aggiungi un ordine", "Rimuovi un ordine", "Modifica un ordine", "Ricerca un ordine", "Lista degli Ordini", "Evadi gli ordini"};
 	private final BackgroundPanel main = new BackgroundPanel(GUIUtilities.back);
 	
-	public OrdGUI(final BookController controller){
+	public OrdGUI(final IBookController controller){
 		
 		
 		main.setLayout(new BorderLayout());

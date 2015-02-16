@@ -27,6 +27,8 @@ import com.thoughtworks.xstream.XStream;
 
 import controller.BookController;
 import controller.FidelityController;
+import controller.IBookController;
+import controller.IFidelityController;
 
 public class FileTabMenuGUI  extends JMenu{
 
@@ -37,7 +39,7 @@ public class FileTabMenuGUI  extends JMenu{
 
 	private final String[] names = {"Carica", "Salva", "Salva e chiudi"};
 	
-	public FileTabMenuGUI(final JFrame frame, final BookController controller, final FidelityController fidcontroller){
+	public FileTabMenuGUI(final JFrame frame, final IBookController controller, final IFidelityController fidcontroller){
 	
 		super("File");
 		
@@ -139,7 +141,7 @@ public class FileTabMenuGUI  extends JMenu{
 		
 	}
 	
-	private void saveMe(final BookController controller,final FidelityController fidcontroller,final JFrame frame){
+	private void saveMe(final IBookController controller,final IFidelityController fidcontroller,final JFrame frame){
 			
 			final JFileChooser fileChooser = new JFileChooser(System.getProperty("user.home") + System.getProperty("line.separator") + "Desktop");
 			fileChooser.removeChoosableFileFilter(fileChooser.getFileFilter());

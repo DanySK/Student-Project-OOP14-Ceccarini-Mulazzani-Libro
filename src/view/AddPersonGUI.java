@@ -15,6 +15,7 @@ import javax.swing.SwingUtilities;
 
 import utilities.GUIUtilities;
 import controller.FidelityController;
+import controller.IFidelityController;
 import exceptions.MissingDataException;
 import exceptions.UserAlreadyExisting;
 import exceptions.WrongDataException;
@@ -31,7 +32,7 @@ public class AddPersonGUI {
 	private final JButton add = new JButton("Conferma");
 	private final JPanel main = new JPanel();
 	
-	public AddPersonGUI( final FidelityController controller){
+	public AddPersonGUI( final IFidelityController fidcontroller){
 		
 		
 		main.setLayout(new BorderLayout());		
@@ -69,8 +70,8 @@ public class AddPersonGUI {
 			public void actionPerformed(final ActionEvent e) {
 				try {
 	
-					controller.addPerson(fields);
-					JOptionPane.showMessageDialog(main, "La carta è stata creata con successo, il suo ID è " + controller.getCurrent(), "Successo!", JOptionPane.INFORMATION_MESSAGE);
+					fidcontroller.addPerson(fields);
+					JOptionPane.showMessageDialog(main, "La carta è stata creata con successo, il suo ID è " + fidcontroller.getCurrent(), "Successo!", JOptionPane.INFORMATION_MESSAGE);
 					
 					final JOptionPane optionPane = (JOptionPane)
 						    SwingUtilities.getAncestorOfClass(JOptionPane.class, add);

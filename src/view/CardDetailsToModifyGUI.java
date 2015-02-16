@@ -17,6 +17,7 @@ import javax.swing.SwingUtilities;
 import utilities.GUIUtilities;
 import cartasoci.User;
 import controller.FidelityController;
+import controller.IFidelityController;
 import exceptions.WrongDataException;
 /**
  * 
@@ -34,7 +35,7 @@ public class CardDetailsToModifyGUI	extends JDialog {
 	
 	
 	
-	public CardDetailsToModifyGUI(final FidelityController controller,final User b){
+	public CardDetailsToModifyGUI(final IFidelityController fidcontroller,final User b){
 		
 		main.setLayout(new BorderLayout());
 		
@@ -74,7 +75,7 @@ public class CardDetailsToModifyGUI	extends JDialog {
 			@Override
 			public void actionPerformed(final ActionEvent e) {
 				try {
-					controller.modifyUser(b, jfields);
+					fidcontroller.modifyUser(b, jfields);
 					JOptionPane.showMessageDialog(main, "L'utente è stato modificato correttamente", "Successo!", JOptionPane.INFORMATION_MESSAGE);
 					final JOptionPane optionPane = (JOptionPane)
 						    SwingUtilities.getAncestorOfClass(JOptionPane.class, conf);

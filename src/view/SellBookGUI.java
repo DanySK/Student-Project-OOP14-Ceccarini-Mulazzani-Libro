@@ -18,6 +18,8 @@ import model.Libro;
 import utilities.GUIUtilities;
 import controller.BookController;
 import controller.FidelityController;
+import controller.IBookController;
+import controller.IFidelityController;
 import exceptions.MissingBookException;
 import exceptions.MissingUserException;
 import exceptions.NotEnoughBookException;
@@ -35,7 +37,7 @@ public class SellBookGUI extends JDialog {
 	final private JButton conf = new JButton("Conferma");
 	private	Libro lib;
 	
-	public SellBookGUI(final BookController controller,final FidelityController fidcontroller) {
+	public SellBookGUI(final IBookController controller,final IFidelityController fidcontroller) {
 		
 		main.setLayout(new BorderLayout());
 		

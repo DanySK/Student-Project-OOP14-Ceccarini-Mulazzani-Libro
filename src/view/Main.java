@@ -18,10 +18,14 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 
+import model.IEarnings;
+import model.IStatistics;
 import utilities.ControllerUtilities.TipoController;
 import controller.BookController;
 import controller.EarningsController;
 import controller.FidelityController;
+import controller.IBookController;
+import controller.IFidelityController;
 import controller.StatisticsController;
 /**
  * 
@@ -36,10 +40,10 @@ public class Main implements ActionListener {
     private final JButton fatturato = new JButton("Fatturato e guadagni");
     private final JButton cartasoci = new JButton("Carta Soci");
     private final JButton statistiche = new JButton("Statistiche");
-    private final BookController controller = new BookController();
-    private final EarningsController earcontroller = new EarningsController();
-    private final StatisticsController statcontroller = new StatisticsController();
-    private final FidelityController fidcontroller = new FidelityController();
+    private final IBookController controller = new BookController();
+    private final IEarnings earcontroller = new EarningsController();
+    private final IStatistics statcontroller = new StatisticsController();
+    private final IFidelityController fidcontroller = new FidelityController();
   
     public JPanel createCardHolderPanel() {
     	cardHolder = new JPanel();

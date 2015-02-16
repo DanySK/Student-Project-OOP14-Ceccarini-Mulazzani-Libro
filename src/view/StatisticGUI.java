@@ -13,7 +13,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
+import model.IStatistics;
 import controller.BookController;
+import controller.IBookController;
 import controller.StatisticsController;
 import utilities.ControllerUtilities.TipoController;
 import utilities.GUIUtilities;
@@ -29,7 +31,9 @@ public class StatisticGUI {
 	private final BackgroundPanel main = new BackgroundPanel(GUIUtilities.back);
 
 	
-	public StatisticGUI(final BookController controller, final StatisticsController statcontroller){
+
+	public StatisticGUI(final IBookController controller,final IStatistics statcontroller){
+
 		
 		main.setLayout(new BorderLayout());
 	    

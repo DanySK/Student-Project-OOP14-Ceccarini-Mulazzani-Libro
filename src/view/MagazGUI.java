@@ -18,6 +18,8 @@ import utilities.GUIUtilities;
 import utilities.ControllerUtilities.TipoController;
 import controller.BookController;
 import controller.FidelityController;
+import controller.IBookController;
+import controller.IFidelityController;
 
 /**
  * 
@@ -33,7 +35,7 @@ public class MagazGUI{
 	private final BackgroundPanel jf = new BackgroundPanel(GUIUtilities.back);	
 	
 	
-	public MagazGUI(final BookController controller, final FidelityController fidcontroller){	
+	public MagazGUI(final IBookController controller, final IFidelityController fidcontroller){	
 		
 	
 		jf.setLayout(new BorderLayout());

@@ -15,6 +15,7 @@ import javax.swing.SwingUtilities;
 
 import utilities.GUIUtilities;
 import controller.FidelityController;
+import controller.IFidelityController;
 import exceptions.MissingUserException;
 /**
  * 
@@ -28,7 +29,7 @@ public class RemoveCardGUI {
 	final private JTextField[] fields = new JTextField[1];
 	final private String[] names = {"Identificativo"};
 	
-	public RemoveCardGUI(final FidelityController controller){
+	public RemoveCardGUI(final IFidelityController fidcontroller){
 		
 		main.setLayout(new BorderLayout());
 		
@@ -59,7 +60,7 @@ public class RemoveCardGUI {
 			@Override
 			public void actionPerformed(final ActionEvent arg0) {
 				try {
-					controller.removePerson(fields[0]);
+					fidcontroller.removePerson(fields[0]);
 					JOptionPane.showMessageDialog(main, "La carta è stata eliminata con successo", "Successo!!", JOptionPane.INFORMATION_MESSAGE);
 					final JOptionPane optionPane = (JOptionPane)
 						    SwingUtilities.getAncestorOfClass(JOptionPane.class, conf);

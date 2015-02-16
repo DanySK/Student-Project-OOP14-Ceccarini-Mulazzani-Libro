@@ -14,6 +14,7 @@ import javax.swing.border.TitledBorder;
 
 import utilities.GUIUtilities;
 import controller.FidelityController;
+import controller.IFidelityController;
 /**
  * 
  * @author Alberto Mulazzani
@@ -26,7 +27,7 @@ public class FidelityCardGUI {
 	
 	private final BackgroundPanel main = new BackgroundPanel(GUIUtilities.back);
 	
-	public FidelityCardGUI(final FidelityController controller){
+	public FidelityCardGUI(final IFidelityController fidcontroller){
 		
 		main.setLayout(new BorderLayout());
 		
@@ -59,7 +60,7 @@ public class FidelityCardGUI {
 			public void actionPerformed(final ActionEvent e) {
 				
 				
-				JOptionPane.showOptionDialog(main, new AddPersonGUI(controller).getPane() , "Aggiungi una carta", JOptionPane.DEFAULT_OPTION, 
+				JOptionPane.showOptionDialog(main, new AddPersonGUI(fidcontroller).getPane() , "Aggiungi una carta", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.STRING, null);
 			
 			}
@@ -73,7 +74,7 @@ public class FidelityCardGUI {
 			public void actionPerformed(final ActionEvent e) {
 				
 				
-				JOptionPane.showOptionDialog(main, new RemoveCardGUI(controller).getPane() , "Rimuovi una carta", JOptionPane.DEFAULT_OPTION, 
+				JOptionPane.showOptionDialog(main, new RemoveCardGUI(fidcontroller).getPane() , "Rimuovi una carta", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.STRING, null);
 			
 			}
@@ -87,7 +88,7 @@ public class FidelityCardGUI {
 			public void actionPerformed(final ActionEvent e) {
 				
 				
-				JOptionPane.showOptionDialog(main, new ModifyCardGUI(controller).getPane() , "Modifica una carta", JOptionPane.DEFAULT_OPTION, 
+				JOptionPane.showOptionDialog(main, new ModifyCardGUI(fidcontroller).getPane() , "Modifica una carta", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.STRING, null);
 			
 			}
@@ -101,7 +102,7 @@ public class FidelityCardGUI {
 			public void actionPerformed(final ActionEvent e) {
 				
 				
-				JOptionPane.showOptionDialog(main, new SearchCardGUI(controller).getPane() , "Ricerca una carta", JOptionPane.DEFAULT_OPTION, 
+				JOptionPane.showOptionDialog(main, new SearchCardGUI(fidcontroller).getPane() , "Ricerca una carta", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.STRING, null);
 			
 			}
@@ -115,7 +116,7 @@ public class FidelityCardGUI {
 			public void actionPerformed(final ActionEvent e) {
 				
 				
-				JOptionPane.showOptionDialog(main, new ListCardGUI(controller.getMap()).getPane() , "Lista delle carte", JOptionPane.DEFAULT_OPTION, 
+				JOptionPane.showOptionDialog(main, new ListCardGUI(fidcontroller.getMap()).getPane() , "Lista delle carte", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.icon, GUIUtilities.STRING, null);
 			
 			}

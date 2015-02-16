@@ -14,6 +14,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
 import controller.BookController;
+import controller.IBookController;
 import utilities.GUIUtilities;
 import exceptions.MissingBookException;
 /**
@@ -30,7 +31,7 @@ public class ModifyBookGUI {
 	private final JTextField[] fields = new JTextField[2];
 	private final String[] names = {"Titolo", "Autore"};
 	
-	public ModifyBookGUI(final BookController controller){
+	public ModifyBookGUI(final IBookController controller){
 		
 		main.setLayout(new BorderLayout());
 		
