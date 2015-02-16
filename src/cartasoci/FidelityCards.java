@@ -82,7 +82,7 @@ public class FidelityCards implements IFidelityCards {
 						user.setEmail(fields[i]); 
 						break;
 					default:
-							
+						break;
 				}
 				
 			}

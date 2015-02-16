@@ -26,16 +26,16 @@ public final class GUIUtilities {
 	/**
 	 * 
 	 */
-	public static ImageIcon icon = createImageIcon("/iconBook.png");
+	public static final ImageIcon icon = createImageIcon("/iconBook.png");
 	/**
 	 * 
 	 */
-	public static Image image = icon.getImage();
+	public static final Image image = icon.getImage();
 	private static ImageIcon icon2 = createImageIcon("/background.png");
 	/**
 	 * 
 	 */
-	public static Image back = icon2.getImage();
+	public static final Image back = icon2.getImage();
 
 	private static final int MODIFYLENGHT = 15;
 	private static final int ADDLENGHT = 20;
