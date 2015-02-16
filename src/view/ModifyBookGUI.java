@@ -65,7 +65,7 @@ public class ModifyBookGUI {
 			@Override
 			public void actionPerformed(final ActionEvent arg0) {
 				try {
-					JOptionPane.showOptionDialog(main, new DetailsToModifyGUI(controller, controller.searchBook(fields)).getPane() , "Modifica libro", JOptionPane.DEFAULT_OPTION, 
+					JOptionPane.showOptionDialog(main, new DetailsToModifyGUI(controller, controller.searchBook(GUIUtilities.getArray(fields))).getPane() , "Modifica libro", JOptionPane.DEFAULT_OPTION, 
 					         JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.STRING, null);
 					final JOptionPane optionPane = (JOptionPane)
 						    SwingUtilities.getAncestorOfClass(JOptionPane.class, conf);

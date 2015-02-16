@@ -3,8 +3,6 @@ package controller;
 import java.util.Calendar;
 import java.util.List;
 
-import javax.swing.JTextField;
-
 import model.BookManagement;
 import model.IBookManagement;
 import model.IOrdini;
@@ -22,7 +20,6 @@ import exceptions.WrongDataException;
  */
 public class BookController implements IBookController {
 	
-	private String[] strings = null;
 	private Libro book;
 	private final IBookManagement magazzino = new BookManagement();
 	private final IOrdini ordini = new Ordini();
@@ -42,23 +39,9 @@ public class BookController implements IBookController {
 	 * @throws MissingDataException if some data is missing
 	 * @throws WrongDataException if the data is wrong
 	 */
-	public void setFields(final JTextField... fields) throws MissingDataException, WrongDataException {	
+	public void setFields(final String... fields) throws MissingDataException, WrongDataException {	
 		checkData(fields);
-		strings = new String[fields.length];
-		
-		for (int i = 0; i < fields.length; i++) {
-			strings[i] = fields[i].getText();
-		}
-		setLibro(strings);	
-	}
-	
-	/**
-	 * 
-	 * @param field
-	 * @return the text of the field
-	 */
-	private String toSearch(final JTextField field) {
-		return field.getText();
+		setLibro(fields);	
 	}
 	
 	/**
@@ -89,18 +72,14 @@ public class BookController implements IBookController {
 	 * @param fields to modify
 	 * @throws WrongDataException if the data is wrong
 	 */
-	public void modifyBook(final Libro b, final  JTextField... fields) throws WrongDataException {
+	public void modifyBook(final Libro b, final  String... fields) throws WrongDataException {
 		checkWrongs(fields);		
-		String[] datas = new String[fields.length];		
-		for (int i = 0; i < fields.length; i++) {
-			datas[i] = fields[i].getText();
-		}	
 		
 		if (type.equals(TipoController.MAGAZZINO)) {
-			magazzino.modifyBook(b, datas);
+			magazzino.modifyBook(b, fields);
 
 		} else {
-			ordini.modifyBook(b, datas);
+			ordini.modifyBook(b, fields);
 		}
 	}
 	
@@ -123,8 +102,8 @@ public class BookController implements IBookController {
 	 * 
 	 * @throws MissingBookException if the title is not in the library
 	 */
-	public List<Libro> searchTitle(final JTextField field) throws MissingBookException {
-		return magazzino.searchBookTitle(toSearch(field));
+	public List<Libro> searchTitle(final String field) throws MissingBookException {
+		return magazzino.searchBookTitle(field);
 	}
 	
 	/**
@@ -134,8 +113,8 @@ public class BookController implements IBookController {
 	 * 
 	 * @throws MissingBookException if the author is not in the library
 	 */
-	public List<Libro> searchAuthor(final JTextField field) throws MissingBookException {
-		return magazzino.searchBookAuthor(toSearch(field));
+	public List<Libro> searchAuthor(final String field) throws MissingBookException {
+		return magazzino.searchBookAuthor(field);
 	}
 	
 	/**
@@ -145,11 +124,11 @@ public class BookController implements IBookController {
 	 * 
 	 * @throws MissingBookException if the book is not in the library
 	 */
-	public Libro searchBook(final JTextField... fields) throws MissingBookException {
+	public Libro searchBook(final String... fields) throws MissingBookException {
 		if (type.equals(TipoController.MAGAZZINO)) {
-			return magazzino.searchBook(fields[0].getText(), fields[1].getText());
+			return magazzino.searchBook(fields[0], fields[1]);
 		} else {
-			return ordini.searchBook(fields[0].getText(), fields[1].getText());
+			return ordini.searchBook(fields[0], fields[1]);
 		}
 		
 	}
@@ -189,51 +168,51 @@ public class BookController implements IBookController {
 		ordini.evasioneOrdini();
 	}
 	
-	private void checkData(final JTextField... fields) throws MissingDataException, WrongDataException {
+	private void checkData(final String... fields) throws MissingDataException, WrongDataException {
 		for (int i = 0; i < fields.length; i++) {
-			if (fields[i].getText().length() == 0) {
+			if (fields[i].length() == 0) {
 				throw new MissingDataException();
 			}
 		}
 		
-		if (fields[4].getText().length() != 13 || Integer.parseInt(fields[2].getText()) > Calendar.getInstance().get(Calendar.YEAR)
-				|| Integer.parseInt(fields[2].getText()) <= 0 || Double.parseDouble(fields[5].getText()) < 0
-				|| Integer.parseInt(fields[6].getText()) < 0) {
+		if (fields[4].length() != 13 || Integer.parseInt(fields[2]) > Calendar.getInstance().get(Calendar.YEAR)
+				|| Integer.parseInt(fields[2]) <= 0 || Double.parseDouble(fields[5]) < 0
+				|| Integer.parseInt(fields[6]) < 0) {
 			System.out.println(Calendar.YEAR);
 			throw new WrongDataException();
 		}
 	}
 	
 	
-	private void checkWrongs(final JTextField... fields) throws WrongDataException {
+	private void checkWrongs(final String... fields) throws WrongDataException {
 		
-		if (fields[2].getText().length() != 0) {
-			if (Integer.parseInt(fields[2].getText()) > Calendar.getInstance().get(Calendar.YEAR)
-					|| Integer.parseInt(fields[2].getText()) <= 0) {
+		if (fields[2].length() != 0) {
+			if (Integer.parseInt(fields[2]) > Calendar.getInstance().get(Calendar.YEAR)
+					|| Integer.parseInt(fields[2]) <= 0) {
 				throw new WrongDataException();
 			}
 		}
 		
-		if (fields[5].getText().length() != 0) {
-			if (Double.parseDouble(fields[5].getText()) < 0) {
+		if (fields[5].length() != 0) {
+			if (Double.parseDouble(fields[5]) < 0) {
 				throw new WrongDataException();
 			}
 		}
 		
-		if (fields[6].getText().length() != 0) {
-			if (Integer.parseInt(fields[6].getText()) < 0) {
+		if (fields[6].length() != 0) {
+			if (Integer.parseInt(fields[6]) < 0) {
 				throw new WrongDataException();
 			}
 		}
 		
-		if (fields[7].getText().length() != 0) {
-			if (Integer.parseInt(fields[7].getText()) < 0) {
+		if (fields[7].length() != 0) {
+			if (Integer.parseInt(fields[7]) < 0) {
 				throw new WrongDataException();
 			}
 		}
 		
 		
-		if (fields[4].getText().length() != 13 && fields[4].getText().length() != 0) {
+		if (fields[4].length() != 13 && fields[4].length() != 0) {
 			throw new WrongDataException();
 		}
 	}

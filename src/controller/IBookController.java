@@ -2,8 +2,6 @@ package controller;
 
 import java.util.List;
 
-import javax.swing.JTextField;
-
 import model.Libro;
 import utilities.ControllerUtilities.TipoController;
 import exceptions.MissingBookException;
@@ -35,7 +33,7 @@ public interface IBookController {
 	 * @throws MissingDataException if some data is missing
 	 * @throws WrongDataException if some data is wrong
 	 */
-	void setFields(final JTextField... fields) throws MissingDataException, WrongDataException;
+	void setFields(final String... fields) throws MissingDataException, WrongDataException;
 
 	/**
 	 * 
@@ -43,7 +41,7 @@ public interface IBookController {
 	 * @param fields to modify
 	 * @throws WrongDataException if some data is wrong
 	 */
-	void modifyBook(final Libro b, final  JTextField... fields) throws WrongDataException;
+	void modifyBook(final Libro b, final  String... fields) throws WrongDataException;
 	
 	/**
 	 * 
@@ -60,7 +58,7 @@ public interface IBookController {
 	 * @return list of books with the same title
 	 * @throws MissingBookException if the title is not in the library
 	 */
-	List<Libro> searchTitle(final JTextField field) throws MissingBookException;
+	List<Libro> searchTitle(final String field) throws MissingBookException;
 	
 	/**
 	 * 
@@ -68,7 +66,7 @@ public interface IBookController {
 	 * @return list of books with the same author
 	 * @throws MissingBookException if the author is not in the library
 	 */
-	List<Libro> searchAuthor(final JTextField field) throws MissingBookException;
+	List<Libro> searchAuthor(final String field) throws MissingBookException;
 	
 	/**
 	 * 
@@ -76,7 +74,7 @@ public interface IBookController {
 	 * @return list of books with the same author
 	 * @throws MissingBookException if the author is not in the library
 	 */
-	Libro searchBook(final JTextField... fields) throws MissingBookException;
+	Libro searchBook(final String... fields) throws MissingBookException;
 	
 	/**
 	 * 

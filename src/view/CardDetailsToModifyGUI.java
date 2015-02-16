@@ -78,7 +78,7 @@ public class CardDetailsToModifyGUI	extends JDialog {
 			@Override
 			public void actionPerformed(final ActionEvent e) {
 				try {
-					fidcontroller.modifyUser(b, jfields);
+					fidcontroller.modifyUser(b, GUIUtilities.getArray(jfields));
 					JOptionPane.showMessageDialog(main, "L'utente è stato modificato correttamente", "Successo!", JOptionPane.INFORMATION_MESSAGE);
 					final JOptionPane optionPane = (JOptionPane)
 						    SwingUtilities.getAncestorOfClass(JOptionPane.class, conf);

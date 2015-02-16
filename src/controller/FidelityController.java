@@ -2,8 +2,6 @@ package controller;
 
 import java.util.Map;
 
-import javax.swing.JTextField;
-
 import cartasoci.FidelityCards;
 import cartasoci.IFidelityCards;
 import cartasoci.User;
@@ -28,13 +26,13 @@ public class FidelityController implements IFidelityController {
 	 * @throws MissingDataException if some data is missing
 	 * @throws WrongDataException if some data is wrong
 	 */
-	public void addPerson(final JTextField... fields) throws
+	public void addPerson(final String... fields) throws
 			UserAlreadyExisting, MissingDataException, WrongDataException {
 
 		checkEmpty(fields);
 		checkData(fields);
 		
-		final User user = new User(fields[0].getText(), fields[1].getText(), fields[2].getText());
+		final User user = new User(fields[0], fields[1], fields[2]);
 		cards.addPerson(user);	
 	}
 
@@ -45,10 +43,10 @@ public class FidelityController implements IFidelityController {
 	 * @throws IllegalArgumentException if there are illegal argument
 	 * @throws MissingUserException if the user is not in the map
 	 */
-	public void removePerson(final JTextField id) throws NullPointerException,
+	public void removePerson(final String id) throws NullPointerException,
 			IllegalArgumentException, MissingUserException {
 		
-		cards.removePerson(Integer.parseInt(id.getText()));
+		cards.removePerson(Integer.parseInt(id));
 	}
 
 	/**
@@ -59,10 +57,10 @@ public class FidelityController implements IFidelityController {
 	 * @throws IllegalArgumentException if there are illegal argument
 	 * @throws MissingUserException if the user is not in the map
 	 */
-	public void addPoints(final JTextField[] fields, final double price) throws NullPointerException, 
+	public void addPoints(final String[] fields, final double price) throws NullPointerException, 
 		IllegalArgumentException, MissingUserException {
 		
-		final Integer copies = Integer.parseInt(fields[2].getText());
+		final Integer copies = Integer.parseInt(fields[2]);
 		final int tot = (int) ((copies * price) / 10);
 		
 		cards.addPoints(this.searchID(fields[3]), tot);
@@ -76,10 +74,10 @@ public class FidelityController implements IFidelityController {
 	 * @throws IllegalArgumentException if there are illegal argument
 	 * @throws MissingUserException if the user is not in the map
 	 */
-	public User searchID(final JTextField fields) throws NullPointerException,
+	public User searchID(final String fields) throws NullPointerException,
 			IllegalArgumentException, MissingUserException {
 
-		return cards.searchID(Integer.parseInt(fields.getText()));
+		return cards.searchID(Integer.parseInt(fields));
 	}
 
 	/**
@@ -91,9 +89,9 @@ public class FidelityController implements IFidelityController {
 	 * @throws IllegalArgumentException 
 	 * @throws MissingUserException if the user is not in the map
 	 */
-	public User searchName(final JTextField name, final JTextField surname) throws NullPointerException,
+	public User searchName(final String name, final String surname) throws NullPointerException,
 			IllegalArgumentException, MissingUserException {
-		return cards.searchName(name.getText(), surname.getText());
+		return cards.searchName(name, surname);
 	}
 
 	/**
@@ -120,10 +118,10 @@ public class FidelityController implements IFidelityController {
 		cards.loadMemory(map);
 	}
 	
-	private void checkData(final JTextField... fields) throws WrongDataException {
+	private void checkData(final String... fields) throws WrongDataException {
 
-		if (fields[2].getText().length() != 0) {
-			if (!fields[2].getText().contains("@")) {
+		if (fields[2].length() != 0) {
+			if (!fields[2].contains("@")) {
 				throw new WrongDataException();
 			}			
 		}
@@ -131,10 +129,10 @@ public class FidelityController implements IFidelityController {
 		
 	}
 	
-	private void checkEmpty(final JTextField... fields) throws MissingDataException { 
+	private void checkEmpty(final String... fields) throws MissingDataException { 
 		
 		for (int i = 0; i < fields.length; i++) {
-			if (fields[i].getText().length() == 0) {
+			if (fields[i].length() == 0) {
 				throw new MissingDataException();
 			}
 		}
@@ -147,15 +145,11 @@ public class FidelityController implements IFidelityController {
 	 * @param jfields the fields to modify
 	 * @throws WrongDataException if some data is wrong
 	 */
-	public void modifyUser(final User b, final JTextField... jfields) throws WrongDataException {
+	public void modifyUser(final User b, final String... jfields) throws WrongDataException {
 		
 			checkData(jfields);		
-			String[] datas = new String[jfields.length];		
-			for (int i = 0; i < jfields.length; i++) {
-				datas[i] = jfields[i].getText();
-			}	
-		
-			cards.modifyPerson(b, datas);
+	
+			cards.modifyPerson(b, jfields);
 		}	
 	}
 	

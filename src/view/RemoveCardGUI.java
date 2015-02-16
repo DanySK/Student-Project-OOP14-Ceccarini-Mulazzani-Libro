@@ -62,7 +62,7 @@ public class RemoveCardGUI {
 			@Override
 			public void actionPerformed(final ActionEvent arg0) {
 				try {
-					fidcontroller.removePerson(fields[0]);
+					fidcontroller.removePerson(fields[0].getText());
 					JOptionPane.showMessageDialog(main, "La carta è stata eliminata con successo", "Successo!!", JOptionPane.INFORMATION_MESSAGE);
 					final JOptionPane optionPane = (JOptionPane)
 						    SwingUtilities.getAncestorOfClass(JOptionPane.class, conf);

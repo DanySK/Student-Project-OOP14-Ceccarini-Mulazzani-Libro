@@ -70,7 +70,7 @@ public class AddBookGUI extends JDialog {
 			public void actionPerformed(final ActionEvent e) {
 				dispose();
 				try {
-					controller.setFields(fields);
+					controller.setFields(GUIUtilities.getArray(fields));
 
 					JOptionPane.showMessageDialog(main, "Il libro è stato inserito correttamente", "Successo!", JOptionPane.INFORMATION_MESSAGE);
 					controller.addBook();

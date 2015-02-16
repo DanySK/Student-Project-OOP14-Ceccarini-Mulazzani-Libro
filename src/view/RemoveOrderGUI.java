@@ -67,7 +67,7 @@ public class RemoveOrderGUI extends JDialog {
 			@Override
 			public void actionPerformed(final ActionEvent e) {
 				try {
-					final Libro lib = controller.searchBook(fields);
+					final Libro lib = controller.searchBook(GUIUtilities.getArray(fields));
 					controller.remove(lib);
 					JOptionPane.showMessageDialog(main, "Ordine rimosso correttamente!", "Successo!", JOptionPane.INFORMATION_MESSAGE);
 					final JOptionPane optionPane = (JOptionPane)

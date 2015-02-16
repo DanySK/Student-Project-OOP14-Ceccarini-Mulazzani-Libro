@@ -72,7 +72,7 @@ public class AddPersonGUI {
 			public void actionPerformed(final ActionEvent e) {
 				try {
 	
-					fidcontroller.addPerson(fields);
+					fidcontroller.addPerson(GUIUtilities.getArray(fields));
 					JOptionPane.showMessageDialog(main, "La carta è stata creata con successo, il suo ID è " + fidcontroller.getCurrent(), "Successo!", JOptionPane.INFORMATION_MESSAGE);
 					
 					final JOptionPane optionPane = (JOptionPane)

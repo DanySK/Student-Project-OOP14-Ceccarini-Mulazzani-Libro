@@ -159,6 +159,22 @@ public final class GUIUtilities {
 		panel.add(component);
 		return panel;
 	}
+	/**
+	 * 
+	 * @param fields are the JTextField of the GUI
+	 * @return an array with the Text of the fields;
+	 */
+	public static String[] getArray(final JTextField... fields) {
+		String[] string = new String[fields.length];
+		
+		for (int i = 0; i < fields.length; i++) {
+			string[i] = fields[i].getText();
+		}
+		
+		
+		return string;
+		
+	}
 	
 	
 }

@@ -2,8 +2,6 @@ package controller;
 
 import java.util.Map;
 
-import javax.swing.JTextField;
-
 import cartasoci.User;
 import exceptions.MissingDataException;
 import exceptions.MissingUserException;
@@ -24,7 +22,7 @@ public interface IFidelityController {
 	 * @throws MissingDataException if some data is missing
 	 * @throws WrongDataException if some data is wrong
 	 */
-	void addPerson(final JTextField... fields) throws
+	void addPerson(final String... fields) throws
 	UserAlreadyExisting, MissingDataException, WrongDataException;
 	
 	/**
@@ -34,7 +32,7 @@ public interface IFidelityController {
 	 * @throws IllegalArgumentException if there are illegal argument
 	 * @throws MissingUserException if the user is not in the map
 	 */
-	void removePerson(final JTextField id) throws NullPointerException,
+	void removePerson(final String id) throws NullPointerException,
 	IllegalArgumentException, MissingUserException;
 
 	/**
@@ -45,7 +43,7 @@ public interface IFidelityController {
 	 * @throws IllegalArgumentException if there are illegal argument
 	 * @throws MissingUserException if the user is not in the map
 	 */
-	void addPoints(final JTextField[] fields, final double price) throws NullPointerException, IllegalArgumentException, MissingUserException;
+	void addPoints(final String[] fields, final double price) throws NullPointerException, IllegalArgumentException, MissingUserException;
 
 	/**
 	 * 
@@ -55,7 +53,7 @@ public interface IFidelityController {
 	 * @throws IllegalArgumentException if there are illegal argument
 	 * @throws MissingUserException if the user is not in the map
 	 */
-	User searchID(final JTextField fields) throws NullPointerException,
+	User searchID(final String fields) throws NullPointerException,
 	IllegalArgumentException, MissingUserException;
 
 	/**
@@ -67,7 +65,7 @@ public interface IFidelityController {
 	 * @throws IllegalArgumentException 
 	 * @throws MissingUserException if the user is not in the map
 	 */
-	User searchName(final JTextField name, final JTextField surname) throws NullPointerException,
+	User searchName(final String name, final String surname) throws NullPointerException,
 	IllegalArgumentException, MissingUserException;
 
 	/**
@@ -94,7 +92,7 @@ public interface IFidelityController {
 	 * @param jfields the fields to modify
 	 * @throws WrongDataException if some data is wrong
 	 */
-	void modifyUser(final User b, final JTextField... jfields) throws WrongDataException;
+	void modifyUser(final User b, final String... jfields) throws WrongDataException;
 
 
 }
