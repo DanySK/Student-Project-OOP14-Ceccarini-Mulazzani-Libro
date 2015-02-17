@@ -1,14 +1,12 @@
 package model;
 
 import java.io.Serializable;
-
 /**
  * 
  * @author Chiara Ceccarini
  *
  */
-
-public class Libro implements Serializable {
+public class Libro implements Serializable, ILibro {
 	
 	/**
 	 * 
@@ -52,13 +50,10 @@ public class Libro implements Serializable {
 					this.copy = Integer.parseInt(fields[i]);
 					break;
 				default:
-					break;
-							
+					break;		
 					}									
 			}
-	
-	}
-	
+	}	
 	/**
 	 * 
 	 * @return the Title of the book
@@ -66,7 +61,6 @@ public class Libro implements Serializable {
 	public String getTitle() {
 		return this.title;
 	}
-	
 	/**
 	 * 
 	 * @return the author of the book 
@@ -74,7 +68,6 @@ public class Libro implements Serializable {
 	public String getAuthor() {
 		return this.author;
 	}
-	
 	/**
 	 * 
 	 * @return the year of the book
@@ -82,7 +75,6 @@ public class Libro implements Serializable {
 	public int getYear() {
 		return this.year;
 	}
-	
 	/**
 	 * 
 	 * @return the Editor of the book
@@ -90,7 +82,6 @@ public class Libro implements Serializable {
 	public String getEditor() {
 		return this.editor;
 	}
-	
 	/**
 	 * 
 	 * @return the ISBN of the book
@@ -98,7 +89,6 @@ public class Libro implements Serializable {
 	public String getISBN() {
 		return this.isbn;
 	}
-	
 	/**
 	 * 
 	 * @return the price of the book
@@ -106,7 +96,6 @@ public class Libro implements Serializable {
 	public double getPrice() {
 		return this.price;
 	}
-	
 	/**
 	 * 
 	 * @return the number of sales
@@ -114,7 +103,6 @@ public class Libro implements Serializable {
 	public int getNSales() {
 		return this.sold;
 	}
-	
 	/**
 	 * 
 	 * @return the number of copies
@@ -122,7 +110,6 @@ public class Libro implements Serializable {
 	public int getNCopy() {
 		return this.copy;
 	}
-	
 	/**
 	 * 
 	 * @param ntitle is the title to set
@@ -130,7 +117,6 @@ public class Libro implements Serializable {
 	public void setTitle(final String ntitle) {
 		this.title = ntitle;	
 	}
-	
 	/**
 	 * 
 	 * @param nauthor is the author to set
@@ -138,7 +124,6 @@ public class Libro implements Serializable {
 	public void setAuthor(final String nauthor) {
 		this.author = nauthor;
 	}
-	
 	/**
 	 * 
 	 * @param nyear is the new year to set
@@ -146,7 +131,6 @@ public class Libro implements Serializable {
 	public void setYear(final int nyear) {
 		this.year = nyear;
 	}
-	
 	/**
 	 * 
 	 * @param neditor is the new name of the editor
@@ -154,7 +138,6 @@ public class Libro implements Serializable {
 	public void setEditor(final String neditor) {
 		this.editor = neditor;
 	}
-	
 	/**
 	 * 
 	 * @param nisbn is the isbn to set
@@ -162,7 +145,6 @@ public class Libro implements Serializable {
 	public void setISBN(final String nisbn) {
 		this.isbn = nisbn;
 	}
-	
 	/**
 	 * 
 	 * @param nprice is the price to set
@@ -170,7 +152,6 @@ public class Libro implements Serializable {
 	public void setPrice(final double nprice) {
 		this.price = nprice;
 	}
-	
 	/**
 	 * 
 	 * @param ncopy are the starting copies of the book
@@ -178,7 +159,6 @@ public class Libro implements Serializable {
 	public void setNCopy(final int ncopy) {
 		this.copy = ncopy;
 	}
-	
 	/**
 	 * 
 	 * @param ncopy is the number of copies to add
@@ -186,7 +166,6 @@ public class Libro implements Serializable {
 	public void addCopy(final int ncopy) {
 		this.copy += ncopy;
 	}
-	
 	/**
 	 * 
 	 * @param ncopy is the number of copies to sell
@@ -195,7 +174,6 @@ public class Libro implements Serializable {
 		this.copy -= ncopy;
 		this.sold += ncopy;
 	}
-	
 	/**
 	 * 
 	 * @return the fields of the book
@@ -212,7 +190,6 @@ public class Libro implements Serializable {
 		str[7] = "" + this.sold;		
 		return str;
 	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -228,8 +205,7 @@ public class Libro implements Serializable {
 		result = prime * result + ((title == null) ? 0 : title.hashCode());
 		result = prime * result + year;
 		return result;
-	}
-
+	} 
 	@Override
 	public boolean equals(final Object obj) {
 		if (this == obj) {
@@ -285,5 +261,4 @@ public class Libro implements Serializable {
 		}
 		return true;
 	}
-
 }
