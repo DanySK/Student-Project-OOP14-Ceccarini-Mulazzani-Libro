@@ -37,7 +37,6 @@ public class BasicOperations implements IBasicOp {
 	 * @param fields to modify
 	 */
 	public void modifyBook(final Libro book, final String... fields) {
-		//final Libro book = searchBook(title, author);
 		for (int i = 0; i < fields.length; i++) {
 			if (!fields[i].isEmpty()) {
 				switch (i) {
