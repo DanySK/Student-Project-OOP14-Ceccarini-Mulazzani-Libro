@@ -647,8 +647,8 @@
                         <constraint>
                           <height>-1</height>
                           <width>-1</width>
-                          <x>830</x>
-                          <y>394</y>
+                          <x>770</x>
+                          <y>393</y>
                         </constraint>
                         <sourceConnections>
                           <net.java.amateras.uml.classdiagram.model.CompositeModel reference="../../.."/>
