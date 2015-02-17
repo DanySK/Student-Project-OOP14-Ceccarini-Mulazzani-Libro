@@ -6,7 +6,7 @@ import java.io.Serializable;
  * @author Chiara Ceccarini
  *
  */
-public class Libro implements Serializable, ILibro {
+public class Libro implements Serializable {
 	
 	/**
 	 * 
