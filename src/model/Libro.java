@@ -206,7 +206,38 @@ public class Libro implements Serializable {
 		result = prime * result + year;
 		return result;
 	} 
+	
+	
+	
+	
+	
+	
 	@Override
+/*	public boolean equals(final Object b) {
+		
+		if (this == b) {
+			return true;
+		}
+		
+		if (b == null) {
+			return false;
+		}
+		
+		final Libro lib = (Libro) b;
+		final String[] fields = lib.getFields();
+		
+		
+		
+		for (int i = 0; i < fields.length; i++) {
+			if (!fields[i].equals(this.getFields()[i])) {
+				return false;
+			}
+		}
+		
+		
+		return true;
+		
+	}*/
 	public boolean equals(final Object obj) {
 		if (this == obj) {
 			return true;

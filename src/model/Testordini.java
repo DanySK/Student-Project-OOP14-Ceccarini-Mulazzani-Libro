@@ -51,7 +51,7 @@ public class Testordini {
 		//ho modificato l'anno, che è quindi diverso dal libro con i fields iniziali
 		assertNotSame(ord.bookList().get(0).getYear(), bprova.getYear());
 		//cambiando il libro all'interno di ord cambio anche il libro di partenza
-		assertSame(ord.bookList().get(0).getYear(), book.getYear());
+		assertEquals(ord.bookList().get(0).getYear(), book.getYear());
 		
 		//evado gli ordini
 		ord.evasioneOrdini();

@@ -3,7 +3,6 @@ package model;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
@@ -66,7 +65,6 @@ public class TestMagazzino {
 		assertEquals(lib.bookList().get(0).getYear(), book.getYear());
 		
 		
-		
 		//TEST STATISTICHE
 		
 		final IStatistics statistics = new Statistics();
@@ -94,11 +92,12 @@ public class TestMagazzino {
 		
 		
 		//il totale speso è la spesa dopo aver comprato i libri sia negozio sia venduti
-		assertSame(earnings.totSpent(lib.bookList()), tot);
+	//	System.out.println(""+ earnings.totSpent(lib.bookList()));
+		assertEquals(earnings.totSpent(lib.bookList()), tot, 0.01);
 		// il totale venduto è uguale alle copie vendute per il loro prezzo
-		assertSame(earnings.totSell(lib.bookList()), sell);
+		assertEquals(earnings.totSell(lib.bookList()), sell, 0.01);
 		//il ricavo è dato dal guadagno-il totale speso
-		assertSame(earnings.totEarnings(lib.bookList()), sell - tot);
+		assertEquals(earnings.totEarnings(lib.bookList()), sell - tot, 0.01);
 	}
 
 }
