@@ -6,34 +6,64 @@ package utilities;
  *@param <Y>
  *@param <X>
  */
-public class Pair<X,Y> {
+public class Pair<X, Y> {
+    /**
+     * first element of the pair.
+     */
+    private X first;
+    /**
+     * second element of the pair.
+     */
+    private Y second;
     
-    public X first;
-    public Y second;
-    
-    public Pair(final X first,final Y second){
-    	this.first = first;
-    	this.second = second;
+    /**
+     * 
+     * @param nfirst is the first element
+     * @param nsecond is the second element
+     */
+    public Pair(final X nfirst, final Y nsecond) {
+    	this.first = nfirst;
+    	this.second = nsecond;
     }
     
-    public X getFirst(){
+    /**
+     * 
+     * @return the first element of the pair
+     */
+    public X getFirst() {
     	return this.first;
     }
     
-    public Y getSecond(){
+    /**
+     * 
+     * @return the second element of the pair
+     */
+    public Y getSecond() {
     	return this.second;
     }
     
-    public void setFirst(final X first) {
-		this.first = first;
+    /**
+     * 
+     * @param nfirst to set as first element
+     */
+    public void setFirst(final X nfirst) {
+		this.first = nfirst;
 	}
 
-	public void setSecond(final Y second) {
-		this.second = second;
+    /**
+     * 
+     * @param nsecond to set as first element
+     */
+	public void setSecond(final Y nsecond) {
+		this.second = nsecond;
 	}
 
-	public String toString(){
-    	return "<"+this.first+","+this.second+">";
+	/**
+	 * 
+	 * @return the pair as a String
+	 */
+	public String toString() {
+    	return "<" + this.first + ", " + this.second + ">";
     }
 
 	@Override
@@ -57,7 +87,7 @@ public class Pair<X,Y> {
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		final Pair <X,Y> other = (Pair <X,Y>) obj;
+		final Pair <X, Y> other = (Pair <X, Y>) obj;
 		if (first == null) {
 			if (other.first != null) {
 				return false;
