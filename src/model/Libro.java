@@ -206,15 +206,10 @@ public class Libro implements Serializable {
 		result = prime * result + year;
 		return result;
 	} 
-	
-	
-	
-	
-	
+
 	
 	@Override
-/*	public boolean equals(final Object b) {
-		
+	public boolean equals(final Object b) {
 		if (this == b) {
 			return true;
 		}
@@ -225,70 +220,11 @@ public class Libro implements Serializable {
 		
 		final Libro lib = (Libro) b;
 		final String[] fields = lib.getFields();
-		
-		
-		
+
 		for (int i = 0; i < fields.length; i++) {
 			if (!fields[i].equals(this.getFields()[i])) {
 				return false;
 			}
-		}
-		
-		
-		return true;
-		
-	}*/
-	public boolean equals(final Object obj) {
-		if (this == obj) {
-			return true;
-		}
-		if (obj == null) {
-			return false;
-		}
-		if (getClass() != obj.getClass()) {
-			return false;
-		}
-		final Libro other = (Libro) obj;
-		if (author == null) {
-			if (other.author != null) {
-				return false;
-			}
-		} else if (!author.equals(other.author)) {
-			return false;
-		}
-		if (copy != other.copy) {
-			return false;
-		}
-		if (editor == null) {
-			if (other.editor != null) {
-				return false;
-			}
-		} else if (!editor.equals(other.editor)) {
-			return false;
-		}
-		if (isbn == null) {
-			if (other.isbn != null) {
-				return false;
-			}
-		} else if (!isbn.equals(other.isbn)) {
-			return false;
-		}
-		if (Double.doubleToLongBits(price) != Double
-				.doubleToLongBits(other.price)) {
-			return false;
-		}
-		if (sold != other.sold) {
-			return false;
-		}
-		if (title == null) {
-			if (other.title != null) {
-				return false;
-			}
-		} else if (!title.equals(other.title)) {
-			return false;
-		}
-		if (year != other.year) {
-			return false;
 		}
 		return true;
 	}
