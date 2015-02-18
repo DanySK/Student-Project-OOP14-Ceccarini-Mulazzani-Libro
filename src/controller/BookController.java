@@ -18,12 +18,14 @@ import exceptions.WrongDataException;
  * @author Alberto Mulazzani
  *
  */
-public class BookController implements IBookController {
+public final class BookController implements IBookController {
 	
 	private Libro book;
 	private final IBookManagement magazzino = new BookManagement();
 	private final IOrdini ordini = new Ordini();
 	private TipoController type = TipoController.MAGAZZINO;
+	
+	
 	
 	/**
 	 * 
@@ -230,5 +232,4 @@ public class BookController implements IBookController {
 		}
 		
 	}
-	
 }

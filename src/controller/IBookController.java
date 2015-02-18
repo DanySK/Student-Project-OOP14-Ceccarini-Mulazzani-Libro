@@ -99,6 +99,8 @@ public interface IBookController {
 	 * @param list of books to load
 	 */
 	void loadMemory(final List<Libro> list);
-
-	
+	/**
+	 * 
+	 * @return the Controller
+	 */	
 }
