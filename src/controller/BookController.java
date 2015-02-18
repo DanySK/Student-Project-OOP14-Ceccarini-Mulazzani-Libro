@@ -59,10 +59,8 @@ public final class BookController implements IBookController {
 	 */
 	public void addBook() {
 		if (type.equals(TipoController.MAGAZZINO)) {
-			System.out.println("Magaz");
 			magazzino.addBook(book);
 		} else {
-			System.out.println("Ordz");
 			ordini.addBook(book);
 
 		}
