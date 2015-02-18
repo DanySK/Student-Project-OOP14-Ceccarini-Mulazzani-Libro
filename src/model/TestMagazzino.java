@@ -60,7 +60,7 @@ public class TestMagazzino {
 		//modifico i campi del libro all'interno della libreria
 		lib.modifyBook(book, fields2);
 		//ho modificato l'anno, che è quindi diverso dal libro con i fields iniziali
-		assertEquals(lib.bookList().get(0).getYear(), bprova.getYear());
+		assertTrue(lib.bookList().get(0).getYear() != bprova.getYear());
 		//cambiando il libro all'interno di lib cambio anche il libro di partenza
 		assertEquals(lib.bookList().get(0).getYear(), book.getYear());
 		
@@ -92,7 +92,6 @@ public class TestMagazzino {
 		
 		
 		//il totale speso è la spesa dopo aver comprato i libri sia negozio sia venduti
-	//	System.out.println(""+ earnings.totSpent(lib.bookList()));
 		assertEquals(earnings.totSpent(lib.bookList()), tot, 0.01);
 		// il totale venduto è uguale alle copie vendute per il loro prezzo
 		assertEquals(earnings.totSell(lib.bookList()), sell, 0.01);
