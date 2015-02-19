@@ -14,6 +14,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
 import utilities.GUIUtilities;
+import controller.FidelityController;
 import controller.IFidelityController;
 import exceptions.MissingDataException;
 import exceptions.UserAlreadyExisting;
@@ -34,8 +35,9 @@ public class AddPersonGUI {
 	 * 
 	 * @param fidcontroller is the FidelityController
 	 */
-	public AddPersonGUI(final IFidelityController fidcontroller) {
+	public AddPersonGUI(/*final IFidelityController fidcontroller*/) {
 		
+		IFidelityController fidcontroller = FidelityController.getIstance();
 		
 		main.setLayout(new BorderLayout());		
 		main.setLayout(new BorderLayout());

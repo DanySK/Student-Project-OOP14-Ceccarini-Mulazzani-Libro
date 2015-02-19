@@ -11,9 +11,14 @@ import model.Libro;
  * @author Chiara Ceccarini
  *
  */
-public class EarningsController implements IEarnings {
+public class EarningsController implements IEarningsController {
 	
-	private final Earnings earnings = new Earnings();
+	private final IEarnings earnings = new Earnings();
+	private final static IEarningsController CONTROLLER = new EarningsController();
+	
+	private EarningsController(){
+		
+	}
 	
 	/**
 	 * 
@@ -58,6 +63,14 @@ public class EarningsController implements IEarnings {
 	 */
 	public double totEarnings(final List <Libro> list) {
 		return earnings.totSell(list) - earnings.totSpent(list);
+	}
+	
+	/**
+	 * 
+	 * @return the controller
+	 */
+	public static IEarningsController getIstance() {
+		return CONTROLLER;
 	}
 	
 	

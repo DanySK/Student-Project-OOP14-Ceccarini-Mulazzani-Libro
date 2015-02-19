@@ -16,6 +16,7 @@ import javax.swing.SwingUtilities;
 
 import utilities.GUIUtilities;
 import cartasoci.User;
+import controller.FidelityController;
 import controller.IFidelityController;
 import exceptions.WrongDataException;
 /**
@@ -38,7 +39,10 @@ public class CardDetailsToModifyGUI	extends JDialog {
 	 * @param fidcontroller is the FidelityController
 	 * @param b is the user to modify
 	 */
-	public CardDetailsToModifyGUI(final IFidelityController fidcontroller, final User b) {
+	public CardDetailsToModifyGUI(/*final IFidelityController fidcontroller*/ final User b) {
+		
+		
+		IFidelityController fidcontroller = FidelityController.getIstance();
 		
 		main.setLayout(new BorderLayout());
 		

@@ -15,9 +15,14 @@ import exceptions.WrongDataException;
  * @author Alberto Mulazzani
  *
  */
-public class FidelityController implements IFidelityController {
+public final class FidelityController implements IFidelityController {
 	
 	private final IFidelityCards cards = new FidelityCards();
+	private static final IFidelityController CONTROLLER = new FidelityController();
+	
+	private FidelityController() {
+		
+	}
 	
 	/**
 	 * 
@@ -151,6 +156,15 @@ public class FidelityController implements IFidelityController {
 	
 			cards.modifyPerson(b, jfields);
 		}	
+	/**
+	 * 
+	 * @return the controller
+	 */
+	public static IFidelityController getIstance() {
+		return CONTROLLER;
 	}
+}
+
+
 	
 

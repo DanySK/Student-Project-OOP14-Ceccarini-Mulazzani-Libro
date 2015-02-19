@@ -62,7 +62,7 @@ public class FidelityCardGUI {
 			public void actionPerformed(final ActionEvent e) {
 				
 				
-				JOptionPane.showOptionDialog(main, new AddPersonGUI(fidcontroller).getPane() , "Aggiungi una carta", JOptionPane.DEFAULT_OPTION, 
+				JOptionPane.showOptionDialog(main, new AddPersonGUI().getPane() , "Aggiungi una carta", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.STRING, null);
 			
 			}
@@ -90,7 +90,7 @@ public class FidelityCardGUI {
 			public void actionPerformed(final ActionEvent e) {
 				
 				
-				JOptionPane.showOptionDialog(main, new ModifyCardGUI(fidcontroller).getPane() , "Modifica una carta", JOptionPane.DEFAULT_OPTION, 
+				JOptionPane.showOptionDialog(main, new ModifyCardGUI().getPane() , "Modifica una carta", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.STRING, null);
 			
 			}

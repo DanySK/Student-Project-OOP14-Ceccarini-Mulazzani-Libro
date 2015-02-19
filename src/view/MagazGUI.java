@@ -78,7 +78,7 @@ public class MagazGUI {
 			public void actionPerformed(final ActionEvent e) {
 				
 				controller.setType(TipoController.MAGAZZINO);
-				JOptionPane.showOptionDialog(jf, new AddBookGUI(controller).getPane() , "Aggiungi un libro", JOptionPane.DEFAULT_OPTION, 
+				JOptionPane.showOptionDialog(jf, new AddBookGUI().getPane() , "Aggiungi un libro", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.STRING, null);
 			
 			}
@@ -106,7 +106,7 @@ public class MagazGUI {
 			public void actionPerformed(final ActionEvent e) {
 				
 				controller.setType(TipoController.MAGAZZINO);
-				JOptionPane.showOptionDialog(jf, new ModifyBookGUI(controller).getPane() , "Modifica un libro", JOptionPane.DEFAULT_OPTION, 
+				JOptionPane.showOptionDialog(jf, new ModifyBookGUI().getPane() , "Modifica un libro", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.STRING, null);
 			
 			}

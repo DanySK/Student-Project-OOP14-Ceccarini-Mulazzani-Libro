@@ -65,7 +65,7 @@ public class OrdGUI {
 			public void actionPerformed(final ActionEvent e) {
 				
 				controller.setType(TipoController.ORDINI);	
-				JOptionPane.showOptionDialog(main, new AddBookGUI(controller).getPane() , "Aggiungi un ordine", JOptionPane.DEFAULT_OPTION, 
+				JOptionPane.showOptionDialog(main, new AddBookGUI().getPane() , "Aggiungi un ordine", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.STRING, null);
 			
 			}

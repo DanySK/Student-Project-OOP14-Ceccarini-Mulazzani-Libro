@@ -14,6 +14,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
 import utilities.GUIUtilities;
+import controller.FidelityController;
 import controller.IFidelityController;
 import exceptions.MissingUserException;
 /**
@@ -33,7 +34,10 @@ public class ModifyCardGUI {
 	 * 
 	 * @param fidcontroller is the FidelityController
 	 */
-	public ModifyCardGUI(final IFidelityController fidcontroller) {
+	public ModifyCardGUI(/*final IFidelityController fidcontroller*/) {
+		
+		
+		final IFidelityController fidcontroller = FidelityController.getIstance();
 		
 		main.setLayout(new BorderLayout());
 		
@@ -64,7 +68,7 @@ public class ModifyCardGUI {
 			@Override
 			public void actionPerformed(final ActionEvent arg0) {
 				try {
-					JOptionPane.showOptionDialog(main, new CardDetailsToModifyGUI(fidcontroller, fidcontroller.searchID(fields[0].getText())).getPane() , "Modifica libro", JOptionPane.DEFAULT_OPTION, 
+					JOptionPane.showOptionDialog(main, new CardDetailsToModifyGUI(fidcontroller.searchID(fields[0].getText())).getPane() , "Modifica libro", JOptionPane.DEFAULT_OPTION, 
 					         JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.STRING, null);
 					final JOptionPane optionPane = (JOptionPane)
 						    SwingUtilities.getAncestorOfClass(JOptionPane.class, conf);

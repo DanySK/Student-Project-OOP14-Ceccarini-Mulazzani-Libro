@@ -14,6 +14,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
 import utilities.GUIUtilities;
+import controller.BookController;
 import controller.IBookController;
 import exceptions.MissingBookException;
 /**
@@ -34,7 +35,10 @@ public class ModifyBookGUI {
 	 * 
 	 * @param controller is the BookController
 	 */
-	public ModifyBookGUI(final IBookController controller) {
+	public ModifyBookGUI(/*final IBookController controller*/) {
+		
+		
+		final IBookController controller = BookController.getIstance();
 		
 		main.setLayout(new BorderLayout());
 		
@@ -65,7 +69,7 @@ public class ModifyBookGUI {
 			@Override
 			public void actionPerformed(final ActionEvent arg0) {
 				try {
-					JOptionPane.showOptionDialog(main, new DetailsToModifyGUI(controller, controller.searchBook(GUIUtilities.getArray(fields))).getPane() , "Modifica libro", JOptionPane.DEFAULT_OPTION, 
+					JOptionPane.showOptionDialog(main, new DetailsToModifyGUI(controller.searchBook(GUIUtilities.getArray(fields))).getPane() , "Modifica libro", JOptionPane.DEFAULT_OPTION, 
 					         JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.STRING, null);
 					final JOptionPane optionPane = (JOptionPane)
 						    SwingUtilities.getAncestorOfClass(JOptionPane.class, conf);

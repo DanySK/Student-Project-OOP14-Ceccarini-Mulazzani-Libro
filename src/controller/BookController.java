@@ -20,12 +20,15 @@ import exceptions.WrongDataException;
  */
 public final class BookController implements IBookController {
 	
+	private static final IBookController CONTROLLER = new BookController();
 	private Libro book;
 	private final IBookManagement magazzino = new BookManagement();
 	private final IOrdini ordini = new Ordini();
 	private TipoController type = TipoController.MAGAZZINO;
 	
-	
+	private BookController() {
+		super();
+	}
 	
 	/**
 	 * 
@@ -229,5 +232,12 @@ public final class BookController implements IBookController {
 			this.ordini.setList(list);
 		}
 		
+	}
+	/**
+	 * 
+	 * @return the controller
+	 */
+	public static IBookController getIstance() {
+		return CONTROLLER;
 	}
 }

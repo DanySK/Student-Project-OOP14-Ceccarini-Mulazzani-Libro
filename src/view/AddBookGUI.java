@@ -15,6 +15,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
 import utilities.GUIUtilities;
+import controller.BookController;
 import controller.IBookController;
 import exceptions.MissingDataException;
 import exceptions.WrongDataException;
@@ -39,7 +40,10 @@ public class AddBookGUI extends JDialog {
 	 * 
 	 * @param controller is the BookController from the main GUI
 	 */
-	public AddBookGUI(final IBookController controller) {
+	public AddBookGUI(/*final IBookController controller*/) {
+		
+		
+		IBookController controller = BookController.getIstance();
 		
 		main.setLayout(new BorderLayout());
 		
