@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
 import utilities.GUIUtilities;
+import controller.FidelityController;
 import controller.IFidelityController;
 /**
  * 
@@ -27,9 +28,12 @@ public class FidelityCardGUI {
 	private final BackgroundPanel main = new BackgroundPanel(GUIUtilities.getBackground());
 	/**
 	 * 
-	 * @param fidcontroller is the FidelityController
+	 * 
 	 */
-	public FidelityCardGUI(final IFidelityController fidcontroller) {
+	public FidelityCardGUI() {
+		
+		
+		final IFidelityController fidcontroller = FidelityController.getIstance();
 		
 		main.setLayout(new BorderLayout());
 		
@@ -76,7 +80,7 @@ public class FidelityCardGUI {
 			public void actionPerformed(final ActionEvent e) {
 				
 				
-				JOptionPane.showOptionDialog(main, new RemoveCardGUI(fidcontroller).getPane() , "Rimuovi una carta", JOptionPane.DEFAULT_OPTION, 
+				JOptionPane.showOptionDialog(main, new RemoveCardGUI().getPane() , "Rimuovi una carta", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.STRING, null);
 			
 			}
@@ -104,7 +108,7 @@ public class FidelityCardGUI {
 			public void actionPerformed(final ActionEvent e) {
 				
 				
-				JOptionPane.showOptionDialog(main, new SearchCardGUI(fidcontroller).getPane() , "Ricerca una carta", JOptionPane.DEFAULT_OPTION, 
+				JOptionPane.showOptionDialog(main, new SearchCardGUI().getPane() , "Ricerca una carta", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.STRING, null);
 			
 			}

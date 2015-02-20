@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import utilities.GUIUtilities;
+import controller.FidelityController;
 import controller.IFidelityController;
 import exceptions.MissingUserException;
 /**
@@ -32,11 +33,11 @@ public class SearchCardGUI extends JDialog {
 	private final JPanel main = new JPanel();
 	/**
 	 * 
-	 * @param fidcontroller is the FidelityController
+	 * 
 	 */
-	public SearchCardGUI(final IFidelityController fidcontroller) {
+	public SearchCardGUI() {
 		
-		
+		final IFidelityController fidcontroller = FidelityController.getIstance();
 		main.setLayout(new BorderLayout());
 		
 		final JPanel mid = new JPanel(new GridLayout(0, 3));

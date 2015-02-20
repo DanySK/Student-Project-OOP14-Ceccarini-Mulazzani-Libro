@@ -7,9 +7,11 @@ import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import model.IEarnings;
 import utilities.GUIUtilities;
+import controller.BookController;
+import controller.EarningsController;
 import controller.IBookController;
+import controller.IEarningsController;
 /**
  * 
  * @author Alberto Mulazzani
@@ -21,10 +23,14 @@ public class EconomyGUI {
 	private final JPanel main = new JPanel();
 	/**
 	 * 
-	 * @param controller is the BookController
-	 * @param earcontroller is the EarningController
+	 * 
+	 * 
 	 */
-	public EconomyGUI(final IBookController controller, final IEarnings earcontroller) {
+	public EconomyGUI() {
+		
+		final IBookController controller = BookController.getIstance();
+		final IEarningsController earcontroller = EarningsController.getIstance();
+		
 		
 		main.setLayout(new BorderLayout());
 		

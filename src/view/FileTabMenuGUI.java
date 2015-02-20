@@ -25,6 +25,8 @@ import cartasoci.User;
 
 import com.thoughtworks.xstream.XStream;
 
+import controller.BookController;
+import controller.FidelityController;
 import controller.IBookController;
 import controller.IFidelityController;
 /**
@@ -43,12 +45,16 @@ public class FileTabMenuGUI  extends JMenu {
 	/**
 	 * 
 	 * @param frame is the Jframe 
-	 * @param controller is the BookController
-	 * @param fidcontroller is the FidelityController
+	 * 
+	 * 
 	 */
-	public FileTabMenuGUI(final JFrame frame, final IBookController controller, final IFidelityController fidcontroller) {
-	
+	public FileTabMenuGUI(final JFrame frame) {
 		super("File");
+		
+		final IBookController controller = BookController.getIstance();
+		final IFidelityController fidcontroller = FidelityController.getIstance();
+		
+
 		
 		final JMenuItem[] buttons = new JMenuItem[names.length];
 			

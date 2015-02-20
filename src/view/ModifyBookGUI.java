@@ -33,9 +33,9 @@ public class ModifyBookGUI {
 	
 	/**
 	 * 
-	 * @param controller is the BookController
+	 * 
 	 */
-	public ModifyBookGUI(/*final IBookController controller*/) {
+	public ModifyBookGUI() {
 		
 		
 		final IBookController controller = BookController.getIstance();

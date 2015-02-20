@@ -36,10 +36,10 @@ public class CardDetailsToModifyGUI	extends JDialog {
 	
 	/**
 	 * 
-	 * @param fidcontroller is the FidelityController
+	 * 
 	 * @param b is the user to modify
 	 */
-	public CardDetailsToModifyGUI(/*final IFidelityController fidcontroller*/ final User b) {
+	public CardDetailsToModifyGUI(final User b) {
 		
 		
 		IFidelityController fidcontroller = FidelityController.getIstance();

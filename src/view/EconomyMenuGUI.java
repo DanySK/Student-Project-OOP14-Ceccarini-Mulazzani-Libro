@@ -12,9 +12,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
-import model.IEarnings;
 import utilities.GUIUtilities;
-import controller.IBookController;
 /**
  * 
  * @author Alberto Mulazzani
@@ -27,10 +25,10 @@ public class EconomyMenuGUI {
 	
 	/**
 	 * 
-	 * @param controller is the BookController
-	 * @param earcontroller is the EarningsController
+	 *
 	 */
-	public EconomyMenuGUI(final IBookController controller, final IEarnings earcontroller) {
+	public EconomyMenuGUI() {
+		
 		
 		main.setLayout(new BorderLayout());
 		
@@ -57,7 +55,7 @@ public class EconomyMenuGUI {
 			@Override
 			public void actionPerformed(final ActionEvent e) {
 			
-				JOptionPane.showOptionDialog(main, new EconomyGUI(controller, earcontroller).getPane() , "Fatturato e Guadagni", JOptionPane.DEFAULT_OPTION, 
+				JOptionPane.showOptionDialog(main, new EconomyGUI().getPane() , "Fatturato e Guadagni", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.STRING, null);
 			
 			}

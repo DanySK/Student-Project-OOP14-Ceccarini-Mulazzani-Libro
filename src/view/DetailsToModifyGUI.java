@@ -35,11 +35,11 @@ public class DetailsToModifyGUI	extends JDialog {
 	
 	/**
 	 * 
-	 * @param controller is the BookController
+	 * 
 	 * @param b is the Book to modify
 	 */
 	
-	public DetailsToModifyGUI(/*final IBookController controller,*/ final Libro b) {
+	public DetailsToModifyGUI(final Libro b) {
 		
 		
 		final IBookController controller = BookController.getIstance();

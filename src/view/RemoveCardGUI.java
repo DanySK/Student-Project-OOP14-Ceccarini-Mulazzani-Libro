@@ -14,6 +14,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
 import utilities.GUIUtilities;
+import controller.FidelityController;
 import controller.IFidelityController;
 import exceptions.MissingUserException;
 /**
@@ -29,9 +30,11 @@ public class RemoveCardGUI {
 	private final String[] names = {"Identificativo"};
 	/**
 	 * 
-	 * @param fidcontroller is the FidelityController
+	 * 
 	 */
-	public RemoveCardGUI(final IFidelityController fidcontroller) {
+	public RemoveCardGUI() {
+		
+		final IFidelityController fidcontroller = FidelityController.getIstance();
 		
 		main.setLayout(new BorderLayout());
 		

@@ -16,6 +16,8 @@ import javax.swing.SwingUtilities;
 
 import model.Libro;
 import utilities.GUIUtilities;
+import controller.BookController;
+import controller.FidelityController;
 import controller.IBookController;
 import controller.IFidelityController;
 import exceptions.MissingBookException;
@@ -36,10 +38,12 @@ public class SellBookGUI extends JDialog {
 	private	Libro lib;
 	/**
 	 * 
-	 * @param controller is the BookController
-	 * @param fidcontroller is the FidelityController
+	 * 
 	 */
-	public SellBookGUI(final IBookController controller, final IFidelityController fidcontroller) {
+	public SellBookGUI() {
+		
+		final IBookController controller = BookController.getIstance();
+		final IFidelityController fidcontroller = FidelityController.getIstance();
 		
 		main.setLayout(new BorderLayout());
 		

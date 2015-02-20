@@ -32,9 +32,9 @@ public class ModifyCardGUI {
 	private final String[] names = {"Identificativo"};
 	/**
 	 * 
-	 * @param fidcontroller is the FidelityController
+	 * 
 	 */
-	public ModifyCardGUI(/*final IFidelityController fidcontroller*/) {
+	public ModifyCardGUI() {
 		
 		
 		final IFidelityController fidcontroller = FidelityController.getIstance();

@@ -12,10 +12,12 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
-import model.IStatistics;
 import utilities.ControllerUtilities.TipoController;
 import utilities.GUIUtilities;
+import controller.BookController;
 import controller.IBookController;
+import controller.IStatisticsController;
+import controller.StatisticsController;
 /**
  * 
  * @author Alberto Mulazzani
@@ -31,11 +33,13 @@ public class StatisticGUI {
 	
 	/**
 	 * 
-	 * @param controller is the BookController
-	 * @param statcontroller is the StatisticsController
+	 * 
+	 * 
 	 */
-	public StatisticGUI(final IBookController controller, final IStatistics statcontroller) {
-
+	public StatisticGUI() {
+		
+		final IBookController controller = BookController.getIstance();
+		final IStatisticsController statcontroller = StatisticsController.getIstance();
 		
 		main.setLayout(new BorderLayout());
 	    

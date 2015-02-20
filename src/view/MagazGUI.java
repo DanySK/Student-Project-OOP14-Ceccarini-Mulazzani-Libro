@@ -16,8 +16,8 @@ import javax.swing.border.TitledBorder;
 
 import utilities.ControllerUtilities.TipoController;
 import utilities.GUIUtilities;
+import controller.BookController;
 import controller.IBookController;
-import controller.IFidelityController;
 
 /**
  * 
@@ -35,12 +35,11 @@ public class MagazGUI {
 	
 	/**
 	 * 
-	 * @param controller is the BookController
-	 * @param fidcontroller is the FidelityController
+	 * 
 	 */
-	public MagazGUI(final IBookController controller, final IFidelityController fidcontroller) {	
+	public MagazGUI() {	
 		
-	
+		final IBookController controller = BookController.getIstance();
 		jf.setLayout(new BorderLayout());
 	    final Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 	    final int x = (dim.width) / 4;
@@ -92,7 +91,7 @@ public class MagazGUI {
 			public void actionPerformed(final ActionEvent e) {
 
 				controller.setType(TipoController.MAGAZZINO);
-				JOptionPane.showOptionDialog(jf, new SellBookGUI(controller, fidcontroller).getPane() , "Vendi un libro", JOptionPane.DEFAULT_OPTION, 
+				JOptionPane.showOptionDialog(jf, new SellBookGUI().getPane() , "Vendi un libro", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.STRING, null);
 			
 			}
@@ -120,7 +119,7 @@ public class MagazGUI {
 			public void actionPerformed(final ActionEvent e) {
 				
 				controller.setType(TipoController.MAGAZZINO);
-				JOptionPane.showOptionDialog(jf, new SearchBookGUI(controller).getPane() , "Cerca un libro", JOptionPane.DEFAULT_OPTION, 
+				JOptionPane.showOptionDialog(jf, new SearchBookGUI().getPane() , "Cerca un libro", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.STRING, null);
 			
 			}

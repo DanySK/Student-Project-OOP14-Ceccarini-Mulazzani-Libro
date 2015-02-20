@@ -14,6 +14,7 @@ import javax.swing.border.TitledBorder;
 
 import utilities.ControllerUtilities.TipoController;
 import utilities.GUIUtilities;
+import controller.BookController;
 import controller.IBookController;
 import exceptions.MissingBookException;
 /**
@@ -30,10 +31,11 @@ public class OrdGUI {
 	private final BackgroundPanel main = new BackgroundPanel(GUIUtilities.getBackground());
 	/**
 	 * 
-	 * @param controller is the BookController
+	 * 
 	 */
-	public OrdGUI(final IBookController controller) {
+	public OrdGUI() {
 		
+		final IBookController controller = BookController.getIstance();
 		
 		main.setLayout(new BorderLayout());
 	    
@@ -77,7 +79,7 @@ public class OrdGUI {
 			public void actionPerformed(final ActionEvent e) {
 
 				controller.setType(TipoController.ORDINI);	
-				JOptionPane.showOptionDialog(main, new RemoveOrderGUI(controller).getPane() , "Rimuovi un ordine", JOptionPane.DEFAULT_OPTION, 
+				JOptionPane.showOptionDialog(main, new RemoveOrderGUI().getPane() , "Rimuovi un ordine", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.STRING, null);
 			
 			}
@@ -89,7 +91,7 @@ public class OrdGUI {
 			public void actionPerformed(final ActionEvent e) {
 				
 				controller.setType(TipoController.ORDINI);	
-				JOptionPane.showOptionDialog(main, new SearchBookGUI(controller).getPane() , "Modifica un ordine", JOptionPane.DEFAULT_OPTION, 
+				JOptionPane.showOptionDialog(main, new ModifyBookGUI().getPane() , "Modifica un ordine", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.STRING, null);
 			
 			}
@@ -103,7 +105,7 @@ public class OrdGUI {
 			public void actionPerformed(final ActionEvent e) {
 				
 				controller.setType(TipoController.ORDINI);	
-				JOptionPane.showOptionDialog(main, new SearchBookGUI(controller).getPane() , "Cerca un ordine", JOptionPane.DEFAULT_OPTION, 
+				JOptionPane.showOptionDialog(main, new SearchBookGUI().getPane() , "Cerca un ordine", JOptionPane.DEFAULT_OPTION, 
 	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.STRING, null);
 			
 			}

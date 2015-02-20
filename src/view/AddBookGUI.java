@@ -38,9 +38,9 @@ public class AddBookGUI extends JDialog {
 	private final JTextField[] fields = new JTextField[names.length];
 	/**
 	 * 
-	 * @param controller is the BookController from the main GUI
-	 */
-	public AddBookGUI(/*final IBookController controller*/) {
+	 * 
+	 * */
+	public AddBookGUI() {
 		
 		
 		IBookController controller = BookController.getIstance();

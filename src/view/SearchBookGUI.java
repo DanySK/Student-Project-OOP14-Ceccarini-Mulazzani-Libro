@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import utilities.GUIUtilities;
+import controller.BookController;
 import controller.IBookController;
 import exceptions.MissingBookException;
 /**
@@ -35,11 +36,11 @@ public class SearchBookGUI extends JDialog {
 	private final JButton conf = new JButton("Cerca coppia");
 	/**
 	 * 
-	 * @param controller is the BookController
+	 * 
 	 */
-	public SearchBookGUI(final IBookController controller) {
+	public SearchBookGUI() {
 		
-		
+		final IBookController controller = BookController.getIstance();
 		main.setLayout(new BorderLayout());
 		
 		final JPanel mid = new JPanel(new GridLayout(0, 3));

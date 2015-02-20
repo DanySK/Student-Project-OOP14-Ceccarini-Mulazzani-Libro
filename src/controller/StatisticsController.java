@@ -2,19 +2,23 @@ package controller;
 
 import java.util.List;
 
-import utilities.Pair;
-import model.IStatistics;
 import model.Libro;
 import model.Statistics;
+import utilities.Pair;
 
 /**
  * 
  * @author Chiara Ceccarini
  *
  */
-public class StatisticsController implements IStatistics {
+public final class StatisticsController implements IStatisticsController {
 	
 	private final Statistics statistics = new Statistics();
+	private static final IStatisticsController CONTROLLER = new StatisticsController();
+	
+	private StatisticsController() {
+		
+	}
 	
 	/**
 	 * 
@@ -50,6 +54,13 @@ public class StatisticsController implements IStatistics {
 	 */
 	public List <Pair <String, Integer>> lessActiveAuthor(final List <Libro> list) {
 		return statistics.lessActiveAuthor(list);
+	}
+	/**
+	 * 
+	 * @return the StatController
+	 */
+	public static IStatisticsController getIstance() {
+		return CONTROLLER;
 	}
 
 }

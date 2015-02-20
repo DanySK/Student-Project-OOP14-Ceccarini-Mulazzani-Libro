@@ -18,17 +18,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 
-import model.IEarnings;
-import model.IStatistics;
-import utilities.GUIUtilities;
 import utilities.ControllerUtilities.TipoController;
+import utilities.GUIUtilities;
 import controller.BookController;
-import controller.EarningsController;
-import controller.FidelityController;
 import controller.IBookController;
-import controller.IEarningsController;
-import controller.IFidelityController;
-import controller.StatisticsController;
 /**
  * 
  * @author Alberto Mulazzani
@@ -43,9 +36,7 @@ public class Main implements ActionListener {
     private final JButton cartasoci = new JButton("Carta Soci");
     private final JButton statistiche = new JButton("Statistiche");
     private final IBookController controller = BookController.getIstance();
-    private final IEarningsController earcontroller = EarningsController.getIstance();
-    private final IStatistics statcontroller = new StatisticsController();
-    private final IFidelityController fidcontroller = FidelityController.getIstance();
+ 
   /**
    * 
    * @return the CardHolder JPanel
@@ -66,29 +57,29 @@ public class Main implements ActionListener {
     
     private JPanel createEconomyPanel() {
     	
-    	return new	EconomyMenuGUI(controller, earcontroller).getPane();
+    	return new	EconomyMenuGUI().getPane();
     }
     
     private JPanel createStatisticPanel() {
     	
-    	return new StatisticGUI(controller, statcontroller).getPane();
+    	return new StatisticGUI().getPane();
     }
 
     private JPanel createWareHousePanel() {
 
 
-    	return new MagazGUI(controller, fidcontroller).getPane();
+    	return new MagazGUI().getPane();
     }
     
     private JPanel createOrderPanel() {
     	
 
-    	return new OrdGUI(controller).getPane();
+    	return new OrdGUI().getPane();
     }
     
     private JPanel createFidelityPanel() {
     	
-    	return new FidelityCardGUI(fidcontroller).getPane();
+    	return new FidelityCardGUI().getPane();
     }
      
     /**
@@ -128,7 +119,7 @@ public class Main implements ActionListener {
      */
     public JMenuBar createMenuBar(final JFrame frame) {
     	final JMenuBar menuBar = new JMenuBar();
-        menuBar.add(new FileTabMenuGUI(frame, controller, fidcontroller));
+        menuBar.add(new FileTabMenuGUI(frame));
         return menuBar;
     }
 

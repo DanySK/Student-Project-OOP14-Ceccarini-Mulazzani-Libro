@@ -16,6 +16,7 @@ import javax.swing.SwingUtilities;
 
 import model.Libro;
 import utilities.GUIUtilities;
+import controller.BookController;
 import controller.IBookController;
 import exceptions.MissingBookException;
 
@@ -36,9 +37,11 @@ public class RemoveOrderGUI extends JDialog {
 	
 	/**
 	 * 
-	 * @param controller is the BookController
+	 *
 	 */
-	public RemoveOrderGUI(final IBookController controller) {
+	public RemoveOrderGUI() {
+		
+		final IBookController controller = BookController.getIstance();
 		
 		main.setLayout(new BorderLayout());
 		

@@ -33,9 +33,9 @@ public class AddPersonGUI {
 	private final JPanel main = new JPanel();
 	/**
 	 * 
-	 * @param fidcontroller is the FidelityController
+	 * 
 	 */
-	public AddPersonGUI(/*final IFidelityController fidcontroller*/) {
+	public AddPersonGUI() {
 		
 		IFidelityController fidcontroller = FidelityController.getIstance();
 		
