@@ -78,7 +78,7 @@ public class MagazGUI {
 				
 				controller.setType(TipoController.MAGAZZINO);
 				JOptionPane.showOptionDialog(jf, new AddBookGUI().getPane() , "Aggiungi un libro", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.STRING, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.getOptions(), null);
 			
 			}
 		});
@@ -92,7 +92,7 @@ public class MagazGUI {
 
 				controller.setType(TipoController.MAGAZZINO);
 				JOptionPane.showOptionDialog(jf, new SellBookGUI().getPane() , "Vendi un libro", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.STRING, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.getOptions(), null);
 			
 			}
 		});
@@ -106,7 +106,7 @@ public class MagazGUI {
 				
 				controller.setType(TipoController.MAGAZZINO);
 				JOptionPane.showOptionDialog(jf, new ModifyBookGUI().getPane() , "Modifica un libro", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.STRING, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.getOptions(), null);
 			
 			}
 		});
@@ -120,7 +120,7 @@ public class MagazGUI {
 				
 				controller.setType(TipoController.MAGAZZINO);
 				JOptionPane.showOptionDialog(jf, new SearchBookGUI().getPane() , "Cerca un libro", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.STRING, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.getOptions(), null);
 			
 			}
 		});
@@ -135,7 +135,7 @@ public class MagazGUI {
 				
 				controller.setType(TipoController.MAGAZZINO);
 				JOptionPane.showOptionDialog(jf, new ListTableGUI(controller.bookList(), false).getPane() , "Lista dei libri", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.STRING, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.getOptions(), null);
 			
 			}
 		});

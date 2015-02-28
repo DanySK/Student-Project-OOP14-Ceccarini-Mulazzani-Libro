@@ -32,9 +32,8 @@ public class FidelityCardGUI {
 	 */
 	public FidelityCardGUI() {
 		
-		
-		final IFidelityController fidcontroller = FidelityController.getIstance();
-		
+		IFidelityController fidcontroller = FidelityController.getIstance();
+	
 		main.setLayout(new BorderLayout());
 		
 		final JPanel top = new JPanel();
@@ -67,7 +66,7 @@ public class FidelityCardGUI {
 				
 				
 				JOptionPane.showOptionDialog(main, new AddPersonGUI().getPane() , "Aggiungi una carta", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.STRING, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.getOptions(), null);
 			
 			}
 		});
@@ -81,7 +80,7 @@ public class FidelityCardGUI {
 				
 				
 				JOptionPane.showOptionDialog(main, new RemoveCardGUI().getPane() , "Rimuovi una carta", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.STRING, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.getOptions(), null);
 			
 			}
 		});
@@ -95,7 +94,7 @@ public class FidelityCardGUI {
 				
 				
 				JOptionPane.showOptionDialog(main, new ModifyCardGUI().getPane() , "Modifica una carta", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.STRING, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.getOptions(), null);
 			
 			}
 		});
@@ -109,7 +108,7 @@ public class FidelityCardGUI {
 				
 				
 				JOptionPane.showOptionDialog(main, new SearchCardGUI().getPane() , "Ricerca una carta", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.STRING, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.getOptions(), null);
 			
 			}
 		});
@@ -123,7 +122,7 @@ public class FidelityCardGUI {
 				
 				
 				JOptionPane.showOptionDialog(main, new ListCardGUI(fidcontroller.getMap()).getPane() , "Lista delle carte", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.STRING, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.getOptions(), null);
 			
 			}
 		});

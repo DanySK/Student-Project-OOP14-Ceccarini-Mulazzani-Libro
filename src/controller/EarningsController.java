@@ -11,12 +11,12 @@ import model.Libro;
  * @author Chiara Ceccarini
  *
  */
-public class EarningsController implements IEarningsController {
+public final class EarningsController implements IEarningsController {
 	
 	private final IEarnings earnings = new Earnings();
-	private final static IEarningsController CONTROLLER = new EarningsController();
+	private static final IEarningsController CONTROLLER = new EarningsController();
 	
-	private EarningsController(){
+	private EarningsController() {
 		
 	}
 	

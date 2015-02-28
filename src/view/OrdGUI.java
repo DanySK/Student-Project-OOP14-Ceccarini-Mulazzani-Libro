@@ -68,7 +68,7 @@ public class OrdGUI {
 				
 				controller.setType(TipoController.ORDINI);	
 				JOptionPane.showOptionDialog(main, new AddBookGUI().getPane() , "Aggiungi un ordine", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.STRING, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.getOptions(), null);
 			
 			}
 		});
@@ -80,7 +80,7 @@ public class OrdGUI {
 
 				controller.setType(TipoController.ORDINI);	
 				JOptionPane.showOptionDialog(main, new RemoveOrderGUI().getPane() , "Rimuovi un ordine", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.STRING, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.getOptions(), null);
 			
 			}
 		});
@@ -92,7 +92,7 @@ public class OrdGUI {
 				
 				controller.setType(TipoController.ORDINI);	
 				JOptionPane.showOptionDialog(main, new ModifyBookGUI().getPane() , "Modifica un ordine", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.STRING, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.getOptions(), null);
 			
 			}
 		});
@@ -106,7 +106,7 @@ public class OrdGUI {
 				
 				controller.setType(TipoController.ORDINI);	
 				JOptionPane.showOptionDialog(main, new SearchBookGUI().getPane() , "Cerca un ordine", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.STRING, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.getOptions(), null);
 			
 			}
 		});
@@ -118,7 +118,7 @@ public class OrdGUI {
 				
 				controller.setType(TipoController.ORDINI);	
 				JOptionPane.showOptionDialog(main, new ListTableGUI(controller.bookList(), false).getPane() , "Lista degli ordini", JOptionPane.DEFAULT_OPTION, 
-	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.STRING, null);
+	                     JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.getOptions(), null);
 			
 			}
 		});

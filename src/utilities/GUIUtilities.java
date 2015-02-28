@@ -22,7 +22,7 @@ public final class GUIUtilities {
 	/**
 	 * 
 	 */
-	public static final String[] STRING = {"Annulla"};
+	private static final String[] STRING = {"Annulla"};
 	/**
 	 * 
 	 */
@@ -46,6 +46,14 @@ public final class GUIUtilities {
 	}
 	/**
 	 * 
+	 * @return the String Array for the JOptionPanes
+	 */
+	public static String[] getOptions() {
+		return STRING;
+	}
+	
+	/**
+	 * 
 	 * @return the Icon of the Software
 	 */
 	public static ImageIcon getCommonIcon() {
@@ -65,6 +73,8 @@ public final class GUIUtilities {
 	public static Image getCommonImage() {
 		return image;
 	}
+	
+	
 	
 	/**
 	 * 

@@ -75,7 +75,7 @@ public class SearchCardGUI extends JDialog {
 				
 				try {
 					JOptionPane.showOptionDialog(main, new CardDetailGUI(fidcontroller.searchName(fields[0].getText(), fields[1].getText())).getPane() , "Ricerca titolo", JOptionPane.DEFAULT_OPTION, 
-					         JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.STRING, null);
+					         JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.getOptions(), null);
 				} catch (HeadlessException | IllegalArgumentException | MissingUserException e1) {
 					JOptionPane.showMessageDialog(main, "La persona non è presente", "Persona mancante", JOptionPane.ERROR_MESSAGE);
 				}
@@ -90,7 +90,7 @@ public class SearchCardGUI extends JDialog {
 				
 				try {
 					JOptionPane.showOptionDialog(main, new CardDetailGUI(fidcontroller.searchID(fields[2].getText())).getPane() , "Ricerca autore", JOptionPane.DEFAULT_OPTION, 
-					         JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.STRING, null);
+					         JOptionPane.INFORMATION_MESSAGE, GUIUtilities.getCommonIcon(), GUIUtilities.getOptions(), null);
 				} catch (HeadlessException | MissingUserException e1) {
 					JOptionPane.showMessageDialog(main, "L'ID non è presente", "ID mancante", JOptionPane.ERROR_MESSAGE);
 				} catch (IllegalArgumentException e1) {
