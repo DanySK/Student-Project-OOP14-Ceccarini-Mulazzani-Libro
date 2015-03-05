@@ -77,7 +77,11 @@ public class SellBookGUI extends JDialog {
 					lib = controller.searchBook(GUIUtilities.getArray(fields));
 
 					controller.sellBook(lib, fields[2].getText());
-					fidcontroller.addPoints(GUIUtilities.getArray(fields), lib.getPrice());
+//				Questo controllo evita un bug che abbiamo riscontrato dopo la consegna
+//				lo correggiamo per volontà di completezza, ma alla consegna NON era presente l'if
+//					if (fields[3].getText().length() != 0) {
+						fidcontroller.addPoints(GUIUtilities.getArray(fields), lib.getPrice());		
+//					}
 					JOptionPane.showMessageDialog(main, "Il libro è stato venduto con successo!!", "Successo!!", JOptionPane.INFORMATION_MESSAGE);
 					final JOptionPane optionPane = (JOptionPane)
 						    SwingUtilities.getAncestorOfClass(JOptionPane.class, conf);
